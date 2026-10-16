@@ -103,7 +103,7 @@ func _test_building_art_loading() -> void:
 	
 	var building_node = BuildingScene.instantiate()
 	var instance = BuildingInstance.new()
-	instance.def_id = 101 # Small Cottage
+	instance.def_id = 10012 # Small Cottage
 	
 	building_node.set_building(instance)
 	
@@ -117,7 +117,7 @@ func _test_building_art_loading() -> void:
 		var color_rect: ColorRect = building_node.get_node("ColorRect")
 		_check(color_rect.color.a < 1.0, "Footprint ColorRect opacity is reduced for a texture-loaded building")
 	
-	building_node.queue_free()
+	building_node.free()
 
 
 func _test_social_manager_features() -> void:
@@ -127,29 +127,29 @@ func _test_social_manager_features() -> void:
 	
 	# Give the player initial Gold, Wood, Wheat
 	test_save.inventory.resource_amounts[1] = 500.0 # 500 Gold
-	test_save.inventory.resource_amounts[101] = 50.0 # 50 Wood
-	test_save.inventory.resource_capacity[101] = 100.0
+	test_save.inventory.resource_amounts[10] = 50.0 # 50 Wood
+	test_save.inventory.resource_capacity[10] = 100.0
 	test_save.inventory.resource_amounts[40] = 50.0 # 50 Wheat
 	test_save.inventory.resource_capacity[40] = 100.0
 	
 	# Verify pricing loaded and initialized
 	var prices = SocialManager.get_market_prices()
-	_check(prices.has(101) and prices.has(40), "SocialManager initialized market prices correctly")
+	_check(prices.has(10) and prices.has(40), "SocialManager initialized market prices correctly")
 	
 	# Test buy from market
 	var prev_gold = test_save.inventory.resource_amounts[1]
-	var prev_wood = test_save.inventory.resource_amounts[101]
-	var buy_ok = SocialManager.buy_from_market(101, 10)
+	var prev_wood = test_save.inventory.resource_amounts[10]
+	var buy_ok = SocialManager.buy_from_market(10, 10)
 	_check(buy_ok, "SocialManager.buy_from_market() executed successfully")
-	_check(test_save.inventory.resource_amounts[101] == prev_wood + 10, "Inventory added purchased resource")
+	_check(test_save.inventory.resource_amounts[10] == prev_wood + 10, "Inventory added purchased resource")
 	_check(test_save.inventory.resource_amounts[1] < prev_gold, "Inventory deducted Gold for market purchase")
 	
 	# Test sell to market
 	prev_gold = test_save.inventory.resource_amounts[1]
-	prev_wood = test_save.inventory.resource_amounts[101]
-	var sell_ok = SocialManager.sell_to_market(101, 5)
+	prev_wood = test_save.inventory.resource_amounts[10]
+	var sell_ok = SocialManager.sell_to_market(10, 5)
 	_check(sell_ok, "SocialManager.sell_to_market() executed successfully")
-	_check(test_save.inventory.resource_amounts[101] == prev_wood - 5, "Inventory removed sold resource")
+	_check(test_save.inventory.resource_amounts[10] == prev_wood - 5, "Inventory removed sold resource")
 	_check(test_save.inventory.resource_amounts[1] > prev_gold, "Inventory added Gold for market sale")
 	
 	# Test friends list
@@ -176,10 +176,10 @@ func _test_social_manager_features() -> void:
 	var messages = SocialManager.get_inbox_messages()
 	_check(messages.size() == 2, "SocialManager initialized 2 startup inbox messages")
 	var mail_with_gift = messages[0] # mail_1 has wood
-	test_save.inventory.resource_amounts[101] = 0.0
+	test_save.inventory.resource_amounts[10] = 0.0
 	var claim_ok = SocialManager.claim_gift(mail_with_gift["id"])
 	_check(claim_ok, "SocialManager.claim_gift() claimed resource attachment successfully")
-	_check(test_save.inventory.resource_amounts[101] == 25.0, "Resource attachment deposited into player inventory")
+	_check(test_save.inventory.resource_amounts[10] == 25.0, "Resource attachment deposited into player inventory")
 	
 	# Restore original save game
 	SaveManager.current_save = original_save
@@ -202,7 +202,7 @@ func _test_villager_needs_and_efficiency() -> void:
 	# Test housing assignment by adding a Small Cottage
 	var cottage = BuildingInstance.new()
 	cottage.instance_id = "test_cottage_1"
-	cottage.def_id = 101 # Small Cottage (provides capacity 2)
+	cottage.def_id = 10012 # Small Cottage (provides capacity 2)
 	test_save.town_layouts["Vanilla"].starting_objects.append(cottage)
 	
 	WorkerManager._process(0.0) # Tick to re-evaluate flags
@@ -249,7 +249,7 @@ func _test_land_expansions_and_premium_offers() -> void:
 	# Test premium Magic Bean conversions
 	# Give the player raw resources
 	test_save.inventory.resource_amounts[1] = 500.0 # Gold
-	test_save.inventory.resource_amounts[101] = 100.0 # Wood
+	test_save.inventory.resource_amounts[10] = 100.0 # Wood
 	test_save.inventory.resource_amounts[40] = 50.0 # Wheat
 	test_save.player_state.currency_magic_beans = 0.0
 	
@@ -282,7 +282,7 @@ func _test_land_expansions_and_premium_offers() -> void:
 	
 	# Test skin purchase & assignment
 	test_save.inventory.resource_amounts[1] = 3000.0 # Gold
-	test_save.inventory.resource_amounts[101] = 500.0 # Wood
+	test_save.inventory.resource_amounts[10] = 500.0 # Wood
 	test_save.inventory.resource_amounts[40] = 200.0 # Wheat
 	
 	var skin_ok = SocialManager.buy_skin("Winter")

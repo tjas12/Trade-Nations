@@ -16,6 +16,8 @@ func _ready() -> void:
 
 func set_tutorial_popup(popup) -> void:
 	_tutorial_popup = popup
+	if _active_tutorial != null:
+		_show_current_objective()
 
 func start_tutorials() -> void:
 	# Called by GameManager when a new game starts.

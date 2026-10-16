@@ -1,3 +1,5 @@
+Restoration audit (2026-10-15): see [PROJECT_AUDIT.md](PROJECT_AUDIT.md), [SETUP_WINDOWS.md](SETUP_WINDOWS.md), [FEATURE_MATRIX.md](FEATURE_MATRIX.md), [RESTORATION_ROADMAP.md](RESTORATION_ROADMAP.md), and [ASSET_LICENSE_AUDIT.md](ASSET_LICENSE_AUDIT.md). Earlier completion claims require the qualifications recorded in this audit.
+
 \# Faithful Reboot
 
 

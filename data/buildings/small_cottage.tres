@@ -7,19 +7,19 @@
 
 [sub_resource type="Resource" id="cost_gold"]
 script = ExtResource("4_ce")
-kind = 1 # GOLD
+kind = 1
 resource_id = 1
 amount = 75.0
 
 [sub_resource type="Resource" id="cost_wood"]
 script = ExtResource("4_ce")
-kind = 0 # RESOURCE
+kind = 0
 resource_id = 10
 amount = 50.0
 
 [sub_resource type="Resource" id="cost_wheat"]
 script = ExtResource("4_ce")
-kind = 0 # RESOURCE
+kind = 0
 resource_id = 40
 amount = 25.0
 
@@ -29,9 +29,9 @@ entries = [SubResource("cost_gold"), SubResource("cost_wood"), SubResource("cost
 
 [resource]
 script = ExtResource("1_bdef")
-id = 101
+id = 10012
 display_name = "Small Cottage"
-type = 6 # HOUSE
+type = 6
 category = "HOUSE"
 width = 2
 height = 2

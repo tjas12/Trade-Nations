@@ -14,6 +14,7 @@ const TownLayout = preload("res://resources/runtime/town_layout.gd")
 const TutorialProgress = preload("res://resources/runtime/tutorial_progress.gd")
 
 var current_save: SaveGame = null
+signal save_activated
 
 
 ## Builds a fresh, fully-populated SaveGame and makes it the current save.
@@ -39,6 +40,7 @@ func create_new_save() -> SaveGame:
 		save.town_layouts["Vanilla"] = TownLayout.new()
 
 	current_save = save
+	save_activated.emit()
 	print("[SaveManager] New game state created with starting resources and villagers.")
 	return save
 
@@ -80,9 +82,18 @@ func save_to_slot(slot: int) -> bool:
 	current_save.last_saved_at_unix = TimeManager.now()
 
 	var path := SAVE_DIR.path_join(SLOT_FILENAME_FORMAT % slot)
-	var result := ResourceSaver.save(current_save, path)
+	var pending := path.trim_suffix(".tres") + ".pending.tres"
+	var result := ResourceSaver.save(current_save, pending)
 	if result != OK:
 		push_error("[SaveManager] Failed to save slot %d: error %d" % [slot, result])
+		return false
+	if _read_save(pending) == null:
+		return false
+	# Preserve only a valid previous generation; never back up a corrupt primary.
+	if _read_save(path) != null:
+		if DirAccess.copy_absolute(path, _backup_path(path)) != OK:
+			return false
+	if DirAccess.rename_absolute(pending, path) != OK:
 		return false
 
 	print("[SaveManager] Saved slot %d to %s" % [slot, path])
@@ -91,18 +102,31 @@ func save_to_slot(slot: int) -> bool:
 
 func load_from_slot(slot: int) -> SaveGame:
 	var path := SAVE_DIR.path_join(SLOT_FILENAME_FORMAT % slot)
-	if not FileAccess.file_exists(path):
-		push_warning("[SaveManager] No save found at %s" % path)
-		return null
-
-	var loaded: Resource = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE)
-	if loaded == null or not (loaded is SaveGame):
-		push_error("[SaveManager] Failed to load slot %d from %s" % [slot, path])
+	var loaded := _read_save(path)
+	if loaded == null:
+		loaded = _read_save(_backup_path(path))
+		if loaded != null:
+			push_warning("[SaveManager] Recovered slot %d from backup." % slot)
+	if loaded == null:
 		return null
 
 	current_save = loaded
+	save_activated.emit()
 	print("[SaveManager] Loaded slot %d from %s" % [slot, path])
 	return current_save
+
+
+func _backup_path(path: String) -> String:
+	return path.trim_suffix(".tres") + ".backup.tres"
+
+
+func _read_save(path: String) -> SaveGame:
+	if not FileAccess.file_exists(path):
+		return null
+	var loaded = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE_DEEP)
+	if loaded is SaveGame and loaded.player_state != null and loaded.inventory != null and loaded.town_layouts.get("Vanilla") is TownLayout:
+		return loaded
+	return null
 
 
 func delete_slot(slot: int) -> bool:
@@ -112,7 +136,10 @@ func delete_slot(slot: int) -> bool:
 	var dir := DirAccess.open(SAVE_DIR)
 	if dir == null:
 		return false
-	return dir.remove(SLOT_FILENAME_FORMAT % slot) == OK
+	var result := dir.remove(SLOT_FILENAME_FORMAT % slot) == OK
+	if FileAccess.file_exists(_backup_path(path)):
+		DirAccess.remove_absolute(_backup_path(path))
+	return result
 
 
 func list_slots() -> Array[int]:

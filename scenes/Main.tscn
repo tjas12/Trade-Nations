@@ -11,6 +11,7 @@
 script = ExtResource("1_xusf7")
 
 [node name="WorldContainer" type="Node2D" parent="."]
+position = Vector2(120, 150)
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 

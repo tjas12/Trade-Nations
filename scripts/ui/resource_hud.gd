@@ -17,7 +17,7 @@ func _ready() -> void:
 	_resource_labels[10] = wood_label
 	_resource_labels[40] = wheat_label
 	
-	_initialize_display()
+	call_deferred("_initialize_display")
 	
 	EventBus.resource_changed.connect(_on_resource_changed)
 	EventBus.level_up.connect(_on_level_up)
@@ -43,7 +43,7 @@ func _update_label(resource_id: int, amount: float) -> void:
 		var label = _resource_labels[resource_id]
 		var resource_def = DataManager.get_resource_definition(resource_id)
 		if resource_def:
-			label.text = "%s: %d" % [resource_def.name, floor(amount)]
+			label.text = "%s: %d" % [resource_def.display_name, floor(amount)]
 
 func _on_level_up(new_level: int) -> void:
 	level_label.text = "Level: %d" % new_level

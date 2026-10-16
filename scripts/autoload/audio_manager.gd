@@ -156,9 +156,9 @@ func _play_building_sound(def_id: int) -> void:
 	match def_id:
 		1: # Town Hall
 			play_sfx(29) # pop-up
-		101: # Small Cottage
+		10012: # Prototype Small Cottage
 			play_sfx(15) # house / cottage select sfx
-		201: # Logging Camp
+		10008: # Prototype Logging Camp
 			play_sfx(31) # wood camp sfx
 
 func _play_random_bark(gender: int) -> void:

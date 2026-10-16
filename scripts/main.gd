@@ -25,8 +25,16 @@ var _next_instance_id: int = 1
 
 var _visiting_friend_name: String = ""
 var _return_home_btn: Button = null
+var _save_blocked: bool = false
+
+func _initialize_save() -> void:
+	if SaveManager.current_save == null:
+		if GameManager.continue_game(1) == null:
+			_save_blocked = FileAccess.file_exists("user://saves/slot_1.tres") or FileAccess.file_exists("user://saves/slot_1.backup.tres")
+			GameManager.start_new_game()
 
 func _ready() -> void:
+	_initialize_save()
 	print("[Main] Scene ready. GameManager state = %s" % GameManager.State.keys()[GameManager.current_state])
 	TutorialManager.set_tutorial_popup(tutorial_popup)
 	
@@ -39,9 +47,45 @@ func _ready() -> void:
 	EventBus.return_home_requested.connect(_on_return_home_requested)
 
 	_initialize_world_layout()
+	var save_button := Button.new()
+	save_button.text = "Save (F5)"
+	if _save_blocked:
+		save_button.text = "Save blocked: recover slot 1 first"
+	save_button.position = Vector2(20, 65)
+	save_button.pressed.connect(_save_town)
+	$UILayer.add_child(save_button)
+	var load_button := Button.new()
+	load_button.text = "Load (F9)"
+	load_button.position = Vector2(130, 65)
+	load_button.pressed.connect(_load_town)
+	$UILayer.add_child(load_button)
+	_restore_walkers()
+
+func _save_town() -> void:
+	var msg = TransientMessageScene.instantiate()
+	if _save_blocked:
+		msg.text = "Existing saves could not load. Copy them aside before recovery; saving is blocked."
+	else:
+		msg.text = "Town saved." if SaveManager.save_to_slot(1) else "Save failed. Previous save retained."
+	$UILayer.add_child(msg)
+
+func _load_town() -> void:
+	if GameManager.continue_game(1) != null:
+		get_tree().reload_current_scene()
+
+func _restore_walkers() -> void:
+	for villager in SaveManager.current_save.villagers:
+		for instance in SaveManager.current_save.town_layouts["Vanilla"].starting_objects:
+			if villager.assigned_building_instance_id == instance.instance_id:
+				_on_worker_or_hauler_assigned(villager, instance, int(villager.role))
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_F5:
+			_save_town()
+		elif event.keycode == KEY_F9:
+			_load_town()
 	if not _placement_mode_active:
 		return
 
@@ -116,7 +160,7 @@ func _on_building_selected_for_placement(building_def: BuildingDefinition) -> vo
 
 func _update_ghost_position() -> void:
 	var mouse_pos = get_viewport().get_mouse_position()
-	var world_pos = world_container.get_global_transform().affine_inverse().xform(mouse_pos)
+	var world_pos = world_container.get_global_transform().affine_inverse() * mouse_pos
 
 	var grid_x = floor(world_pos.x / TILE_SIZE)
 	var grid_y = floor(world_pos.y / TILE_SIZE)
@@ -158,6 +202,9 @@ func _place_building() -> void:
 	if _placement_mode_active and _check_placement_validity():
 		if _building_to_place_def:
 			var grid_pos = Vector2i(_ghost_building.position / TILE_SIZE)
+			# Affordability can change while the preview is open.
+			if not EconomyManager.can_afford(_building_to_place_def.cost):
+				return
 			
 			var new_instance = BuildingInstance.new()
 			new_instance.instance_id = str(_next_instance_id)
@@ -282,7 +329,7 @@ func _on_visit_friend_requested(friend_name: String) -> void:
 		# Add Cottage and Farms/Special decorations
 		var cot = BuildingInstance.new()
 		cot.instance_id = "mock_cot1"
-		cot.def_id = 101 # Cottage
+		cot.def_id = 10012 # Cottage
 		cot.x = 5
 		cot.y = 2
 		mock_instances.append(cot)
@@ -297,7 +344,7 @@ func _on_visit_friend_requested(friend_name: String) -> void:
 		# Bob or Charlie: lumber cutters!
 		var camp = BuildingInstance.new()
 		camp.instance_id = "mock_camp"
-		camp.def_id = 201 # Logging Camp
+		camp.def_id = 10008 # Logging Camp
 		camp.x = 6
 		camp.y = 2
 		mock_instances.append(camp)

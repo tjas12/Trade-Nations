@@ -19,6 +19,7 @@ var state: int = 0 # 0: walking to work, 1: working, 2: walking home, 3: resting
 var _sprite: Sprite2D
 var _label: Label
 var _work_timer: float = 0.0
+var _villager_name: String = ""
 
 func _ready() -> void:
 	# Create sprite dynamically
@@ -41,6 +42,7 @@ func _ready() -> void:
 	_label.position = Vector2(-40, -32)
 	_label.custom_minimum_size = Vector2(80, 20)
 	add_child(_label)
+	_update_label()
 	
 	position = home_pos
 	target_pos = work_pos
@@ -51,7 +53,13 @@ func configure(id: String, v_name: String, v_role: int, home: Vector2, work: Vec
 	home_pos = home
 	work_pos = work
 	
-	_label.text = v_name
+	_villager_name = v_name
+	_update_label()
+
+func _update_label() -> void:
+	if not is_instance_valid(_label):
+		return
+	_label.text = _villager_name
 	if role == 1: # WORKER
 		_label.add_theme_color_override("font_color", Color.SKY_BLUE)
 	else: # HAULER

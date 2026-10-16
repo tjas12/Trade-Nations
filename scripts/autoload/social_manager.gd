@@ -16,7 +16,7 @@ const TICK_INTERVAL = 15.0 # Speed up simulated activity tick to 15 seconds for 
 
 # Base defaults for prices
 const BASE_MARKET_PRICES = {
-	101: { "buy": 12.0, "sell": 8.0 }, # Wood (101)
+	10: { "buy": 12.0, "sell": 8.0 }, # Wood (10)
 	40: { "buy": 18.0, "sell": 12.0 }  # Wheat (40)
 }
 
@@ -63,9 +63,9 @@ func _initialize_default_friends(save: SaveGame) -> void:
 
 func _initialize_default_trades(save: SaveGame) -> void:
 	save.active_trades = [
-		{ "id": "trade_1", "friend_name": "Alice", "give_id": 40, "give_amount": 20, "receive_id": 101, "receive_amount": 30, "expiry": 180 },
+		{ "id": "trade_1", "friend_name": "Alice", "give_id": 40, "give_amount": 20, "receive_id": 10, "receive_amount": 30, "expiry": 180 },
 		{ "id": "trade_2", "friend_name": "Bob", "give_id": 1, "give_amount": 150, "receive_id": 40, "receive_amount": 15, "expiry": 240 },
-		{ "id": "trade_3", "friend_name": "Charlie", "give_id": 101, "give_amount": 10, "receive_id": 1, "receive_amount": 50, "expiry": 120 }
+		{ "id": "trade_3", "friend_name": "Charlie", "give_id": 10, "give_amount": 10, "receive_id": 1, "receive_amount": 50, "expiry": 120 }
 	]
 
 func _initialize_default_inbox(save: SaveGame) -> void:
@@ -74,7 +74,7 @@ func _initialize_default_inbox(save: SaveGame) -> void:
 			"id": "mail_1",
 			"sender": "Alice",
 			"body": "Welcome to the valley, Mayor! I noticed you are setting up your cottage houses. Here is some spare Wood from my logging camp to help you build out faster!",
-			"resource_id": 101,
+			"resource_id": 10,
 			"resource_amount": 25,
 			"claimed": false,
 			"read": false
@@ -166,9 +166,9 @@ func _spawn_random_trade(save: SaveGame) -> void:
 	
 	# Alternate giving wood and receiving wheat, or vice versa
 	var give_wood = randf() < 0.5
-	var give_id = 101 if give_wood else 40
+	var give_id = 10 if give_wood else 40
 	var give_qty = int(randf_range(10.0, 40.0))
-	var receive_id = 40 if give_wood else 101
+	var receive_id = 40 if give_wood else 10
 	var receive_qty = int(randf_range(8.0, 35.0))
 	
 	# Give or receive gold instead sometimes
@@ -195,8 +195,8 @@ func _spawn_random_gift(save: SaveGame) -> void:
 	var friends = ["Bob", "Alice", "Charlie", "Daisy"]
 	var sender = friends[randi() % friends.size()]
 	
-	var res_id = 101 if randf() < 0.5 else 40
-	var res_name = "Wood" if res_id == 101 else "Wheat"
+	var res_id = 10 if randf() < 0.5 else 40
+	var res_name = "Wood" if res_id == 10 else "Wheat"
 	var qty = int(randf_range(10.0, 30.0))
 	
 	var bodies = [
@@ -433,7 +433,7 @@ func send_gift_to_friend(friend_name: String, resource_id: int, amount: int) -> 
 	var reply_mail = {
 		"id": "mail_reply_%d" % int(TimeManager.now() + randi()),
 		"sender": friend_name,
-		"body": "Thanks for the generous gift of %s! My villagers are super grateful, so here's a small return of XP favor!" % ("Wood" if resource_id == 101 else "Wheat"),
+		"body": "Thanks for the generous gift of %s! My villagers are super grateful, so here's a small return of XP favor!" % ("Wood" if resource_id == 10 else "Wheat"),
 		"resource_id": -1,
 		"resource_amount": 0,
 		"claimed": true,
@@ -477,14 +477,14 @@ func buy_magic_beans(tier: int) -> bool:
 	# Validate affordability
 	if InventoryManager.amount(1) < gold_cost:
 		return false
-	if InventoryManager.amount(101) < wood_cost:
+	if InventoryManager.amount(10) < wood_cost:
 		return false
 	if InventoryManager.amount(40) < wheat_cost:
 		return false
 		
 	# Deduct costs
 	InventoryManager.remove(1, gold_cost)
-	InventoryManager.remove(101, wood_cost)
+	InventoryManager.remove(10, wood_cost)
 	InventoryManager.remove(40, wheat_cost)
 	
 	# Add Magic Beans
@@ -649,14 +649,14 @@ func buy_skin(skin_name: String) -> bool:
 	# Validate players can afford
 	if InventoryManager.amount(1) < gold_cost: # Gold (ID 1)
 		return false
-	if InventoryManager.amount(101) < wood_cost: # Wood (ID 101)
+	if InventoryManager.amount(10) < wood_cost: # Wood (ID 10)
 		return false
 	if InventoryManager.amount(40) < wheat_cost: # Wheat (ID 40)
 		return false
 		
 	# Deduct costs
 	InventoryManager.remove(1, gold_cost)
-	InventoryManager.remove(101, wood_cost)
+	InventoryManager.remove(10, wood_cost)
 	InventoryManager.remove(40, wheat_cost)
 	
 	# Unlock skin

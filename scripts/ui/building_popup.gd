@@ -29,8 +29,8 @@ func show_for_building(instance: BuildingInstance) -> void:
 		hide()
 		return
 		
-	_update_display()
 	show()
+	_update_display()
 
 func _update_display() -> void:
 	if not building_instance or not is_visible():
@@ -65,6 +65,8 @@ func _update_display() -> void:
 	
 	storage_label.show()
 	workers_label.show()
+	assign_worker_button.show()
+	assign_hauler_button.show()
 	
 	var recipe = DataManager.get_production_recipe(building_def.gather_recipe_id)
 	
@@ -72,7 +74,7 @@ func _update_display() -> void:
 	var output_res_id = recipe.output_resource_id
 	var output_res_def = DataManager.get_resource_definition(output_res_id)
 	var current_stored = building_instance.stored_resources.get(output_res_id, 0.0)
-	storage_label.text = "Storage: %d / %d %s" % [floor(current_stored), recipe.max_output_stack_size, output_res_def.name]
+	storage_label.text = "Storage: %d / %d %s" % [floor(current_stored), recipe.max_output_stack_size, output_res_def.display_name]
 	
 	# Update workers label
 	var worker_names = _get_villager_names(building_instance.assigned_worker_ids)

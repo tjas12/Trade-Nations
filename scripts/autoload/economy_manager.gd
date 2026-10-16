@@ -6,8 +6,19 @@ var _active_producers: Dictionary = {} # { instance_id: BuildingInstance }
 var _haul_tasks: Dictionary = {} # { instance_id: BuildingInstance }
 
 func _ready() -> void:
+	SaveManager.save_activated.connect(_restore_assignments)
 	EventBus.worker_assigned.connect(_on_worker_assigned)
 	EventBus.hauler_assigned.connect(_on_hauler_assigned)
+
+func _restore_assignments() -> void:
+	_active_producers.clear()
+	_haul_tasks.clear()
+	for layout in SaveManager.current_save.town_layouts.values():
+		for instance in layout.starting_objects:
+			if not instance.assigned_worker_ids.is_empty():
+				_start_production(instance)
+			if not instance.assigned_hauler_ids.is_empty():
+				_haul_tasks[instance.instance_id] = instance
 
 func _process(delta: float) -> void:
 	_process_producers(delta)
@@ -21,6 +32,8 @@ func _process_producers(delta: float) -> void:
 		var instance = _active_producers[instance_id]
 		var building_def = DataManager.get_building_definition(instance.def_id)
 		var recipe = DataManager.get_production_recipe(building_def.gather_recipe_id)
+		if recipe == null or not instance.construction_complete:
+			continue
 		
 		var output_res_id = recipe.output_resource_id
 		var current_stored = instance.stored_resources.get(output_res_id, 0.0)
@@ -68,9 +81,9 @@ func _process_haulers(delta: float) -> void:
 				EventBus.building_storage_changed.emit(instance_id, res_id, instance.stored_resources[res_id])
 				
 				if amount_hauled > 0:
-					print("[EconomyManager] Hauled %f of resource %d from %s" % [amount_hauled, res_id, instance.instance_id])
+					# Transfer is continuous in this prototype; avoid logging every frame.
 					var res_def = DataManager.get_resource_definition(res_id)
-					var res_name = res_def.name if res_def else "Resource"
+					var res_name = res_def.display_name if res_def else "Resource"
 					var color = Color.GOLD if res_id == 1 else (Color.YELLOW if res_id == 40 else Color.SPRING_GREEN)
 					
 					var world_pos = Vector2(instance.x * 64 + 32, instance.y * 64 + 16)

@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 1 )
-id = 1
+id = 10001
 display_name = "Town Hall"
 type = 0
 category = "TOWNHALL"
@@ -24,7 +24,7 @@ upgrade_of_id = -1
 upgrade_only = false
 owned_limit = 1
 storage_capacities = {
-101: 500
+10: 500
 }
 gather_recipe_id = -1
 shop_recipe_ids = [  ]
