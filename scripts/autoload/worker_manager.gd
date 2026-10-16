@@ -2,6 +2,20 @@
 # Manages villager population, job assignment, and simulation.
 extends Node
 
+func _ready() -> void:
+	EventBus.building_placed.connect(_on_housing_placed)
+
+func _on_housing_placed(instance: BuildingInstance) -> void:
+	var definition = DataManager.get_building_definition(instance.def_id)
+	if definition == null or definition.type != BuildingDefinition.BuildingType.HOUSE or not instance.construction_complete:
+		return
+	# Immediate arrival is a prototype substitute until construction/arrival timers exist.
+	while total_population() < housing_capacity():
+		var citizen := Villager.new()
+		citizen.villager_id = "resident_%d_%d" % [Time.get_ticks_usec(), total_population()]
+		citizen.villager_name = "Villager %d" % (total_population() + 1)
+		SaveManager.current_save.villagers.append(citizen)
+
 ## Assigns the first available idle villager to the given building instance as a WORKER.
 func assign_worker(building_instance: BuildingInstance) -> bool:
 	if not building_instance:
@@ -148,7 +162,17 @@ func idle_villagers() -> Array:
 	return idle
 
 func unassign(villager_id: String) -> void:
-	print("[WorkerManager] Unassigning villager %s (TODO)" % villager_id)
+	if not SaveManager.current_save:
+		return
+	for layout in SaveManager.current_save.town_layouts.values():
+		for instance in layout.starting_objects:
+			instance.assigned_worker_ids.erase(villager_id)
+			instance.assigned_hauler_ids.erase(villager_id)
+	for villager in SaveManager.current_save.villagers:
+		if villager.villager_id == villager_id:
+			villager.role = Villager.Role.UNASSIGNED
+			villager.assigned_building_instance_id = ""
+	EconomyManager._restore_assignments()
 
 func adopt_villager() -> bool:
 	print("[WorkerManager] Adopting a new villager (TODO)")

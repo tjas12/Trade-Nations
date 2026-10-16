@@ -26,6 +26,8 @@ var _next_instance_id: int = 1
 var _visiting_friend_name: String = ""
 var _return_home_btn: Button = null
 var _save_blocked: bool = false
+var _panning: bool = false
+var _feedback: Label
 
 func _initialize_save() -> void:
 	if SaveManager.current_save == null:
@@ -60,6 +62,59 @@ func _ready() -> void:
 	load_button.pressed.connect(_load_town)
 	$UILayer.add_child(load_button)
 	_restore_walkers()
+	_add_town_controls()
+
+func _add_town_controls() -> void:
+	var toolbar := HBoxContainer.new()
+	toolbar.name = "TownActions"
+	toolbar.position = Vector2(245, 65)
+	$UILayer.add_child(toolbar)
+	var collect := Button.new()
+	collect.text = "Collect resources"
+	collect.pressed.connect(_collect_resources)
+	toolbar.add_child(collect)
+	var sell := Button.new()
+	sell.text = "Sell 1 Wood"
+	sell.pressed.connect(func():
+		var sold := SocialManager.sell_to_market(10, 1)
+		_feedback.text = "Sold 1 Wood at the local market price." if sold else "Collect at least 1 Wood first."
+	)
+	toolbar.add_child(sell)
+	var food := Button.new()
+	food.text = "Buy 1 Wheat"
+	food.pressed.connect(func():
+		var bought := SocialManager.buy_from_market(40, 1)
+		_feedback.text = "Bought 1 Wheat for villagers at the local market price." if bought else "Need more Gold or Wheat storage. Sell Wood to earn Gold."
+	)
+	toolbar.add_child(food)
+	var speed := Button.new()
+	speed.text = "Time: 1x"
+	speed.pressed.connect(func():
+		EconomyManager.simulation_speed = 60.0 if EconomyManager.simulation_speed == 1.0 else (360.0 if EconomyManager.simulation_speed == 60.0 else 1.0)
+		speed.text = "Time: %dx" % EconomyManager.simulation_speed
+		_feedback.text = "Prototype production speed. Hunger still uses real time; buy Wheat to feed staff."
+	)
+	toolbar.add_child(speed)
+	_feedback = Label.new()
+	_feedback.position = Vector2(20, 110)
+	_feedback.text = "Build a cottage, select the camp and assign staff. Middle-drag: pan | Wheel: zoom | Collect, then sell Wood."
+	$UILayer.add_child(_feedback)
+	var close_menu := Button.new()
+	close_menu.text = "Close build menu"
+	close_menu.position = Vector2(get_viewport().get_visible_rect().size.x - 180, 40)
+	close_menu.pressed.connect(build_menu.hide)
+	build_menu.add_child(close_menu)
+
+func _collect_resources() -> void:
+	var collected := 0.0
+	for instance in SaveManager.current_save.town_layouts["Vanilla"].starting_objects:
+		for resource_id in instance.stored_resources.keys():
+			var moved := InventoryManager.add(resource_id, instance.stored_resources[resource_id])
+			instance.stored_resources[resource_id] -= moved
+			collected += moved
+			EventBus.building_storage_changed.emit(instance.instance_id, resource_id, instance.stored_resources[resource_id])
+	EconomyManager._restore_assignments()
+	_feedback.text = "Collected %.1f resources. Haulers also deliver automatically." % collected
 
 func _save_town() -> void:
 	var msg = TransientMessageScene.instantiate()
@@ -81,6 +136,19 @@ func _restore_walkers() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		_panning = (event.button_mask & MOUSE_BUTTON_MASK_MIDDLE) != 0
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_MIDDLE:
+			_panning = event.pressed
+		elif event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
+			var mouse: Vector2 = event.position
+			var local: Vector2 = world_container.to_local(mouse)
+			var factor := 1.1 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1.0 / 1.1
+			world_container.scale = Vector2.ONE * clampf(world_container.scale.x * factor, 0.4, 2.0)
+			world_container.position += mouse - world_container.to_global(local)
+	if event is InputEventMouseMotion and _panning:
+		world_container.position += event.relative
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_F5:
 			_save_town()
@@ -283,6 +351,9 @@ func _on_spawn_floating_text(text: String, global_pos: Vector2, color: Color) ->
 	tween.chain().tween_callback(label.queue_free)
 
 func _on_worker_or_hauler_assigned(villager: Villager, instance: BuildingInstance, role_type: int) -> void:
+	for child in world_container.get_children():
+		if child is VillagerWalker and child.villager_id == villager.villager_id:
+			child.queue_free()
 	# Find home cottage position (fallback to Town Hall if no cottage is available)
 	var home_pos = Vector2(2 * 64 + 32, 2 * 64 + 32) # Default near center
 	var work_pos = Vector2(instance.x * 64 + 32, instance.y * 64 + 32)

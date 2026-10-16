@@ -126,9 +126,11 @@ func set_building(instance: BuildingInstance):
 		var texture = load(texture_path)
 		if texture:
 			sprite_2d.texture = texture
+			LegacyArt.apply(sprite_2d)
 			# Center the sprite on the building footprint
 			sprite_2d.position = building_size / 2
 			sprite_2d.visible = true
+			color_rect.visible = instance.instance_id.is_empty()
 		else:
 			push_warning("[Building] Failed to load icon texture: %s" % texture_path)
 			sprite_2d.visible = false

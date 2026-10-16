@@ -2,6 +2,7 @@
 extends Panel
 
 var building_instance: BuildingInstance
+var release_button: Button
 
 @onready var name_label: Label = $VBoxContainer/BuildingNameLabel
 @onready var building_icon: TextureRect = $VBoxContainer/BuildingIcon
@@ -15,6 +16,11 @@ func _ready() -> void:
 	assign_worker_button.pressed.connect(_on_assign_worker_pressed)
 	assign_hauler_button.pressed.connect(_on_assign_hauler_pressed)
 	close_button.pressed.connect(_on_close_pressed)
+	release_button = Button.new()
+	release_button.text = "Release staff for another job"
+	release_button.pressed.connect(_release_staff)
+	$VBoxContainer.add_child(release_button)
+	$VBoxContainer.move_child(release_button, close_button.get_index())
 	
 	EventBus.building_storage_changed.connect(_on_building_storage_changed)
 	EventBus.worker_assigned.connect(_on_worker_or_hauler_assigned)
@@ -49,6 +55,7 @@ func _update_display() -> void:
 		var texture = load(building_def.icon_path)
 		if texture:
 			building_icon.texture = texture
+			LegacyArt.apply(building_icon)
 			building_icon.show()
 		else:
 			building_icon.hide()
@@ -61,12 +68,14 @@ func _update_display() -> void:
 		workers_label.hide()
 		assign_worker_button.hide()
 		assign_hauler_button.hide()
+		release_button.hide()
 		return
 	
 	storage_label.show()
 	workers_label.show()
 	assign_worker_button.show()
 	assign_hauler_button.show()
+	release_button.show()
 	
 	var recipe = DataManager.get_production_recipe(building_def.gather_recipe_id)
 	
@@ -84,8 +93,11 @@ func _update_display() -> void:
 		hauler_names.size(), recipe.hauler_max, ", ".join(hauler_names)
 	]
 
-	assign_worker_button.disabled = worker_names.size() >= recipe.worker_max
-	assign_hauler_button.disabled = hauler_names.size() >= recipe.hauler_max
+	var idle_count := WorkerManager.idle_villagers().size()
+	workers_label.text += "\nIdle citizens: %d | Housing: %d/%d" % [idle_count, WorkerManager.total_population(), WorkerManager.housing_capacity()]
+	assign_worker_button.disabled = worker_names.size() >= recipe.worker_max or idle_count == 0
+	assign_hauler_button.disabled = hauler_names.size() >= recipe.hauler_max or idle_count == 0
+	release_button.disabled = worker_names.is_empty() and hauler_names.is_empty()
 
 func _get_villager_names(villager_ids: Array) -> Array:
 	var names = []
@@ -116,3 +128,11 @@ func _on_building_storage_changed(instance_id: String, resource_id: int, new_amo
 func _on_worker_or_hauler_assigned(villager: Villager, instance: BuildingInstance) -> void:
 	if building_instance and building_instance.instance_id == instance.instance_id:
 		_update_display()
+
+func _release_staff() -> void:
+	if building_instance == null:
+		return
+	var staff = building_instance.assigned_worker_ids.duplicate() + building_instance.assigned_hauler_ids.duplicate()
+	for villager_id in staff:
+		WorkerManager.unassign(villager_id)
+	_update_display()

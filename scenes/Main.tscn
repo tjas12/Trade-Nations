@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_xusf7"]
 [ext_resource type="PackedScene" uid="uid://build_menu_scene_1" path="res://scenes/ui/build_menu.tscn" id="2_e2vaf"]
@@ -7,11 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://tutorial_popup_scene_1" path="res://scenes/ui/tutorial_popup.tscn" id="5_klmno"]
 
 
+[ext_resource type="Script" path="res://scripts/rendering/town_grid.gd" id="6_grid"]
+
 [node name="Main" type="Node"]
 script = ExtResource("1_xusf7")
 
 [node name="WorldContainer" type="Node2D" parent="."]
 position = Vector2(120, 150)
+
+[node name="Grid" type="Node2D" parent="WorldContainer"]
+script = ExtResource("6_grid")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 

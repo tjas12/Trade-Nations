@@ -30,6 +30,7 @@ func _ready() -> void:
 		tex = load("res://assets/art/converted/WIZARD_20.png")
 	if tex:
 		_sprite.texture = tex
+		LegacyArt.apply(_sprite)
 		_sprite.scale = Vector2(0.5, 0.5)
 	add_child(_sprite)
 	
@@ -66,6 +67,11 @@ func _update_label() -> void:
 		_label.add_theme_color_override("font_color", Color.ORANGE)
 
 func _process(delta: float) -> void:
+	if SaveManager.current_save:
+		for villager in SaveManager.current_save.villagers:
+			if villager.villager_id == villager_id and villager.role == Villager.Role.UNASSIGNED:
+				queue_free()
+				return
 	match state:
 		0: # Walking to work
 			position = position.move_toward(target_pos, speed * delta)

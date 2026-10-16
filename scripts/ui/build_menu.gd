@@ -39,7 +39,10 @@ func populate_build_menu():
         grid.columns = 4
         grid.name = category
         
-        tab_container.add_child(grid)
+        var scroll = ScrollContainer.new()
+        scroll.name = category
+        scroll.add_child(grid)
+        tab_container.add_child(scroll)
         tab_container.set_tab_title(tab_container.get_child_count() - 1, category)
 
         var buildings = buildings_by_category[category]
@@ -73,12 +76,17 @@ func populate_build_menu():
                 var texture = load(building_def.icon_path)
                 if texture:
                     icon_rect.texture = texture
+                    LegacyArt.apply(icon_rect)
             
             container.add_child(icon_rect)
             
             # Create a Label for the building name
             var label = Label.new()
             label.text = building_def.display_name
+            for entry in building_def.cost.entries:
+                var resource = DataManager.get_resource_definition(entry.resource_id)
+                if resource:
+                    label.text += "\n%d %s" % [entry.amount, resource.display_name]
             label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
             label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
             label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART

@@ -2,6 +2,9 @@
 # Executes production recipes, handles hauling, and resource consumption/granting.
 extends Node
 
+# Explicit prototype clock acceleration, never a changed original production rate.
+var simulation_speed: float = 1.0
+
 var _active_producers: Dictionary = {} # { instance_id: BuildingInstance }
 var _haul_tasks: Dictionary = {} # { instance_id: BuildingInstance }
 
@@ -21,8 +24,8 @@ func _restore_assignments() -> void:
 				_haul_tasks[instance.instance_id] = instance
 
 func _process(delta: float) -> void:
-	_process_producers(delta)
-	_process_haulers(delta)
+	_process_producers(delta * simulation_speed)
+	_process_haulers(delta * simulation_speed)
 
 func _process_producers(delta: float) -> void:
 	if _active_producers.is_empty():

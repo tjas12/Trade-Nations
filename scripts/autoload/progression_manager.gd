@@ -5,6 +5,7 @@ extends Node
 # XP required to advance to the *next* level.
 # e.g., XP_THRESHOLDS[1] is the XP needed to go from level 1 to 2.
 const XP_THRESHOLDS = {
+	0: 1, # Settings.xml User/XP level=0 toNext=1
 	1: 100,
 	2: 250,
 	3: 500,
