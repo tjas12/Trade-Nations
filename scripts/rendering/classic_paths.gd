@@ -68,7 +68,17 @@ static func mesh(cells: Dictionary) -> ArrayMesh:
 					if x == count - 1 and (connections & 2) == 0: b.x = minf(b.x, 0.82)
 					if y == count - 1 and (connections & 4) == 0: b.y = minf(b.y, 0.82)
 					var tint := Color("a69e83") if kind == "cobblestone" else Color("b9b5a1")
-					_quad(vertices, colors, indices, cell, a, b, tint.darkened(rng.randf_range(0, 0.18)))
+					tint = tint.darkened(rng.randf_range(0, 0.18))
+					if kind == "cobblestone":
+						# Chipped eight-sided stones break the regular grid silhouette.
+						var cut := rng.randf_range(0.018, 0.035)
+						var points := PackedVector2Array([a + Vector2(cut, 0), Vector2(b.x - cut, a.y), Vector2(b.x, a.y + cut), b - Vector2(0, cut), b - Vector2(cut, 0), Vector2(a.x + cut, b.y), Vector2(a.x, b.y - cut), a + Vector2(0, cut)])
+						_polygon(vertices, colors, indices, cell, points, tint)
+					else:
+						_quad(vertices, colors, indices, cell, a, b, tint)
+						if rng.randf() < 0.23:
+							var center := (a + b) * 0.5
+							_polygon(vertices, colors, indices, cell, PackedVector2Array([a + Vector2(0.03, 0.03), center, center + Vector2(0.006, 0)]), tint.darkened(0.25))
 		# Thin grassy fringes are generated only on exposed edges, never at junctions.
 		for edge in range(4):
 			if (connections & (1 << edge)) != 0: continue
