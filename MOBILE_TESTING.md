@@ -8,40 +8,21 @@ Touch input, explicit placement confirmation, scrollable landscape drawers, safe
 
 **Not completed on a phone:** Safari rendering, IndexedDB persistence, PWA installation/cache, native export/signing, notch/home-indicator placement, actual multitouch hardware, thermal behavior, battery use, or iPhone performance. Desktop event injection is not a device test.
 
-Both export commands were attempted. They stopped at missing matching templates (`web_nothreads_debug.zip`, `web_nothreads_release.zip`, and `ios.zip`). No runnable phone build was generated. The native Team ID is intentionally blank; enter your own on the Mac. The bundle identifier is an editable development suggestion, not a registered app identity.
+The production Web export now builds locally with verified official templates. Automated Linux build/test/export and GitHub Pages deployment are implemented; see [WEB_DEPLOYMENT.md](WEB_DEPLOYMENT.md) for the workflow, approval gates, artifacts, and repository settings. Native iOS still requires macOS/Xcode and your signing Team ID.
 
 ## First route: Safari Home Screen app
 
-Start here because the current development machine is Windows. Godot recommends single-threaded Web export for iOS; this preset uses WebGL 2 Compatibility, one thread, an adaptive canvas, PWA caching, and a landscape manifest. The shell includes safe-area CSS and a portrait rotation prompt. Browser support still needs testing. [Official Godot Web export guidance](https://docs.godotengine.org/en/4.7/tutorials/export/exporting_for_web.html).
+Use the confirmed deployed URL from the completion report. The deployment target is `https://tjas12.github.io/Trade-Nations/`. Ordinary development pushes build/test only; reviewed merges to `main` deploy automatically. A deliberately created `phone-test-*` tag supports the authorized first test while preserving `main`.
 
-1. Stop the running game. Open **Faithful_reboot/project.godot** in Godot 4.7.2. Use **Editor → Manage Export Templates → Download and Install** for the matching version.
-2. Open **Project → Export → Web - iPhone landscape**. Choose **Export Project**, keep debug enabled for the first test, and export to `Faithful_reboot/export/web/index.html`. Keep all generated filenames together. The `export` folder is intentionally excluded from the source branch.
-3. Serve the entire `export/web` folder from an **HTTPS** address. A plain HTTP LAN address such as `http://192.168…` does not provide the secure context needed for offline PWA installation. One option using your existing GitHub fork is the separate Pages branch described below; no additional game account is involved. Hosting is not configured or published by this milestone.
-4. On the iPhone, turn off portrait orientation lock, open that HTTPS address in **Safari**, and rotate to landscape. Wait for the game to finish loading. Tap once if audio is initially silent.
-5. Use Safari’s **Share → Add to Home Screen**, then open the new icon. Use the same Home Screen installation consistently; browser tabs and installed apps may have separate storage.
-6. Complete the checklist below, save, wait a few seconds, background and reopen, then enable airplane mode and launch again. Confirm both the game and your saved town return. Repeat after closing the Home Screen app.
+1. Open the live address in Safari, disable portrait lock, and rotate to landscape.
+2. Wait for loading to finish and **Offline: ready** to appear. This indicates that service-worker installation cached the game files, including WASM and PCK.
+3. Choose **Share → Add to Home Screen**, then open the new icon once online. A tap may be needed to enable sound.
+4. Complete the checklist below, save, wait a few seconds, background and reopen, then enable airplane mode and launch again. Confirm the game and saved town return.
+5. After future deployments, close all old game tabs/Home Screen windows and reopen online. Wait for offline readiness again. Updates do not intentionally clear saves.
 
-PWA installation caches the game after an online visit, but browsers may evict cached files. Saves use origin-local IndexedDB and require permitted storage; private browsing prevents persistence. Clearing website data or changing the hosting origin can remove access to saves. `OS.is_userfs_persistent()` is not a durability guarantee. Filesystem writes sync asynchronously on Web, so even background saving cannot guarantee survival of an immediate OS kill. Use native iOS for the final app-local storage target. [Godot persistence and PWA limitations](https://docs.godotengine.org/en/4.7/tutorials/export/exporting_for_web.html).
+Browser caches and IndexedDB can be evicted, private browsing is unsuitable for persistence, and separate Safari/Home Screen installations may have separate storage. Keep the same address and installation. The game reports unavailable browser storage and blocks writes; automated desktop tests also verify actual IndexedDB saving and offline recovery. No browser persistence check guarantees indefinite retention. [Official Godot Web guidance](https://docs.godotengine.org/en/4.7/tutorials/export/exporting_for_web.html).
 
-### Optional first GitHub Pages upload
-
-After a successful Web export, these **first-publication** PowerShell commands copy only the exported build into a new temporary Git repository. They do not switch branches or remove files in your game checkout. They upload the recovered game assets to your existing fork; run them only when ready to publish that test build. Do not force-push if `phone-web` already exists; update that deployment branch normally instead.
-
-```powershell
-$webFolder = 'C:\Users\tjas1\OneDrive\Documents\ChatGPT\Trade Nations\Faithful_reboot\export\web'
-if (-not (Test-Path -LiteralPath (Join-Path $webFolder 'index.html'))) { throw 'Export the Web build first.' }
-$phonePublish = Join-Path $env:TEMP ('trade-nations-phone-' + [guid]::NewGuid().ToString('N'))
-New-Item -ItemType Directory -Path $phonePublish | Out-Null
-Copy-Item -Path (Join-Path $webFolder '*') -Destination $phonePublish -Recurse
-Set-Content -LiteralPath (Join-Path $phonePublish '.nojekyll') -Value ''
-git -C $phonePublish init -b phone-web
-git -C $phonePublish add .
-git -C $phonePublish -c user.name=tjas12 -c user.email=tjas12@users.noreply.github.com commit -m 'Prepare first iPhone web test'
-git -C $phonePublish remote add origin https://github.com/tjas12/Trade-Nations.git
-git -C $phonePublish push -u origin phone-web
-```
-
-In GitHub, open your repository’s **Settings → Pages**, choose **Deploy from a branch → phone-web → /(root) → Save**, if Pages is available for that repository. Wait for deployment and use the HTTPS address GitHub displays (normally `https://tjas12.github.io/Trade-Nations/`). If deployment or push fails, resolve that error before testing; no live URL was verified here. Source updates and Web deployment updates are separate operations.
+For a manual local export, install matching Godot 4.7.2 templates, then run `python tools/export_web.py --godot <path-to-godot>`. Serve the resulting complete folder over HTTPS for phone testing. The CI route performs these steps automatically and does not require local export templates. Do not switch Pages back to branch deployment or commit generated exports into the source branch.
 
 ## Final route: native iOS
 

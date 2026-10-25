@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       deploy:
-        description: 'Authorize publishing this selected ref to the live iPhone test site'
+        description: 'Authorize publishing main or an approved phone-test tag to the live site'
         type: boolean
         default: false
 

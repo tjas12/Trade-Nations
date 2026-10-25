@@ -93,10 +93,7 @@ def main():
             if not saved:
                 raise RuntimeError("Town autosave did not reach browser IndexedDB")
             print("PASS: browser startup and actual IndexedDB save", flush=True)
-            # Reload while online so the now-controlling worker caches heavy resources.
-            start = len(messages)
-            page.reload(wait_until="domcontentloaded")
-            ready(page, start)
+            # Installation itself must cache heavy resources, before a second visit.
             cache = page.evaluate("async()=>{let result=[];for(const name of await caches.keys()){for(const request of await(await caches.open(name)).keys())result.push(request.url)}return result}")
             for suffix in ["index.html", "index.js", "index.wasm", "index.pck"]:
                 if not any(urlsplit(item).path.endswith("/" + suffix) for item in cache):
