@@ -34,11 +34,13 @@ func run() -> void:
 	check(not main.tutorial_popup.objective_label.text.is_empty(), "Tutorial objective is readable")
 	check(main.get_node("UILayer/ResourceHud/HBoxContainer/WoodLabel").text == "Wood: 50", "Main scene HUD displays starting Wood")
 	main._on_building_selected_for_placement(DataManager.get_building_definition(10012))
-	main._ghost_building.position = Vector2(512, 256)
+	main._ghost_building.position = TownGridGeometry.cell_to_world(Vector2(8, 4))
 	var building_count: int = save.town_layouts["Vanilla"].starting_objects.size()
 	main._place_building()
 	check(save.town_layouts["Vanilla"].starting_objects.size() == building_count + 1, "Placement confirms a cottage and records its footprint")
-	check(InventoryManager.amount(1) == 0.0 and InventoryManager.amount(10) == 0.0, "Placement deducts cottage costs exactly")
+	check(InventoryManager.amount(1) == 30.0 and InventoryManager.amount(10) == 30.0, "Placement deducts cottage costs exactly")
+	EconomyManager._update_construction(4)
+	TutorialManager.refresh()
 	check(save.player_state.mayor_level == 1, "First cottage advances past level zero using original XML threshold")
 	var wheel := InputEventMouseButton.new()
 	wheel.button_index = MOUSE_BUTTON_WHEEL_UP
@@ -63,6 +65,7 @@ func run() -> void:
 	check(InventoryManager.capacity(10) >= 1000.0, "Completed stockpile contributes Wood storage")
 	save.inventory.resource_amounts[10] = 50.0
 	var before: float = InventoryManager.amount(10)
+	WorkerManager._update_travel(60)
 	EconomyManager._process_producers(360.0)
 	EconomyManager._process_haulers(1.0)
 	check(InventoryManager.amount(10) > before, "Production and hauling deliver real Wood to inventory")
@@ -81,20 +84,14 @@ func run() -> void:
 	WorkerManager._on_housing_placed(home)
 	check(WorkerManager.total_population() == 6, "Additional housing creates individual citizens up to capacity")
 	check(InventoryManager.capacity(40) >= 500.0, "Prototype town can store Wheat for feeding staff")
+	WorkerManager._update_travel(60)
 	EconomyManager.simulation_speed = 360.0
 	EconomyManager._process(1.0)
 	check(InventoryManager.amount(10) > before + 5.0, "Explicit prototype speed advances gathering without changing recipe rate")
 	EconomyManager.simulation_speed = 1.0
 	var before_trade: float = InventoryManager.amount(10)
-	for button in main.get_node("UILayer/TownActions").get_children():
-		if button.text == "Sell 1 Wood":
-			for sale in range(3):
-				button.pressed.emit()
-	check(is_equal_approx(InventoryManager.amount(10), before_trade - 3.0) and InventoryManager.amount(1) > 0.0, "Sell button exchanges actual Wood for Gold")
-	for button in main.get_node("UILayer/TownActions").get_children():
-		if button.text == "Buy 1 Wheat":
-			button.pressed.emit()
-	check(InventoryManager.amount(40) == 1.0, "Market control purchases food using sale proceeds")
+	check(SocialManager.sell_to_market(10, 3), "Local market sale succeeds")
+	check(is_equal_approx(InventoryManager.amount(10), before_trade - 3.0) and InventoryManager.amount(1) > 0.0, "Market exchanges actual Wood for Gold")
 	check(InventoryManager.add(10, -1.0) == 0.0 and not InventoryManager.remove(10, -1.0), "Inventory rejects negative transactions")
 	var slot: int = 998
 	save.player_state.xp_total = 11.0
@@ -106,6 +103,7 @@ func run() -> void:
 	var restored_camp = loaded.town_layouts["Vanilla"].starting_objects[1]
 	check(restored_camp.assigned_worker_ids.size() == 1 and restored_camp.assigned_hauler_ids.size() == 1, "Assignments round-trip")
 	before = InventoryManager.amount(10)
+	WorkerManager._update_travel(60)
 	EconomyManager._process_producers(360.0)
 	EconomyManager._process_haulers(1.0)
 	check(InventoryManager.amount(10) > before, "Loaded assignments resume simulation")

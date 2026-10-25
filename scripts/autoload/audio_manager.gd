@@ -143,8 +143,8 @@ func _on_worker_assigned(villager: Villager, _building_instance: BuildingInstanc
 func _on_hauler_assigned(villager: Villager, _building_instance: BuildingInstance) -> void:
 	_play_random_bark(villager.gender)
 
-func _on_recipe_completed(_building_instance_id: int, recipe_id: int, _reward: CostBundle) -> void:
-	if recipe_id == 1: # wood
+func _on_recipe_completed(_building_instance_id: String, recipe_id: int, _reward) -> void:
+	if recipe_id in [1, 50008]: # wood
 		play_sfx(31) # 05_stock_pile_wood
 	else:
 		play_sfx(17) # generic complete

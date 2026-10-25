@@ -26,6 +26,7 @@ func _restore_assignments() -> void:
 				_haul_tasks[instance.instance_id] = instance
 
 func _process(delta: float) -> void:
+	_update_construction(delta * simulation_speed)
 	_process_producers(delta * simulation_speed)
 	_process_haulers(delta * simulation_speed)
 
@@ -40,6 +41,9 @@ func _process_producers(delta: float) -> void:
 		if recipe == null or not instance.construction_complete:
 			continue
 		
+		if recipe.cycle_seconds > 0:
+			_process_cycle(instance, recipe, delta)
+			continue
 		var output_res_id = recipe.output_resource_id
 		var current_stored = instance.stored_resources.get(output_res_id, 0.0)
 		
@@ -74,6 +78,8 @@ func _process_haulers(delta: float) -> void:
 	
 	for instance_id in _haul_tasks.keys():
 		var instance = _haul_tasks[instance_id]
+		if not _staff_ready(instance.assigned_hauler_ids):
+			continue
 		if instance.stored_resources.is_empty():
 			continue
 
@@ -117,7 +123,8 @@ func _start_production(building_instance: BuildingInstance) -> void:
 	if building_def and building_def.gather_recipe_id != -1:
 		if not _active_producers.has(building_instance.instance_id):
 			_active_producers[building_instance.instance_id] = building_instance
-			building_instance.recipe_started_at = TimeManager.now()
+			if building_instance.recipe_started_at < 0:
+				building_instance.recipe_started_at = TimeManager.now()
 			print("[EconomyManager] Production started for %s." % building_def.display_name)
 
 
@@ -147,3 +154,74 @@ func _find_villager_by_id(id: String) -> Villager:
 		if v.villager_id == id:
 			return v
 	return null
+
+func _staff_ready(ids: Array, allow_hungry: bool = false) -> bool:
+	for id in ids:
+		var citizen = _find_villager_by_id(id)
+		if citizen and citizen.activity == "working" and (allow_hungry or not citizen.is_hungry):
+			return true
+	return false
+
+func pause_reason(instance: BuildingInstance) -> String:
+	if not instance.construction_complete:
+		return "Under construction"
+	var definition = DataManager.get_building_definition(instance.def_id)
+	var recipe = DataManager.get_production_recipe(definition.gather_recipe_id)
+	if not recipe:
+		return ""
+	if instance.assigned_worker_ids.is_empty():
+		return "Assign a worker"
+	if not _staff_ready(instance.assigned_worker_ids, recipe.output_resource_id == 40):
+		return "Staff traveling, blocked, or hungry (need Wheat)"
+	var stored: float = instance.stored_resources.get(recipe.output_resource_id, 0.0)
+	if stored + recipe.cycle_amount > recipe.max_output_stack_size:
+		return "Storage full: collect or assign a hauler"
+	if recipe.kind == ProductionRecipe.RecipeKind.CRAFT and InventoryManager.free_space(recipe.output_resource_id) < recipe.cycle_amount:
+		return "Town storage full: sell goods"
+	if not instance.cycle_reserved:
+		for resource in recipe.input_cost:
+			if InventoryManager.amount(resource) < recipe.input_cost[resource]:
+				return "Needs %s" % DataManager.get_resource_definition(resource).display_name
+	return ""
+
+func _process_cycle(instance: BuildingInstance, recipe: ProductionRecipe, delta: float) -> void:
+	if not pause_reason(instance).is_empty():
+		return
+	if not instance.cycle_reserved:
+		# Validate every input before making the atomic start transaction.
+		for resource in recipe.input_cost:
+			if InventoryManager.amount(resource) < recipe.input_cost[resource]:
+				return
+		for resource in recipe.input_cost:
+			InventoryManager.remove(resource, recipe.input_cost[resource])
+		instance.cycle_reserved = true
+	instance.cycle_elapsed += maxf(0, delta)
+	# At most one completed cycle per update. Surplus delta is discarded, never offline catch-up.
+	if instance.cycle_elapsed < recipe.cycle_seconds:
+		return
+	instance.cycle_elapsed = 0
+	instance.cycle_reserved = false
+	if recipe.kind == ProductionRecipe.RecipeKind.CRAFT:
+		InventoryManager.add(recipe.output_resource_id, recipe.cycle_amount)
+	else:
+		instance.stored_resources[recipe.output_resource_id] = instance.stored_resources.get(recipe.output_resource_id, 0.0) + recipe.cycle_amount
+	EventBus.building_storage_changed.emit(instance.instance_id, recipe.output_resource_id, instance.stored_resources.get(recipe.output_resource_id, 0.0))
+	var produced: Dictionary = SaveManager.current_save.economy_stats.produced
+	produced[recipe.output_resource_id] = produced.get(recipe.output_resource_id, 0.0) + recipe.cycle_amount
+	ProgressionManager.add_xp(recipe.reward_xp)
+	EventBus.recipe_completed.emit(instance.instance_id, recipe.id, recipe.cycle_amount)
+	if recipe.kind == ProductionRecipe.RecipeKind.CRAFT:
+		EventBus.spawn_floating_text.emit("+%d %s" % [recipe.cycle_amount, DataManager.get_resource_definition(recipe.output_resource_id).display_name], TownGridGeometry.cell_to_world(Vector2(instance.x, instance.y)), Color.GOLD)
+
+func _update_construction(delta: float) -> void:
+	if not SaveManager.current_save:
+		return
+	for instance in SaveManager.current_save.town_layouts["Vanilla"].starting_objects:
+		if instance.construction_complete:
+			continue
+		var definition = DataManager.get_building_definition(instance.def_id)
+		instance.construction_elapsed += delta
+		if instance.construction_elapsed >= definition.build_time_seconds:
+			instance.construction_complete = true
+			EventBus.building_placed.emit(instance)
+			WorkerManager.invalidate_routes()

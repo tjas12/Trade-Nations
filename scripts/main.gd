@@ -30,6 +30,9 @@ var _pan_start := Vector2.ZERO
 var _pan_last := Vector2.ZERO
 var _camera_keys: Dictionary = {}
 var _feedback: Label
+var _town_panels: Panel
+var _debug_tools: HBoxContainer
+var _moving_instance: BuildingInstance
 
 func _initialize_save() -> void:
 	if SaveManager.current_save == null:
@@ -38,6 +41,9 @@ func _initialize_save() -> void:
 			GameManager.start_new_game()
 
 func _ready() -> void:
+	get_window().min_size = Vector2i(1152, 648)
+	if get_window().size.x < 1152 or get_window().size.y < 648:
+		get_window().size = Vector2i(1152, 648)
 	_initialize_save()
 	print("[Main] Scene ready. GameManager state = %s" % GameManager.State.keys()[GameManager.current_state])
 	TutorialManager.set_tutorial_popup(tutorial_popup)
@@ -51,74 +57,72 @@ func _ready() -> void:
 	EventBus.return_home_requested.connect(_on_return_home_requested)
 
 	_initialize_world_layout()
-	var save_button := Button.new()
-	save_button.text = "Save (F5)"
-	if _save_blocked:
-		save_button.text = "Save blocked: recover slot 1 first"
-	save_button.position = Vector2(20, 65)
-	save_button.pressed.connect(_save_town)
-	$UILayer.add_child(save_button)
-	var load_button := Button.new()
-	load_button.text = "Load (F9)"
-	load_button.position = Vector2(130, 65)
-	load_button.pressed.connect(_load_town)
-	$UILayer.add_child(load_button)
 	_restore_walkers()
 	_add_town_controls()
 
 func _add_town_controls() -> void:
 	var toolbar := HBoxContainer.new()
 	toolbar.name = "TownActions"
-	toolbar.position = Vector2(245, 65)
+	toolbar.position = Vector2(16, 49)
 	$UILayer.add_child(toolbar)
-	var collect := Button.new()
-	collect.text = "Collect resources"
-	collect.pressed.connect(_collect_resources)
-	toolbar.add_child(collect)
-	var sell := Button.new()
-	sell.text = "Sell 1 Wood"
-	sell.pressed.connect(func():
-		var sold := SocialManager.sell_to_market(10, 1)
-		_feedback.text = "Sold 1 Wood at the local market price." if sold else "Collect at least 1 Wood first."
-	)
-	toolbar.add_child(sell)
-	var food := Button.new()
-	food.text = "Buy 1 Wheat"
-	food.pressed.connect(func():
-		var bought := SocialManager.buy_from_market(40, 1)
-		_feedback.text = "Bought 1 Wheat for villagers at the local market price." if bought else "Need more Gold or Wheat storage. Sell Wood to earn Gold."
-	)
-	toolbar.add_child(food)
-	var speed := Button.new()
-	speed.text = "Time: 1x"
-	speed.pressed.connect(func():
-		EconomyManager.simulation_speed = 60.0 if EconomyManager.simulation_speed == 1.0 else (360.0 if EconomyManager.simulation_speed == 60.0 else 1.0)
-		speed.text = "Time: %dx" % EconomyManager.simulation_speed
-		_feedback.text = "Prototype production speed. Hunger still uses real time; buy Wheat to feed staff."
-	)
-	toolbar.add_child(speed)
-	var center := Button.new()
-	center.name = "CenterTown"
-	center.text = "Center town"
-	center.tooltip_text = "Return to your buildings and reset zoom (Home)."
-	center.pressed.connect(_center_town)
-	toolbar.add_child(center)
+	for item in [["Save", _save_town], ["Load", _choose_save], ["Collect", _collect_resources], ["Center town", _center_town]]:
+		var button := Button.new()
+		button.text = item[0]
+		button.name = "CenterTown" if item[0] == "Center town" else item[0]
+		button.pressed.connect(item[1])
+		toolbar.add_child(button)
 	var grid := Button.new()
 	grid.name = "ToggleGrid"
 	grid.text = "Grid: Off"
-	grid.pressed.connect(func():
-		grid.text = "Grid: On" if $WorldContainer/Grid.toggle_grid() else "Grid: Off"
-	)
+	grid.pressed.connect(func(): grid.text = "Grid: On" if $WorldContainer/Grid.toggle_grid() else "Grid: Off")
 	toolbar.add_child(grid)
+	_town_panels = load("res://scripts/ui/town_panels.gd").new()
+	$UILayer.add_child(_town_panels)
+	for item in [["Market", _town_panels.open_market], ["Expand", _town_panels.open_expansion]]:
+		var button := Button.new()
+		button.text = item[0]
+		button.pressed.connect(func():
+			building_popup.hide()
+			build_menu.hide()
+			item[1].call()
+		)
+		toolbar.add_child(button)
+	var new_town := Button.new()
+	new_town.text = "New town…"
+	var confirm_new := ConfirmationDialog.new()
+	confirm_new.title = "Start a new town?"
+	confirm_new.dialog_text = "Your current town will be archived in a free local save slot first.\nUse Load to return to it. The new town begins with the introductory goals."
+	confirm_new.confirmed.connect(_new_town)
+	$UILayer.add_child(confirm_new)
+	new_town.pressed.connect(func(): confirm_new.popup_centered())
+	toolbar.add_child(new_town)
 	_feedback = Label.new()
-	_feedback.position = Vector2(20, 110)
-	_feedback.text = "Drag empty ground or use WASD/arrows to pan | Wheel: zoom | Home: center town | Grid appears when building."
+	_feedback.position = Vector2(16, 89)
+	_feedback.text = "Drag ground / WASD: pan · Wheel: zoom · Home: center · F5: save · F9: load"
+	_feedback.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	$UILayer.add_child(_feedback)
+	EventBus.town_notice.connect(func(message): _feedback.text = message)
+	EventBus.population_changed.connect(func(_total, _idle): call_deferred("_sync_walkers"))
+	EventBus.building_move_requested.connect(_start_move)
+	EventBus.building_demolish_requested.connect(_demolish)
+	EventBus.town_changed.connect(_refresh_world)
 	var close_menu := Button.new()
-	close_menu.text = "Close build menu"
-	close_menu.position = Vector2(get_viewport().get_visible_rect().size.x - 180, 40)
+	close_menu.text = "Close catalog"
+	close_menu.position = Vector2(12, 12)
 	close_menu.pressed.connect(build_menu.hide)
 	build_menu.add_child(close_menu)
+	# Developer clock is hidden in normal play. F3 toggles it.
+	_debug_tools = HBoxContainer.new()
+	_debug_tools.position = Vector2(16, 120)
+	_debug_tools.hide()
+	$UILayer.add_child(_debug_tools)
+	var speed := Button.new()
+	speed.text = "Developer: Time 1×"
+	speed.pressed.connect(func():
+		EconomyManager.simulation_speed = 60 if EconomyManager.simulation_speed == 1 else 1
+		speed.text = "Developer: Time %d×" % EconomyManager.simulation_speed
+	)
+	_debug_tools.add_child(speed)
 
 func _center_town() -> void:
 	world_container.scale = Vector2.ONE
@@ -192,7 +196,7 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func _process(delta: float) -> void:
-	if build_menu.visible or building_popup.visible:
+	if build_menu.visible or building_popup.visible or (is_instance_valid(_town_panels) and _town_panels.visible):
 		_camera_keys.clear()
 		return
 	var direction := Vector2(
@@ -223,13 +227,22 @@ func _save_town() -> void:
 func _load_town() -> void:
 	if GameManager.continue_game(1) != null:
 		get_tree().reload_current_scene()
+	else:
+		EventBus.town_notice.emit("No recoverable main save found. Existing files were left unchanged.")
 
 func _restore_walkers() -> void:
-	for villager in SaveManager.current_save.villagers:
-		for instance in SaveManager.current_save.town_layouts["Vanilla"].starting_objects:
-			if villager.assigned_building_instance_id == instance.instance_id:
-				_on_worker_or_hauler_assigned(villager, instance, int(villager.role))
+	_sync_walkers()
 
+func _sync_walkers() -> void:
+	var shown: Dictionary = {}
+	for child in world_container.get_children():
+		if child is VillagerWalker and not child.is_queued_for_deletion():
+			shown[child.villager_id] = true
+	for citizen in SaveManager.current_save.villagers:
+		if not shown.has(citizen.villager_id):
+			var walker := VillagerWalker.new()
+			walker.configure(citizen.villager_id, citizen.villager_name, citizen.role, Vector2.ZERO, Vector2.ZERO)
+			world_container.add_child(walker)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -245,9 +258,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.keycode == KEY_ESCAPE and not _placement_mode_active:
 			building_popup.hide()
 			build_menu.hide()
-			tutorial_popup.hide()
+			_town_panels.hide()
 			get_viewport().set_input_as_handled()
 			return
+		if event.keycode == KEY_F3:
+			_debug_tools.visible = not _debug_tools.visible
 		if event.keycode == KEY_F5:
 			_save_town()
 		elif event.keycode == KEY_F9:
@@ -323,6 +338,9 @@ func _initialize_world_layout() -> void:
 
 
 func _on_building_selected_for_placement(building_def: BuildingDefinition) -> void:
+	if SaveManager.current_save.player_state.mayor_level < building_def.playable_level:
+		EventBus.town_notice.emit("Reach level %d first." % building_def.playable_level)
+		return
 	if _placement_mode_active:
 		_cancel_placement()
 
@@ -376,12 +394,15 @@ func _check_placement_validity() -> bool:
 			# Boundary limits check
 			if cell_to_check.x < 0 or cell_to_check.y < 0 or cell_to_check.x >= land_size or cell_to_check.y >= land_size:
 				_ghost_building.modulate = Color(1.0, 0.5, 0.5, 0.7)
+				EventBus.town_notice.emit("Blocked: choose clear tiles inside your town boundary.")
 				return false
 			# Overlapping checks
 			if _occupied_coords.has(cell_to_check):
 				_ghost_building.modulate = Color(1.0, 0.5, 0.5, 0.7)
+				EventBus.town_notice.emit("Blocked: choose clear tiles inside your town boundary.")
 				return false
 	
+	EventBus.town_notice.emit("Clear site · Left-click confirms · R rotates · Right-click/Escape cancels")
 	_ghost_building.modulate = Color(0.5, 1.0, 0.5, 0.7)
 	return true
 
@@ -389,6 +410,13 @@ func _place_building() -> void:
 	if _placement_mode_active and _check_placement_validity():
 		if _building_to_place_def:
 			var grid_pos := TownGridGeometry.world_to_cell(_ghost_building.position)
+			if _moving_instance:
+				_moving_instance.x = grid_pos.x
+				_moving_instance.y = grid_pos.y
+				_moving_instance.rotation_degrees = _ghost_building.building_instance.rotation_degrees
+				_cancel_placement()
+				_refresh_world()
+				return
 			# Affordability can change while the preview is open.
 			if not EconomyManager.can_afford(_building_to_place_def.cost):
 				return
@@ -397,6 +425,7 @@ func _place_building() -> void:
 			new_instance.instance_id = str(_next_instance_id)
 			_next_instance_id += 1
 			new_instance.def_id = _building_to_place_def.id
+			new_instance.construction_complete = _building_to_place_def.build_time_seconds <= 0
 			new_instance.x = grid_pos.x
 			new_instance.y = grid_pos.y
 			new_instance.rotation_degrees = _ghost_building.building_instance.rotation_degrees
@@ -411,7 +440,10 @@ func _place_building() -> void:
 			
 			print("[Main] Placed building: %s (ID: %s)" % [_building_to_place_def.display_name, new_instance.instance_id])
 			
-			EventBus.building_placed.emit(new_instance)
+			if new_instance.construction_complete:
+				EventBus.building_placed.emit(new_instance)
+			WorkerManager.invalidate_routes()
+			EventBus.town_notice.emit("Building placed. Construction will finish shortly.")
 			_cancel_placement()
 
 func _create_building_node(instance: BuildingInstance) -> void:
@@ -425,6 +457,9 @@ func _cancel_placement() -> void:
 		_ghost_building.queue_free()
 	_ghost_building = null
 	_placement_mode_active = false
+	if _moving_instance:
+		_moving_instance = null
+		_rebuild_occupancy()
 	$WorldContainer/Grid.set_placement_grid(false)
 	_building_to_place_def = null
 
@@ -445,7 +480,7 @@ func _on_toggle_build_menu_pressed() -> void:
 	build_menu.visible = not build_menu.visible
 	if build_menu.visible:
 		building_popup.hide()
-		tutorial_popup.hide()
+		_town_panels.hide()
 		build_menu.populate_build_menu()
 
 func _on_building_instance_selected(instance: BuildingInstance) -> void:
@@ -471,33 +506,69 @@ func _on_spawn_floating_text(text: String, global_pos: Vector2, color: Color) ->
 	
 	tween.chain().tween_callback(label.queue_free)
 
-func _on_worker_or_hauler_assigned(villager: Villager, instance: BuildingInstance, role_type: int) -> void:
+func _on_worker_or_hauler_assigned(_villager: Villager, _instance: BuildingInstance, _role_type: int) -> void:
+	_sync_walkers()
+
+func _rebuild_occupancy(ignore_id: String = "") -> void:
+	_occupied_coords = TownPaths.blocked_cells(ignore_id)
+
+func _refresh_world() -> void:
 	for child in world_container.get_children():
-		if child is VillagerWalker and child.villager_id == villager.villager_id:
+		if child.get("building_instance") != null:
+			world_container.remove_child(child)
 			child.queue_free()
-	# Use the assigned residence, with Town Hall as a fallback.
-	var home_pos = TownGridGeometry.cell_to_world(Vector2(2.5, 2.5))
-	var work_def = DataManager.get_building_definition(instance.def_id)
-	var work_size := TownGridGeometry.footprint_size(work_def.width, work_def.height, instance.rotation_degrees)
-	var work_pos = TownGridGeometry.cell_to_world(Vector2(instance.x, instance.y) + Vector2(work_size) * 0.5)
-	
-	if SaveManager.current_save:
-		var layout = SaveManager.current_save.town_layouts.get("Vanilla")
-		if layout:
-			for obj in layout.starting_objects:
-				var def = DataManager.get_building_definition(obj.def_id)
-				if def and obj.instance_id == villager.home_instance_id:
-					home_pos = TownGridGeometry.cell_to_world(Vector2(obj.x + def.width * 0.5, obj.y + def.height * 0.5))
-					break
-					
-	# Instantiate villager walker
-	var walker = VillagerWalker.new()
-	walker.home_pos = home_pos
-	walker.work_pos = work_pos
-	walker.configure(villager.villager_id, villager.villager_name, role_type, home_pos, work_pos)
-	
-	# Add to world container so it's drawn on map
-	world_container.add_child(walker)
+	for instance in SaveManager.current_save.town_layouts["Vanilla"].starting_objects:
+		_create_building_node(instance)
+	_rebuild_occupancy()
+	WorkerManager.invalidate_routes()
+	_sync_walkers()
+
+func _start_move(instance: BuildingInstance) -> void:
+	var definition = DataManager.get_building_definition(instance.def_id)
+	if definition.type == BuildingDefinition.BuildingType.TOWNHALL:
+		EventBus.town_notice.emit("Town Hall stays at the town center.")
+		return
+	_cancel_placement()
+	_moving_instance = instance
+	_building_to_place_def = definition
+	_ghost_building = BuildingScene.instantiate()
+	world_container.add_child(_ghost_building)
+	var preview = instance.duplicate(true)
+	preview.instance_id = ""
+	_ghost_building.set_building(preview)
+	_placement_mode_active = true
+	_rebuild_occupancy(instance.instance_id)
+	$WorldContainer/Grid.set_placement_grid(true)
+	building_popup.hide()
+	EventBus.town_notice.emit("Move is free. Click a clear site; right-click/Escape cancels.")
+	_update_ghost_position()
+
+func _demolish(instance: BuildingInstance) -> void:
+	var definition = DataManager.get_building_definition(instance.def_id)
+	if not definition.sellable or definition.type == BuildingDefinition.BuildingType.TOWNHALL:
+		return
+	var objects = SaveManager.current_save.town_layouts["Vanilla"].starting_objects
+	if not objects.has(instance):
+		return
+	for citizen in SaveManager.current_save.villagers:
+		if citizen.assigned_building_instance_id == instance.instance_id:
+			WorkerManager.unassign(citizen.villager_id)
+	# Refund reserved inputs and transfer stored output before removing the structure.
+	var recipe = DataManager.get_production_recipe(definition.gather_recipe_id)
+	if instance.cycle_reserved and recipe:
+		for resource in recipe.input_cost:
+			InventoryManager.add(resource, recipe.input_cost[resource])
+	for resource in instance.stored_resources:
+		InventoryManager.add(resource, instance.stored_resources[resource])
+	for entry in definition.cost.entries:
+		InventoryManager.add(entry.resource_id, floorf(entry.amount * DataManager.rules.refund_fraction))
+	objects.erase(instance)
+	WorkerManager.reconcile_housing()
+	EconomyManager._restore_assignments()
+	InventoryManager.recalculate_capacity()
+	building_popup.hide()
+	_refresh_world()
+	EventBus.town_notice.emit("Demolished: 50% construction materials refunded. Residents remain in town.")
 
 func _on_visit_friend_requested(friend_name: String) -> void:
 	_visiting_friend_name = friend_name
@@ -580,3 +651,38 @@ func _on_return_home_requested() -> void:
 		
 	AudioManager.play_sfx(17) # select chime
 
+
+func _new_town() -> void:
+	if _save_blocked:
+		EventBus.town_notice.emit("Recover your unreadable slot 1 files before starting a new town.")
+		return
+	if SaveManager.archive_current_town() < 0:
+		EventBus.town_notice.emit("Could not archive current town. New town cancelled.")
+		return
+	GameManager.start_new_game()
+	get_tree().reload_current_scene()
+
+func _choose_save() -> void:
+	var dialog := ConfirmationDialog.new()
+	dialog.title = "Load a local town"
+	dialog.dialog_text = "Unsaved changes are discarded. F9 loads the main slot directly."
+	var choices := OptionButton.new()
+	var slots := SaveManager.list_slots()
+	slots.sort()
+	for slot in slots:
+		choices.add_item("Slot %d%s" % [slot, " · main town" if slot == 1 else " · archived town"], slot)
+	dialog.add_child(choices)
+	choices.position = Vector2(16, 80)
+	choices.custom_minimum_size = Vector2(300, 32)
+	dialog.confirmed.connect(func():
+		if choices.selected >= 0:
+			if GameManager.continue_game(choices.get_selected_id()) != null:
+				_save_blocked = false
+				get_tree().reload_current_scene()
+			else:
+				EventBus.town_notice.emit("This slot could not load. Its files were left unchanged.")
+		dialog.queue_free()
+	)
+	dialog.canceled.connect(dialog.queue_free)
+	$UILayer.add_child(dialog)
+	dialog.popup_centered(Vector2i(440, 180))

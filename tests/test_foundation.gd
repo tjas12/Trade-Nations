@@ -237,13 +237,13 @@ func _test_land_expansions_and_premium_offers() -> void:
 	var test_save = SaveManager.create_new_save()
 	
 	# Verify that starting active_land_size is 48
-	_check(test_save.player_state.active_land_size == 48, "PlayerState default active_land_size is 48")
+	_check(test_save.player_state.active_land_size == 16, "New town uses configured 16 by 16 plot")
 	
 	# Test boundaries directly
 	var land_size = test_save.player_state.active_land_size
 	var inside_coords = Vector2i(10, 10)
 	var outside_coords = Vector2i(49, 49)
-	_check(inside_coords.x >= 0 and inside_coords.y >= 0 and inside_coords.x < land_size and inside_coords.y < land_size, "Coordinates 10,10 are validly inside active 48x48 bounds")
+	_check(inside_coords.x >= 0 and inside_coords.y >= 0 and inside_coords.x < land_size and inside_coords.y < land_size, "Coordinates 10,10 are validly inside active town bounds")
 	_check(not (outside_coords.x >= 0 and outside_coords.y >= 0 and outside_coords.x < land_size and outside_coords.y < land_size), "Coordinates 49,49 are successfully caught out of bounds")
 		
 	# Test premium Magic Bean conversions
@@ -275,6 +275,8 @@ func _test_land_expansions_and_premium_offers() -> void:
 	
 	# Test land expansions
 	test_save.inventory.resource_amounts[1] = 5000.0 # Gold
+	test_save.inventory.resource_amounts[10] = 40.0
+	test_save.player_state.mayor_level = 1
 	test_save.player_state.active_land_size = 48
 	var expand_ok = SocialManager.buy_land_expansion(1) # Expand to 56
 	_check(expand_ok, "SocialManager.buy_land_expansion() upgraded playable dimensions successfully using Gold")

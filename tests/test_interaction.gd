@@ -60,8 +60,7 @@ func run() -> void:
 	check(main.building_popup.visible and main.building_popup.name_label.text == "Town Hall", "Mouse click opens Town Hall")
 	await click(main.building_popup.close_button.get_global_rect().get_center())
 	check(not main.building_popup.visible, "Close button consumes its click without reopening a building")
-	await click(main.tutorial_popup.continue_button.get_global_rect().get_center())
-	check(not main.tutorial_popup.visible, "Got it button dismisses tutorial")
+	check(main.tutorial_popup.visible and not main.tutorial_popup.continue_button.visible, "Compact objective panel has no modal continue prompt")
 	var camera_before: Vector2 = main.world_container.position
 	await drag_mouse(Vector2(170, 450), Vector2(250, 490))
 	check(main.world_container.position.distance_to(camera_before + Vector2(80, 40)) < 0.05, "Left-drag on empty ground pans the map")
@@ -125,13 +124,14 @@ func run() -> void:
 	var objects = SaveManager.current_save.town_layouts["Vanilla"].starting_objects
 	check(objects.size() == count_before + 1 and not main._placement_mode_active, "Mouse confirms building on the displayed diamond grid")
 	check(objects.back().x == 8 and objects.back().y == 4, "Screen click persists the correct saved tile coordinates")
+	EconomyManager._update_construction(4)
 	var clear_footprint := true
 	for marker in scenery.get_children():
 		if Rect2i(0, 0, scenery._land_size, scenery._land_size).has_point(marker.get_meta("cell")):
 			clear_footprint = false
 	check(clear_footprint and not main.get_node("WorldContainer/Grid").placement_grid, "Scenery stays outside the playable grid after placement")
 	check(WorkerManager.total_population() == 4 and WorkerManager.idle_villagers().size() == 4, "First cottage adds two citizens beyond the starting pair")
-	check(main.get_node("UILayer/ResourceHud/HBoxContainer/PopulationLabel").text == "People: 4 | Idle: 4", "HUD shows cottage arrivals")
+	check(main.get_node("UILayer/ResourceHud/HBoxContainer/PopulationLabel").text == "People: 4/4 · Jobs: 0 · Free: 4", "HUD shows cottage arrivals")
 	await click(main.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(9, 5))))
 	check(main.building_popup.visible and main.building_popup.name_label.text == "Small Cottage", "Placed cottage is selectable on its footprint")
 	var escape := InputEventKey.new()
@@ -147,6 +147,15 @@ func run() -> void:
 	check(objects[1].assigned_worker_ids.size() == 1 and objects[1].assigned_hauler_ids.size() == 1, "Actual worker and hauler buttons assign citizens")
 	await click(main.building_popup.close_button.get_global_rect().get_center())
 	check(not main.building_popup.visible, "Producer popup also closes after assigning staff")
+	var wood_before: float = InventoryManager.amount(10)
+	for button in main.get_node("UILayer/TownActions").get_children():
+		if button.text == "Market":
+			await click(button.get_global_rect().get_center())
+	check(main._town_panels.visible and not main.building_popup.visible, "Market opens through toolbar")
+	await click(main._town_panels.market_box.get_child(1).get_child(2).get_global_rect().get_center())
+	check(InventoryManager.amount(10) == wood_before - 1 and not main._placement_mode_active, "Market UI sells one Wood without ground input")
+	await click(main._town_panels.get_child(main._town_panels.get_child_count() - 1).get_global_rect().get_center())
+	check(not main._town_panels.visible, "Market Close dismisses panel")
 	var farm = DataManager.get_building_definition(11)
 	check(farm.width == 2 and farm.height == 2, "Farm matches cottage 2 by 2 footprint")
 	SaveManager.current_save.villagers.resize(2)

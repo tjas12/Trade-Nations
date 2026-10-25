@@ -6,6 +6,7 @@ extends Panel
 
 func _ready() -> void:
 	continue_button.pressed.connect(hide)
+	continue_button.hide()
 	hide()
 
 func show_objective(text: String) -> void:

@@ -22,6 +22,8 @@ func populate_build_menu():
 
     for building_def in all_buildings:
         # Skip buildings with no category or that shouldn't be in the menu.
+        if str(building_def.id) not in DataManager.rules.buildings:
+            continue
         if not building_def or not "category" in building_def or building_def.category.is_empty():
             continue
 
@@ -35,7 +37,7 @@ func populate_build_menu():
 
     for category in sorted_categories:
         var grid = GridContainer.new()
-        grid.columns = 4
+        grid.columns = 3
         grid.name = category
         
         var scroll = ScrollContainer.new()
@@ -49,7 +51,7 @@ func populate_build_menu():
 
         for building_def in buildings:
             var button = Button.new()
-            button.custom_minimum_size = Vector2(160, 160)
+            button.custom_minimum_size = Vector2(240, 230)
             
             # Use a VBoxContainer inside the button to align icon and text
             var container = VBoxContainer.new()
@@ -82,6 +84,10 @@ func populate_build_menu():
             # Create a Label for the building name
             var label = Label.new()
             label.text = building_def.display_name
+            if SaveManager.current_save.player_state.mayor_level < building_def.playable_level:
+                label.text += "\nLocked: Level %d" % building_def.playable_level
+                button.disabled = true
+            label.text += "\n%d×%d tiles · %ds construction" % [building_def.width, building_def.height, building_def.build_time_seconds]
             for entry in building_def.cost.entries:
                 var resource = DataManager.get_resource_definition(entry.resource_id)
                 if resource:

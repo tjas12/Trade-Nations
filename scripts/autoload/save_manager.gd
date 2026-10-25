@@ -21,12 +21,13 @@ signal save_activated
 ## Does not write to disk — call save_to_slot() after.
 func create_new_save() -> SaveGame:
 	var save = SaveGame.new()
-	save.save_version = 1
+	save.save_version = 2
 	save.created_at_unix = TimeManager.now()
 	save.last_saved_at_unix = save.created_at_unix
 	
 	# Create and populate sub-resources
 	save.player_state = PlayerState.new()
+	save.player_state.active_land_size = int(DataManager.rules.starting_land_size)
 	save.inventory = _create_starting_inventory()
 	save.villagers = _create_starting_villagers()
 	save.tutorial_progress = TutorialProgress.new()
@@ -79,9 +80,11 @@ func save_to_slot(slot: int) -> bool:
 		return false
 
 	_ensure_save_dir()
-	current_save.last_saved_at_unix = TimeManager.now()
-
 	var path := SAVE_DIR.path_join(SLOT_FILENAME_FORMAT % slot)
+	if FileAccess.file_exists(path) and _read_save(path) == null and _read_save(_backup_path(path)) == null:
+		push_warning("[SaveManager] Refusing to overwrite an unreadable slot without a recoverable backup.")
+		return false
+	current_save.last_saved_at_unix = TimeManager.now()
 	var pending := path.trim_suffix(".tres") + ".pending.tres"
 	var result := ResourceSaver.save(current_save, pending)
 	if result != OK:
@@ -124,7 +127,7 @@ func _read_save(path: String) -> SaveGame:
 	if not FileAccess.file_exists(path):
 		return null
 	var loaded = ResourceLoader.load(path, "", ResourceLoader.CACHE_MODE_IGNORE_DEEP)
-	if loaded is SaveGame and loaded.player_state != null and loaded.inventory != null and loaded.town_layouts.get("Vanilla") is TownLayout:
+	if loaded is SaveGame and loaded.player_state != null and loaded.inventory != null and loaded.town_layouts.get("Vanilla") is TownLayout and _migrate(loaded):
 		return loaded
 	return null
 
@@ -163,3 +166,59 @@ func list_slots() -> Array[int]:
 func _ensure_save_dir() -> void:
 	if not DirAccess.dir_exists_absolute(SAVE_DIR):
 		DirAccess.make_dir_recursive_absolute(SAVE_DIR)
+
+func _migrate(save: SaveGame) -> bool:
+	if save.save_version > 2 or save.player_state.active_land_size < 1 or save.player_state.active_land_size > 256:
+		return false
+	# Version 1 has no cycle reservations/objective claims. Export defaults are safe.
+	if not save.economy_stats.has("produced"):
+		save.economy_stats["produced"] = {}
+	if not save.economy_stats.has("sold"):
+		save.economy_stats["sold"] = {}
+	for amount in save.inventory.resource_amounts.values():
+		if not (amount is float or amount is int) or not is_finite(amount) or amount < 0:
+			return false
+	if not save.economy_stats.produced is Dictionary or not save.economy_stats.sold is Dictionary:
+		return false
+	var citizens: Dictionary = {}
+	for citizen in save.villagers:
+		if not citizen or citizen.villager_id.is_empty() or citizens.has(citizen.villager_id):
+			return false
+		citizens[citizen.villager_id] = citizen
+		citizen.role = Villager.Role.UNASSIGNED
+		citizen.assigned_building_instance_id = ""
+	var assigned: Dictionary = {}
+	var buildings: Dictionary = {}
+	for layout in save.town_layouts.values():
+		if not layout is TownLayout:
+			return false
+		for instance in layout.starting_objects:
+			if not instance or not is_finite(instance.cycle_elapsed) or instance.cycle_elapsed < 0:
+				return false
+			if buildings.has(instance.instance_id):
+				return false
+			buildings[instance.instance_id] = true
+			var definition = DataManager.get_building_definition(instance.def_id)
+			if not definition:
+				return false
+			var recipe = DataManager.get_production_recipe(definition.gather_recipe_id)
+			for role in [Villager.Role.WORKER, Villager.Role.HAULER]:
+				var ids: Array = instance.assigned_worker_ids if role == Villager.Role.WORKER else instance.assigned_hauler_ids
+				var valid: Array = []
+				var limit: int = (recipe.worker_max if role == Villager.Role.WORKER else recipe.hauler_max) if recipe else 0
+				for id in ids:
+					if citizens.has(id) and not assigned.has(id) and valid.size() < limit:
+						valid.append(id)
+						assigned[id] = true
+						citizens[id].role = role
+						citizens[id].assigned_building_instance_id = instance.instance_id
+				ids.assign(valid)
+	# Never move or delete structures: smaller Farm footprint only frees tiles.
+	save.save_version = 2
+	return true
+
+func archive_current_town() -> int:
+	var slot := 2
+	while FileAccess.file_exists(SAVE_DIR.path_join(SLOT_FILENAME_FORMAT % slot)) or FileAccess.file_exists(_backup_path(SAVE_DIR.path_join(SLOT_FILENAME_FORMAT % slot))):
+		slot += 1
+	return slot if save_to_slot(slot) else -1

@@ -55,3 +55,7 @@ enum RecipeKind { GATHER, CRAFT }
 @export var hurry_cost: float = 0.0
 @export var hurry_interval_seconds: float = 0.0
 @export var compatible_lands: Array[String] = []
+
+# First-playable discrete cycles; zero retains imported continuous gathering.
+@export var cycle_seconds: float = 0.0
+@export var cycle_amount: float = 1.0

@@ -51,6 +51,7 @@ func _process(delta: float) -> void:
 	if not building_instance:
 		return
 		
+	modulate.a = 1.0 if building_instance.construction_complete else 0.55
 	# Check if building has any stored resources to display the harvest bubble
 	var has_stored = false
 	for res_id in building_instance.stored_resources.keys():
@@ -81,6 +82,7 @@ func set_building(instance: BuildingInstance):
 		return
 
 	name = building_def.display_name
+	z_index = clampi(int(TownGridGeometry.cell_to_world(Vector2(instance.x + building_def.width, instance.y + building_def.height)).y), 0, 4000)
 
 	var size := TownGridGeometry.footprint_size(building_def.width, building_def.height, instance.rotation_degrees)
 	_footprint = TownGridGeometry.footprint_polygon(size)

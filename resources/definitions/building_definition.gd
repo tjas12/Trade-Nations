@@ -70,3 +70,5 @@ enum BuildingType {
 
 @export var info_text: String = ""
 @export var description_text: String = ""
+
+@export var playable_level: int = 0

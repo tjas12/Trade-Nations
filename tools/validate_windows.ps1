@@ -34,8 +34,10 @@ try {
     Invoke-Validation 'foundation' @('--headless', '--path', $projectPath, 'res://tests/TestRunner.tscn')
     Invoke-Validation 'restoration' @('--headless', '--path', $projectPath, 'res://tests/RestorationTests.tscn')
     Invoke-Validation 'interaction' @('--headless', '--path', $projectPath, 'res://tests/InteractionTests.tscn')
+    Invoke-Validation 'playable' @('--headless', '--path', $projectPath, 'res://tests/PlayableTests.tscn')
     Invoke-Validation 'main' @('--headless', '--path', $projectPath, '--quit-after', '120')
     if ($Graphical) {
+        Invoke-Validation 'playable-forward-plus' @('--path', $projectPath, 'res://tests/PlayableTests.tscn')
         Invoke-Validation 'graphical' @('--path', $projectPath, '--rendering-method', 'gl_compatibility', 'res://tests/RestorationTests.tscn')
         Invoke-Validation 'interaction-forward-plus' @('--path', $projectPath, 'res://tests/InteractionTests.tscn')
     }

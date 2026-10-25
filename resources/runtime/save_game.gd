@@ -20,3 +20,7 @@ extends Resource
 @export var active_trades: Array[Dictionary] = [] # Array of simulated trade offers
 @export var inbox_messages: Array[Dictionary] = [] # Array of simulated mail items
 @export var daily_special: Dictionary = {} # Premium daily on-sale special offer
+
+@export var economy_stats: Dictionary = {"produced": {}, "sold": {}}
+@export var objective_claims: Array[String] = []
+@export var expansion_count: int = 0

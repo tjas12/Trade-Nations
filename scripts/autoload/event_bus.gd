@@ -68,3 +68,8 @@ signal visit_friend_requested(friend_name: String)
 signal return_home_requested()
 
 signal population_changed(total: int, idle: int)
+
+signal town_notice(text: String)
+signal building_move_requested(instance)
+signal building_demolish_requested(instance)
+signal town_changed()

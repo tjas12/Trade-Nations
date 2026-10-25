@@ -21,6 +21,9 @@ func _ready() -> void:
 	_resource_labels[1] = gold_label
 	_resource_labels[10] = wood_label
 	_resource_labels[40] = wheat_label
+	var cookies := Label.new()
+	$HBoxContainer.add_child(cookies)
+	_resource_labels[90040] = cookies
 	
 	call_deferred("_initialize_display")
 	
@@ -64,4 +67,4 @@ func _on_xp_changed(new_xp: float) -> void:
 		xp_label.text = "XP: %d/%s" % [floor(new_xp), str(xp_for_next_level) if xp_for_next_level != INF else "---"]
 
 func _on_population_changed(total: int, idle: int) -> void:
-	population_label.text = "People: %d | Idle: %d" % [total, idle]
+	population_label.text = "People: %d/%d · Jobs: %d · Free: %d" % [total, WorkerManager.housing_capacity(), total - idle, idle]

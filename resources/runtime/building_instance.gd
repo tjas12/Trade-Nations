@@ -16,3 +16,7 @@ class_name BuildingInstance
 @export var recipe_started_at: float = -1.0
 @export var assigned_worker_ids: Array = [] # Array[String]
 @export var assigned_hauler_ids: Array = [] # Array[String]
+
+@export var cycle_elapsed: float = 0.0
+@export var cycle_reserved: bool = false
+@export var construction_elapsed: float = 0.0

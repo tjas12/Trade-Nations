@@ -1,0 +1,151 @@
+{
+  "buildings": {
+    "10012": {
+      "cost": {
+        "1": 45,
+        "10": 20
+      },
+      "level": 0,
+      "build_seconds": 3
+    },
+    "10008": {
+      "cost": {
+        "1": 45,
+        "10": 20
+      },
+      "level": 0,
+      "build_seconds": 3
+    },
+    "11": {
+      "cost": {
+        "1": 55,
+        "10": 20
+      },
+      "level": 1,
+      "build_seconds": 4
+    },
+    "35": {
+      "cost": {
+        "1": 85,
+        "10": 35
+      },
+      "level": 1,
+      "build_seconds": 5
+    }
+  },
+  "recipes": {
+    "50008": {
+      "seconds": 10,
+      "amount": 4,
+      "inputs": {},
+      "workers": 1,
+      "haulers": 1,
+      "xp": 1
+    },
+    "50011": {
+      "seconds": 12,
+      "amount": 4,
+      "inputs": {},
+      "workers": 1,
+      "haulers": 1,
+      "xp": 1
+    },
+    "40": {
+      "seconds": 18,
+      "amount": 2,
+      "inputs": {
+        "40": 3
+      },
+      "workers": 1,
+      "haulers": 0,
+      "xp": 2
+    }
+  },
+  "market": {
+    "10": 3,
+    "40": 2,
+    "90040": 12
+  },
+  "expansion": {
+    "gold": 180,
+    "wood": 40,
+    "increase": 8,
+    "level": 1
+  },
+  "starting_land_size": 16,
+  "refund_fraction": 0.5,
+  "objectives": [
+    {
+      "id": "cottage",
+      "text": "Build a Small Cottage. Open Build \u2192 HOUSE.",
+      "kind": "building",
+      "target": 10012,
+      "count": 1,
+      "gold": 30,
+      "xp": 5
+    },
+    {
+      "id": "arrivals",
+      "text": "Welcome your new neighbours: reach four villagers.",
+      "kind": "population",
+      "count": 4,
+      "gold": 25,
+      "xp": 5
+    },
+    {
+      "id": "staff",
+      "text": "Select the Logging Camp. Assign a worker and a hauler.",
+      "kind": "logging_staff",
+      "count": 1,
+      "gold": 30,
+      "xp": 5
+    },
+    {
+      "id": "wood",
+      "text": "Produce 8 Wood. Haulers deliver it; Collect also works.",
+      "kind": "produced",
+      "target": 10,
+      "count": 8,
+      "gold": 35,
+      "xp": 5
+    },
+    {
+      "id": "wheat",
+      "text": "Build a Farm, assign a worker, and produce 8 Wheat. Collect the harvest.",
+      "kind": "produced",
+      "target": 40,
+      "count": 8,
+      "gold": 40,
+      "xp": 10
+    },
+    {
+      "id": "cookies",
+      "text": "Build a Baker\u2019s Shop and assign a worker. It turns 3 Wheat into 2 Cookies.",
+      "kind": "produced",
+      "target": 90040,
+      "count": 2,
+      "gold": 35,
+      "xp": 10
+    },
+    {
+      "id": "market",
+      "text": "Open Market and sell at least 2 Cookies.",
+      "kind": "sold",
+      "target": 90040,
+      "count": 2,
+      "gold": 40,
+      "xp": 10
+    },
+    {
+      "id": "expansion",
+      "text": "Open Expand and buy more land (180 Gold + 40 Wood).",
+      "kind": "expansion",
+      "count": 1,
+      "gold": 50,
+      "xp": 15
+    }
+  ],
+  "market_buy": {
+    "40": 6
+  }
+}
