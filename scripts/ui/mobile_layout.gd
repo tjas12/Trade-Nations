@@ -4,6 +4,7 @@ var game: Node
 var goals_open := false
 var _toolbar_scroll: ScrollContainer
 var _hud_flow: HFlowContainer
+var _brush_scroll: ScrollContainer
 var _market_scroll: ScrollContainer
 var _perf: Label
 var _perf_time := 0.0
@@ -66,6 +67,7 @@ func refresh() -> void:
 	var rows_height := 22.0
 	var row_width := 0.0
 	for label in _hud_flow.get_children():
+		if not label.visible: continue
 		var label_width: float = label.get_combined_minimum_size().x
 		if row_width > 0 and row_width + label_width > w - 8:
 			rows_height += 22
@@ -105,7 +107,8 @@ func refresh() -> void:
 	game._layout_bar.get_child(2).text = "Rotate ↷"
 	_rect(game._layout_bar, Rect2(x, bottom - 56, w, 52))
 	game._layout_bar.alignment = BoxContainer.ALIGNMENT_CENTER
-	_rect(game._brush_bar, Rect2(x, bottom - 56, w, 52))
+	_rect(_brush_scroll, Rect2(x, bottom - 56, w, 52))
+	_brush_scroll.visible = game._brush_bar.visible
 	game._brush_bar.alignment = BoxContainer.ALIGNMENT_CENTER
 	game._brush_label.hide()
 	_rect(_goal_summary, Rect2(x, y + _header_height + 2, minf(300, w * 0.43), 44))
@@ -193,7 +196,15 @@ Tap the goal summary to expand or collapse rewards."
 	apply.text = "Confirm"
 	apply.pressed.connect(game._finish_brush)
 	game._brush_bar.add_child(apply)
-	game._brush_bar.get_child(5).text = "Cancel"
+	_brush_scroll = ScrollContainer.new()
+	_brush_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
+	_brush_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	layer.add_child(_brush_scroll)
+	game._brush_bar.reparent(_brush_scroll)
+	game._brush_bar.position = Vector2.ZERO
+	game._brush_bar.visibility_changed.connect(func(): _brush_scroll.visible = game._brush_bar.visible)
+	game._brush_bar.get_child(game._brush_bar.get_child_count() - 2).text = "Cancel"
+	for index in range(6): game._brush_bar.get_child(index).text = ["Dirt", "Flowers", "Fence", "Erase", "Cobbles", "Slabs"][index]
 	_market_scroll = ScrollContainer.new()
 	_market_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	var modal: Control = game._town_panels

@@ -16,10 +16,40 @@
       "visible_width": 88
     },
     "11": {
-      "visible_width": 106
+      "visible_width": 98
     },
     "35": {
       "visible_width": 86
+    },
+    "9": {
+      "visible_width": 150
+    },
+    "128": {
+      "visible_width": 24
+    },
+    "151": {
+      "visible_width": 60
+    },
+    "120": {
+      "visible_width": 32
+    },
+    "146": {
+      "visible_width": 32
+    },
+    "108": {
+      "visible_width": 24
+    },
+    "106": {
+      "visible_width": 24
+    },
+    "103": {
+      "visible_width": 44
+    },
+    "173": {
+      "visible_width": 30
+    },
+    "159": {
+      "visible_width": 48
     }
   },
   "directional_audit": "Numbered cottage sprites are color variants. Seasonal prefixes are skins. No verified four-direction structural sets are available. Text/sign-bearing shops retain one view. Other mirrored views are front-left/front-right approximations only.",
@@ -130,5 +160,6 @@
     "154": "BIRDHOUSEYELLOW.png",
     "155": "BIRDHOUSEWHITE.png",
     "342": "LARGESTATUE.png"
-  }
+  },
+  "classic_art_note": "Reference composite: warm straw roofs, small farms, rich green meadows; preserved recovered sprites and directional fallbacks. Added contact shadows and native-scale footprints; no reference images imported."
 }

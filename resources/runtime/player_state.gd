@@ -31,3 +31,5 @@ extends Resource
 
 ## The player's active profile picture/avatar (e.g. "Mayor", "Woodcutter", "Rose")
 @export var profile_avatar: String = "Mayor"
+
+@export var unlocked_buildings: Array[int] = []

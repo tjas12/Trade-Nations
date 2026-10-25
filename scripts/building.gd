@@ -155,9 +155,16 @@ func set_building(instance: BuildingInstance):
 func _draw() -> void:
 	if _footprint.is_empty():
 		return
+	if sprite_2d.visible and building_instance and not building_instance.instance_id.is_empty():
+		var shadow := PackedVector2Array()
+		var size := TownGridGeometry.footprint_size(DataManager.get_building_definition(building_instance.def_id).width, DataManager.get_building_definition(building_instance.def_id).height, building_instance.rotation_degrees)
+		for step in range(16):
+			var angle := TAU * step / 16.0
+			shadow.append(ground_anchor - Vector2(0, 5) + Vector2(cos(angle) * (size.x + size.y) * 8, sin(angle) * 5))
+		draw_colored_polygon(shadow, Color(0.12, 0.19, 0.06, 0.19))
 	if not building_instance or building_instance.instance_id.is_empty() or not sprite_2d.visible:
 		draw_colored_polygon(_footprint, Color(0.7, 0.85, 0.5, 0.35))
-	draw_polyline(PackedVector2Array([_footprint[0], _footprint[1], _footprint[2], _footprint[3], _footprint[0]]), Color(0.8, 0.9, 0.65, 0.45), 1.0)
+		draw_polyline(PackedVector2Array([_footprint[0], _footprint[1], _footprint[2], _footprint[3], _footprint[0]]), Color(0.8, 0.9, 0.65, 0.45), 1.0)
 
 func contains_screen_point(point: Vector2) -> bool:
 	if sprite_2d.visible and _source_image != null:

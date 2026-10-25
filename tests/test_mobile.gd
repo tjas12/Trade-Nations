@@ -141,6 +141,10 @@ func run() -> void:
 	await press(game._layout_bar.get_child(3))
 	EconomyManager._update_construction(4)
 	check(WorkerManager.total_population() == 4, "Confirm cottage and construction grant its two residents")
+	var celebration = game.get_node("ProgressionPanel").notice
+	check(is_instance_valid(celebration) and celebration.visible and not get_tree().paused, "Level celebration shows unlocked content without pausing simulation")
+	await press(celebration.get_child(1))
+	check(not celebration.visible, "Level celebration dismisses through touch")
 	var camp: BuildingInstance = SaveManager.current_save.town_layouts.Vanilla.starting_objects[1]
 	tap(game.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(camp.x + 1, camp.y + 1))))
 	check(game.building_popup.visible and game.building_popup.building_instance == camp, "Map tap selects the Logging Camp")
@@ -228,6 +232,14 @@ func run() -> void:
 	Autosave._process(1.5)
 	check(Autosave.writes == writes + 1 and FileAccess.file_exists("user://saves/slot_1.backup.tres"), "Debounced autosave retains a recoverable previous generation")
 	game._refresh_world()
+	var levels_button: Button
+	for button in game.mobile_ui._toolbar_scroll.get_child(0).get_children():
+		if button.text == "Levels": levels_button = button
+	await press(levels_button)
+	var progression = game.get_node("ProgressionPanel")
+	check(progression.roadmap.visible, "Levels roadmap opens through actual touch")
+	await press(progression.roadmap.get_child(1))
+	check(not progression.roadmap.visible, "Roadmap dismisses without a keyboard")
 	for dimensions in [Vector2i(740, 360), Vector2i(852, 393), Vector2i(1152, 648), Vector2i(1440, 660)]:
 		get_window().size = dimensions
 		await get_tree().process_frame
@@ -237,12 +249,17 @@ func run() -> void:
 		var hud: Control = game.get_node("UILayer/ResourceHud")
 		check(hud.size.y <= 50 and game.mobile_ui._toolbar_scroll.size.y == 44, "Compact header fits %s" % dimensions)
 		for label in game.mobile_ui._hud_flow.get_children():
+			if not label.visible: continue
 			check(hud.get_global_rect().encloses(label.get_global_rect()), "Resource remains visible: " + label.text)
 		var build: Control = game.get_node("UILayer/ToggleBuildMenuButton")
 		check(bounds.encloses(build.get_global_rect()) and build.size.y >= 44, "Build stays reachable at %s landscape" % dimensions)
 		game._on_building_instance_selected(WorkerManager.instance_by_id(camp.instance_id))
 		check(bounds.encloses(game.building_popup.get_global_rect()) and game.building_popup.close_button.size.y >= 48, "Details drawer and close target fit %s" % dimensions)
 		game.building_popup.hide()
+		progression.open_roadmap()
+		await get_tree().process_frame
+		check(bounds.encloses(progression.roadmap.get_global_rect()), "Progression drawer stays in landscape bounds %s" % dimensions)
+		progression.roadmap.hide()
 	if DisplayServer.get_name() != "headless":
 		get_window().size = Vector2i(852, 393)
 		await get_tree().process_frame

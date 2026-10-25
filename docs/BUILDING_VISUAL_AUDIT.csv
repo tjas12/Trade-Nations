@@ -9,12 +9,12 @@ id,name,footprint,source,visible_width,visible_height,supported_views
 35,Baker Shop,2x2,res://assets/art/converted/BAKERSSHOP.png,86.0,69.7,[0]
 228,Ball Topiary,2x2,UNMAPPED,0,0,placeholder
 259,Bamboo,2x2,UNMAPPED,0,0,placeholder
-128,Barrel,2x2,res://assets/art/converted/BARREL.png,44.1,56.7,[0; 90]
-151,Bench,2x3,res://assets/art/converted/BENCH.png,75.6,69.3,[0; 90]
+128,Barrel,2x2,res://assets/art/converted/BARREL.png,24.0,30.9,[0; 90]
+151,Bench,2x3,res://assets/art/converted/BENCH.png,60.0,55.0,[0; 90]
 166,Big Top,14x18,UNMAPPED,0,0,placeholder
 350,Bill,3x3,UNMAPPED,0,0,placeholder
-103,Birch,2x2,res://assets/art/converted/BIRCH.png,45.0,72.0,[0; 90]
-146,Bird Bath,2x2,res://assets/art/converted/BIRDBATH.png,54.9,67.5,[0; 90]
+103,Birch,2x2,res://assets/art/converted/BIRCH.png,44.0,70.4,[0; 90]
+146,Bird Bath,2x2,res://assets/art/converted/BIRDBATH.png,32.0,39.3,[0; 90]
 311,Blacksmith Forge,9x9,UNMAPPED,0,0,placeholder
 288,Black Cat,2x2,UNMAPPED,0,0,placeholder
 188,Bluebells,2x2,UNMAPPED,0,0,placeholder
@@ -35,11 +35,11 @@ id,name,footprint,source,visible_width,visible_height,supported_views
 142,Brown House,5x4,res://assets/art/converted/HOUSE1.png,72.0,69.3,[0; 90]
 351,Bullwrinkle,3x3,UNMAPPED,0,0,placeholder
 346,Butcher Stand,4x2,UNMAPPED,0,0,placeholder
-108,Buttercups,2x2,res://assets/art/converted/BUTTERCUPS.png,85.5,48.6,[0; 90]
-173,Campfire,2x2,res://assets/art/converted/CAMPFIRE.png,53.1,67.5,[0; 90]
+108,Buttercups,2x2,res://assets/art/converted/BUTTERCUPS.png,24.0,13.6,[0; 90]
+173,Campfire,2x2,res://assets/art/converted/CAMPFIRE.png,30.0,38.1,[0; 90]
 183,Camphor,2x2,UNMAPPED,0,0,placeholder
 32,Carpenter Shop,5x5,res://assets/art/converted/CARVERSHALL.png,89.1,69.3,[0]
-159,Cart,2x2,res://assets/art/converted/CART.png,36.0,27.9,[0; 90]
+159,Cart,2x2,res://assets/art/converted/CART.png,48.0,37.2,[0; 90]
 5,Castle,14x14,UNMAPPED,0,0,placeholder
 226,Cherry Blossom,2x2,UNMAPPED,0,0,placeholder
 236,Chicken Coop,4x3,UNMAPPED,0,0,placeholder
@@ -48,18 +48,18 @@ id,name,footprint,source,visible_width,visible_height,supported_views
 298,Conehead,2x2,UNMAPPED,0,0,placeholder
 322,Cottonwood,2x2,UNMAPPED,0,0,placeholder
 202,Cow,2x3,UNMAPPED,0,0,placeholder
-120,Crates,2x2,res://assets/art/converted/CRATES.png,51.3,59.4,[0; 90]
+120,Crates,2x2,res://assets/art/converted/CRATES.png,32.0,37.1,[0; 90]
 210,Creamery,6x8,UNMAPPED,0,0,placeholder
 289,Creepy Tomb,2x2,UNMAPPED,0,0,placeholder
 315,Criss Cross Fence,1x4,UNMAPPED,0,0,placeholder
 184,Cypress,2x2,UNMAPPED,0,0,placeholder
-106,Daisies,2x2,res://assets/art/converted/DAISIES.png,85.5,48.6,[0; 90]
+106,Daisies,2x2,res://assets/art/converted/DAISIES.png,24.0,13.6,[0; 90]
 182,Dogwood,2x2,UNMAPPED,0,0,placeholder
 258,Dragon,3x3,UNMAPPED,0,0,placeholder
 269,Dragon Statue,3x4,UNMAPPED,0,0,placeholder
 326,Elderberry Bush,2x2,UNMAPPED,0,0,placeholder
 279,Elvis,2x2,UNMAPPED,0,0,placeholder
-11,Farm,2x2,res://assets/art/converted/FARM.png,106.0,60.6,[0; 90]
+11,Farm,2x2,res://assets/art/converted/FARM.png,98.0,56.0,[0; 90]
 169,Firebreather,4x4,res://assets/art/converted/FIREBREATHER.png,64.8,67.5,[0; 90]
 328,Fire Tail,2x2,UNMAPPED,0,0,placeholder
 321,Fir,2x2,UNMAPPED,0,0,placeholder
@@ -182,7 +182,7 @@ id,name,footprint,source,visible_width,visible_height,supported_views
 38,Pub,5x5,res://assets/art/converted/PUBSHOP.png,79.2,73.8,[0]
 160,Pumpkin Cart,2x2,res://assets/art/converted/PUMPKINCART.png,36.0,34.2,[0; 90]
 141,Purple Cottage,5x4,res://assets/art/converted/COTTAGE2.png,75.6,72.0,[0; 90]
-9,Quarry,6x6,res://assets/art/converted/QUARRY.png,86.4,69.3,[0; 90]
+9,Quarry,3x3,res://assets/art/converted/QUARRY.png,150.0,120.3,[0; 90]
 207,Raspberry Bush,2x2,UNMAPPED,0,0,placeholder
 138,Red Cottage,5x4,res://assets/art/converted/LITTLECOTTAGE1.png,72.9,67.5,[0; 90]
 325,Red Fern,2x2,UNMAPPED,0,0,placeholder

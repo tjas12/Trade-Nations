@@ -26,5 +26,25 @@
     "asset": "FENCEWOOD.png",
     "blocks_movement": false,
     "blocks_buildings": false
+  },
+  "cobblestone": {
+    "name": "Cobblestone",
+    "cost": {
+      "1": 2,
+      "20": 1
+    },
+    "asset": "",
+    "blocks_movement": false,
+    "blocks_buildings": false
+  },
+  "stone": {
+    "name": "Stone slabs",
+    "cost": {
+      "1": 3,
+      "20": 2
+    },
+    "asset": "",
+    "blocks_movement": false,
+    "blocks_buildings": false
   }
 }

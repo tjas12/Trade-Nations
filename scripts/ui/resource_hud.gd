@@ -9,6 +9,7 @@ extends Panel
 
 # Map resource IDs to their UI labels
 var _resource_labels: Dictionary = {}
+var rock_label: Label
 var population_label: Label
 var compact := false
 
@@ -29,6 +30,9 @@ func _ready() -> void:
 	var cookies := Label.new()
 	$HBoxContainer.add_child(cookies)
 	_resource_labels[90040] = cookies
+	rock_label = Label.new()
+	$HBoxContainer.add_child(rock_label)
+	_resource_labels[20] = rock_label
 	
 	call_deferred("_initialize_display")
 	
@@ -60,6 +64,7 @@ func _update_label(resource_id: int, amount: float) -> void:
 			label.text = ("%s %d" if compact else "%s: %d") % [resource_def.display_name, floor(amount)]
 
 func _on_level_up(new_level: int) -> void:
+	rock_label.visible = new_level >= 2 or InventoryManager.amount(20) > 0
 	level_label.text = ("Lvl %d" if compact else "Level: %d") % new_level
 	# Also update XP label since the threshold changes
 	if SaveManager.current_save and SaveManager.current_save.player_state:

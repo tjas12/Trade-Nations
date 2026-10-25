@@ -8,6 +8,8 @@ extends Panel
 func _ready():
     # Defer population to the next frame to ensure autoloads are ready.
     call_deferred("populate_build_menu")
+    EventBus.level_up.connect(func(_level): call_deferred("populate_build_menu"))
+    SaveManager.save_activated.connect(func(): call_deferred("populate_build_menu"))
 
 # Fetches all building definitions from the DataManager, groups them by
 # category, and creates a tab with buttons for each category.
@@ -69,7 +71,7 @@ func populate_build_menu():
             var icon_rect = Control.new()
             icon_rect.custom_minimum_size = Vector2(200, 90)
             icon_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
-            if not building_def.icon_path.is_empty():
+            if ResourceLoader.exists(building_def.icon_path):
                 var sprite = Sprite2D.new()
                 sprite.texture = load(building_def.icon_path)
                 var ground = BuildingVisuals.configure(sprite, building_def)
@@ -80,9 +82,9 @@ func populate_build_menu():
             # Create a Label for the building name
             var label = Label.new()
             label.text = building_def.display_name
-            if SaveManager.current_save.player_state.mayor_level < building_def.playable_level:
+            if not ProgressionManager.unlocked(building_def):
                 label.text += "\nLocked: Level %d" % building_def.playable_level
-                button.disabled = true
+                button.set_meta("locked", true)
             label.text += "\n%d×%d tiles · %ds construction\n%d supported view(s)" % [building_def.width, building_def.height, building_def.build_time_seconds, BuildingVisuals.orientations(building_def).size()]
             for entry in building_def.cost.entries:
                 var resource = DataManager.get_resource_definition(entry.resource_id)
@@ -102,16 +104,8 @@ func populate_build_menu():
 # Callback for when a building button is pressed.
 # Emits a signal on the EventBus to notify the game to enter placement mode.
 func _on_building_button_pressed(building_def):
-    # In a full implementation, we would check prerequisites and costs here.
-    # For now, we'll assume the player can afford it and emit the signal directly.
-    #
-    # Example of a future check:
-    # if EconomyManager.can_afford(building_def.cost):
-    #     EventBus.building_selected_for_placement.emit(building_def)
-    #     self.hide() # Hide menu after selection
-    # else:
-    #     # Show "not enough resources" UI feedback.
-    #     print("Cannot afford building: " + building_def.display_name)
-    
+    if not ProgressionManager.unlocked(building_def):
+        EventBus.town_notice.emit("%s unlocks at level %d." % [building_def.display_name, building_def.playable_level])
+        return
     EventBus.building_selected_for_placement.emit(building_def)
     self.hide()
