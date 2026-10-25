@@ -75,6 +75,9 @@ func _create_starting_villagers() -> Array[Villager]:
 
 
 func save_to_slot(slot: int) -> bool:
+	if browser_storage_blocked():
+		push_warning("[BrowserStorage] Persistent browser storage is unavailable; existing saves will not be replaced.")
+		return false
 	if current_save == null:
 		push_error("[SaveManager] save_to_slot called with no current_save.")
 		return false
@@ -101,6 +104,9 @@ func save_to_slot(slot: int) -> bool:
 
 	print("[SaveManager] Saved slot %d to %s" % [slot, path])
 	return true
+
+func browser_storage_blocked() -> bool:
+	return OS.has_feature("web") and not OS.is_userfs_persistent()
 
 
 func load_from_slot(slot: int) -> SaveGame:

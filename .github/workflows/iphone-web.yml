@@ -1,0 +1,93 @@
+name: iPhone Web build and Pages
+
+on:
+  push:
+    branches: ['**']
+    # Explicit maintainer-authorized first-device deployments without changing main.
+    tags: ['phone-test-*']
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: 'Authorize publishing this selected ref to the live iPhone test site'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: web-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' && !startsWith(github.ref, 'refs/tags/phone-test-') }}
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: Install verified official Godot 4.7.2 and Web templates
+        run: |
+          python tools/install_godot_web.py --cache-dir "$RUNNER_TEMP/godot-downloads" --binary-dir "$RUNNER_TEMP/godot"
+          echo "$RUNNER_TEMP/godot" >> "$GITHUB_PATH"
+      - name: Check engine and Linux resource paths
+        run: |
+          godot --version | grep '^4.7.2.stable'
+          python tools/check_resource_paths.py
+      - name: Import and run headless and graphical regression tests
+        run: xvfb-run -a python tools/validate_godot.py --godot godot --graphical
+      - name: Export production Web PWA
+        run: python tools/export_web.py --godot godot
+      - name: Install browser test runtime
+        run: |
+          python -m pip install playwright==1.56.0
+          python -m playwright install --with-deps chromium
+      - name: Browser startup, local storage, service worker and offline reload
+        run: python tools/test_web_browser.py --build export/web
+      - name: Upload playable build
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: iphone-web-${{ github.sha }}
+          path: export/web/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Upload regression and browser diagnostics
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: web-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            .validation/*.log
+            .validation/web-*.png
+            export/web/build-info.json
+          if-no-files-found: warn
+      - name: Package approved deployment
+        if: github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/phone-test-') || (github.event_name == 'workflow_dispatch' && inputs.deploy))
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: export/web/
+
+  deploy:
+    if: github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/phone-test-') || (github.event_name == 'workflow_dispatch' && inputs.deploy))
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure existing Pages site
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+      - name: Deploy validated game
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

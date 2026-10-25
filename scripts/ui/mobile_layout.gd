@@ -28,6 +28,11 @@ func _details_changed() -> void:
 func refresh() -> void:
 	if not game.touch_mode and not force_mobile: return
 	game.touch_mode = true
+	if OS.has_feature("web"):
+		# Keep touch targets in CSS pixels as Safari's browser bars resize the canvas.
+		var css_size := Vector2i(int(JavaScriptBridge.eval("window.innerWidth")), int(JavaScriptBridge.eval("window.innerHeight")))
+		if css_size.x > 0 and css_size.y > 0 and get_window().content_scale_size != css_size:
+			get_window().content_scale_size = css_size
 	var viewport := get_viewport().get_visible_rect()
 	safe_rect = viewport.grow(-8)
 	if OS.has_feature("ios") or OS.has_feature("android"):

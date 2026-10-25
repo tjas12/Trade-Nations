@@ -84,6 +84,19 @@ func _ready() -> void:
 	mobile_ui = load("res://scripts/ui/mobile_layout.gd").new()
 	mobile_ui.game = self
 	add_child(mobile_ui)
+	if OS.has_feature("web"):
+		print("[BrowserStorage] Persistent user filesystem initialized: %s" % not SaveManager.browser_storage_blocked())
+		if SaveManager.browser_storage_blocked():
+			_save_blocked = true
+			call_deferred("_show_browser_storage_failure")
+
+func _show_browser_storage_failure() -> void:
+	var warning := AcceptDialog.new()
+	warning.title = "Browser storage is unavailable"
+	warning.dialog_text = "This temporary session cannot load or save your existing town.\nNo existing save has been replaced. Enable website storage, leave private browsing, and reopen the same game address."
+	warning.get_ok_button().custom_minimum_size = Vector2(100, 52)
+	$UILayer.add_child(warning)
+	warning.popup_centered(Vector2i(580, 200))
 
 func _add_town_controls() -> void:
 	var toolbar := HBoxContainer.new()
@@ -258,7 +271,9 @@ func _collect_resources() -> void:
 
 func _save_town() -> void:
 	var msg = TransientMessageScene.instantiate()
-	if _save_blocked:
+	if SaveManager.browser_storage_blocked():
+		msg.text = "Browser storage is unavailable. Enable website storage and reopen the game; existing saves were not replaced."
+	elif _save_blocked:
 		msg.text = "Existing saves could not load. Copy them aside before recovery; saving is blocked."
 	else:
 		msg.text = "Town saved." if SaveManager.save_to_slot(1) else "Save failed. Previous save retained."
