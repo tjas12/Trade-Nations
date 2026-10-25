@@ -57,9 +57,9 @@ Writes use a validated pending file and retain a valid previous generation as `.
 
 ## Content and limits
 
-`data/first_playable.json` contains the playable catalog, costs, unlock levels, cycle durations, yields, staffing, sale/food prices, expansion, and objective rewards. DataManager applies these explicit balance overrides to existing definitions. The existing Baker Shop and Cookies recipe are connected; Cookies is a new inventory resource, rather than the imported recipe’s immediate Gold reward. Original recovered assets and source data remain available.
+`data/first_playable.json` contains the playable catalog and economy costs; `data/progression.json` is authoritative for unlock levels and the 1–50 curve. The economy file also defines cycle durations, yields, staffing, sale/food prices, expansion, and objective rewards. DataManager applies these explicit balance overrides to existing definitions. The existing Baker Shop and Cookies recipe are connected; Cookies is a new inventory resource, rather than the imported recipe’s immediate Gold reward. Original recovered assets and source data remain available.
 
-Character bodies/directional animations have not been reconstructed: villagers currently use an existing portrait sprite with simple movement and activity labels. Haulers travel to work and then transfer harvests automatically; individual carried loads and delivery trips are not simulated. The regular catalog deliberately offers the completed cottage/camp/farm/bakery chain; other recovered content remains unfinished. One expansion and eight opening goals are implemented. Known ObjectDB/resource warnings at automated shutdown remain; they are not claimed fixed.
+Character bodies/directional animations have not been reconstructed: villagers currently use an existing portrait sprite with simple movement and activity labels. Haulers travel to work and then transfer harvests automatically; individual carried loads and delivery trips are not simulated. The regular catalog offers cottage/camp/farm/bakery, the functional Quarry/Rock chain, and nine cosmetic decorations; advanced recovered production chains remain unfinished. One expansion and eight opening goals are implemented. Known ObjectDB/resource warnings at automated shutdown remain; they are not claimed fixed.
 
 ## Verification
 

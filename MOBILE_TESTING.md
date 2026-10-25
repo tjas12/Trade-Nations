@@ -30,7 +30,7 @@ Native iOS exports require **macOS, Xcode, and matching Godot templates**. On a 
 
 Apple requires an Apple Account in Xcode for personal-device signing. A free Personal Team supports local testing, with provisioning expiring after seven days and requiring rebuild/reinstallation. Paid membership is not a prerequisite for this first personal-device test. This milestone creates no Apple account and configures no paid distribution service. [Apple’s Personal Team limitations](https://developer.apple.com/help/account/basics/about-your-developer-account/).
 
-Native saves use the app’s `user://saves` directory. The same version-3 resource format, validated pending write, recoverable previous generation, migrations, and no-offline-production policy apply. App-local storage avoids browser eviction, but removal of the app still removes its data.
+Native saves use the app’s `user://saves` directory. The same version-4 resource format (with version 1–3 migration), validated pending write, recoverable previous generation, migrations, and no-offline-production policy apply. App-local storage avoids browser eviction, but removal of the app still removes its data.
 
 ## Device checklist — use no keyboard
 
@@ -47,3 +47,7 @@ Native saves use the app’s `user://saves` directory. The same version-3 resour
 The Windows regression runner passed import, foundation, restoration, interaction, playable economy, scale, layout, touch, startup, Compatibility rendering/art comparison, and Forward Plus regression scenes. Touch simulations cover three landscape sizes, gestures, UI isolation, real emulated GUI button activation, preview cancellation, the cottage/jobs/goods/sale/layout/path chain, saves, and injected focus/pause/resume notifications. Production/travel ticks in that scenario are deterministic, not measured human play time. Known root-certificate and shutdown resource diagnostics remain filtered and reported by the runner.
 
 A local 48×48-town performance probe measured median process time 22.177 → 3.855 ms, p95 25.678 → 5.693 ms, and draws 2807 → 175 after cached grass mesh batching. The camera, tile colors/blades, scenery, building scale, and gameplay are preserved. There is no iPhone benchmark yet.
+
+## Classic phase device follow-up
+
+After updating online, verify your existing town, staff, rotation, inventory, production and dirt paths before making changes. Open Levels, scroll to 50, inspect requirements and close; production must continue. At level 2, build a Quarry, assign a worker and hauler, and sell Rock in Market. Landscape now offers Dirt, Cobbles and Slabs; preview costs appear before Confirm. Test corners, mixed-material junctions, replacing a path, Cancel, Erase and save/reload. Retain the current/newer build after its version-4 save migration. Do not clear website data. Test both landscape directions, Safari bars, Home Screen reopening and airplane mode on the physical iPhone; desktop checks do not substitute for these.
