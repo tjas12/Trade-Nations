@@ -2,6 +2,10 @@
 
 Source: `codex/offline-restoration-audit`. Production target: `https://tjas12.github.io/Trade-Nations/`.
 
+**Verified live on 2026-10-25:** [Play Trade Nations](https://tjas12.github.io/Trade-Nations/). The [first deployment run](https://github.com/tjas12/Trade-Nations/actions/runs/40210170164) passed both build and deployment jobs, publishing source commit `3144961ccf81eba7e233ff14e7b5ff0b5ef6cd8e` from annotated tag `phone-test-2026-10-25-1`. Public HTML, build metadata, WASM (`application/wasm`), and PCK returned HTTP 200. A separate desktop Chromium test against the actual HTTPS site passed startup, real IndexedDB autosave, first-install caching, and offline browser reopening with the existing town. It reported no fatal script/resource errors. No physical iPhone or Safari test has occurred.
+
+[Pull request #1](https://github.com/tjas12/Trade-Nations/pull/1) is ready for review. It has not been merged; `main` remains unchanged. The first tagged test is already live, so merging is not required merely to try it. Review/merge establishes the normal automatic update process below.
+
 Workflow: [iPhone Web build and Pages](https://github.com/tjas12/Trade-Nations/actions/workflows/iphone-web.yml), implemented in `.github/workflows/iphone-web.yml`.
 
 ## Normal update process

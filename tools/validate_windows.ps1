@@ -47,10 +47,10 @@ try {
     Invoke-Validation 'main' @('--headless', '--path', $projectPath, '--quit-after', '120')
     if ($Graphical) {
         Invoke-Validation 'mobile-graphical' @('--path', $projectPath, '--rendering-method', 'gl_compatibility', 'res://tests/MobileTests.tscn')
-        Invoke-Validation 'playable-forward-plus' @('--path', $projectPath, 'res://tests/PlayableTests.tscn')
-        Invoke-Validation 'layout-forward-plus' @('--path', $projectPath, 'res://tests/LayoutTests.tscn')
+        Invoke-Validation 'playable-forward-plus' @('--path', $projectPath, '--rendering-method', 'forward_plus', 'res://tests/PlayableTests.tscn')
+        Invoke-Validation 'layout-forward-plus' @('--path', $projectPath, '--rendering-method', 'forward_plus', 'res://tests/LayoutTests.tscn')
         Invoke-Validation 'graphical' @('--path', $projectPath, '--rendering-method', 'gl_compatibility', 'res://tests/RestorationTests.tscn')
-        Invoke-Validation 'interaction-forward-plus' @('--path', $projectPath, 'res://tests/InteractionTests.tscn')
+        Invoke-Validation 'interaction-forward-plus' @('--path', $projectPath, '--rendering-method', 'forward_plus', 'res://tests/InteractionTests.tscn')
     }
 } finally {
     $env:APPDATA = $priorAppData

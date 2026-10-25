@@ -1,5 +1,7 @@
 # Trade Nations — first playable offline town
 
+**Play on iPhone:** [Open the live Web/PWA game](https://tjas12.github.io/Trade-Nations/) in Safari, rotate to landscape, wait for **Offline: ready**, then Share → Add to Home Screen. The [first automated build and deployment](https://github.com/tjas12/Trade-Nations/actions/runs/40210170164) succeeded; desktop browser saving/offline reopening were verified against the live site. Physical iPhone testing remains outstanding.
+
 The latest milestone adds touch controls, landscape phone drawers, safe-area layouts, autosaving across interruptions, and prepared Web/PWA and iOS export presets. Start with [the phone-testing guide](MOBILE_TESTING.md). The completed visual/layout work includes calibrated building scale, safe facing previews, compact building tabs, and saved path/decoration brushes. See [VISUAL_LAYOUT_MILESTONE.md](VISUAL_LAYOUT_MILESTONE.md) and the developer [building audit](docs/BUILDING_VISUAL_AUDIT.csv).
 
 This Godot restoration now has a playable local economy: housing and villagers, construction, wood and wheat production, cookie processing, local sales, eight rewarded goals, and one land expansion. It uses the recovered isometric artwork. No accounts, network service, paid dependency, or database is required.

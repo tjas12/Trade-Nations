@@ -12,7 +12,7 @@ The production Web export now builds locally with verified official templates. A
 
 ## First route: Safari Home Screen app
 
-Use the confirmed deployed URL from the completion report. The deployment target is `https://tjas12.github.io/Trade-Nations/`. Ordinary development pushes build/test only; reviewed merges to `main` deploy automatically. A deliberately created `phone-test-*` tag supports the authorized first test while preserving `main`.
+The game is [confirmed live](https://tjas12.github.io/Trade-Nations/) as of 2026-10-25. Ordinary development pushes build/test only; reviewed merges to `main` deploy automatically. The authorized first `phone-test-*` tag deployed successfully while preserving `main`; see [the successful build/deployment run](https://github.com/tjas12/Trade-Nations/actions/runs/40210170164).
 
 1. Open the live address in Safari, disable portrait lock, and rotate to landscape.
 2. Wait for loading to finish and **Offline: ready** to appear. This indicates that service-worker installation cached the game files, including WASM and PCK.
