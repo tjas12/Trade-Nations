@@ -1,0 +1,3217 @@
+{
+  "version": "4.0.1",
+  "evidence": "Recovered XML, active nodes only; full details in docs/ORIGINAL_BUILDING_CATALOG.md",
+  "aliases": {
+    "10001": 1,
+    "10008": 8,
+    "10012": 12
+  },
+  "profiles": {
+    "12": {
+      "id": 12,
+      "name": "Small Cottage",
+      "source": "Vanilla_BuildingsTo10.xml",
+      "type": "house",
+      "category": "house",
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ],
+      "cost": {
+        "1": 75.0,
+        "10": 50.0,
+        "40": 25.0
+      },
+      "build_seconds": 3.0,
+      "footprint": [
+        5,
+        4
+      ],
+      "workers": {},
+      "residents": 1,
+      "adoptable": 1,
+      "tax": {
+        "seconds": 14400.0,
+        "reward": {
+          "1": 5.0
+        },
+        "xp": 2.0
+      },
+      "produce": "",
+      "items": [],
+      "upgrades_from": [],
+      "upgrade_only": false,
+      "store": "1",
+      "lands": [
+        "Vanilla"
+      ],
+      "idle_art": "LITTLECOTTAGE",
+      "flags": []
+    },
+    "37": {
+      "id": 37,
+      "name": "Large Cottage",
+      "source": "Vanilla_BuildingsTo10.xml",
+      "type": "house",
+      "category": "house",
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "2"
+        },
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "cost": {
+        "1": 200.0,
+        "10": 250.0,
+        "20": 50.0,
+        "40": 100.0
+      },
+      "build_seconds": 10800.0,
+      "footprint": [
+        5,
+        4
+      ],
+      "workers": {},
+      "residents": 2,
+      "adoptable": 1,
+      "tax": {
+        "seconds": 21600.0,
+        "reward": {
+          "1": 8.0
+        },
+        "xp": 4.0
+      },
+      "produce": "",
+      "items": [],
+      "upgrades_from": [
+        12,
+        138,
+        139
+      ],
+      "upgrade_only": false,
+      "store": "1",
+      "lands": [
+        "Vanilla"
+      ],
+      "idle_art": "COTTAGE",
+      "flags": []
+    },
+    "142": {
+      "id": 142,
+      "name": "Brown House",
+      "source": "Vanilla_BuildingsTo10.xml",
+      "type": "house",
+      "category": "house",
+      "level": 8,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "3"
+        },
+        {
+          "type": "level",
+          "value": "8"
+        }
+      ],
+      "cost": {
+        "1": 500.0,
+        "11": 600.0,
+        "20": 150.0,
+        "40": 250.0
+      },
+      "build_seconds": 43200.0,
+      "footprint": [
+        5,
+        4
+      ],
+      "workers": {},
+      "residents": 3,
+      "adoptable": 1,
+      "tax": {
+        "seconds": 28800.0,
+        "reward": {
+          "1": 12.0
+        },
+        "xp": 6.0
+      },
+      "produce": "",
+      "items": [],
+      "upgrades_from": [
+        37,
+        140,
+        141
+      ],
+      "upgrade_only": false,
+      "store": "1",
+      "lands": [
+        "Vanilla"
+      ],
+      "idle_art": "HOUSE1",
+      "flags": []
+    },
+    "14": {
+      "id": 14,
+      "name": "Stone House",
+      "source": "Vanilla_Buildings10Plus.xml",
+      "type": "house",
+      "category": "house",
+      "level": 14,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "14"
+        }
+      ],
+      "cost": {
+        "1": 2000.0,
+        "11": 500.0,
+        "21": 250.0
+      },
+      "build_seconds": 43200.0,
+      "footprint": [
+        5,
+        4
+      ],
+      "workers": {},
+      "residents": 4,
+      "adoptable": 1,
+      "tax": {
+        "seconds": 43200.0,
+        "reward": {
+          "1": 20.0
+        },
+        "xp": 10.0
+      },
+      "produce": "",
+      "items": [],
+      "upgrades_from": [
+        13,
+        142,
+        143
+      ],
+      "upgrade_only": false,
+      "store": "1",
+      "lands": [
+        "Vanilla"
+      ],
+      "idle_art": "STONEHOUSE",
+      "flags": []
+    },
+    "15": {
+      "id": 15,
+      "name": "Lumber Yard",
+      "source": "Vanilla_BuildingsTo10.xml",
+      "type": "plant",
+      "category": "",
+      "level": 6,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "2"
+        },
+        {
+          "type": "level",
+          "value": "6"
+        }
+      ],
+      "cost": {
+        "1": 500.0,
+        "10": 400.0,
+        "20": 150.0
+      },
+      "build_seconds": 21600.0,
+      "footprint": [
+        7,
+        5
+      ],
+      "workers": {
+        "workerMax": "2",
+        "haulerMax": "2"
+      },
+      "residents": 0,
+      "adoptable": 0,
+      "tax": {},
+      "produce": "<Produce hurryCost=\"2\">\n\t\t\t\n\t\t\t<Input resource_id=\"10\" amount=\"2\" maxInputStackSize=\"150\" />\n\t\t\t<Output resource_id=\"11\" maxOutputStackSize=\"150\" />\n\t\t\t<Rate resourcesPerHour=\"0.0\" villagerResourcesPerHour=\"30.0\" mayorResources=\"50\" mayorResourcesNoEnergy=\"0\" />\n\t\t</Produce>",
+      "items": [
+        25
+      ],
+      "upgrades_from": [],
+      "upgrade_only": false,
+      "store": "1",
+      "lands": [
+        "Vanilla"
+      ],
+      "idle_art": "LUMBERYARD",
+      "flags": [],
+      "production": {
+        "input": {
+          "10": 2.0
+        },
+        "output": 11,
+        "stack": 150.0,
+        "per_worker_hour": 30.0
+      }
+    },
+    "17": {
+      "id": 17,
+      "name": "Stone Cutter",
+      "source": "Vanilla_Buildings10Plus.xml",
+      "type": "plant",
+      "category": "",
+      "level": 12,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "3"
+        },
+        {
+          "type": "level",
+          "value": "12"
+        }
+      ],
+      "cost": {
+        "1": 2000.0,
+        "11": 2000.0,
+        "20": 1250.0
+      },
+      "build_seconds": 86400.0,
+      "footprint": [
+        7,
+        5
+      ],
+      "workers": {
+        "workerMax": "2",
+        "haulerMax": "1"
+      },
+      "residents": 0,
+      "adoptable": 0,
+      "tax": {},
+      "produce": "<Produce hurryCost=\"2\">\n\t\t\t<Input resource_id=\"20\" amount=\"2\" maxInputStackSize=\"150\" />\n\t\t\t<Output resource_id=\"21\" maxOutputStackSize=\"150\" />\n\t\t\t<Rate resourcesPerHour=\"0.0\" villagerResourcesPerHour=\"15.0\" mayorResources=\"50\" mayorResourcesNoEnergy=\"0\" />\n\t\t</Produce>",
+      "items": [
+        26
+      ],
+      "upgrades_from": [],
+      "upgrade_only": false,
+      "store": "1",
+      "lands": [
+        "Vanilla"
+      ],
+      "idle_art": "STONECUTTER",
+      "flags": [],
+      "production": {
+        "input": {
+          "20": 2.0
+        },
+        "output": 21,
+        "stack": 150.0,
+        "per_worker_hour": 15.0
+      }
+    },
+    "23": {
+      "id": 23,
+      "name": "Loom",
+      "source": "Vanilla_Buildings10Plus.xml",
+      "type": "plant",
+      "category": "",
+      "level": 14,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "14"
+        }
+      ],
+      "cost": {
+        "1": 4000.0,
+        "11": 1500.0,
+        "21": 900.0,
+        "50": 2000.0
+      },
+      "build_seconds": 86400.0,
+      "footprint": [
+        7,
+        5
+      ],
+      "workers": {
+        "workerMax": "2",
+        "haulerMax": "2"
+      },
+      "residents": 0,
+      "adoptable": 0,
+      "tax": {},
+      "produce": "<Produce hurryCost=\"2\">\n\t\t\t<Input resource_id=\"50\" amount=\"2\" maxInputStackSize=\"150\" />\n\t\t\t<Output resource_id=\"51\" maxOutputStackSize=\"150\" />\n\t\t\t<Rate resourcesPerHour=\"0.0\" villagerResourcesPerHour=\"20.0\" mayorResources=\"50\" mayorResourcesNoEnergy=\"0\" />\n\t\t</Produce>",
+      "items": [
+        27
+      ],
+      "upgrades_from": [],
+      "upgrade_only": false,
+      "store": "1",
+      "lands": [
+        "Vanilla"
+      ],
+      "idle_art": "LOOM",
+      "flags": [],
+      "production": {
+        "input": {
+          "50": 2.0
+        },
+        "output": 51,
+        "stack": 150.0,
+        "per_worker_hour": 20.0
+      }
+    },
+    "36": {
+      "id": 36,
+      "name": "Pen",
+      "source": "Vanilla_BuildingsTo10.xml",
+      "type": "mine",
+      "category": "",
+      "level": 10,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "10"
+        },
+        {
+          "type": "building",
+          "value": "3"
+        }
+      ],
+      "cost": {
+        "1": 200.0,
+        "10": 100.0,
+        "20": 100.0,
+        "40": 250.0
+      },
+      "build_seconds": 57600.0,
+      "footprint": [
+        6,
+        6
+      ],
+      "workers": {
+        "workerMax": "1",
+        "haulerMax": "1"
+      },
+      "residents": 0,
+      "adoptable": 0,
+      "tax": {},
+      "produce": "<Produce hurryCost=\"1\">\n\t\t\t<Output resource_id=\"50\" maxOutputStackSize=\"150\" />\n\t\t\t<Rate resourcesPerHour=\"0.0\" villagerResourcesPerHour=\"30.0\" mayorResources=\"50\" mayorResourcesNoEnergy=\"0\" />\n\t\t</Produce>",
+      "items": [],
+      "upgrades_from": [],
+      "upgrade_only": false,
+      "store": "0",
+      "lands": [
+        "Vanilla"
+      ],
+      "idle_art": "PEN",
+      "flags": [
+        "not a normal store purchase; eligibility unresolved"
+      ],
+      "production": {
+        "input": {},
+        "output": 50,
+        "stack": 150.0,
+        "per_worker_hour": 30.0
+      }
+    },
+    "32": {
+      "id": 32,
+      "name": "Carpenter Shop",
+      "source": "Vanilla_BuildingsTo10.xml",
+      "type": "shop",
+      "category": "shop",
+      "level": 6,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "2"
+        },
+        {
+          "type": "level",
+          "value": "6"
+        }
+      ],
+      "cost": {
+        "1": 600.0,
+        "11": 500.0,
+        "20": 250.0
+      },
+      "build_seconds": 28800.0,
+      "footprint": [
+        5,
+        5
+      ],
+      "workers": {},
+      "residents": 0,
+      "adoptable": 0,
+      "tax": {},
+      "produce": "",
+      "items": [
+        10,
+        32,
+        12,
+        14,
+        13,
+        11
+      ],
+      "upgrades_from": [],
+      "upgrade_only": false,
+      "store": "0",
+      "lands": [
+        "Vanilla"
+      ],
+      "idle_art": "CARVERSHALL",
+      "flags": [
+        "not a normal store purchase; eligibility unresolved"
+      ]
+    },
+    "38": {
+      "id": 38,
+      "name": "Pub",
+      "source": "Vanilla_Buildings10Plus.xml",
+      "type": "shop",
+      "category": "shop",
+      "level": 16,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "16"
+        }
+      ],
+      "cost": {
+        "1": 6000.0,
+        "11": 2500.0,
+        "21": 1500.0
+      },
+      "build_seconds": 86400.0,
+      "footprint": [
+        5,
+        5
+      ],
+      "workers": {},
+      "residents": 0,
+      "adoptable": 0,
+      "tax": {},
+      "produce": "",
+      "items": [
+        16,
+        19,
+        18,
+        30,
+        17
+      ],
+      "upgrades_from": [],
+      "upgrade_only": false,
+      "store": "0",
+      "lands": [
+        "Vanilla"
+      ],
+      "idle_art": "PUBSHOP",
+      "flags": [
+        "not a normal store purchase; eligibility unresolved"
+      ]
+    },
+    "2": {
+      "id": 2,
+      "name": "Tower",
+      "source": "Vanilla_BuildingsTo10.xml",
+      "type": "townhall",
+      "category": "",
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        },
+        {
+          "type": "building",
+          "value": "1"
+        }
+      ],
+      "cost": {
+        "1": 500.0,
+        "10": 300.0,
+        "20": 200.0
+      },
+      "build_seconds": 0.0,
+      "footprint": [
+        14,
+        14
+      ],
+      "workers": {},
+      "residents": 0,
+      "adoptable": 0,
+      "tax": {},
+      "produce": "",
+      "items": [],
+      "upgrades_from": [
+        1
+      ],
+      "upgrade_only": true,
+      "store": "0",
+      "lands": [
+        "Vanilla"
+      ],
+      "idle_art": "TOWER",
+      "flags": [
+        "not a normal store purchase; eligibility unresolved"
+      ]
+    },
+    "3": {
+      "id": 3,
+      "name": "Keep",
+      "source": "Vanilla_BuildingsTo10.xml",
+      "type": "townhall",
+      "category": "",
+      "level": 6,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "6"
+        },
+        {
+          "type": "building",
+          "value": "2"
+        }
+      ],
+      "cost": {
+        "1": 5000.0,
+        "11": 2000.0,
+        "20": 1200.0,
+        "40": 500.0
+      },
+      "build_seconds": 0.0,
+      "footprint": [
+        14,
+        14
+      ],
+      "workers": {},
+      "residents": 0,
+      "adoptable": 0,
+      "tax": {},
+      "produce": "",
+      "items": [],
+      "upgrades_from": [
+        2
+      ],
+      "upgrade_only": true,
+      "store": "0",
+      "lands": [
+        "Vanilla"
+      ],
+      "idle_art": "KEEP",
+      "flags": [
+        "not a normal store purchase; eligibility unresolved"
+      ]
+    },
+    "4": {
+      "id": 4,
+      "name": "Fort",
+      "source": "Vanilla_BuildingsTo10.xml",
+      "type": "townhall",
+      "category": "",
+      "level": 10,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "10"
+        },
+        {
+          "type": "building",
+          "value": "3"
+        }
+      ],
+      "cost": {
+        "1": 10000.0,
+        "11": 4000.0,
+        "21": 1500.0
+      },
+      "build_seconds": 0.0,
+      "footprint": [
+        14,
+        14
+      ],
+      "workers": {},
+      "residents": 0,
+      "adoptable": 0,
+      "tax": {},
+      "produce": "",
+      "items": [],
+      "upgrades_from": [
+        3
+      ],
+      "upgrade_only": true,
+      "store": "0",
+      "lands": [
+        "Vanilla"
+      ],
+      "idle_art": "FORT",
+      "flags": [
+        "not a normal store purchase; eligibility unresolved"
+      ]
+    }
+  },
+  "levels": {
+    "0": {
+      "xp_to_next": 1,
+      "limits": {
+        "house": 4,
+        "shop": 1
+      },
+      "text": ""
+    },
+    "1": {
+      "xp_to_next": 550,
+      "limits": {
+        "house": 4,
+        "shop": 1
+      },
+      "text": ""
+    },
+    "2": {
+      "xp_to_next": 750,
+      "limits": {
+        "house": 4,
+        "shop": 2
+      },
+      "text": "Congratulations, you've leveled up!\\n\\nYou have unlocked new decorations.\\n\\nYou may build additional houses and shops."
+    },
+    "3": {
+      "xp_to_next": 1100,
+      "limits": {
+        "house": 6,
+        "shop": 2
+      },
+      "text": "Superb, you've leveled up again.\\n\\nYou have unlocked new decorations.\\n\\nYou may now build additional houses."
+    },
+    "4": {
+      "xp_to_next": 1400,
+      "limits": {
+        "house": 6,
+        "shop": 3
+      },
+      "text": "Amazing, you've leveled up again!\\n\\nYou've unlocked the ability to upgrade your Land further. Also, you can now build new buildings, the Quarry, and expand your Town Hall to a Tower. Your townsfolk have discovered the art of road building.\\n\\nYou may now build additional shops."
+    },
+    "5": {
+      "xp_to_next": 2000,
+      "limits": {
+        "house": 7,
+        "shop": 3
+      },
+      "text": "Another day, another level!\\n\\nYou may now build additional houses and you now have Inventory available to store items from your land!"
+    },
+    "6": {
+      "xp_to_next": 2600,
+      "limits": {
+        "house": 7,
+        "shop": 4
+      },
+      "text": "Congratulations, you've leveled up.\\n\\nYou have unlocked new buildings and it is also possible to upgrade your Town Hall to a Keep.\\n\\nYou may now build additional shops."
+    },
+    "7": {
+      "xp_to_next": 3400,
+      "limits": {
+        "house": 8,
+        "shop": 4
+      },
+      "text": "Incredible, yet another level under your belt.\\n\\nYou have unlocked new decorations.\\n\\nYou may now build additional houses."
+    },
+    "8": {
+      "xp_to_next": 4300,
+      "limits": {
+        "house": 8,
+        "shop": 5
+      },
+      "text": "Well done, you've leveled up again.\\n\\nYou've unlocked new buildings.\\n\\nYou may now build additional shops."
+    },
+    "9": {
+      "xp_to_next": 5500,
+      "limits": {
+        "house": 9,
+        "shop": 5
+      },
+      "text": "You're on a roll!\\n\\nYou've unlocked new decorations.\\n\\nYou may now build up to 9 houses."
+    },
+    "10": {
+      "xp_to_next": 6500,
+      "limits": {
+        "house": 9,
+        "shop": 6
+      },
+      "text": "Another level conquered.\\n\\nYou've unlocked new buildings and decorations. You may also upgrade your Town Hall to a Fort.\\n\\nYou may now build new shops."
+    },
+    "11": {
+      "xp_to_next": 7500,
+      "limits": {
+        "house": 10,
+        "shop": 6
+      },
+      "text": "Turn it up to 11!\\n\\nYou've unlocked new decorations.\\n\\nYou may now build additional houses."
+    },
+    "12": {
+      "xp_to_next": 9000,
+      "limits": {
+        "house": 10,
+        "shop": 6
+      },
+      "text": "Excellent, you've leveled up.\\n\\nYou've unlocked new decorations!"
+    },
+    "13": {
+      "xp_to_next": 11000,
+      "limits": {
+        "house": 11,
+        "shop": 6
+      },
+      "text": "You've leveled up again.\\n\\nYou've unlocked new decorations!\\n\\nYou may now build additional houses."
+    },
+    "14": {
+      "xp_to_next": 12000,
+      "limits": {
+        "house": 11,
+        "shop": 7
+      },
+      "text": "Brilliant, another level up.\\n\\nYou have unlocked new buildings and decorations!\\n\\nYou may now build additional shops."
+    },
+    "15": {
+      "xp_to_next": 14000,
+      "limits": {
+        "house": 12,
+        "shop": 7
+      },
+      "text": "You're clearing these levels like nobody's business!\\n\\nYou may now build additional houses."
+    },
+    "16": {
+      "xp_to_next": 16000,
+      "limits": {
+        "house": 12,
+        "shop": 7
+      },
+      "text": "There's no stopping you! You have unlocked new buildings."
+    },
+    "17": {
+      "xp_to_next": 18000,
+      "limits": {
+        "house": 13,
+        "shop": 8
+      },
+      "text": "Well done, you've leveled up again.\\n\\nYou have unlocked new decorations!\\n\\nYou may now build additional houses and shops."
+    },
+    "18": {
+      "xp_to_next": 20000,
+      "limits": {
+        "house": 13,
+        "shop": 8
+      },
+      "text": "I nearly got a nose bleed your level is so high! You have unlocked new buildings."
+    },
+    "19": {
+      "xp_to_next": 22000,
+      "limits": {
+        "house": 14,
+        "shop": 8
+      },
+      "text": "Fantastic, you've leveled up!\\n\\nYou have unlocked new decorations.\\n\\nYou may now build additional 14 houses."
+    },
+    "20": {
+      "xp_to_next": 24800,
+      "limits": {
+        "house": 3,
+        "shop": 2
+      },
+      "text": "Level 20! You can now build the Hot Air Balloon to visit new lands! You can also upgrade your Town Hall to the Castle, and have unlocked new buildings and decorations!"
+    },
+    "21": {
+      "xp_to_next": 28092,
+      "limits": {
+        "house": 3,
+        "shop": 3
+      },
+      "text": "Well done, level 21! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "22": {
+      "xp_to_next": 31774,
+      "limits": {
+        "house": 4,
+        "shop": 3
+      },
+      "text": "Level 22? No way! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "23": {
+      "xp_to_next": 35870,
+      "limits": {
+        "house": 4,
+        "shop": 4
+      },
+      "text": "Another level! I'm so proud. Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "24": {
+      "xp_to_next": 40534,
+      "limits": {
+        "house": 5,
+        "shop": 4
+      },
+      "text": "Congratulations on level 24! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "25": {
+      "xp_to_next": 45803,
+      "limits": {
+        "house": 5,
+        "shop": 5
+      },
+      "text": "Congratulations on level 25! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "26": {
+      "xp_to_next": 51757,
+      "limits": {
+        "house": 6,
+        "shop": 5
+      },
+      "text": "Level 26! To level, or not to level... that is the question. Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "27": {
+      "xp_to_next": 58486,
+      "limits": {
+        "house": 6,
+        "shop": 6
+      },
+      "text": "Congratulations on level 27! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "28": {
+      "xp_to_next": 66089,
+      "limits": {
+        "house": 7,
+        "shop": 6
+      },
+      "text": "Congratulations on level 28! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "29": {
+      "xp_to_next": 74680,
+      "limits": {
+        "house": 7,
+        "shop": 7
+      },
+      "text": "Congratulations on level 29! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "30": {
+      "xp_to_next": 84389,
+      "limits": {
+        "house": 8,
+        "shop": 7
+      },
+      "text": "Congratulations on level 30! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "31": {
+      "xp_to_next": 95360,
+      "limits": {
+        "house": 8,
+        "shop": 7
+      },
+      "text": "Congratulations on level 31! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "32": {
+      "xp_to_next": 107756,
+      "limits": {
+        "house": 8,
+        "shop": 8
+      },
+      "text": "Congratulations on level 32! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "33": {
+      "xp_to_next": 121765,
+      "limits": {
+        "house": 9,
+        "shop": 8
+      },
+      "text": "Congratulations on level 33! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "34": {
+      "xp_to_next": 137594,
+      "limits": {
+        "house": 9,
+        "shop": 8
+      },
+      "text": "Congratulations on level 34! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "35": {
+      "xp_to_next": 155841,
+      "limits": {
+        "house": 9,
+        "shop": 9
+      },
+      "text": "Congratulations on level 35! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "36": {
+      "xp_to_next": 175694,
+      "limits": {
+        "house": 10,
+        "shop": 9
+      },
+      "text": "Congratulations on level 36! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "37": {
+      "xp_to_next": 198534,
+      "limits": {
+        "house": 10,
+        "shop": 9
+      },
+      "text": "Congratulations on level 37! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "38": {
+      "xp_to_next": 224343,
+      "limits": {
+        "house": 10,
+        "shop": 9
+      },
+      "text": "Congratulations on level 38! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "39": {
+      "xp_to_next": 253508,
+      "limits": {
+        "house": 10,
+        "shop": 9
+      },
+      "text": "Congratulations on level 39! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "40": {
+      "xp_to_next": 286464,
+      "limits": {
+        "house": 10,
+        "shop": 10
+      },
+      "text": "Congratulations on level 40! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "41": {
+      "xp_to_next": 323704,
+      "limits": {
+        "house": 10,
+        "shop": 10
+      },
+      "text": "Level 41! Great job! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "42": {
+      "xp_to_next": 365786,
+      "limits": {
+        "house": 10,
+        "shop": 10
+      },
+      "text": "Level 42! Great job! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "43": {
+      "xp_to_next": 413338,
+      "limits": {
+        "house": 10,
+        "shop": 10
+      },
+      "text": "Level 43? Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "44": {
+      "xp_to_next": 467072,
+      "limits": {
+        "house": 10,
+        "shop": 10
+      },
+      "text": "Congrats on level 44! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "45": {
+      "xp_to_next": 518450,
+      "limits": {
+        "house": 11,
+        "shop": 10
+      },
+      "text": "Level 45? Wow! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "46": {
+      "xp_to_next": 565110,
+      "limits": {
+        "house": 11,
+        "shop": 10
+      },
+      "text": "Level 46? You're pretty good at this. Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "47": {
+      "xp_to_next": 604668,
+      "limits": {
+        "house": 11,
+        "shop": 10
+      },
+      "text": "Congrats on level 47! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "48": {
+      "xp_to_next": 634901,
+      "limits": {
+        "house": 11,
+        "shop": 10
+      },
+      "text": "Level 48! Yay!! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "49": {
+      "xp_to_next": 666467,
+      "limits": {
+        "house": 11,
+        "shop": 10
+      },
+      "text": "Level 49! Nothing can stop you! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "50": {
+      "xp_to_next": 699979,
+      "limits": {
+        "house": 11,
+        "shop": 11
+      },
+      "text": "Ain't it nifty, now you're 50! Check to see what new buildings, decorations, or shop jobs have been unlocked in your lands!"
+    },
+    "51": {
+      "xp_to_next": 728000,
+      "limits": {
+        "house": 11,
+        "shop": 11
+      },
+      "text": "Level 51! Congratulations!"
+    },
+    "52": {
+      "xp_to_next": 757000,
+      "limits": {
+        "house": 11,
+        "shop": 11
+      },
+      "text": "Level 52!"
+    },
+    "53": {
+      "xp_to_next": 787000,
+      "limits": {
+        "house": 11,
+        "shop": 11
+      },
+      "text": "Level 53! Awesome!"
+    },
+    "54": {
+      "xp_to_next": 819000,
+      "limits": {
+        "house": 11,
+        "shop": 11
+      },
+      "text": "Level 54! Woot!"
+    },
+    "55": {
+      "xp_to_next": 851500,
+      "limits": {
+        "house": 12,
+        "shop": 11
+      },
+      "text": "Level 55! Great job!"
+    },
+    "56": {
+      "xp_to_next": 877000,
+      "limits": {
+        "house": 12,
+        "shop": 11
+      },
+      "text": "Level 56! You're the best!"
+    },
+    "57": {
+      "xp_to_next": 903000,
+      "limits": {
+        "house": 12,
+        "shop": 11
+      },
+      "text": "Level 57! Amazing!"
+    },
+    "58": {
+      "xp_to_next": 930500,
+      "limits": {
+        "house": 12,
+        "shop": 11
+      },
+      "text": "Level 58! Keep it going!"
+    },
+    "59": {
+      "xp_to_next": 958500,
+      "limits": {
+        "house": 12,
+        "shop": 11
+      },
+      "text": "Level 59! Nothing can stop you!"
+    },
+    "60": {
+      "xp_to_next": 987000,
+      "limits": {
+        "house": 12,
+        "shop": 12
+      },
+      "text": "Ever since you hurried your first log, I knew you were destined for Level 60 greatness. You are now a Trade Nations Master! Keep going to become a Grandmaster, young one..."
+    },
+    "61": {
+      "xp_to_next": 1020500,
+      "limits": {
+        "house": 12,
+        "shop": 12
+      },
+      "text": "Level 61! Fun, fun, fun, fun."
+    },
+    "62": {
+      "xp_to_next": 1059000,
+      "limits": {
+        "house": 12,
+        "shop": 12
+      },
+      "text": "Level 62! Go you!"
+    },
+    "63": {
+      "xp_to_next": 1102500,
+      "limits": {
+        "house": 12,
+        "shop": 12
+      },
+      "text": "Level 63! You are a leveling machine."
+    },
+    "64": {
+      "xp_to_next": 1151000,
+      "limits": {
+        "house": 12,
+        "shop": 12
+      },
+      "text": "Level 64! You're so good at this, you should write a book on how to level up in Trade Nations!"
+    },
+    "65": {
+      "xp_to_next": 1224500,
+      "limits": {
+        "house": 13,
+        "shop": 12
+      },
+      "text": "Level 65! Holy smokes, you are on fire! (see what we did there?)"
+    },
+    "66": {
+      "xp_to_next": 1323000,
+      "limits": {
+        "house": 13,
+        "shop": 12
+      },
+      "text": "Level 66! You're on Route to greatness."
+    },
+    "67": {
+      "xp_to_next": 1446500,
+      "limits": {
+        "house": 13,
+        "shop": 12
+      },
+      "text": "Level 67! Lucky Level 67, or something like that."
+    },
+    "68": {
+      "xp_to_next": 1595000,
+      "limits": {
+        "house": 13,
+        "shop": 12
+      },
+      "text": "Level 68! You're almost there, keep going strong!"
+    },
+    "69": {
+      "xp_to_next": 1768500,
+      "limits": {
+        "house": 13,
+        "shop": 12
+      },
+      "text": "Level 69! You're doing just fine."
+    },
+    "70": {
+      "xp_to_next": 2042000,
+      "limits": {
+        "house": 13,
+        "shop": 13
+      },
+      "text": "Level 70! Congratulations, you are now a Trade Nations Grand Master!"
+    }
+  },
+  "shop_recipes": {
+    "40": {
+      "name": "Cookies",
+      "seconds": 45.0,
+      "inputs": {
+        "40": 1.0
+      },
+      "rewards": {
+        "1": 10.0
+      },
+      "xp": 5.0,
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ]
+    },
+    "41": {
+      "name": "Tarts",
+      "seconds": 300.0,
+      "inputs": {
+        "40": 4.0
+      },
+      "rewards": {
+        "1": 25.0
+      },
+      "xp": 15.0,
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ]
+    },
+    "42": {
+      "name": "Donuts",
+      "seconds": 3600.0,
+      "inputs": {
+        "40": 30.0
+      },
+      "rewards": {
+        "1": 110.0
+      },
+      "xp": 60.0,
+      "level": 3,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "3"
+        }
+      ]
+    },
+    "44": {
+      "name": "Cupcakes",
+      "seconds": 14400.0,
+      "inputs": {
+        "40": 200.0
+      },
+      "rewards": {
+        "1": 200.0
+      },
+      "xp": 200.0,
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ]
+    },
+    "43": {
+      "name": "Eclair",
+      "seconds": 43200.0,
+      "inputs": {
+        "40": 350.0
+      },
+      "rewards": {
+        "1": 480.0
+      },
+      "xp": 350.0,
+      "level": 3,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "3"
+        }
+      ]
+    },
+    "45": {
+      "name": "Cake",
+      "seconds": 86400.0,
+      "inputs": {
+        "40": 600.0
+      },
+      "rewards": {
+        "1": 750.0
+      },
+      "xp": 650.0,
+      "level": 5,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "5"
+        }
+      ]
+    },
+    "10": {
+      "name": "Table",
+      "seconds": 300.0,
+      "inputs": {
+        "10": 6.0
+      },
+      "rewards": {
+        "1": 40.0
+      },
+      "xp": 20.0,
+      "level": 6,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "6"
+        }
+      ]
+    },
+    "12": {
+      "name": "Bird House",
+      "seconds": 7200.0,
+      "inputs": {
+        "11": 25.0
+      },
+      "rewards": {
+        "1": 150.0
+      },
+      "xp": 95.0,
+      "level": 7,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "7"
+        }
+      ]
+    },
+    "14": {
+      "name": "Bed",
+      "seconds": 14400.0,
+      "inputs": {
+        "11": 75.0
+      },
+      "rewards": {
+        "1": 300.0
+      },
+      "xp": 200.0,
+      "level": 11,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "11"
+        }
+      ]
+    },
+    "13": {
+      "name": "Chairs",
+      "seconds": 28800.0,
+      "inputs": {
+        "11": 110.0
+      },
+      "rewards": {
+        "1": 400.0
+      },
+      "xp": 250.0,
+      "level": 9,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "9"
+        }
+      ]
+    },
+    "11": {
+      "name": "Bench",
+      "seconds": 43200.0,
+      "inputs": {
+        "11": 140.0
+      },
+      "rewards": {
+        "1": 500.0
+      },
+      "xp": 425.0,
+      "level": 6,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "6"
+        }
+      ]
+    },
+    "50": {
+      "name": "Tunic",
+      "seconds": 3600.0,
+      "inputs": {
+        "50": 20.0
+      },
+      "rewards": {
+        "1": 125.0
+      },
+      "xp": 150.0,
+      "level": 10,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "10"
+        }
+      ]
+    },
+    "52": {
+      "name": "Trousers",
+      "seconds": 7200.0,
+      "inputs": {
+        "50": 160.0
+      },
+      "rewards": {
+        "1": 225.0
+      },
+      "xp": 170.0,
+      "level": 13,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "13"
+        }
+      ]
+    },
+    "51": {
+      "name": "Coat",
+      "seconds": 21600.0,
+      "inputs": {
+        "50": 225.0
+      },
+      "rewards": {
+        "1": 275.0
+      },
+      "xp": 350.0,
+      "level": 10,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "10"
+        }
+      ]
+    },
+    "53": {
+      "name": "Fancy Suit",
+      "seconds": 57600.0,
+      "inputs": {
+        "51": 150.0
+      },
+      "rewards": {
+        "1": 850.0
+      },
+      "xp": 500.0,
+      "level": 15,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "15"
+        }
+      ]
+    },
+    "54": {
+      "name": "Fancy Dress",
+      "seconds": 86400.0,
+      "inputs": {
+        "51": 240.0
+      },
+      "rewards": {
+        "1": 650.0
+      },
+      "xp": 1000.0,
+      "level": 17,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "17"
+        }
+      ]
+    },
+    "20": {
+      "name": "Bird Bath",
+      "seconds": 900.0,
+      "inputs": {
+        "21": 5.0
+      },
+      "rewards": {
+        "1": 60.0
+      },
+      "xp": 50.0,
+      "level": 14,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "14"
+        }
+      ]
+    },
+    "23": {
+      "name": "Lawn Gnome",
+      "seconds": 10800.0,
+      "inputs": {
+        "21": 55.0
+      },
+      "rewards": {
+        "1": 300.0
+      },
+      "xp": 400.0,
+      "level": 15,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "15"
+        }
+      ]
+    },
+    "22": {
+      "name": "Bust",
+      "seconds": 43200.0,
+      "inputs": {
+        "21": 70.0
+      },
+      "rewards": {
+        "1": 500.0
+      },
+      "xp": 500.0,
+      "level": 17,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "17"
+        }
+      ]
+    },
+    "24": {
+      "name": "Lion Statue",
+      "seconds": 54000.0,
+      "inputs": {
+        "21": 80.0
+      },
+      "rewards": {
+        "1": 650.0
+      },
+      "xp": 550.0,
+      "level": 19,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "19"
+        }
+      ]
+    },
+    "21": {
+      "name": "Worker Statue",
+      "seconds": 86400.0,
+      "inputs": {
+        "21": 125.0
+      },
+      "rewards": {
+        "1": 900.0
+      },
+      "xp": 760.0,
+      "level": 14,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "14"
+        }
+      ]
+    },
+    "25": {
+      "name": "200 Lumber",
+      "seconds": 21600.0,
+      "inputs": {
+        "10": 400.0
+      },
+      "rewards": {
+        "11": 200.0
+      },
+      "xp": 120.0,
+      "level": 0,
+      "prerequisites": []
+    },
+    "26": {
+      "name": "100 Cut Stone",
+      "seconds": 21600.0,
+      "inputs": {
+        "20": 200.0
+      },
+      "rewards": {
+        "21": 100.0
+      },
+      "xp": 140.0,
+      "level": 0,
+      "prerequisites": []
+    },
+    "27": {
+      "name": "150 Cloth",
+      "seconds": 21600.0,
+      "inputs": {
+        "50": 300.0
+      },
+      "rewards": {
+        "51": 150.0
+      },
+      "xp": 170.0,
+      "level": 0,
+      "prerequisites": []
+    },
+    "16": {
+      "name": "Grog",
+      "seconds": 600.0,
+      "inputs": {
+        "40": 30.0
+      },
+      "rewards": {
+        "1": 40.0
+      },
+      "xp": 40.0,
+      "level": 16,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "16"
+        }
+      ]
+    },
+    "17": {
+      "name": "Lager",
+      "seconds": 86400.0,
+      "inputs": {
+        "40": 650.0
+      },
+      "rewards": {
+        "1": 900.0
+      },
+      "xp": 850.0,
+      "level": 24,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "24"
+        }
+      ]
+    },
+    "18": {
+      "name": "Mead",
+      "seconds": 14400.0,
+      "inputs": {
+        "40": 150.0
+      },
+      "rewards": {
+        "1": 350.0
+      },
+      "xp": 375.0,
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ]
+    },
+    "19": {
+      "name": "Ale",
+      "seconds": 7200.0,
+      "inputs": {
+        "40": 100.0
+      },
+      "rewards": {
+        "1": 200.0
+      },
+      "xp": 225.0,
+      "level": 18,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "18"
+        }
+      ]
+    },
+    "30": {
+      "name": "Malt",
+      "seconds": 43200.0,
+      "inputs": {
+        "40": 300.0
+      },
+      "rewards": {
+        "1": 485.0
+      },
+      "xp": 400.0,
+      "level": 22,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "22"
+        }
+      ]
+    },
+    "31": {
+      "name": "Stocking",
+      "seconds": 600.0,
+      "inputs": {
+        "50": 5.0
+      },
+      "rewards": {
+        "1": 50.0
+      },
+      "xp": 35.0,
+      "level": 10,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "10"
+        }
+      ]
+    },
+    "32": {
+      "name": "Nutcracker",
+      "seconds": 600.0,
+      "inputs": {
+        "11": 5.0
+      },
+      "rewards": {
+        "1": 50.0
+      },
+      "xp": 30.0,
+      "level": 14,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "14"
+        }
+      ]
+    },
+    "33": {
+      "name": "Gingerbread Man",
+      "seconds": 600.0,
+      "inputs": {
+        "40": 5.0
+      },
+      "rewards": {
+        "1": 45.0
+      },
+      "xp": 25.0,
+      "level": 3,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "3"
+        }
+      ]
+    },
+    "34": {
+      "name": "Beanonomics",
+      "seconds": 600.0,
+      "inputs": {
+        "10": 30.0,
+        "51": 5.0
+      },
+      "rewards": {
+        "1": 75.0
+      },
+      "xp": 50.0,
+      "level": 22,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "22"
+        }
+      ]
+    },
+    "35": {
+      "name": "Of Sheep and Haulers",
+      "seconds": 7200.0,
+      "inputs": {
+        "10": 100.0,
+        "51": 6.0
+      },
+      "rewards": {
+        "1": 250.0
+      },
+      "xp": 250.0,
+      "level": 23,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "23"
+        }
+      ]
+    },
+    "36": {
+      "name": "Villager's Travels",
+      "seconds": 14400.0,
+      "inputs": {
+        "10": 125.0,
+        "51": 7.0
+      },
+      "rewards": {
+        "1": 325.0
+      },
+      "xp": 325.0,
+      "level": 25,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "25"
+        }
+      ]
+    },
+    "37": {
+      "name": "The Lord of the Donuts",
+      "seconds": 28800.0,
+      "inputs": {
+        "10": 300.0,
+        "51": 15.0
+      },
+      "rewards": {
+        "1": 485.0
+      },
+      "xp": 375.0,
+      "level": 27,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "27"
+        }
+      ]
+    },
+    "38": {
+      "name": "Playing the Market",
+      "seconds": 86400.0,
+      "inputs": {
+        "10": 400.0,
+        "51": 25.0
+      },
+      "rewards": {
+        "1": 750.0
+      },
+      "xp": 1100.0,
+      "level": 29,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "29"
+        }
+      ]
+    },
+    "60": {
+      "name": "One Act",
+      "seconds": 3600.0,
+      "inputs": {
+        "1": 175.0
+      },
+      "rewards": {},
+      "xp": 600.0,
+      "level": 26,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "26"
+        }
+      ]
+    },
+    "61": {
+      "name": "Fiddler on the Woof",
+      "seconds": 7200.0,
+      "inputs": {
+        "1": 225.0
+      },
+      "rewards": {},
+      "xp": 675.0,
+      "level": 28,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "28"
+        }
+      ]
+    },
+    "62": {
+      "name": "Twelfth Evening",
+      "seconds": 18000.0,
+      "inputs": {
+        "1": 450.0
+      },
+      "rewards": {},
+      "xp": 1300.0,
+      "level": 30,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "30"
+        }
+      ]
+    },
+    "63": {
+      "name": "The Merchant of Nations",
+      "seconds": 36000.0,
+      "inputs": {
+        "1": 900.0
+      },
+      "rewards": {},
+      "xp": 2300.0,
+      "level": 31,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "31"
+        }
+      ]
+    },
+    "64": {
+      "name": "King Mayor",
+      "seconds": 72000.0,
+      "inputs": {
+        "1": 1250.0
+      },
+      "rewards": {},
+      "xp": 3000.0,
+      "level": 33,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "33"
+        }
+      ]
+    },
+    "65": {
+      "name": "Firebreather",
+      "seconds": 3600.0,
+      "inputs": {
+        "1": 100.0
+      },
+      "rewards": {},
+      "xp": 500.0,
+      "level": 30,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "30"
+        }
+      ]
+    },
+    "66": {
+      "name": "Clown",
+      "seconds": 10800.0,
+      "inputs": {
+        "1": 350.0
+      },
+      "rewards": {},
+      "xp": 1050.0,
+      "level": 32,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "32"
+        }
+      ]
+    },
+    "67": {
+      "name": "Juggler",
+      "seconds": 28800.0,
+      "inputs": {
+        "1": 900.0
+      },
+      "rewards": {},
+      "xp": 2250.0,
+      "level": 34,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "34"
+        }
+      ]
+    },
+    "68": {
+      "name": "Trapeze",
+      "seconds": 86400.0,
+      "inputs": {
+        "1": 1500.0
+      },
+      "rewards": {},
+      "xp": 3500.0,
+      "level": 35,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "35"
+        }
+      ]
+    },
+    "69": {
+      "name": "Lilies",
+      "seconds": 45.0,
+      "inputs": {
+        "1": 1.0
+      },
+      "rewards": {
+        "1": 10.0
+      },
+      "xp": 5.0,
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ]
+    },
+    "70": {
+      "name": "Marigolds",
+      "seconds": 300.0,
+      "inputs": {
+        "1": 2.0
+      },
+      "rewards": {
+        "1": 25.0
+      },
+      "xp": 15.0,
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ]
+    },
+    "71": {
+      "name": "Sunflowers",
+      "seconds": 3600.0,
+      "inputs": {
+        "1": 18.0
+      },
+      "rewards": {
+        "1": 110.0
+      },
+      "xp": 60.0,
+      "level": 3,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "3"
+        }
+      ]
+    },
+    "72": {
+      "name": "Lilacs",
+      "seconds": 43200.0,
+      "inputs": {
+        "1": 210.0
+      },
+      "rewards": {
+        "1": 480.0
+      },
+      "xp": 350.0,
+      "level": 3,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "3"
+        }
+      ]
+    },
+    "73": {
+      "name": "Roses",
+      "seconds": 86400.0,
+      "inputs": {
+        "1": 360.0
+      },
+      "rewards": {
+        "1": 750.0
+      },
+      "xp": 650.0,
+      "level": 5,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "5"
+        }
+      ]
+    },
+    "74": {
+      "name": "Swiss Cheese",
+      "seconds": 10800.0,
+      "inputs": {
+        "40": 335.0
+      },
+      "rewards": {
+        "1": 475.0
+      },
+      "xp": 280.0,
+      "level": 36,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "36"
+        }
+      ]
+    },
+    "75": {
+      "name": "Glass of Milk",
+      "seconds": 900.0,
+      "inputs": {
+        "40": 210.0
+      },
+      "rewards": {
+        "1": 150.0
+      },
+      "xp": 35.0,
+      "level": 34,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "34"
+        }
+      ]
+    },
+    "76": {
+      "name": "Rainbow Ice Cream",
+      "seconds": 86400.0,
+      "inputs": {
+        "40": 1000.0
+      },
+      "rewards": {
+        "1": 1000.0
+      },
+      "xp": 1200.0,
+      "level": 40,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "40"
+        }
+      ]
+    },
+    "77": {
+      "name": "Chocolate Ice Cream",
+      "seconds": 21600.0,
+      "inputs": {
+        "40": 500.0
+      },
+      "rewards": {
+        "1": 725.0
+      },
+      "xp": 450.0,
+      "level": 38,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "38"
+        }
+      ]
+    },
+    "78": {
+      "name": "Cheddar Cheese",
+      "seconds": 43200.0,
+      "inputs": {
+        "40": 750.0
+      },
+      "rewards": {
+        "1": 900.0
+      },
+      "xp": 500.0,
+      "level": 39,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "39"
+        }
+      ]
+    },
+    "79": {
+      "name": "Blocks",
+      "seconds": 79200.0,
+      "inputs": {
+        "10": 900.0
+      },
+      "rewards": {
+        "1": 975.0
+      },
+      "xp": 925.0,
+      "level": 24,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "24"
+        }
+      ]
+    },
+    "80": {
+      "name": "Ragdoll",
+      "seconds": 50400.0,
+      "inputs": {
+        "50": 95.0,
+        "51": 110.0
+      },
+      "rewards": {
+        "1": 700.0
+      },
+      "xp": 910.0,
+      "level": 25,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "25"
+        }
+      ]
+    },
+    "81": {
+      "name": "Toy Train",
+      "seconds": 21600.0,
+      "inputs": {
+        "11": 180.0
+      },
+      "rewards": {
+        "1": 600.0
+      },
+      "xp": 375.0,
+      "level": 27,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "27"
+        }
+      ]
+    },
+    "82": {
+      "name": "Teddy Bear",
+      "seconds": 7200.0,
+      "inputs": {
+        "50": 95.0,
+        "51": 45.0
+      },
+      "rewards": {
+        "1": 250.0
+      },
+      "xp": 350.0,
+      "level": 29,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "29"
+        }
+      ]
+    },
+    "83": {
+      "name": "Pet Rock",
+      "seconds": 900.0,
+      "inputs": {
+        "20": 125.0
+      },
+      "rewards": {
+        "1": 175.0
+      },
+      "xp": 70.0,
+      "level": 31,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "31"
+        }
+      ]
+    },
+    "84": {
+      "name": "Fresh Fish",
+      "seconds": 1800.0,
+      "inputs": {
+        "1": 60.0
+      },
+      "rewards": {
+        "1": 150.0
+      },
+      "xp": 80.0,
+      "level": 38,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "38"
+        }
+      ]
+    },
+    "85": {
+      "name": "Fried Egg",
+      "seconds": 14400.0,
+      "inputs": {
+        "1": 100.0
+      },
+      "rewards": {
+        "1": 450.0
+      },
+      "xp": 475.0,
+      "level": 40,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "40"
+        }
+      ]
+    },
+    "86": {
+      "name": "Fruit Salad",
+      "seconds": 28800.0,
+      "inputs": {
+        "1": 250.0
+      },
+      "rewards": {
+        "1": 625.0
+      },
+      "xp": 600.0,
+      "level": 42,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "42"
+        }
+      ]
+    },
+    "87": {
+      "name": "Pumpkin Pie",
+      "seconds": 43200.0,
+      "inputs": {
+        "1": 400.0
+      },
+      "rewards": {
+        "1": 750.0
+      },
+      "xp": 750.0,
+      "level": 44,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "44"
+        }
+      ]
+    },
+    "88": {
+      "name": "T-Bone Steak",
+      "seconds": 86400.0,
+      "inputs": {
+        "1": 700.0
+      },
+      "rewards": {
+        "1": 1250.0
+      },
+      "xp": 1300.0,
+      "level": 46,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "46"
+        }
+      ]
+    },
+    "89": {
+      "name": "Wooly Boots",
+      "seconds": 3600.0,
+      "inputs": {
+        "50": 40.0
+      },
+      "rewards": {
+        "1": 175.0
+      },
+      "xp": 200.0,
+      "level": 32,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "32"
+        }
+      ]
+    },
+    "90": {
+      "name": "Clogs",
+      "seconds": 7200.0,
+      "inputs": {
+        "10": 200.0
+      },
+      "rewards": {
+        "1": 300.0
+      },
+      "xp": 275.0,
+      "level": 33,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "33"
+        }
+      ]
+    },
+    "91": {
+      "name": "Moccasins",
+      "seconds": 21600.0,
+      "inputs": {
+        "51": 40.0
+      },
+      "rewards": {
+        "1": 350.0
+      },
+      "xp": 400.0,
+      "level": 35,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "35"
+        }
+      ]
+    },
+    "92": {
+      "name": "Sandals",
+      "seconds": 36000.0,
+      "inputs": {
+        "51": 100.0
+      },
+      "rewards": {
+        "1": 600.0
+      },
+      "xp": 600.0,
+      "level": 37,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "37"
+        }
+      ]
+    },
+    "93": {
+      "name": "Dress Shoes",
+      "seconds": 86400.0,
+      "inputs": {
+        "1": 700.0
+      },
+      "rewards": {
+        "1": 1400.0
+      },
+      "xp": 1150.0,
+      "level": 39,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "39"
+        }
+      ]
+    },
+    "94": {
+      "name": "Opal Pendant",
+      "seconds": 14400.0,
+      "inputs": {
+        "20": 150.0
+      },
+      "rewards": {
+        "1": 475.0
+      },
+      "xp": 450.0,
+      "level": 41,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "41"
+        }
+      ]
+    },
+    "95": {
+      "name": "Ruby Necklace",
+      "seconds": 18000.0,
+      "inputs": {
+        "20": 225.0
+      },
+      "rewards": {
+        "1": 500.0
+      },
+      "xp": 550.0,
+      "level": 43,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "43"
+        }
+      ]
+    },
+    "96": {
+      "name": "Emerald Ring",
+      "seconds": 28800.0,
+      "inputs": {
+        "20": 525.0
+      },
+      "rewards": {
+        "1": 650.0
+      },
+      "xp": 575.0,
+      "level": 45,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "45"
+        }
+      ]
+    },
+    "97": {
+      "name": "Sapphire Earrings",
+      "seconds": 43200.0,
+      "inputs": {
+        "20": 550.0
+      },
+      "rewards": {
+        "1": 900.0
+      },
+      "xp": 700.0,
+      "level": 47,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "47"
+        }
+      ]
+    },
+    "98": {
+      "name": "Diamond Tiara",
+      "seconds": 86400.0,
+      "inputs": {
+        "20": 1250.0
+      },
+      "rewards": {
+        "1": 1625.0
+      },
+      "xp": 1200.0,
+      "level": 49,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "49"
+        }
+      ]
+    },
+    "109": {
+      "name": "Black Tea",
+      "seconds": 1800.0,
+      "inputs": {
+        "1": 100.0
+      },
+      "rewards": {
+        "1": 250.0
+      },
+      "xp": 120.0,
+      "level": 44,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "44"
+        }
+      ]
+    },
+    "100": {
+      "name": "Ginseng Tea",
+      "seconds": 7200.0,
+      "inputs": {
+        "1": 120.0
+      },
+      "rewards": {
+        "1": 420.0
+      },
+      "xp": 280.0,
+      "level": 45,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "45"
+        }
+      ]
+    },
+    "101": {
+      "name": "Green Tea",
+      "seconds": 14400.0,
+      "inputs": {
+        "1": 175.0
+      },
+      "rewards": {
+        "1": 625.0
+      },
+      "xp": 485.0,
+      "level": 46,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "46"
+        }
+      ]
+    },
+    "102": {
+      "name": "Jasmine Tea",
+      "seconds": 28800.0,
+      "inputs": {
+        "1": 275.0
+      },
+      "rewards": {
+        "1": 700.0
+      },
+      "xp": 560.0,
+      "level": 48,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "48"
+        }
+      ]
+    },
+    "103": {
+      "name": "White Tea",
+      "seconds": 86400.0,
+      "inputs": {
+        "1": 1150.0
+      },
+      "rewards": {
+        "1": 1700.0
+      },
+      "xp": 1200.0,
+      "level": 50,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "50"
+        }
+      ]
+    },
+    "104": {
+      "name": "Hamachi",
+      "seconds": 600.0,
+      "inputs": {
+        "1": 100.0
+      },
+      "rewards": {
+        "1": 145.0
+      },
+      "xp": 65.0,
+      "level": 47,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "47"
+        }
+      ]
+    },
+    "105": {
+      "name": "Maguro",
+      "seconds": 7200.0,
+      "inputs": {
+        "1": 150.0
+      },
+      "rewards": {
+        "1": 375.0
+      },
+      "xp": 375.0,
+      "level": 48,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "48"
+        }
+      ]
+    },
+    "106": {
+      "name": "Sake",
+      "seconds": 14400.0,
+      "inputs": {
+        "1": 245.0
+      },
+      "rewards": {
+        "1": 575.0
+      },
+      "xp": 650.0,
+      "level": 49,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "49"
+        }
+      ]
+    },
+    "107": {
+      "name": "Tamago",
+      "seconds": 28800.0,
+      "inputs": {
+        "1": 375.0
+      },
+      "rewards": {
+        "1": 625.0
+      },
+      "xp": 675.0,
+      "level": 51,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "51"
+        }
+      ]
+    },
+    "108": {
+      "name": "Uni",
+      "seconds": 86400.0,
+      "inputs": {
+        "1": 975.0
+      },
+      "rewards": {
+        "1": 1325.0
+      },
+      "xp": 1650.0,
+      "level": 53,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "53"
+        }
+      ]
+    },
+    "110": {
+      "name": "Beginner Mining",
+      "seconds": 300.0,
+      "inputs": {
+        "20": 5.0
+      },
+      "rewards": {},
+      "xp": 45.0,
+      "level": 8,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "8"
+        }
+      ]
+    },
+    "111": {
+      "name": "Advanced Hauling",
+      "seconds": 600.0,
+      "inputs": {
+        "11": 15.0
+      },
+      "rewards": {},
+      "xp": 80.0,
+      "level": 9,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "9"
+        }
+      ]
+    },
+    "112": {
+      "name": "Trading for Profit",
+      "seconds": 7200.0,
+      "inputs": {
+        "1": 120.0
+      },
+      "rewards": {},
+      "xp": 400.0,
+      "level": 11,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "11"
+        }
+      ]
+    },
+    "113": {
+      "name": "Baking with Beans",
+      "seconds": 14400.0,
+      "inputs": {
+        "1": 260.0
+      },
+      "rewards": {},
+      "xp": 625.0,
+      "level": 13,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "13"
+        }
+      ]
+    },
+    "114": {
+      "name": "Juggling 101",
+      "seconds": 43200.0,
+      "inputs": {
+        "1": 400.0
+      },
+      "rewards": {},
+      "xp": 1150.0,
+      "level": 16,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "16"
+        }
+      ]
+    },
+    "117": {
+      "name": "Bob",
+      "seconds": 900.0,
+      "inputs": {
+        "1": 120.0
+      },
+      "rewards": {
+        "1": 180.0
+      },
+      "xp": 80.0,
+      "level": 45,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "45"
+        }
+      ]
+    },
+    "118": {
+      "name": "Pompadour",
+      "seconds": 7200.0,
+      "inputs": {
+        "1": 135.0
+      },
+      "rewards": {
+        "1": 400.0
+      },
+      "xp": 320.0,
+      "level": 46,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "46"
+        }
+      ]
+    },
+    "119": {
+      "name": "Boufant",
+      "seconds": 14400.0,
+      "inputs": {
+        "1": 210.0
+      },
+      "rewards": {
+        "1": 600.0
+      },
+      "xp": 425.0,
+      "level": 47,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "47"
+        }
+      ]
+    },
+    "120": {
+      "name": "Powdered Wig",
+      "seconds": 28800.0,
+      "inputs": {
+        "1": 100.0,
+        "50": 350.0
+      },
+      "rewards": {
+        "1": 670.0
+      },
+      "xp": 600.0,
+      "level": 49,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "49"
+        }
+      ]
+    },
+    "121": {
+      "name": "Marie Antoinette",
+      "seconds": 86400.0,
+      "inputs": {
+        "1": 250.0,
+        "50": 1230.0
+      },
+      "rewards": {
+        "1": 1520.0
+      },
+      "xp": 1425.0,
+      "level": 51,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "51"
+        }
+      ]
+    },
+    "147": {
+      "name": "Hot Cocoa",
+      "seconds": 45.0,
+      "inputs": {
+        "1": 5.0
+      },
+      "rewards": {
+        "1": 12.0
+      },
+      "xp": 6.0,
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ]
+    },
+    "148": {
+      "name": "Sierra Royale",
+      "seconds": 300.0,
+      "inputs": {
+        "40": 15.0,
+        "10": 10.0
+      },
+      "rewards": {
+        "1": 50.0
+      },
+      "xp": 30.0,
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ]
+    },
+    "149": {
+      "name": "Latte",
+      "seconds": 3600.0,
+      "inputs": {
+        "1": 20.0
+      },
+      "rewards": {
+        "1": 160.0
+      },
+      "xp": 180.0,
+      "level": 21,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "21"
+        }
+      ]
+    },
+    "150": {
+      "name": "Espresso",
+      "seconds": 14400.0,
+      "inputs": {
+        "1": 95.0
+      },
+      "rewards": {
+        "1": 340.0
+      },
+      "xp": 400.0,
+      "level": 23,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "23"
+        }
+      ]
+    },
+    "151": {
+      "name": "Mountain Delight",
+      "seconds": 28800.0,
+      "inputs": {
+        "40": 200.0,
+        "11": 55.0
+      },
+      "rewards": {
+        "1": 475.0
+      },
+      "xp": 450.0,
+      "level": 25,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "25"
+        }
+      ]
+    },
+    "152": {
+      "name": "Perfume",
+      "seconds": 600.0,
+      "inputs": {
+        "1": 20.0
+      },
+      "rewards": {
+        "1": 60.0
+      },
+      "xp": 55.0,
+      "level": 25,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "25"
+        }
+      ]
+    },
+    "153": {
+      "name": "Spice Bag",
+      "seconds": 3600.0,
+      "inputs": {
+        "1": 25.0,
+        "50": 15.0
+      },
+      "rewards": {
+        "1": 180.0
+      },
+      "xp": 190.0,
+      "level": 25,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "25"
+        }
+      ]
+    },
+    "154": {
+      "name": "Mountain Potion",
+      "seconds": 18000.0,
+      "inputs": {
+        "1": 100.0,
+        "40": 45.0
+      },
+      "rewards": {
+        "1": 300.0
+      },
+      "xp": 400.0,
+      "level": 26,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "26"
+        }
+      ]
+    },
+    "155": {
+      "name": "Snake Oil",
+      "seconds": 43200.0,
+      "inputs": {
+        "1": 210.0
+      },
+      "rewards": {
+        "1": 550.0
+      },
+      "xp": 475.0,
+      "level": 28,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "28"
+        }
+      ]
+    },
+    "156": {
+      "name": "Juju Remedy",
+      "seconds": 86400.0,
+      "inputs": {
+        "1": 300.0,
+        "51": 20.0
+      },
+      "rewards": {
+        "1": 875.0
+      },
+      "xp": 825.0,
+      "level": 30,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "30"
+        }
+      ]
+    },
+    "157": {
+      "name": "Hammer",
+      "seconds": 600.0,
+      "inputs": {
+        "1": 25.0,
+        "10": 20.0
+      },
+      "rewards": {
+        "1": 80.0
+      },
+      "xp": 60.0,
+      "level": 31,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "31"
+        }
+      ]
+    },
+    "158": {
+      "name": "Horseshoe",
+      "seconds": 7200.0,
+      "inputs": {
+        "1": 80.0
+      },
+      "rewards": {
+        "1": 270.0
+      },
+      "xp": 315.0,
+      "level": 31,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "31"
+        }
+      ]
+    },
+    "159": {
+      "name": "Wagon Axle",
+      "seconds": 28800.0,
+      "inputs": {
+        "1": 50.0,
+        "10": 300.0
+      },
+      "rewards": {
+        "1": 525.0
+      },
+      "xp": 500.0,
+      "level": 32,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "32"
+        }
+      ]
+    },
+    "160": {
+      "name": "Barrel Rings",
+      "seconds": 43200.0,
+      "inputs": {
+        "1": 325.0
+      },
+      "rewards": {
+        "1": 725.0
+      },
+      "xp": 490.0,
+      "level": 34,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "34"
+        }
+      ]
+    },
+    "161": {
+      "name": "Wagon Wheel",
+      "seconds": 86400.0,
+      "inputs": {
+        "1": 410.0,
+        "11": 60.0
+      },
+      "rewards": {
+        "1": 1100.0
+      },
+      "xp": 900.0,
+      "level": 36,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "36"
+        }
+      ]
+    }
+  }
+}
