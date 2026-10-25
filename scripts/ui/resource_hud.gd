@@ -9,8 +9,13 @@ extends Panel
 
 # Map resource IDs to their UI labels
 var _resource_labels: Dictionary = {}
+var population_label: Label
 
 func _ready() -> void:
+	population_label = Label.new()
+	population_label.name = "PopulationLabel"
+	$HBoxContainer.add_child(population_label)
+	EventBus.population_changed.connect(_on_population_changed)
 	# Resource IDs are defined in their .tres files
 	# Gold = 1, Wood = 10, Wheat = 40
 	_resource_labels[1] = gold_label
@@ -24,6 +29,7 @@ func _ready() -> void:
 	EventBus.xp_changed.connect(_on_xp_changed)
 
 func _initialize_display() -> void:
+	_on_population_changed(WorkerManager.total_population(), WorkerManager.idle_villagers().size())
 	# Init resource labels
 	for res_id in _resource_labels:
 		var amount = InventoryManager.amount(res_id)
@@ -56,3 +62,6 @@ func _on_xp_changed(new_xp: float) -> void:
 		var current_level = SaveManager.current_save.player_state.mayor_level
 		var xp_for_next_level = ProgressionManager.XP_THRESHOLDS.get(current_level, INF)
 		xp_label.text = "XP: %d/%s" % [floor(new_xp), str(xp_for_next_level) if xp_for_next_level != INF else "---"]
+
+func _on_population_changed(total: int, idle: int) -> void:
+	population_label.text = "People: %d | Idle: %d" % [total, idle]

@@ -1,13 +1,13 @@
 extends Node2D
 
 # Deterministic, decorative scenery. It neither produces resources nor blocks land.
+const BORDER := 10
 const ART := ["OAK", "BIRCH", "MAPLE", "SPRUCE", "DAISIES", "STUMP"]
 var _land_size: int = 0
 
 func _ready() -> void:
 	y_sort_enabled = true
 	SaveManager.save_activated.connect(rebuild)
-	EventBus.building_placed.connect(func(_instance): rebuild())
 	call_deferred("_refresh")
 
 func _refresh() -> void:
@@ -24,25 +24,15 @@ func rebuild() -> void:
 	for child in get_children():
 		remove_child(child)
 		child.queue_free()
-	var exclusion: Array[Rect2i] = []
-	for instance in SaveManager.current_save.town_layouts["Vanilla"].starting_objects:
-		var definition = DataManager.get_building_definition(instance.def_id)
-		if definition:
-			var size := TownGridGeometry.footprint_size(definition.width, definition.height, instance.rotation_degrees)
-			exclusion.append(Rect2i(Vector2i(instance.x - 1, instance.y - 1), size + Vector2i(2, 2)))
-	for x in range(1, _land_size - 1):
-		for y in range(1, _land_size - 1):
-			var noise: int = posmod((x * 73856093) ^ (y * 19349663) ^ 20261024, 1000)
-			var edge := x < 5 or y < 5 or x > _land_size - 6 or y > _land_size - 6
-			if noise > (150 if edge else 55):
-				continue
+	# Leave a margin so tree canopies stay beyond the playable plot.
+	var clear_plot := Rect2i(-2, -2, _land_size + 4, _land_size + 4)
+	for x in range(-BORDER, _land_size + BORDER):
+		for y in range(-BORDER, _land_size + BORDER):
 			var cell := Vector2i(x, y)
-			var covered := false
-			for rect in exclusion:
-				if rect.has_point(cell):
-					covered = true
-					break
-			if covered:
+			if clear_plot.has_point(cell):
+				continue
+			var noise: int = posmod((x * 73856093) ^ (y * 19349663) ^ 20261024, 1000)
+			if noise > 230:
 				continue
 			var marker := Node2D.new()
 			marker.name = "Scenery_%d_%d" % [x, y]

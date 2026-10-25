@@ -475,7 +475,7 @@ func _on_worker_or_hauler_assigned(villager: Villager, instance: BuildingInstanc
 	for child in world_container.get_children():
 		if child is VillagerWalker and child.villager_id == villager.villager_id:
 			child.queue_free()
-	# Find home cottage position (fallback to Town Hall if no cottage is available)
+	# Use the assigned residence, with Town Hall as a fallback.
 	var home_pos = TownGridGeometry.cell_to_world(Vector2(2.5, 2.5))
 	var work_def = DataManager.get_building_definition(instance.def_id)
 	var work_size := TownGridGeometry.footprint_size(work_def.width, work_def.height, instance.rotation_degrees)
@@ -486,7 +486,7 @@ func _on_worker_or_hauler_assigned(villager: Villager, instance: BuildingInstanc
 		if layout:
 			for obj in layout.starting_objects:
 				var def = DataManager.get_building_definition(obj.def_id)
-				if def and def.type == 6: # HOUSE / Cottage
+				if def and obj.instance_id == villager.home_instance_id:
 					home_pos = TownGridGeometry.cell_to_world(Vector2(obj.x + def.width * 0.5, obj.y + def.height * 0.5))
 					break
 					

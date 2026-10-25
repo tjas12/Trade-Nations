@@ -21,6 +21,11 @@ func _process(_delta: float) -> void:
 			queue_redraw()
 
 func _draw() -> void:
+	var surround := TownGridGeometry.footprint_polygon(Vector2i(_cells + 20, _cells + 20))
+	var offset := TownGridGeometry.cell_to_world(Vector2(-10, -10))
+	for index in range(surround.size()):
+		surround[index] += offset
+	draw_colored_polygon(surround, Color(0.27, 0.43, 0.22))
 	var outline := TownGridGeometry.footprint_polygon(Vector2i(_cells, _cells))
 	var depth := Vector2(0, 8)
 	draw_colored_polygon(PackedVector2Array([outline[1], outline[2], outline[2] + depth, outline[1] + depth]), Color(0.29, 0.34, 0.17))

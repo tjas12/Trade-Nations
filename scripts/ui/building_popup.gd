@@ -22,6 +22,7 @@ func _ready() -> void:
 	$VBoxContainer.add_child(release_button)
 	$VBoxContainer.move_child(release_button, close_button.get_index())
 	
+	EventBus.population_changed.connect(func(_total, _idle): _update_display())
 	EventBus.building_storage_changed.connect(_on_building_storage_changed)
 	EventBus.worker_assigned.connect(_on_worker_or_hauler_assigned)
 	EventBus.hauler_assigned.connect(_on_worker_or_hauler_assigned)
@@ -69,6 +70,13 @@ func _update_display() -> void:
 		assign_worker_button.hide()
 		assign_hauler_button.hide()
 		release_button.hide()
+		if building_def.house_capacity > 0:
+			var residents := 0
+			for citizen in SaveManager.current_save.villagers:
+				if citizen.home_instance_id == building_instance.instance_id:
+					residents += 1
+			workers_label.text = "Residents: %d/%d\nIdle citizens: %d" % [residents, building_def.house_capacity, WorkerManager.idle_villagers().size()]
+			workers_label.show()
 		return
 	
 	storage_label.show()

@@ -66,3 +66,5 @@ signal visit_friend_requested(friend_name: String)
 
 # Emitted when the player requests to return home from visiting
 signal return_home_requested()
+
+signal population_changed(total: int, idle: int)

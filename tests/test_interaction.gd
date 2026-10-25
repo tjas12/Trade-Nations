@@ -127,9 +127,11 @@ func run() -> void:
 	check(objects.back().x == 8 and objects.back().y == 4, "Screen click persists the correct saved tile coordinates")
 	var clear_footprint := true
 	for marker in scenery.get_children():
-		if Rect2i(8, 4, 2, 2).has_point(marker.get_meta("cell")):
+		if Rect2i(0, 0, scenery._land_size, scenery._land_size).has_point(marker.get_meta("cell")):
 			clear_footprint = false
-	check(clear_footprint and not main.get_node("WorldContainer/Grid").placement_grid, "Building placement clears scenery and restores the normal landscape view")
+	check(clear_footprint and not main.get_node("WorldContainer/Grid").placement_grid, "Scenery stays outside the playable grid after placement")
+	check(WorkerManager.total_population() == 4 and WorkerManager.idle_villagers().size() == 4, "First cottage adds two citizens beyond the starting pair")
+	check(main.get_node("UILayer/ResourceHud/HBoxContainer/PopulationLabel").text == "People: 4 | Idle: 4", "HUD shows cottage arrivals")
 	await click(main.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(9, 5))))
 	check(main.building_popup.visible and main.building_popup.name_label.text == "Small Cottage", "Placed cottage is selectable on its footprint")
 	var escape := InputEventKey.new()
@@ -145,6 +147,17 @@ func run() -> void:
 	check(objects[1].assigned_worker_ids.size() == 1 and objects[1].assigned_hauler_ids.size() == 1, "Actual worker and hauler buttons assign citizens")
 	await click(main.building_popup.close_button.get_global_rect().get_center())
 	check(not main.building_popup.visible, "Producer popup also closes after assigning staff")
+	var farm = DataManager.get_building_definition(11)
+	check(farm.width == 2 and farm.height == 2, "Farm matches cottage 2 by 2 footprint")
+	SaveManager.current_save.villagers.resize(2)
+	check(SaveManager.save_to_slot(997), "Save legacy two-citizen cottage fixture")
+	SaveManager.load_from_slot(997)
+	objects = SaveManager.current_save.town_layouts["Vanilla"].starting_objects
+	check(WorkerManager.total_population() == 4 and WorkerManager.idle_villagers().size() == 2 and objects[1].assigned_worker_ids.size() == 1 and objects[1].assigned_hauler_ids.size() == 1, "Legacy cottage population repairs without losing staff")
+	SaveManager.save_to_slot(997)
+	SaveManager.load_from_slot(997)
+	SaveManager.delete_slot(997)
+	check(WorkerManager.total_population() == 4, "Repeated reconciliation does not duplicate citizens")
 	var projection_ok := true
 	for x in range(12):
 		for y in range(12):

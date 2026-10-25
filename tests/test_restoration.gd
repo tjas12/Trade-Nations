@@ -71,7 +71,7 @@ func run() -> void:
 	main._collect_resources()
 	check(is_equal_approx(InventoryManager.amount(10), before + 5.0) and camp.stored_resources[10] == 0.0, "Collect control conserves local and global stock")
 	popup._release_staff()
-	check(camp.assigned_worker_ids.is_empty() and camp.assigned_hauler_ids.is_empty() and WorkerManager.idle_villagers().size() == 2, "Release staff makes citizens available for another building")
+	check(camp.assigned_worker_ids.is_empty() and camp.assigned_hauler_ids.is_empty() and WorkerManager.idle_villagers().size() == 4, "Release staff makes citizens available for another building")
 	WorkerManager.assign_worker(camp)
 	WorkerManager.assign_hauler(camp)
 	var home := BuildingInstance.new()
@@ -79,7 +79,7 @@ func run() -> void:
 	home.def_id = 10012
 	save.town_layouts["Vanilla"].starting_objects.append(home)
 	WorkerManager._on_housing_placed(home)
-	check(WorkerManager.total_population() == 4, "Additional housing creates individual citizens up to capacity")
+	check(WorkerManager.total_population() == 6, "Additional housing creates individual citizens up to capacity")
 	check(InventoryManager.capacity(40) >= 500.0, "Prototype town can store Wheat for feeding staff")
 	EconomyManager.simulation_speed = 360.0
 	EconomyManager._process(1.0)
