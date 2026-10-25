@@ -14,6 +14,7 @@ func start_tutorials() -> void:
 	refresh()
 
 func _process(delta: float) -> void:
+	if Autosave.simulation_suspended(): return
 	_timer += delta
 	if _timer > 0.25:
 		_timer = 0

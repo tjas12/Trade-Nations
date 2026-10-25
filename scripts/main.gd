@@ -46,6 +46,9 @@ var _brush_last := Vector2i.ZERO
 var _brush_bar: HBoxContainer
 var _brush_label: Label
 var _floating_lanes: Dictionary = {}
+var touch_camera := TouchCamera.new()
+var mobile_ui: Node
+var touch_mode := false
 
 func _initialize_save() -> void:
 	if SaveManager.current_save == null:
@@ -54,9 +57,12 @@ func _initialize_save() -> void:
 			GameManager.start_new_game()
 
 func _ready() -> void:
-	get_window().min_size = Vector2i(1152, 648)
-	if get_window().size.x < 1152 or get_window().size.y < 648:
-		get_window().size = Vector2i(1152, 648)
+	get_window().min_size = Vector2i(640, 360)
+	touch_mode = DisplayServer.is_touchscreen_available() or OS.has_feature("mobile")
+	if touch_mode:
+		get_window().content_scale_size = Vector2i(960, 440)
+		get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+		get_window().content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
 	_initialize_save()
 	print("[Main] Scene ready. GameManager state = %s" % GameManager.State.keys()[GameManager.current_state])
 	TutorialManager.set_tutorial_popup(tutorial_popup)
@@ -75,6 +81,9 @@ func _ready() -> void:
 	world_container.add_child(_decor_layer)
 	_restore_walkers()
 	_add_town_controls()
+	mobile_ui = load("res://scripts/ui/mobile_layout.gd").new()
+	mobile_ui.game = self
+	add_child(mobile_ui)
 
 func _add_town_controls() -> void:
 	var toolbar := HBoxContainer.new()
@@ -180,12 +189,18 @@ func _stop_pan() -> void:
 	_panning = false
 
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED]:
+		touch_camera.reset()
 		_stop_pan()
 		_cancel_brush()
 		_camera_keys.clear()
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch or event is InputEventScreenDrag:
+		if touch_camera.handle(event, self): get_viewport().set_input_as_handled()
+		return
+	if (event is InputEventMouseButton or event is InputEventMouseMotion) and event.device == InputEvent.DEVICE_ID_EMULATION:
+		return
 	if _brush_down and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		_finish_brush()
 		get_viewport().set_input_as_handled()
@@ -193,9 +208,10 @@ func _input(event: InputEvent) -> void:
 	# Once a ground drag starts, track it across UI and always see its release.
 	if event is InputEventMouseButton and event.button_index == _pan_button and not event.pressed:
 		var dragged := _panning
+		var map_click := _pan_button == MOUSE_BUTTON_LEFT and not dragged and not is_ui_point(event.position)
 		_stop_pan()
-		if dragged:
-			get_viewport().set_input_as_handled()
+		if map_click: map_tap(event.position, false)
+		get_viewport().set_input_as_handled()
 	if event is InputEventMouseMotion and _pan_button != 0:
 		var mask := MOUSE_BUTTON_MASK_LEFT if _pan_button == MOUSE_BUTTON_LEFT else MOUSE_BUTTON_MASK_MIDDLE
 		if (event.button_mask & mask) == 0:
@@ -205,8 +221,6 @@ func _input(event: InputEvent) -> void:
 			_panning = true
 		if _panning:
 			_pan_camera(event.position - _pan_last)
-			if _placement_mode_active and not _rotation_only:
-				_update_ghost_position(event.position)
 			get_viewport().set_input_as_handled()
 		_pan_last = event.position
 	if event is InputEventKey and event.keycode in [KEY_W, KEY_A, KEY_S, KEY_D, KEY_UP, KEY_LEFT, KEY_DOWN, KEY_RIGHT]:
@@ -221,7 +235,7 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if is_instance_valid(_town_panels):
-		tutorial_popup.visible = not build_menu.visible and not _town_panels.visible
+		tutorial_popup.visible = not build_menu.visible and not _town_panels.visible and (not touch_mode or mobile_ui.goals_open)
 	if build_menu.visible or building_popup.visible or (is_instance_valid(_town_panels) and _town_panels.visible):
 		_camera_keys.clear()
 		return
@@ -271,6 +285,8 @@ func _sync_walkers() -> void:
 			world_container.add_child(walker)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if (event is InputEventMouseButton or event is InputEventMouseMotion) and event.device == InputEvent.DEVICE_ID_EMULATION:
+		return
 	if not _brush_kind.is_empty() and _brush_input(event):
 		get_viewport().set_input_as_handled()
 		return
@@ -279,10 +295,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			_begin_pan(event)
 		elif event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
 			var mouse: Vector2 = event.position
-			var local: Vector2 = world_container.to_local(mouse)
 			var factor := 1.1 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1.0 / 1.1
-			world_container.scale = Vector2.ONE * clampf(world_container.scale.x * factor, 0.4, 2.0)
-			world_container.position += mouse - world_container.to_global(local)
+			zoom_camera(mouse, mouse, factor)
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_ESCAPE and not _placement_mode_active:
 			building_popup.hide()
@@ -302,19 +316,14 @@ func _unhandled_input(event: InputEvent) -> void:
 			_load_town()
 	if not _placement_mode_active:
 		if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-			var picked = _pick_building(event.position)
-			if picked:
-				_on_building_instance_selected(picked)
-				get_viewport().set_input_as_handled()
-			else:
-				_begin_pan(event)
+			_begin_pan(event)
 		return
 
 	if event is InputEventMouseMotion:
 		if not _rotation_only: _update_ghost_position(event.position)
 	elif event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			_place_building()
+			_begin_pan(event)
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			_cancel_placement()
 	elif event is InputEventKey and event.pressed:
@@ -391,7 +400,7 @@ func _on_building_selected_for_placement(building_def: BuildingDefinition) -> vo
 		_ghost_building.modulate = Color(1, 1, 1, 0.5)
 		_placement_mode_active = true
 		$WorldContainer/Grid.set_placement_grid(true)
-		_update_ghost_position()
+		_update_ghost_position(get_viewport().get_visible_rect().size * 0.5 if touch_mode else Vector2.INF)
 
 func _update_ghost_position(mouse_pos: Vector2 = Vector2.INF) -> void:
 	if mouse_pos == Vector2.INF:
@@ -418,7 +427,7 @@ func _check_placement_validity() -> bool:
 		_position_button.visible = _moving_instance != null
 		_position_button.text = "Move position" if _rotation_only else "Pin position"
 		_orientation_label.text = BuildingVisuals.facing_label(_building_to_place_def, preview.rotation_degrees)
-	EventBus.town_notice.emit(_placement_reason if not valid else "Clear site · Click/Confirm applies · R / Shift+R turns · Escape cancels")
+	EventBus.town_notice.emit(_placement_reason if not valid else ("Tap a site · Rotate, then Confirm · Cancel keeps the original" if touch_mode else "Clear site · Click/Confirm applies · R / Shift+R turns · Escape cancels"))
 	return valid
 
 func _place_building() -> void:
@@ -432,6 +441,7 @@ func _place_building() -> void:
 				_moving_instance.legacy_entrance = Vector2i(-1, -1)
 				_cancel_placement()
 				_refresh_world()
+				Autosave.mark_dirty()
 				return
 			# Affordability can change while the preview is open.
 			if not EconomyManager.can_afford(_building_to_place_def.cost):
@@ -503,6 +513,8 @@ func _on_toggle_build_menu_pressed() -> void:
 		build_menu.populate_build_menu()
 
 func _on_building_instance_selected(instance: BuildingInstance) -> void:
+	build_menu.hide()
+	if is_instance_valid(_town_panels): _town_panels.hide()
 	building_popup.show_for_building(instance)
 
 func _on_spawn_floating_text(text: String, global_pos: Vector2, color: Color) -> void:
@@ -578,7 +590,11 @@ func _start_move(instance: BuildingInstance) -> void:
 	$WorldContainer/Grid.set_placement_grid(true)
 	building_popup.hide()
 	EventBus.town_notice.emit("Move is free. Click a clear site; right-click/Escape cancels.")
-	_update_ghost_position()
+	if touch_mode:
+		_ghost_building.position = TownGridGeometry.cell_to_world(Vector2(instance.x, instance.y))
+		_check_placement_validity()
+	else:
+		_update_ghost_position()
 
 func _demolish(instance: BuildingInstance) -> void:
 	var definition = DataManager.get_building_definition(instance.def_id)
@@ -711,6 +727,13 @@ func _choose_save() -> void:
 	dialog.add_child(choices)
 	choices.position = Vector2(16, 80)
 	choices.custom_minimum_size = Vector2(300, 32)
+	if touch_mode:
+		choices.custom_minimum_size.y = 48
+		choices.add_theme_font_size_override("font_size", 18)
+		choices.get_popup().add_theme_constant_override("v_separation", 24)
+		dialog.get_ok_button().custom_minimum_size = Vector2(100, 52)
+		dialog.get_cancel_button().custom_minimum_size = Vector2(100, 52)
+		dialog.dialog_text = "Load a local town as the active town. Autosave writes it to the main slot."
 	dialog.confirmed.connect(func():
 		if choices.selected >= 0:
 			if GameManager.continue_game(choices.get_selected_id()) != null:
@@ -819,7 +842,7 @@ func _select_brush(kind: String) -> void:
 	_decor_layer.queue_redraw()
 	$WorldContainer/Grid.set_placement_grid(true)
 	_brush_label.text = "Drag empty tiles; release applies"
-	EventBus.town_notice.emit("Decorations are cosmetic and never block workers. Erase first to replace a tile.")
+	EventBus.town_notice.emit("Tap tiles, then Confirm · Drag to pan · Cancel discards preview" if touch_mode else "Decorations are cosmetic and never block workers. Erase first to replace a tile.")
 
 func _cancel_brush() -> void:
 	_brush_kind = ""
@@ -875,3 +898,35 @@ func _finish_brush() -> void:
 	_decor_layer.preview.clear()
 	_decor_layer.queue_redraw()
 	_brush_label.text = "Drag another stroke · Escape exits"
+
+# Shared camera and gameplay entry points for touch, mouse, and regression tests.
+func zoom_camera(previous_center: Vector2, center: Vector2, factor: float) -> void:
+	var beneath: Vector2 = world_container.to_local(previous_center)
+	world_container.scale = Vector2.ONE * clampf(world_container.scale.x * factor, 0.4, 2.0)
+	world_container.position += center - world_container.to_global(beneath)
+
+func map_tap(point: Vector2, from_touch: bool) -> void:
+	if not _brush_kind.is_empty() and from_touch:
+		_append_brush(TownGridGeometry.world_to_cell(world_container.to_local(point)))
+	elif _placement_mode_active:
+		if from_touch:
+			if not _rotation_only: _update_ghost_position(point)
+		else:
+			_place_building()
+	else:
+		var picked := _pick_building(point)
+		if picked: _on_building_instance_selected(picked)
+
+func is_ui_point(point: Vector2) -> bool:
+	for child in $UILayer.get_children():
+		if _control_hits(child, point): return true
+	return false
+
+func _control_hits(node: Node, point: Vector2) -> bool:
+	if node is CanvasItem and not node.is_visible_in_tree(): return false
+	if node is Control:
+		if node.clip_contents and not node.get_global_rect().has_point(point): return false
+		if node.mouse_filter == Control.MOUSE_FILTER_STOP and node.get_global_rect().has_point(point): return true
+	for child in node.get_children():
+		if _control_hits(child, point): return true
+	return false

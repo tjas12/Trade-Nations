@@ -3,6 +3,18 @@ extends Node2D
 var _cells: int = 48
 var grid_visible: bool = false
 var placement_grid: bool = false
+var _grass_mesh: ArrayMesh
+
+func _ready() -> void:
+	SaveManager.save_activated.connect(_refresh)
+	EventBus.town_changed.connect(_refresh)
+	_refresh()
+
+func _refresh() -> void:
+	if SaveManager.current_save:
+		_cells = SaveManager.current_save.player_state.active_land_size
+	_grass_mesh = null
+	queue_redraw()
 
 func set_placement_grid(enabled: bool) -> void:
 	placement_grid = enabled
@@ -12,13 +24,6 @@ func toggle_grid() -> bool:
 	grid_visible = not grid_visible
 	queue_redraw()
 	return grid_visible
-
-func _process(_delta: float) -> void:
-	if SaveManager.current_save:
-		var active_size: int = SaveManager.current_save.player_state.active_land_size
-		if _cells != active_size:
-			_cells = active_size
-			queue_redraw()
 
 func _draw() -> void:
 	var surround := TownGridGeometry.footprint_polygon(Vector2i(_cells + 20, _cells + 20))
@@ -30,6 +35,17 @@ func _draw() -> void:
 	var depth := Vector2(0, 8)
 	draw_colored_polygon(PackedVector2Array([outline[1], outline[2], outline[2] + depth, outline[1] + depth]), Color(0.29, 0.34, 0.17))
 	draw_colored_polygon(PackedVector2Array([outline[2], outline[3], outline[3] + depth, outline[2] + depth]), Color(0.22, 0.29, 0.14))
+	if _grass_mesh == null: _build_grass()
+	draw_mesh(_grass_mesh, null)
+	if grid_visible or placement_grid:
+		for cell in range(_cells + 1):
+			draw_line(TownGridGeometry.cell_to_world(Vector2(cell, 0)), TownGridGeometry.cell_to_world(Vector2(cell, _cells)), Color(0.75, 0.86, 0.62, 0.22))
+			draw_line(TownGridGeometry.cell_to_world(Vector2(0, cell)), TownGridGeometry.cell_to_world(Vector2(_cells, cell)), Color(0.75, 0.86, 0.62, 0.22))
+
+func _build_grass() -> void:
+	var vertices := PackedVector3Array()
+	var colors := PackedColorArray()
+	var indices := PackedInt32Array()
 	var tile := TownGridGeometry.footprint_polygon(Vector2i.ONE)
 	for x in range(_cells):
 		for y in range(_cells):
@@ -40,12 +56,27 @@ func _draw() -> void:
 			var polygon := PackedVector2Array()
 			for corner in tile:
 				polygon.append(corner + origin)
-			draw_colored_polygon(polygon, shade)
+			_add_quad(vertices, colors, indices, polygon, shade)
 			if posmod(x * 53 + y * 97, 7) == 0:
 				var center := origin + Vector2(0, 16)
-				draw_line(center + Vector2(-3, 1), center + Vector2(-4, -2), Color(0.38, 0.55, 0.28), 1.0)
-				draw_line(center + Vector2(1, 1), center + Vector2(2, -3), Color(0.38, 0.55, 0.28), 1.0)
-	if grid_visible or placement_grid:
-		for cell in range(_cells + 1):
-			draw_line(TownGridGeometry.cell_to_world(Vector2(cell, 0)), TownGridGeometry.cell_to_world(Vector2(cell, _cells)), Color(0.75, 0.86, 0.62, 0.22))
-			draw_line(TownGridGeometry.cell_to_world(Vector2(0, cell)), TownGridGeometry.cell_to_world(Vector2(_cells, cell)), Color(0.75, 0.86, 0.62, 0.22))
+				_add_blade(vertices, colors, indices, center + Vector2(-3, 1), center + Vector2(-4, -2))
+				_add_blade(vertices, colors, indices, center + Vector2(1, 1), center + Vector2(2, -3))
+
+	var arrays := []
+	arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX] = vertices
+	arrays[Mesh.ARRAY_COLOR] = colors
+	arrays[Mesh.ARRAY_INDEX] = indices
+	_grass_mesh = ArrayMesh.new()
+	_grass_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+
+func _add_quad(vertices: PackedVector3Array, colors: PackedColorArray, indices: PackedInt32Array, polygon: PackedVector2Array, color: Color) -> void:
+	var base := vertices.size()
+	for point in polygon:
+		vertices.append(Vector3(point.x, point.y, 0))
+		colors.append(color)
+	for index in [0, 1, 2, 0, 2, 3]: indices.append(base + index)
+
+func _add_blade(vertices: PackedVector3Array, colors: PackedColorArray, indices: PackedInt32Array, a: Vector2, b: Vector2) -> void:
+	var normal := (b - a).orthogonal().normalized() * 0.5
+	_add_quad(vertices, colors, indices, PackedVector2Array([a - normal, b - normal, b + normal, a + normal]), Color(0.38, 0.55, 0.28))

@@ -1,6 +1,6 @@
 # Trade Nations — first playable offline town
 
-The latest visual/layout milestone adds calibrated building scale, safe facing previews, compact building tabs, and saved path/decoration brushes. See [VISUAL_LAYOUT_MILESTONE.md](VISUAL_LAYOUT_MILESTONE.md) and the developer [building audit](docs/BUILDING_VISUAL_AUDIT.csv).
+The latest milestone adds touch controls, landscape phone drawers, safe-area layouts, autosaving across interruptions, and prepared Web/PWA and iOS export presets. Start with [the phone-testing guide](MOBILE_TESTING.md). The completed visual/layout work includes calibrated building scale, safe facing previews, compact building tabs, and saved path/decoration brushes. See [VISUAL_LAYOUT_MILESTONE.md](VISUAL_LAYOUT_MILESTONE.md) and the developer [building audit](docs/BUILDING_VISUAL_AUDIT.csv).
 
 This Godot restoration now has a playable local economy: housing and villagers, construction, wood and wheat production, cookie processing, local sales, eight rewarded goals, and one land expansion. It uses the recovered isometric artwork. No accounts, network service, paid dependency, or database is required.
 
@@ -10,7 +10,7 @@ Use **Godot 4.7.2**, the installed version used for validation. Open this checko
 
 `C:\Users\tjas1\OneDrive\Documents\ChatGPT\Trade Nations\Faithful_reboot\project.godot`
 
-Stop a running session with **F8** before relaunching. Avoid the older downloaded `trade-nations-codex-offline-restoration-audit-(2)` copy. The interface supports 1152×648 and larger windows.
+Stop a running session with **F8** before relaunching. Avoid the older downloaded `trade-nations-codex-offline-restoration-audit-(2)` copy. Desktop mouse/keyboard controls remain available. Touch devices use a responsive landscape layout with 48-unit buttons, scrollable panels, and display safe-area insets. Desktop simulations cover 852×393, 1152×648, and 1440×660; physical iPhone testing remains outstanding.
 
 Your existing main town loads automatically. For the new opening experience, choose **New town…** and confirm: your current town is first archived in an unused local slot. **Load** lets you restore the main or an archived town. Saving a restored town writes it as the main town; its archive remains available.
 
@@ -47,11 +47,11 @@ Demolition refunds 50% of current configured building costs, rounded down. Reser
 
 ## Local saves
 
-Main save: `%APPDATA%/Godot/app_userdata/Trade Nations Reboot/saves/slot_1.tres`. Numbered archive slots share that directory. Saves are manual; press Save/F5 before closing. New town archives the current in-memory state before resetting it.
+Main save: `%APPDATA%/Godot/app_userdata/Trade Nations Reboot/saves/slot_1.tres`. Numbered archive slots share that directory. Changes autosave after a short debounce (at most 15 seconds during continuous activity), with a 30-second progress checkpoint and an immediate save on focus loss/backgrounding. Save/F5 still writes immediately; do not rely on closing the app. New town archives the current in-memory state before resetting it.
 
-Version 3 adds saved ground decorations and compatibility entrances, retaining earlier production and progression state. Versions 1 and 2 migrate safely. Version 2 introduced persistent buildings, construction, individual villagers, positions, home/job links, production progress and reserved inputs, resources, XP/unlocks, objective claims, recorded production/sales, and expansion. Older saves migrate in memory and are only updated on an explicit save. Housing reconciliation repairs missing arrivals without duplication. Existing plot sizes, buildings, stock, and valid jobs remain; conflicting duplicate jobs are normalized to one job per person.
+Version 3 adds saved ground decorations and compatibility entrances, retaining earlier production and progression state. Versions 1 and 2 migrate safely. Version 2 introduced persistent buildings, construction, individual villagers, positions, home/job links, production progress and reserved inputs, resources, XP/unlocks, objective claims, recorded production/sales, and expansion. Older saves migrate in memory and are updated on the next manual save or autosave. Housing reconciliation repairs missing arrivals without duplication. Existing plot sizes, buildings, stock, and valid jobs remain; conflicting duplicate jobs are normalized to one job per person.
 
-Writes use a validated pending file and retain a valid previous generation as `.backup.tres`. Loading falls back to that backup if the primary is invalid. If neither copy is readable, files remain unchanged and main-slot saving is blocked. Copy the save directory before manual recovery. Unknown future save versions are rejected. **Production pauses while the game is closed**: there is no offline catch-up or repeated offline reward calculation.
+Writes use a validated pending file and retain a valid previous generation as `.backup.tres`. Loading falls back to that backup if the primary is invalid. If neither copy is readable, files remain unchanged and main-slot saving is blocked. Copy the save directory before manual recovery. Unknown future save versions are rejected. **Production pauses while unfocused, backgrounded, or closed**: there is no offline catch-up. Repeated focus/resume events do not restart a cycle or grant rewards. Native app suspension and browser visibility events are handled separately from focus. Browser storage has additional limits described in the phone guide; a successful filesystem write cannot guarantee Safari will retain data indefinitely.
 
 ## Content and limits
 
@@ -67,7 +67,7 @@ From this repository in PowerShell:
 ./tools/validate_windows.ps1 -Godot '../.tools/godot/Godot_v4.7.2-stable_win64_console.exe' -Graphical
 ```
 
-The runner isolates saves under `.validation`, imports/parses the project, runs foundation, restoration, real mouse/keyboard interaction, and first-playable economic tests, then checks headless startup, Compatibility rendering, and Forward Plus gameplay. It rejects script/runtime errors, with documented exclusions for this machine’s root-certificate diagnostic and existing resource-in-use shutdown diagnostic. Logs remain in `.validation/`.
+The runner gives every suite a fresh isolated profile under `.validation/runs/`, imports/parses the project, runs foundation, restoration, real mouse/keyboard interaction, first-playable economic tests, scale/layout tests, and injected touch/lifecycle tests, then checks headless startup, Compatibility rendering, and Forward Plus gameplay. It rejects script/runtime errors, with documented exclusions for this machine’s root-certificate diagnostic and existing resource-in-use shutdown diagnostic. Logs remain in `.validation/`.
 
 Tests cover the whole cottage → villagers → jobs → wheat → cookies → sale → goals → expansion → save/reload path; reserved-input conservation; missing inputs/staff; worker limits and duplicate jobs; legacy migration; repeated-load reward/population safety; corrupt-primary backup recovery; move/demolish occupancy and assignments; UI input isolation; and pan/zoom/selection/placement. Native RAW artwork comparison remains in the rendering test.
 
@@ -95,3 +95,19 @@ Connected dirt diamonds are drawn procedurally because the recovered road sprite
 Open `tests/BuildingPreview.tscn` and press **F6**. Previous/Next visits **all 274 definitions**, including content outside the regular catalog. Change facing cycles only supported views. Every page uses the same 64×32 grid, villager reference and 0.7 display zoom. Missing mappings are explicitly marked. The tool is developer-only and does not save or overwrite your town.
 
 The automated scale audit currently finds **108 mapped definitions and 166 unmapped definitions**. Unmapped does not necessarily mean the source game lacked art: some still need animation/asset reconstruction. Those definitions remain footprint placeholders and are not added to the playable catalog. [BUILDING_VISUAL_AUDIT.csv](docs/BUILDING_VISUAL_AUDIT.csv) lists every definition, bounds and supported views. True rear/directional art is still needed for the active buildings; the bakery and civic clock also need genuine alternate artwork before exposing additional views.
+
+## Touch controls and phone preparation
+
+- Drag one finger anywhere on the map to pan; pinch two fingers to zoom around their moving midpoint. Drags/pinches never place or select a building. Mouse wheel, ground/middle drag, and keyboard shortcuts still work.
+- Tap **Build**, select a catalog card, tap a clear site, use **Rotate**, and press **Confirm**. **Cancel** discards the preview. Select a building and open **Layout** for Move, Rotate, and Demolish; demolition has a separate confirmation.
+- Tap **Landscape**, choose a tool, tap tiles to preview a stroke, then **Confirm**. Dragging still pans. **Cancel** discards the pending stroke. Desktop brush dragging retains release-to-apply behavior.
+- The toolbar scrolls horizontally. **Goals** opens/closes the objective panel; **Close** collapses drawers. Building details scroll vertically. Market quantity has visible minus/plus buttons, so selling never requires typing. Touches that begin on controls cannot become map gestures; emulated mouse input remains available to GUI controls and is excluded from gameplay.
+- Debug builds expose **Perf** in the touch toolbar (F3 on desktop), showing frame time, FPS, draw calls, and static memory. Release builds omit this display.
+
+The existing Compatibility renderer is now the default for both routes. Runtime audio uses bundled JSON instead of reading the source archive, and resource loading recognizes exported `.tres.remap` entries. Export presets exclude research, tools, tests, and the extracted original archive, while including runtime JSON. No plugin, backend, game account, or paid service was added.
+
+A paired desktop Compatibility probe on a 48×48 town at 1152×648 measured median process time **22.177 → 3.855 ms**, p95 **25.678 → 5.693 ms**, and draw calls **2807 → 175**. Grass tiles/blades now share cached mesh geometry; land-size polling was replaced by change signals. These are local desktop measurements, not phone benchmarks.
+
+The complete desktop regression runner passed import, foundation, restoration, interaction, economy, scale, layout, touch, startup, and graphical checks. Focused touch tests also activate actual GUI controls via injected touch-to-mouse events, including catalog selection, staffing, sale, Confirm, and Cancel. Production/travel use explicit simulation ticks for deterministic assertions. Existing shutdown resource diagnostics remain documented. Neither a Web build nor an iOS build completed: matching export templates are absent. No Safari or physical iPhone test has been performed.
+
+**Next:** follow [MOBILE_TESTING.md](MOBILE_TESTING.md) to install matching templates, export the Web preset, serve it over HTTPS, add it to your iPhone Home Screen, and run the airplane-mode/save checklist. Native iOS is the final route for app-local storage; it requires macOS/Xcode and signing setup.

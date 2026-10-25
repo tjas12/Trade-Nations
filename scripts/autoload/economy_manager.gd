@@ -26,6 +26,7 @@ func _restore_assignments() -> void:
 				_haul_tasks[instance.instance_id] = instance
 
 func _process(delta: float) -> void:
+	if Autosave.simulation_suspended(): return
 	_update_construction(delta * simulation_speed)
 	_process_producers(delta * simulation_speed)
 	_process_haulers(delta * simulation_speed)

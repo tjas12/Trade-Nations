@@ -51,6 +51,7 @@ func populate_build_menu():
 
         for building_def in buildings:
             var button = Button.new()
+            button.set_meta("definition_id", building_def.id)
             button.custom_minimum_size = Vector2(240, 250)
             
             # Use a VBoxContainer inside the button to align icon and text

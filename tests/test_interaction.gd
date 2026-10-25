@@ -60,6 +60,11 @@ func run() -> void:
 	check(main.building_popup.visible and main.building_popup.name_label.text == "Town Hall", "Mouse click opens Town Hall")
 	await click(main.building_popup.close_button.get_global_rect().get_center())
 	check(not main.building_popup.visible, "Close button consumes its click without reopening a building")
+	var drag_origin: Vector2 = main.world_container.position
+	var building_point: Vector2 = main.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(1.5, 1.5)))
+	await drag_mouse(building_point, building_point + Vector2(60, 20))
+	check(not main.building_popup.visible and main.world_container.position != drag_origin, "Mouse drag starting on a building pans without selecting it")
+	main.world_container.position = drag_origin
 	check(main.tutorial_popup.visible and not main.tutorial_popup.continue_button.visible, "Compact objective panel has no modal continue prompt")
 	var camera_before: Vector2 = main.world_container.position
 	await drag_mouse(Vector2(170, 450), Vector2(250, 490))
@@ -120,6 +125,10 @@ func run() -> void:
 	check(main._placement_mode_active and not main.build_menu.visible, "Catalogue click starts preview and releases GUI input")
 	check(main.get_node("WorldContainer/Grid").placement_grid, "Placement automatically reveals the diamond grid")
 	var count_before: int = SaveManager.current_save.town_layouts["Vanilla"].starting_objects.size()
+	var placement_camera: Vector2 = main.world_container.position
+	await drag_mouse(Vector2(400, 400), Vector2(460, 440))
+	check(SaveManager.current_save.town_layouts["Vanilla"].starting_objects.size() == count_before and main._placement_mode_active, "Mouse pan during placement cannot accidentally commit its preview")
+	main.world_container.position = placement_camera
 	await click(main.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(8.2, 4.2))))
 	var objects = SaveManager.current_save.town_layouts["Vanilla"].starting_objects
 	check(objects.size() == count_before + 1 and not main._placement_mode_active, "Mouse confirms building on the displayed diamond grid")

@@ -6,7 +6,7 @@ extends Node
 ## from res://original/TradeNations.app/bundle/Sounds.xml.
 ## Automatically connects to UI buttons and EventBus signals for a highly immersive audio experience.
 
-const SoundsParser = preload("res://tools/xml_import/parse_sounds.gd")
+
 
 var _sounds: Dictionary = {} # id: int -> Dictionary
 var _sfx_players: Array[AudioStreamPlayer] = []
@@ -16,9 +16,9 @@ const MAX_SFX_PLAYERS = 8
 
 func _ready() -> void:
 	# Parse sounds from original database
-	var parsed_sounds = SoundsParser.parse()
+	var parsed_sounds = JSON.parse_string(FileAccess.get_file_as_string("res://data/sounds.json"))
 	for s in parsed_sounds:
-		_sounds[s["id"]] = s
+		_sounds[int(s["id"])] = s
 		
 	# Create BGM player
 	_bgm_player = AudioStreamPlayer.new()
@@ -48,7 +48,7 @@ func play_sfx(sound_id: int) -> void:
 		
 	var sound_def = _sounds[sound_id]
 	var path = "res://assets/audio/%s.wav" % sound_def["filename"]
-	if not FileAccess.file_exists(path):
+	if not ResourceLoader.exists(path):
 		return
 		
 	var stream = load(path) as AudioStream
@@ -74,7 +74,7 @@ func play_music(sound_id: int) -> void:
 		
 	var sound_def = _sounds[sound_id]
 	var path = "res://assets/audio/%s.wav" % sound_def["filename"]
-	if not FileAccess.file_exists(path):
+	if not ResourceLoader.exists(path):
 		return
 		
 	var stream = load(path) as AudioStream

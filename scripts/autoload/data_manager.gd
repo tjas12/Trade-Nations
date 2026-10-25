@@ -111,6 +111,8 @@ func _load_definitions(folder_path: String, id_field: String) -> Dictionary:
 	dir.list_dir_begin()
 	var file_name := dir.get_next()
 	while file_name != "":
+		if file_name.ends_with(".tres.remap"):
+			file_name = file_name.trim_suffix(".remap")
 		if not dir.current_is_dir() and file_name.ends_with(".tres"):
 			var full_path := folder_path.path_join(file_name)
 			var res: Resource = ResourceLoader.load(full_path)

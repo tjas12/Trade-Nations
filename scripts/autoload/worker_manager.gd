@@ -151,6 +151,7 @@ func _find_idle_villager() -> Villager:
 	return null
 
 func _process(delta: float) -> void:
+	if Autosave.simulation_suspended(): return
 	_update_travel(delta)
 	if not SaveManager.current_save:
 		return

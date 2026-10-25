@@ -132,7 +132,7 @@ func set_building(instance: BuildingInstance):
 				var dir_path = building_def.icon_path.get_base_dir() + "/"
 				var file_name = building_def.icon_path.get_file()
 				var skin_path = dir_path + active_skin.to_upper() + "_" + file_name
-				if FileAccess.file_exists(skin_path):
+				if ResourceLoader.exists(skin_path):
 					texture_path = skin_path
 					
 		var texture = load(texture_path)

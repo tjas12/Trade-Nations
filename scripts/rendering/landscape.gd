@@ -8,14 +8,12 @@ var _land_size: int = 0
 func _ready() -> void:
 	y_sort_enabled = true
 	SaveManager.save_activated.connect(rebuild)
+	EventBus.town_changed.connect(_refresh)
 	call_deferred("_refresh")
 
 func _refresh() -> void:
 	if SaveManager.current_save and _land_size != SaveManager.current_save.player_state.active_land_size:
 		rebuild()
-
-func _process(_delta: float) -> void:
-	_refresh()
 
 func rebuild() -> void:
 	if not SaveManager.current_save:

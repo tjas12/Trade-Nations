@@ -10,5 +10,6 @@ func _ready() -> void:
 	hide()
 
 func show_objective(text: String) -> void:
+	if objective_label.text == text: return
 	objective_label.text = text
 	show()

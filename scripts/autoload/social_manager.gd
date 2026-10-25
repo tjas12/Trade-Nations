@@ -24,6 +24,7 @@ func _ready() -> void:
 	print("[SocialManager] Offline Social & Market simulation initialized.")
 
 func _process(delta: float) -> void:
+	if Autosave.simulation_suspended(): return
 	# Run a simulation tick periodically
 	var save = _get_save()
 	if not save:

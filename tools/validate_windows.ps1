@@ -6,12 +6,18 @@ $ErrorActionPreference = 'Stop'
 $enginePath = (Resolve-Path -LiteralPath $Godot).Path
 $projectPath = Split-Path -Parent $PSScriptRoot
 $validationPath = Join-Path $projectPath '.validation'
+$runPath = Join-Path $validationPath ('runs/' + [guid]::NewGuid().ToString('N'))
 $priorAppData = $env:APPDATA
 $priorLocalAppData = $env:LOCALAPPDATA
 New-Item -ItemType Directory -Force "$validationPath/roaming", "$validationPath/local" | Out-Null
 $env:APPDATA = "$validationPath/roaming"
 $env:LOCALAPPDATA = "$validationPath/local"
 function Invoke-Validation([string]$Name, [string[]]$EngineArgs) {
+    # Autosaves must never leak state between suites or subsequent validation runs.
+    $profilePath = Join-Path $runPath $Name
+    New-Item -ItemType Directory -Force "$profilePath/roaming", "$profilePath/local" | Out-Null
+    $env:APPDATA = "$profilePath/roaming"
+    $env:LOCALAPPDATA = "$profilePath/local"
     $logPath = Join-Path $validationPath "$Name.log"
     & $enginePath @EngineArgs *> $logPath
     $engineExit = $LASTEXITCODE
@@ -37,8 +43,10 @@ try {
     Invoke-Validation 'playable' @('--headless', '--path', $projectPath, 'res://tests/PlayableTests.tscn')
     Invoke-Validation 'scale' @('--headless', '--path', $projectPath, 'res://tests/ScaleTests.tscn')
     Invoke-Validation 'layout' @('--headless', '--path', $projectPath, 'res://tests/LayoutTests.tscn')
+    Invoke-Validation 'mobile' @('--headless', '--path', $projectPath, 'res://tests/MobileTests.tscn')
     Invoke-Validation 'main' @('--headless', '--path', $projectPath, '--quit-after', '120')
     if ($Graphical) {
+        Invoke-Validation 'mobile-graphical' @('--path', $projectPath, '--rendering-method', 'gl_compatibility', 'res://tests/MobileTests.tscn')
         Invoke-Validation 'playable-forward-plus' @('--path', $projectPath, 'res://tests/PlayableTests.tscn')
         Invoke-Validation 'layout-forward-plus' @('--path', $projectPath, 'res://tests/LayoutTests.tscn')
         Invoke-Validation 'graphical' @('--path', $projectPath, '--rendering-method', 'gl_compatibility', 'res://tests/RestorationTests.tscn')
