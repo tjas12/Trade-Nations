@@ -39,7 +39,7 @@ func _label(text: String, parent: Node, font_size: int = 16) -> Label:
 	parent.add_child(label)
 	return label
 
-func _item(definition: BuildingDefinition, parent: Node) -> void:
+func _item(definition: BuildingDefinition, parent: Node, caption: String = "") -> void:
 	var row := HBoxContainer.new()
 	parent.add_child(row)
 	var icon := Control.new()
@@ -56,6 +56,10 @@ func _item(definition: BuildingDefinition, parent: Node) -> void:
 		icon.add_child(sprite)
 	var unlocked := ProgressionManager.unlocked(definition)
 	var text := "%s %s · %s" % ["✓" if unlocked else "🔒", definition.display_name, definition.category]
+	if not caption.is_empty(): text = caption
+	elif unlocked:
+		var reason := HistoricalGameplay.build_reason(definition)
+		if not reason.is_empty(): text += "\n" + reason
 	var label := _label(text, row)
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 
@@ -99,8 +103,11 @@ func open_roadmap() -> void:
 	for level in range(1, 51):
 		var data: Dictionary = ProgressionManager.registry.levels[level - 1]
 		_label("%s Level %d · %s" % ["✓" if level <= state.mayor_level else "🔒", level, "Reached" if level <= state.mayor_level else "Earn XP through building and production"], contents, 18)
-		_label("%s · Total storage bonus +%d" % [data.benefit, data.storage_bonus], contents)
+		_label(data.benefit, contents)
 		for definition in ProgressionManager.entries_at(level): _item(definition, contents)
+		for entry in ProgressionManager.recipes_at(level):
+			var definition = DataManager.get_building_definition(int(entry.building))
+			_item(definition, contents, "%s Recipe: %s · %s" % ["✓" if level <= state.mayor_level else "🔒", entry.name, definition.display_name])
 	_layout()
 
 func _celebrate(levels: Array) -> void:
@@ -110,9 +117,10 @@ func _celebrate(levels: Array) -> void:
 	_style(notice)
 	var contents := _contents(notice)
 	_label("Level %d reached!" % levels.back(), contents, 20)
-	_label("Town stores improved. Tap Levels for the full roadmap.", contents)
+	_label("Town allowances and new jobs. Tap Levels for the roadmap.", contents)
 	for level in notice_levels:
 		for definition in ProgressionManager.entries_at(level): _item(definition, contents)
+		for entry in ProgressionManager.recipes_at(level): _item(DataManager.get_building_definition(int(entry.building)), contents, "New recipe: " + entry.name)
 	notice.visibility_changed.connect(func():
 		if not notice.visible: notice_levels.clear()
 	)

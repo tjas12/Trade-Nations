@@ -36,6 +36,7 @@ static func apply_definitions() -> void:
 			definition.storage_capacities = DataManager.get_building_definition(10001).storage_capacities.duplicate()
 			definition.sellable = false
 		if values.has("production"):
+			definition.shop_recipe_ids.clear() # Original batch Item alternatives are researched, not exposed until implemented.
 			var production: Dictionary = values.production
 			var recipe = DataManager.get_production_recipe(50000 + int(key))
 			definition.gather_recipe_id = recipe.id
@@ -51,6 +52,7 @@ static func apply_definitions() -> void:
 			recipe.hauler_max = int(values.workers.get("haulerMax", 1))
 		if values.type == "shop": _configure_shop(definition)
 	_configure_shop(DataManager.get_building_definition(35))
+	DataManager.rules.market.merge(data().offline_prices, true)
 	DataManager.get_building_definition(10012).owned_limit = 1
 	DataManager.get_building_definition(10012).description_text = "Compatibility starter: two residents. Further Small Cottages use the historical one-resident definition."
 	# Supported raw/processed resources are kept distinct under original IDs.
@@ -191,6 +193,7 @@ static func recipe_level(id: int) -> int:
 	return int(data().shop_recipes.get(str(id), {}).get("level", 50))
 
 static func choose_recipe(instance: BuildingInstance, id: int) -> String:
+	if not SaveManager.current_save.town_layouts.Vanilla.starting_objects.has(instance): return "Building no longer exists."
 	var definition = DataManager.get_building_definition(instance.def_id)
 	if not definition.shop_recipe_ids.has(id): return "That recipe does not belong to this shop."
 	if SaveManager.current_save.player_state.mayor_level < recipe_level(id) and instance.active_recipe_id != id: return "Recipe requires level %d." % recipe_level(id)

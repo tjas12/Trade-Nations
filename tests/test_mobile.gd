@@ -33,7 +33,9 @@ func press(button: BaseButton) -> void:
 	await get_tree().process_frame
 	await get_tree().create_timer(0.05).timeout
 	check(button.is_visible_in_tree() and not button.disabled, "Touch target available: " + button.text)
-	await ui_tap(button.get_global_rect().get_center())
+	var point := button.get_global_rect().get_center()
+	if button.get_window() != get_window(): point += Vector2(button.get_window().position)
+	await ui_tap(point)
 
 func ui_tap(point: Vector2) -> void:
 	var event := InputEventScreenTouch.new()

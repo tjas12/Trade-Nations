@@ -87,7 +87,7 @@ func recalculate_capacity() -> void:
 				inventory.resource_capacity[res_id] = INF if contribution == -1.0 or is_inf(existing) else existing + contribution
 
 	var level: int = clampi(SaveManager.current_save.player_state.mayor_level, 1, 50)
-	var bonus: int = int(ProgressionManager.registry.levels[level - 1].storage_bonus)
+	var bonus: int = SaveManager.current_save.player_state.legacy_storage_bonus + int(ProgressionManager.registry.levels[level - 1].storage_bonus)
 	for res_id in inventory.resource_capacity:
 		if res_id != 1 and not is_inf(inventory.resource_capacity[res_id]):
 			inventory.resource_capacity[res_id] += bonus

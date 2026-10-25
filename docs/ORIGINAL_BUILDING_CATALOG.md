@@ -30,6 +30,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["TOWNHALL", "TOWNHALL.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 2 — Tower
@@ -50,7 +51,8 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["TOWER", "TOWER.png"] |
 | Upgrade parents / upgrade-only / store flag | [[1], true, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
-| Current implementation | "Research/planned; not advertised playable" |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
+| Current implementation | "Implemented adapter" |
 
 ### 3 — Keep
 
@@ -70,7 +72,8 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["KEEP", "KEEP.png"] |
 | Upgrade parents / upgrade-only / store flag | [[2], true, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
-| Current implementation | "Research/planned; not advertised playable" |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
+| Current implementation | "Implemented adapter" |
 
 ### 4 — Fort
 
@@ -90,7 +93,8 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["FORT", "FORT.png"] |
 | Upgrade parents / upgrade-only / store flag | [[3], true, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
-| Current implementation | "Research/planned; not advertised playable" |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
+| Current implementation | "Implemented adapter" |
 
 ### 5 — Castle
 
@@ -110,6 +114,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["CASTLE_1", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[4], true, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 6 — Forest
@@ -130,6 +135,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["FOREST", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 7 — Mountain
@@ -150,6 +156,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["MOUNTAIN", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 8 — Logging Camp
@@ -170,6 +177,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["CAMP", "CAMP.png"] |
 | Upgrade parents / upgrade-only / store flag | [[6], true, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 9 — Quarry
@@ -190,6 +198,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["QUARRY", "QUARRY.png"] |
 | Upgrade parents / upgrade-only / store flag | [[7], true, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Existing playable reconstruction" |
 
 ### 11 — Farm
@@ -210,6 +219,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["FARM", "res://assets/art/converted/FARM.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Existing playable reconstruction" |
 
 ### 12 — Small Cottage
@@ -230,7 +240,8 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LITTLECOTTAGE", "LITTLECOTTAGE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
-| Current implementation | "Research/planned; not advertised playable" |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
+| Current implementation | "Implemented adapter" |
 
 ### 13 — Blue House
 
@@ -250,6 +261,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["HOUSE", "HOUSE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[37, 140, 141], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 14 — Stone House
@@ -270,7 +282,8 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["STONEHOUSE", "STONEHOUSE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[13, 142, 143], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
-| Current implementation | "Research/planned; not advertised playable" |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
+| Current implementation | "Implemented adapter" |
 
 ### 15 — Lumber Yard
 
@@ -290,7 +303,8 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LUMBERYARD", "LUMBERYARD.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
-| Current implementation | "Research/planned; not advertised playable" |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
+| Current implementation | "Implemented adapter" |
 
 ### 17 — Stone Cutter
 
@@ -310,7 +324,8 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["STONECUTTER", "STONECUTTER.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
-| Current implementation | "Research/planned; not advertised playable" |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
+| Current implementation | "Implemented adapter" |
 
 ### 23 — Loom
 
@@ -330,7 +345,8 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LOOM", "LOOM.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
-| Current implementation | "Research/planned; not advertised playable" |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
+| Current implementation | "Implemented adapter" |
 
 ### 25 — Stockpile
 
@@ -350,7 +366,8 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["STOCKPILEUNDER", "STOCKPILE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
-| Current implementation | "Research/planned; not advertised playable" |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
+| Current implementation | "Implemented adapter" |
 
 ### 26 — Large Stockpile
 
@@ -370,7 +387,8 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LARGESTOCKPILEUNDER", "LARGESTOCKPILE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[25], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
-| Current implementation | "Research/planned; not advertised playable" |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
+| Current implementation | "Implemented adapter" |
 
 ### 27 — Market
 
@@ -390,6 +408,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["MARKET", "MARKET.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 30 — Wizard Tower
@@ -410,6 +429,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["WIZARDTOWER", "WIZARDTOWER.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 31 — Sculptor Shop
@@ -430,6 +450,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["SCULPTURESHALL", "SCULPTURESHALL.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 32 — Carpenter Shop
@@ -450,7 +471,8 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["CARVERSHALL", "CARVERSHALL.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
-| Current implementation | "Research/planned; not advertised playable" |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
+| Current implementation | "Implemented adapter" |
 
 ### 34 — Tailor Shop
 
@@ -470,6 +492,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["TAILORSSHOP", "TAILORSSHOP.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 35 — Baker Shop
@@ -490,6 +513,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BAKERSSHOP", "BAKERSSHOP.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Existing playable reconstruction" |
 
 ### 36 — Pen
@@ -510,7 +534,8 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["PEN", "PEN.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
-| Current implementation | "Research/planned; not advertised playable" |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
+| Current implementation | "Implemented adapter" |
 
 ### 37 — Large Cottage
 
@@ -530,7 +555,8 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["COTTAGE", "COTTAGE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[12, 138, 139], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
-| Current implementation | "Research/planned; not advertised playable" |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
+| Current implementation | "Implemented adapter" |
 
 ### 38 — Pub
 
@@ -550,7 +576,8 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["PUBSHOP", "PUBSHOP.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
-| Current implementation | "Research/planned; not advertised playable" |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
+| Current implementation | "Implemented adapter" |
 
 ### 101 — Poplar
 
@@ -570,6 +597,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["POPLAR", "POPLAR.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 102 — Spruce
@@ -590,6 +618,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["SPRUCE", "SPRUCE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 103 — Birch
@@ -610,6 +639,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BIRCH", "BIRCH.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Existing playable reconstruction" |
 
 ### 104 — Maple
@@ -630,6 +660,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["MAPLE", "MAPLE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 105 — Oak
@@ -650,6 +681,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["OAK", "OAK.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 106 — Daisies
@@ -670,6 +702,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["DAISIES", "DAISIES.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Existing playable reconstruction" |
 
 ### 107 — Tulips
@@ -690,6 +723,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["TULIPS", "TULIPS.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 108 — Buttercups
@@ -710,6 +744,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BUTTERCUPS", "BUTTERCUPS.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Existing playable reconstruction" |
 
 ### 109 — Pansies
@@ -730,6 +765,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["PANSIES", "PANSIES.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 110 — Lupins
@@ -750,6 +786,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LUPINS", "LUPINS.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 111 — Holiday Tree
@@ -770,6 +807,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["CHRISTMASTREE", "CHRISTMASTREE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 113 — Present
@@ -790,6 +828,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["DOGHOUSE", "PRESENT.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "1293235200" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 114 — Yellow Tent
@@ -810,6 +849,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["TENTYELLOW", "TENTYELLOW.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 115 — Red Tent
@@ -830,6 +870,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["TENTRED", "TENTRED.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 116 — Blue Tent
@@ -850,6 +891,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["TENTBLUE", "TENTBLUE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 117 — Log
@@ -870,6 +912,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LOGS", "LOGS.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 118 — Stump
@@ -890,6 +933,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["STUMP", "STUMP.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 119 — Toadstool
@@ -910,6 +954,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["TOADSTOOLS", "TOADSTOOLS.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 120 — Crates
@@ -930,6 +975,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["CRATES", "CRATES.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Existing playable reconstruction" |
 
 ### 121 — Wood Fence
@@ -950,6 +996,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["FENCEWOOD", "FENCEWOOD.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 122 — Stone Wall
@@ -970,6 +1017,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["FENCESTONE", "FENCESTONE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 123 — Mossy Wall
@@ -990,6 +1038,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["FENCESTONEMOSS", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 124 — Potted Pansies
@@ -1010,6 +1059,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["POTPANSIES", "POTPANSIES.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 125 — Potted Daisies
@@ -1030,6 +1080,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["POTDAISIES", "POTDAISIES.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 126 — Red Pot
@@ -1050,6 +1101,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["POTRED", "POTRED.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 127 — Blue Pot
@@ -1070,6 +1122,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["POTBLUE", "POTBLUE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 128 — Barrel
@@ -1090,6 +1143,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BARREL", "BARREL.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Existing playable reconstruction" |
 
 ### 129 — Yellow Pot
@@ -1110,6 +1164,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["YELLOWPOT", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 130 — Potted Lupins
@@ -1130,6 +1185,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["POTLUPINS", "POTLUPINS.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 131 — Orange Pot
@@ -1150,6 +1206,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["POTORANGE", "POTORANGE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 132 — Sheep
@@ -1170,6 +1227,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["SHEEP", "SHEEP.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 133 — Road Straight
@@ -1190,6 +1248,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["ROADSTRAIGHT", "ROADSTRAIGHT.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 134 — Road Turn Down
@@ -1210,6 +1269,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["ROADTURNDOWN", "ROADTURNDOWN.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 135 — Road Turn Up
@@ -1230,6 +1290,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["ROADTURNUP", "ROADTURNUP.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 136 — Road Turn Left
@@ -1250,6 +1311,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["ROADTURNLEFT", "ROADTURNLEFT.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 137 — Road Turn Right
@@ -1270,6 +1332,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["ROADTURNRIGHT", "ROADTURNRIGHT.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 138 — Red Cottage
@@ -1290,6 +1353,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LITTLECOTTAGE1", "LITTLECOTTAGE1.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 139 — Brown Cottage
@@ -1310,6 +1374,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LITTLECOTTAGE2", "LITTLECOTTAGE2.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 140 — Green Cottage
@@ -1330,6 +1395,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["COTTAGE1", "COTTAGE1.png"] |
 | Upgrade parents / upgrade-only / store flag | [[12, 138, 139], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 141 — Purple Cottage
@@ -1350,6 +1416,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["COTTAGE2", "COTTAGE2.png"] |
 | Upgrade parents / upgrade-only / store flag | [[12, 138, 139], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 142 — Brown House
@@ -1370,7 +1437,8 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["HOUSE1", "HOUSE1.png"] |
 | Upgrade parents / upgrade-only / store flag | [[37, 140, 141], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
-| Current implementation | "Research/planned; not advertised playable" |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
+| Current implementation | "Implemented adapter" |
 
 ### 143 — Yellow House
 
@@ -1390,6 +1458,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["HOUSE2", "HOUSE2.png"] |
 | Upgrade parents / upgrade-only / store flag | [[37, 140, 141], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 144 — Lion Statue
@@ -1410,6 +1479,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LIONSTATUE", "LIONSTATUE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 145 — Large Statue
@@ -1430,6 +1500,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LARGESTATUE", "LARGESTATUE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 146 — Bird Bath
@@ -1450,6 +1521,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BIRDBATH", "BIRDBATH.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Existing playable reconstruction" |
 
 ### 147 — Lawn Gnome
@@ -1470,6 +1542,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LAWNSTATUE", "LAWNSTATUE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 148 — Pond
@@ -1490,6 +1563,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["POND", "POND.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 149 — Roundabout
@@ -1510,6 +1584,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["ROUNDABOUT", "ROUNDABOUT.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 150 — Fountain
@@ -1530,6 +1605,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["FOUNTAIN", "FOUNTAIN.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 151 — Bench
@@ -1550,6 +1626,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BENCH", "BENCH.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Existing playable reconstruction" |
 
 ### 152 — Blue Birdhouse
@@ -1570,6 +1647,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BIRDHOUSEBLUE", "BIRDHOUSEBLUE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 153 — Pink Birdhouse
@@ -1590,6 +1668,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BIRDHOUSEPINK", "BIRDHOUSEPINK.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 154 — Yellow Birdhouse
@@ -1610,6 +1689,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BIRDHOUSEYELLOW", "BIRDHOUSEYELLOW.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 155 — White Birdhouse
@@ -1630,6 +1710,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BIRDHOUSEWHITE", "BIRDHOUSEWHITE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 156 — Trampoline
@@ -1650,6 +1731,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["TRAMPOLINEIDLE", "TRAMPOLINE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 157 — Sunshine House
@@ -1670,6 +1752,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["STONEHOUSE1", "STONEHOUSE1.png"] |
 | Upgrade parents / upgrade-only / store flag | [[13, 142, 143], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 158 — Skyblue House
@@ -1690,6 +1773,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["STONEHOUSE2", "STONEHOUSE2.png"] |
 | Upgrade parents / upgrade-only / store flag | [[13, 142, 143], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 159 — Cart
@@ -1710,6 +1794,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["CART", "CART.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Existing playable reconstruction" |
 
 ### 160 — Pumpkin Cart
@@ -1730,6 +1815,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["PUMPKINCART", "PUMPKINCART.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 161 — Scarecrow
@@ -1750,6 +1836,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["SCARECROW", "SCARECROW.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 162 — Jack O' Lantern
@@ -1770,6 +1857,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["JACKOLANTERN", "JACKOLANTERN.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 163 — Warehouse
@@ -1790,6 +1878,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["WAREHOUSE", "WAREHOUSE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[25, 26], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 164 — Windmill
@@ -1810,6 +1899,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["WINDMILL", "WINDMILL.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 165 — Book Shop
@@ -1830,6 +1920,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BOOKSHOP", "BOOKSHOP.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 166 — Big Top
@@ -1850,6 +1941,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["CARNIVAL_EMPTY", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 167 — Theater
@@ -1870,6 +1962,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["THEATER_EMPTY", "THEATER.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 168 — Juggler
@@ -1890,6 +1983,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["JUGGLERSTAND", "JUGGLER.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 169 — Firebreather
@@ -1910,6 +2004,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["FIREBREATHERSTAND", "FIREBREATHER.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 170 — Tall Tent
@@ -1930,6 +2025,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["SIDE_TENT_1", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 171 — Short Tent
@@ -1950,6 +2046,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["SIDE_TENT_2", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 172 — Gypsy Wagon
@@ -1970,6 +2067,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["CARNIVALWAGON", "GYPSYWAGON.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 173 — Campfire
@@ -1990,6 +2088,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["CAMPFIRE", "CAMPFIRE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Existing playable reconstruction" |
 
 ### 174 — Brick Road Straight
@@ -2010,6 +2109,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BRICKROAD_STRAIGHT", "BRICKROAD_STRAIGHT.png"] |
 | Upgrade parents / upgrade-only / store flag | [[133], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 175 — Brick Road Right
@@ -2030,6 +2130,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BRICKROAD_RIGHT", "BRICKROAD_RIGHT.png"] |
 | Upgrade parents / upgrade-only / store flag | [[137], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 176 — Brick Road Left
@@ -2050,6 +2151,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BRICKROAD_LEFT", "BRICKROAD_LEFT.png"] |
 | Upgrade parents / upgrade-only / store flag | [[136], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 177 — Brick Road Down
@@ -2070,6 +2172,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BRICKROAD_DOWN", "BRICKROAD_DOWN.png"] |
 | Upgrade parents / upgrade-only / store flag | [[134], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 178 — Brick Road Up
@@ -2090,6 +2193,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BRICKROAD_UP", "BRICKROAD_UP.png"] |
 | Upgrade parents / upgrade-only / store flag | [[135], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 179 — Lake
@@ -2110,6 +2214,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["POND_IDLE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 182 — Dogwood
@@ -2130,6 +2235,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["DOGWOOD", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 183 — Camphor
@@ -2150,6 +2256,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["COMPHOR", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 184 — Cypress
@@ -2170,6 +2277,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["CYPRESS", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 185 — Olive
@@ -2190,6 +2298,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["OLIVE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 186 — Willow
@@ -2210,6 +2319,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["WILLOW", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 187 — Sycamore
@@ -2230,6 +2340,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["SYCAMORE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 188 — Bluebells
@@ -2250,6 +2361,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BLUEBELLS_FENCE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 190 — Lilacs
@@ -2270,6 +2382,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LILACS_FENCE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 192 — Lilies
@@ -2290,6 +2403,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LILIES_FENCE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 194 — Marigolds
@@ -2310,6 +2424,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["MERRIGOLD_FENCE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 196 — Roses
@@ -2330,6 +2445,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["ROSES_FENCE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 198 — Sunflowers
@@ -2350,6 +2466,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["SUNFLOWERS_FENCE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 199 — Flower Shop
@@ -2370,6 +2487,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["FLOWERSHOP", "FLOWERSHOP.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 200 — Valentine
@@ -2390,6 +2508,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["STATUE_VDAY", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "1297670400" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 201 — Lamp Post
@@ -2410,6 +2529,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LAMPPOST_OTA", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 202 — Cow
@@ -2430,6 +2550,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["COWMOO", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 203 — Hay Bale
@@ -2450,6 +2571,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["HAY", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 204 — Blue Doghouse
@@ -2470,6 +2592,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["DOGHOUSE_2", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 205 — Holly Bush
@@ -2490,6 +2613,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BUSH3", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 206 — Blueberry Bush
@@ -2510,6 +2634,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BUSH2", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 207 — Raspberry Bush
@@ -2530,6 +2655,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BUSH1", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 208 — Hedges
@@ -2550,6 +2676,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BUSH4", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 209 — Silo
@@ -2570,6 +2697,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["SILO", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 210 — Creamery
@@ -2590,6 +2718,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["CREAMERY_IDLE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 211 — Produce Stand
@@ -2610,6 +2739,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["FRUITSTAND", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 212 — Seafood Stand
@@ -2630,6 +2760,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["FISHSTAND", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 213 — Meat Stand
@@ -2650,6 +2781,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["MEATSTAND", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 214 — Toy Shop
@@ -2670,6 +2802,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["Toy_Shop_Idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 215 — Mossy Gate
@@ -2690,6 +2823,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["MOSSYGATE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 216 — Wood Gate
@@ -2710,6 +2844,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["WOODGATE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 217 — Stone Gate
@@ -2730,6 +2865,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["STONEGATE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 218 — Mayor's Cottage
@@ -2750,6 +2886,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["MAYORS_COTTAGE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 219 — Mayor's Villa
@@ -2770,6 +2907,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["MAYORS_VILLA", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 220 — Inn
@@ -2790,6 +2928,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["INN_IDLE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 221 — Citadel
@@ -2810,6 +2949,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["CITADEL", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[5], true, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 222 — Lily
@@ -2830,6 +2970,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["Cat", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 223 — Gabbo
@@ -2850,6 +2991,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["Cat2", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 224 — Large Warehouse
@@ -2870,6 +3012,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["largewarehouse", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[25, 26], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 225 — Apple Tree
@@ -2890,6 +3033,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["APPLETREE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 226 — Cherry Blossom
@@ -2910,6 +3054,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["CherryTree", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 227 — Spiral Topiary
@@ -2930,6 +3075,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["topiary01_med", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 228 — Ball Topiary
@@ -2950,6 +3096,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["topiary02_med", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 229 — Flower Topiary
@@ -2970,6 +3117,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["topiary03_med", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 230 — Water Fountain
@@ -2990,6 +3138,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["waterfountain", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 233 — Traveling Merchant
@@ -3010,6 +3159,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["W_BrightSunfair", "TRAVELING_MERCHANT.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 234 — Restaurant
@@ -3030,6 +3180,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["Restaurant_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 235 — Cobbler
@@ -3050,6 +3201,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["Cobbler_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 236 — Chicken Coop
@@ -3070,6 +3222,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["Coop", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 237 — Jeweler Shop
@@ -3090,6 +3243,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["JewelersShop_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 238 — Sundial
@@ -3110,6 +3264,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["sundial", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 239 — Gold Sundial
@@ -3130,6 +3285,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["sundial_gold", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 240 — Well
@@ -3150,6 +3306,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["well", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 241 — River Straight
@@ -3170,6 +3327,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["rivertile_straight", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 242 — River Turn Left
@@ -3190,6 +3348,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["rivertile_turnleft", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 243 — River Turn Right
@@ -3210,6 +3369,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["rivertile_turnright", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 244 — River Turn Down
@@ -3230,6 +3390,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["rivertile_turndown", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 245 — River Turn Up
@@ -3250,6 +3411,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["rivertile_turnup", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 246 — Fishing Hole
@@ -3270,6 +3432,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["waterfall_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 247 — River Pool Up
@@ -3290,6 +3453,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["rivertile_cap", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 248 — River Bridge
@@ -3310,6 +3474,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["rivertile_bridge", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[241], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 249 — River Pool Down
@@ -3330,6 +3495,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["rivertile_capdown", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 250 — Tai Chi
@@ -3350,6 +3516,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["taichi_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 251 — Tea Shop
@@ -3370,6 +3537,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["teashop_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 252 — Sushi Shop
@@ -3390,6 +3558,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["sushishop_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 253 — Imperial House
@@ -3410,6 +3579,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["exotichouse", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[14, 157, 158], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 254 — Koi Pond
@@ -3430,6 +3600,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["koipond_active", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 255 — Ling
@@ -3450,6 +3621,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["panda_active", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 256 — Poochie
@@ -3470,6 +3642,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["poochie_active", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 257 — Horse
@@ -3490,6 +3663,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["horse_active", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 258 — Dragon
@@ -3510,6 +3684,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["dragon_active", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 259 — Bamboo
@@ -3530,6 +3705,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["bamboo", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 260 — Torii
@@ -3550,6 +3726,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["gate", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 261 — Lantern
@@ -3570,6 +3747,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["lantern_active", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 262 — Zen Garden
@@ -3590,6 +3768,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["zengarden", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 263 — Karate Chop!
@@ -3610,6 +3789,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["karate_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 264 — Food Trough
@@ -3630,6 +3810,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["food_trough", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 265 — Water Trough
@@ -3650,6 +3831,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["water_trough", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 266 — Sneezy
@@ -3670,6 +3852,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["panda_baby", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 267 — Iron Fence
@@ -3690,6 +3873,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["farm_fence", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 268 — Outhouse
@@ -3710,6 +3894,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["outhouse_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 269 — Dragon Statue
@@ -3730,6 +3915,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["dragon_statue", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 270 — Magic Stallion
@@ -3750,6 +3936,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["horse_pink_active", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 271 — Prize Horse
@@ -3770,6 +3957,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["horse_black_active", "PRIZE_HORSE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 272 — Schoolhouse
@@ -3790,6 +3978,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["schoolhouse_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 273 — Swing Set
@@ -3810,6 +3999,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["swingset", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 274 — Kite Flyer
@@ -3830,6 +4020,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["kite_flying", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 275 — Treehouse
@@ -3850,6 +4041,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["treehouse", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 276 — Seesaw
@@ -3870,6 +4062,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["seesaw", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 277 — Badminton Court
@@ -3890,6 +4083,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["badminton", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 278 — Gazebo
@@ -3910,6 +4104,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["gazebo", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 279 — Elvis
@@ -3930,6 +4125,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["poodle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 280 — Turtle
@@ -3950,6 +4146,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["turtle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 281 — Lawn Table
@@ -3970,6 +4167,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["lawntable", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 282 — Sabrina
@@ -3990,6 +4188,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["witch", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Halloween pack; event context", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 283 — Halloween Treat
@@ -4010,6 +4209,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["brownbat", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Halloween pack; event context", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "1320019260" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 284 — Flappy
@@ -4030,6 +4230,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["blackbat", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Halloween pack; event context", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 285 — Mummy
@@ -4050,6 +4251,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["mummy", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Halloween pack; event context", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 286 — Surprise O' Lantern
@@ -4070,6 +4272,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["pumpkinjack", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Halloween pack; event context", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 287 — Apparition
@@ -4090,6 +4293,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["ghost", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Halloween pack; event context", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 288 — Black Cat
@@ -4110,6 +4314,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["blackcat", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Halloween pack; event context", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 289 — Creepy Tomb
@@ -4130,6 +4335,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["tombstone1", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Halloween pack; event context", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 290 — Ghoulish Tomb
@@ -4150,6 +4356,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["tombstone3", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Halloween pack; event context", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 291 — Sinister Tomb
@@ -4170,6 +4377,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["tombstone2", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Halloween pack; event context", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 292 — Pool
@@ -4190,6 +4398,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["pooltime", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 293 — Stylist
@@ -4210,6 +4419,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["barbershop_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 294 — Mansion
@@ -4230,6 +4440,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["mansion", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[14, 157, 158, 253], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 295 — Turkey
@@ -4250,6 +4461,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["turkey", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 296 — Mike
@@ -4270,6 +4482,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["Zombie_dancer", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Halloween pack; event context", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 297 — Meryl
@@ -4290,6 +4503,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["Zombie_lady", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Halloween pack; event context", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 298 — Conehead
@@ -4310,6 +4524,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["Zombie_conehead", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Halloween pack; event context", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 299 — Scared Man
@@ -4330,6 +4545,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["Zombie_ScaredVillagerM", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Halloween pack; event context", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 300 — Scared Woman
@@ -4350,6 +4566,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["Zombie_ScaredVillagerF", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Halloween pack; event context", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 301 — Hot Air Balloon
@@ -4370,6 +4587,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_HotAirBalloon", "HOT_AIR_BALLOON.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["cross-land pack, not necessarily event-only", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 302 — Gold Panner
@@ -4390,6 +4608,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_goldmine_inactive", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[306], true, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 303 — Ridge Post
@@ -4410,6 +4629,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_Fort1", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 304 — Mountain Fort
@@ -4430,6 +4650,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_Fort2", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[303], true, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 305 — Sierra Palisade
@@ -4450,6 +4671,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_Fort3", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[304], true, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 306 — Mountain Lake
@@ -4470,6 +4692,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["FallPond", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 307 — Log Cabin
@@ -4490,6 +4713,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_house_cabin", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "1"] |
 | Version/event/duplicate notes | ["Frontier variant"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 308 — A-Frame Cabin
@@ -4510,6 +4734,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_house_aframe", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[307], false, "1"] |
 | Version/event/duplicate notes | ["Frontier variant"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 309 — Hot Beverage Shop
@@ -4530,6 +4755,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_hotdrinkshop_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 310 — Apothecary
@@ -4550,6 +4776,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_apothecary_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 311 — Blacksmith Forge
@@ -4570,6 +4797,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_blacksmith_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 312 — Jordo
@@ -4590,6 +4818,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_beaver", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "1"] |
 | Version/event/duplicate notes | ["Frontier variant"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 313 — Ian
@@ -4610,6 +4839,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_honeybear", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 314 — Kazi
@@ -4630,6 +4860,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_ibex", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "1"] |
 | Version/event/duplicate notes | ["Frontier variant"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 315 — Criss Cross Fence
@@ -4650,6 +4881,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_fence", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 316 — Laddie
@@ -4670,6 +4902,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_stbernard", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 317 — Juniper
@@ -4690,6 +4923,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_tree1", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 318 — Aspen
@@ -4710,6 +4944,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_tree2", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 319 — Ash
@@ -4730,6 +4965,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_tree3", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 320 — Pine
@@ -4750,6 +4986,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_tree4", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 321 — Fir
@@ -4770,6 +5007,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_tree5", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 322 — Cottonwood
@@ -4790,6 +5028,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_treeorange", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 323 — Mountain Maple
@@ -4810,6 +5049,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_treered", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 324 — Larch
@@ -4830,6 +5070,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_treeyellow", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 325 — Red Fern
@@ -4850,6 +5091,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_bush1", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 326 — Elderberry Bush
@@ -4870,6 +5112,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_bush2", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 327 — Potentillia
@@ -4890,6 +5133,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_bush3", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 328 — Fire Tail
@@ -4910,6 +5154,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_bush4", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 329 — Frontier Market
@@ -4930,6 +5175,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_market", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 330 — Blue Spruce
@@ -4950,6 +5196,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_bluespruce", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 332 — Frosty the Snowman
@@ -4970,6 +5217,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["frosty", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 333 — Frosty Crockett
@@ -4990,6 +5238,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["F_frosty", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 334 — Frontier Stockpile
@@ -5010,6 +5259,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["STOCKPILEUNDER", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 335 — Large Frontier Stockpile
@@ -5030,6 +5280,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LARGESTOCKPILEUNDER", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[334], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 336 — Frontier Warehouse
@@ -5050,6 +5301,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["WAREHOUSE", "WAREHOUSE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[334, 335], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 337 — Large Frontier Warehouse
@@ -5070,6 +5322,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["largewarehouse", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[334, 335], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 338 — Old West Book Shop
@@ -5090,6 +5343,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["BOOKSHOP", "BOOKSHOP.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 339 — Frontier Cobbler
@@ -5110,6 +5364,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["Cobbler_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 340 — Mountain Dairy
@@ -5130,6 +5385,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["CREAMERY_IDLE", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 341 — Pioneer Jewelry
@@ -5150,6 +5406,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["JewelersShop_idle", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 342 — Large Granite Statue
@@ -5170,6 +5427,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["LARGESTATUE", "LARGESTATUE.png"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 343 — Frontier Merchant
@@ -5190,6 +5448,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["W_BrightSunfair", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 344 — Lumberjack Camp
@@ -5210,6 +5469,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["CAMP", "CAMP.png"] |
 | Upgrade parents / upgrade-only / store flag | [[6], true, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 345 — Mine
@@ -5230,6 +5490,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["QUARRY", "QUARRY.png"] |
 | Upgrade parents / upgrade-only / store flag | [[7], true, "0"] |
 | Version/event/duplicate notes | ["Frontier variant", "not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 346 — Butcher Stand
@@ -5250,6 +5511,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["MEATSTAND", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 347 — Holiday Gift
@@ -5270,6 +5532,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["bunny_white", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "1324800000" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 348 — Twitch
@@ -5290,6 +5553,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["bunny_spotted", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 349 — Magic Bunny
@@ -5310,6 +5574,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["bunny_pink", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "1"] |
 | Version/event/duplicate notes | Not supplied / not applicable |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 350 — Bill
@@ -5330,6 +5595,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["bison", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 351 — Bullwrinkle
@@ -5350,6 +5616,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["moose", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 352 — Pepe
@@ -5370,6 +5637,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["skunk", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 353 — Sam
@@ -5390,6 +5658,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["sheepdog", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 354 — Fish Stand
@@ -5410,6 +5679,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["FISHSTAND", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 355 — Fruit Stand
@@ -5430,6 +5700,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Art metadata / current mapping | ["FRUITSTAND", "Unmapped"] |
 | Upgrade parents / upgrade-only / store flag | [[], false, "0"] |
 | Version/event/duplicate notes | ["not a normal store purchase; eligibility unresolved"] |
+| Event finish timestamp (UTC epoch; missing is not proof permanent) | "not supplied" |
 | Current implementation | "Research/planned; not advertised playable" |
 
 ### 10001 — compatibility definition

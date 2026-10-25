@@ -36,12 +36,12 @@ def main():
     with tempfile.TemporaryDirectory(prefix="trade-nations-checks-", ignore_cleanup_errors=True) as temporary:
         profile = Path(temporary)
         run(args.godot, "import", ["--headless", "--editor", "--import", "--quit"], profile)
-        scenes = {"foundation": "TestRunner", "restoration": "RestorationTests", "interaction": "InteractionTests", "playable": "PlayableTests", "scale": "ScaleTests", "layout": "LayoutTests", "mobile": "MobileTests", "classic": "ClassicTests", "historical": "HistoricalTests"}
+        scenes = {"foundation": "TestRunner", "restoration": "RestorationTests", "interaction": "InteractionTests", "playable": "PlayableTests", "scale": "ScaleTests", "layout": "LayoutTests", "mobile": "MobileTests", "classic": "ClassicTests", "historical": "HistoricalTests", "historical-touch": "HistoricalTouchTests"}
         for name, scene in scenes.items():
             run(args.godot, name, ["--headless", f"res://tests/{scene}.tscn"], profile)
         run(args.godot, "startup", ["--headless", "--quit-after", "120"], profile)
         if args.graphical:
-            for name in ["restoration", "interaction", "mobile"]:
+            for name in ["restoration", "interaction", "mobile", "historical-touch"]:
                 run(args.godot, name + "-graphical", ["--rendering-method", "gl_compatibility", f"res://tests/{scenes[name]}.tscn"], profile)
 
 

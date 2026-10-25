@@ -1,322 +1,522 @@
 {
-  "design_note": "Reconstruction balance, not a verified historical 1-50 table. Original bootstrap and levels 1-7 XP retained. XP is progress within current level, despite legacy xp_total name. Every later level grants additive storage; only functional catalog content is advertised.",
+  "design_note": "XP thresholds and housing/shop allowances are literal bundle 4.0.1 Settings data, capped at 50 for this recreation. Original prerequisite levels are used for registered original IDs. Bootstrap aliases and grandfathered earned unlocks preserve compatibility. Only implemented adapters are listed as playable. Legacy storage bonuses are retained per save, not advertised as new historical rewards.",
   "levels": [
     {
       "level": 1,
-      "xp_to_next": 100,
+      "xp_to_next": 550,
       "storage_bonus": 0,
-      "benefit": "Foundations: Farm, Bakery and first land expansion"
+      "benefit": "Housing allowance 4 · Shop allowance 1",
+      "source": "Settings.xml User/XP level=1",
+      "house_limit": 4,
+      "shop_limit": 1,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 2,
-      "xp_to_next": 250,
-      "storage_bonus": 10,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 750,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 4 · Shop allowance 2",
+      "source": "Settings.xml User/XP level=2",
+      "house_limit": 4,
+      "shop_limit": 2,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 3,
-      "xp_to_next": 500,
-      "storage_bonus": 20,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 1100,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 6 · Shop allowance 2",
+      "source": "Settings.xml User/XP level=3",
+      "house_limit": 6,
+      "shop_limit": 2,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 4,
-      "xp_to_next": 800,
-      "storage_bonus": 30,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 1400,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 6 · Shop allowance 3",
+      "source": "Settings.xml User/XP level=4",
+      "house_limit": 6,
+      "shop_limit": 3,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 5,
-      "xp_to_next": 1500,
-      "storage_bonus": 40,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 2000,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 7 · Shop allowance 3",
+      "source": "Settings.xml User/XP level=5",
+      "house_limit": 7,
+      "shop_limit": 3,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 6,
       "xp_to_next": 2600,
-      "storage_bonus": 50,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 7 · Shop allowance 4",
+      "source": "Settings.xml User/XP level=6",
+      "house_limit": 7,
+      "shop_limit": 4,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 7,
       "xp_to_next": 3400,
-      "storage_bonus": 60,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 8 · Shop allowance 4",
+      "source": "Settings.xml User/XP level=7",
+      "house_limit": 8,
+      "shop_limit": 4,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 8,
-      "xp_to_next": 4200,
-      "storage_bonus": 70,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 4300,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 8 · Shop allowance 5",
+      "source": "Settings.xml User/XP level=8",
+      "house_limit": 8,
+      "shop_limit": 5,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 9,
-      "xp_to_next": 5100,
-      "storage_bonus": 80,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 5500,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 9 · Shop allowance 5",
+      "source": "Settings.xml User/XP level=9",
+      "house_limit": 9,
+      "shop_limit": 5,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 10,
-      "xp_to_next": 6000,
-      "storage_bonus": 90,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 6500,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 9 · Shop allowance 6",
+      "source": "Settings.xml User/XP level=10",
+      "house_limit": 9,
+      "shop_limit": 6,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 11,
-      "xp_to_next": 7000,
-      "storage_bonus": 100,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 7500,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 10 · Shop allowance 6",
+      "source": "Settings.xml User/XP level=11",
+      "house_limit": 10,
+      "shop_limit": 6,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 12,
-      "xp_to_next": 8050,
-      "storage_bonus": 110,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 9000,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 10 · Shop allowance 6",
+      "source": "Settings.xml User/XP level=12",
+      "house_limit": 10,
+      "shop_limit": 6,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 13,
-      "xp_to_next": 9150,
-      "storage_bonus": 120,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 11000,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 11 · Shop allowance 6",
+      "source": "Settings.xml User/XP level=13",
+      "house_limit": 11,
+      "shop_limit": 6,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 14,
-      "xp_to_next": 10300,
-      "storage_bonus": 130,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 12000,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 11 · Shop allowance 7",
+      "source": "Settings.xml User/XP level=14",
+      "house_limit": 11,
+      "shop_limit": 7,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 15,
-      "xp_to_next": 11500,
-      "storage_bonus": 140,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 14000,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 12 · Shop allowance 7",
+      "source": "Settings.xml User/XP level=15",
+      "house_limit": 12,
+      "shop_limit": 7,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 16,
-      "xp_to_next": 12750,
-      "storage_bonus": 150,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 16000,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 12 · Shop allowance 7",
+      "source": "Settings.xml User/XP level=16",
+      "house_limit": 12,
+      "shop_limit": 7,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 17,
-      "xp_to_next": 14050,
-      "storage_bonus": 160,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 18000,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 13 · Shop allowance 8",
+      "source": "Settings.xml User/XP level=17",
+      "house_limit": 13,
+      "shop_limit": 8,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 18,
-      "xp_to_next": 15400,
-      "storage_bonus": 170,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 20000,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 13 · Shop allowance 8",
+      "source": "Settings.xml User/XP level=18",
+      "house_limit": 13,
+      "shop_limit": 8,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 19,
-      "xp_to_next": 16800,
-      "storage_bonus": 180,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 22000,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 14 · Shop allowance 8",
+      "source": "Settings.xml User/XP level=19",
+      "house_limit": 14,
+      "shop_limit": 8,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 20,
-      "xp_to_next": 18250,
-      "storage_bonus": 190,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 24800,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 3 · Shop allowance 2",
+      "source": "Settings.xml User/XP level=20",
+      "house_limit": 3,
+      "shop_limit": 2,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 21,
-      "xp_to_next": 19700,
-      "storage_bonus": 200,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 28092,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 3 · Shop allowance 3",
+      "source": "Settings.xml User/XP level=21",
+      "house_limit": 3,
+      "shop_limit": 3,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 22,
-      "xp_to_next": 21250,
-      "storage_bonus": 210,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 31774,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 4 · Shop allowance 3",
+      "source": "Settings.xml User/XP level=22",
+      "house_limit": 4,
+      "shop_limit": 3,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 23,
-      "xp_to_next": 22800,
-      "storage_bonus": 220,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 35870,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 4 · Shop allowance 4",
+      "source": "Settings.xml User/XP level=23",
+      "house_limit": 4,
+      "shop_limit": 4,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 24,
-      "xp_to_next": 24400,
-      "storage_bonus": 230,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 40534,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 5 · Shop allowance 4",
+      "source": "Settings.xml User/XP level=24",
+      "house_limit": 5,
+      "shop_limit": 4,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 25,
-      "xp_to_next": 26050,
-      "storage_bonus": 240,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 45803,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 5 · Shop allowance 5",
+      "source": "Settings.xml User/XP level=25",
+      "house_limit": 5,
+      "shop_limit": 5,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 26,
-      "xp_to_next": 27750,
-      "storage_bonus": 250,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 51757,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 6 · Shop allowance 5",
+      "source": "Settings.xml User/XP level=26",
+      "house_limit": 6,
+      "shop_limit": 5,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 27,
-      "xp_to_next": 29500,
-      "storage_bonus": 260,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 58486,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 6 · Shop allowance 6",
+      "source": "Settings.xml User/XP level=27",
+      "house_limit": 6,
+      "shop_limit": 6,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 28,
-      "xp_to_next": 31250,
-      "storage_bonus": 270,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 66089,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 7 · Shop allowance 6",
+      "source": "Settings.xml User/XP level=28",
+      "house_limit": 7,
+      "shop_limit": 6,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 29,
-      "xp_to_next": 33050,
-      "storage_bonus": 280,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 74680,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 7 · Shop allowance 7",
+      "source": "Settings.xml User/XP level=29",
+      "house_limit": 7,
+      "shop_limit": 7,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 30,
-      "xp_to_next": 34900,
-      "storage_bonus": 290,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 84389,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 8 · Shop allowance 7",
+      "source": "Settings.xml User/XP level=30",
+      "house_limit": 8,
+      "shop_limit": 7,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 31,
-      "xp_to_next": 36750,
-      "storage_bonus": 300,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 95360,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 8 · Shop allowance 7",
+      "source": "Settings.xml User/XP level=31",
+      "house_limit": 8,
+      "shop_limit": 7,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 32,
-      "xp_to_next": 38700,
-      "storage_bonus": 310,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 107756,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 8 · Shop allowance 8",
+      "source": "Settings.xml User/XP level=32",
+      "house_limit": 8,
+      "shop_limit": 8,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 33,
-      "xp_to_next": 40650,
-      "storage_bonus": 320,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 121765,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 9 · Shop allowance 8",
+      "source": "Settings.xml User/XP level=33",
+      "house_limit": 9,
+      "shop_limit": 8,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 34,
-      "xp_to_next": 42650,
-      "storage_bonus": 330,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 137594,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 9 · Shop allowance 8",
+      "source": "Settings.xml User/XP level=34",
+      "house_limit": 9,
+      "shop_limit": 8,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 35,
-      "xp_to_next": 44650,
-      "storage_bonus": 340,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 155841,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 9 · Shop allowance 9",
+      "source": "Settings.xml User/XP level=35",
+      "house_limit": 9,
+      "shop_limit": 9,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 36,
-      "xp_to_next": 46700,
-      "storage_bonus": 350,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 175694,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 10 · Shop allowance 9",
+      "source": "Settings.xml User/XP level=36",
+      "house_limit": 10,
+      "shop_limit": 9,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 37,
-      "xp_to_next": 48800,
-      "storage_bonus": 360,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 198534,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 10 · Shop allowance 9",
+      "source": "Settings.xml User/XP level=37",
+      "house_limit": 10,
+      "shop_limit": 9,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 38,
-      "xp_to_next": 50950,
-      "storage_bonus": 370,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 224343,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 10 · Shop allowance 9",
+      "source": "Settings.xml User/XP level=38",
+      "house_limit": 10,
+      "shop_limit": 9,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 39,
-      "xp_to_next": 53100,
-      "storage_bonus": 380,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 253508,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 10 · Shop allowance 9",
+      "source": "Settings.xml User/XP level=39",
+      "house_limit": 10,
+      "shop_limit": 9,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 40,
-      "xp_to_next": 55300,
-      "storage_bonus": 390,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 286464,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 10 · Shop allowance 10",
+      "source": "Settings.xml User/XP level=40",
+      "house_limit": 10,
+      "shop_limit": 10,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 41,
-      "xp_to_next": 57500,
-      "storage_bonus": 400,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 323704,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 10 · Shop allowance 10",
+      "source": "Settings.xml User/XP level=41",
+      "house_limit": 10,
+      "shop_limit": 10,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 42,
-      "xp_to_next": 59800,
-      "storage_bonus": 410,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 365786,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 10 · Shop allowance 10",
+      "source": "Settings.xml User/XP level=42",
+      "house_limit": 10,
+      "shop_limit": 10,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 43,
-      "xp_to_next": 62050,
-      "storage_bonus": 420,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 413338,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 10 · Shop allowance 10",
+      "source": "Settings.xml User/XP level=43",
+      "house_limit": 10,
+      "shop_limit": 10,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 44,
-      "xp_to_next": 64400,
-      "storage_bonus": 430,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 467072,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 10 · Shop allowance 10",
+      "source": "Settings.xml User/XP level=44",
+      "house_limit": 10,
+      "shop_limit": 10,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 45,
-      "xp_to_next": 66750,
-      "storage_bonus": 440,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 518450,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 11 · Shop allowance 10",
+      "source": "Settings.xml User/XP level=45",
+      "house_limit": 11,
+      "shop_limit": 10,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 46,
-      "xp_to_next": 69150,
-      "storage_bonus": 450,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 565110,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 11 · Shop allowance 10",
+      "source": "Settings.xml User/XP level=46",
+      "house_limit": 11,
+      "shop_limit": 10,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 47,
-      "xp_to_next": 71550,
-      "storage_bonus": 460,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 604668,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 11 · Shop allowance 10",
+      "source": "Settings.xml User/XP level=47",
+      "house_limit": 11,
+      "shop_limit": 10,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 48,
-      "xp_to_next": 74000,
-      "storage_bonus": 470,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 634901,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 11 · Shop allowance 10",
+      "source": "Settings.xml User/XP level=48",
+      "house_limit": 11,
+      "shop_limit": 10,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 49,
-      "xp_to_next": 76500,
-      "storage_bonus": 480,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "xp_to_next": 666467,
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 11 · Shop allowance 10",
+      "source": "Settings.xml User/XP level=49",
+      "house_limit": 11,
+      "shop_limit": 10,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     },
     {
       "level": 50,
       "xp_to_next": 0,
-      "storage_bonus": 490,
-      "benefit": "Town stores: +10 capacity for each supported material"
+      "storage_bonus": 0,
+      "benefit": "Housing allowance 11 · Shop allowance 11",
+      "source": "Settings.xml User/XP level=50",
+      "house_limit": 11,
+      "shop_limit": 11,
+      "unresolved": "Other original rewards require version-specific catalog verification."
     }
   ],
   "buildings": {
     "10012": 0,
     "10008": 0,
     "11": 1,
-    "35": 1,
-    "9": 2,
-    "128": 3,
-    "151": 5,
-    "120": 8,
-    "146": 12,
-    "108": 16,
-    "106": 20,
-    "103": 25,
-    "173": 30,
-    "159": 35,
+    "35": 2,
+    "9": 4,
+    "128": 6,
+    "151": 11,
+    "120": 4,
+    "146": 8,
+    "108": 1,
+    "106": 2,
+    "103": 5,
+    "173": 4,
+    "159": 15,
     "12": 1,
     "37": 4,
     "142": 8,
@@ -352,5 +552,115 @@
     "103": 25,
     "173": 30,
     "159": 35
+  },
+  "recipe_unlocks": {
+    "10": {
+      "building": 32,
+      "level": 6,
+      "name": "Table",
+      "compatibility": false
+    },
+    "32": {
+      "building": 32,
+      "level": 14,
+      "name": "Nutcracker",
+      "compatibility": false
+    },
+    "12": {
+      "building": 32,
+      "level": 7,
+      "name": "Bird House",
+      "compatibility": false
+    },
+    "14": {
+      "building": 32,
+      "level": 11,
+      "name": "Bed",
+      "compatibility": false
+    },
+    "13": {
+      "building": 32,
+      "level": 9,
+      "name": "Chairs",
+      "compatibility": false
+    },
+    "11": {
+      "building": 32,
+      "level": 6,
+      "name": "Bench",
+      "compatibility": false
+    },
+    "40": {
+      "building": 35,
+      "level": 1,
+      "name": "Cookies",
+      "compatibility": true
+    },
+    "41": {
+      "building": 35,
+      "level": 1,
+      "name": "Tarts",
+      "compatibility": false
+    },
+    "33": {
+      "building": 35,
+      "level": 3,
+      "name": "Gingerbread Man",
+      "compatibility": false
+    },
+    "42": {
+      "building": 35,
+      "level": 3,
+      "name": "Donuts",
+      "compatibility": false
+    },
+    "44": {
+      "building": 35,
+      "level": 4,
+      "name": "Cupcakes",
+      "compatibility": false
+    },
+    "43": {
+      "building": 35,
+      "level": 3,
+      "name": "Eclair",
+      "compatibility": false
+    },
+    "45": {
+      "building": 35,
+      "level": 5,
+      "name": "Cake",
+      "compatibility": false
+    },
+    "16": {
+      "building": 38,
+      "level": 16,
+      "name": "Grog",
+      "compatibility": false
+    },
+    "19": {
+      "building": 38,
+      "level": 18,
+      "name": "Ale",
+      "compatibility": false
+    },
+    "18": {
+      "building": 38,
+      "level": 20,
+      "name": "Mead",
+      "compatibility": false
+    },
+    "30": {
+      "building": 38,
+      "level": 22,
+      "name": "Malt",
+      "compatibility": false
+    },
+    "17": {
+      "building": 38,
+      "level": 24,
+      "name": "Lager",
+      "compatibility": false
+    }
   }
 }

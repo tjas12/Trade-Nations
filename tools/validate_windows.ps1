@@ -46,9 +46,11 @@ try {
     Invoke-Validation 'mobile' @('--headless', '--path', $projectPath, 'res://tests/MobileTests.tscn')
     Invoke-Validation 'classic' @('--headless', '--path', $projectPath, 'res://tests/ClassicTests.tscn')
     Invoke-Validation 'historical' @('--headless', '--path', $projectPath, 'res://tests/HistoricalTests.tscn')
+    Invoke-Validation 'historical-touch' @('--headless', '--path', $projectPath, 'res://tests/HistoricalTouchTests.tscn')
     Invoke-Validation 'main' @('--headless', '--path', $projectPath, '--quit-after', '120')
     if ($Graphical) {
         Invoke-Validation 'mobile-graphical' @('--path', $projectPath, '--rendering-method', 'gl_compatibility', 'res://tests/MobileTests.tscn')
+        Invoke-Validation 'historical-touch-graphical' @('--path', $projectPath, '--rendering-method', 'gl_compatibility', 'res://tests/HistoricalTouchTests.tscn')
         Invoke-Validation 'playable-forward-plus' @('--path', $projectPath, '--rendering-method', 'forward_plus', 'res://tests/PlayableTests.tscn')
         Invoke-Validation 'layout-forward-plus' @('--path', $projectPath, '--rendering-method', 'forward_plus', 'res://tests/LayoutTests.tscn')
         Invoke-Validation 'graphical' @('--path', $projectPath, '--rendering-method', 'gl_compatibility', 'res://tests/RestorationTests.tscn')

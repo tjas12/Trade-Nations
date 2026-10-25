@@ -22,7 +22,7 @@ func run() -> void:
 		save.player_state.mayor_level = level
 		ProgressionManager.sync_unlocks()
 		InventoryManager.recalculate_capacity()
-		check(InventoryManager.capacity(10) == 500 + (level - 1) * 10, "Level %d grants its actual storage benefit" % level)
+		check(InventoryManager.capacity(10) == 500, "Level %d preserves base storage and defines historical allowances" % level)
 		for definition in ProgressionManager.entries_at(level):
 			check(ProgressionManager.unlocked(definition) and ResourceLoader.exists(definition.icon_path) and DataManager.rules.buildings.has(str(definition.id)), "Functional unlock and asset: " + definition.display_name)
 	save.player_state.mayor_level = 0
@@ -31,7 +31,7 @@ func run() -> void:
 	ProgressionManager.sync_unlocks()
 	ProgressionManager.add_xp(-10)
 	check(save.player_state.xp_total == 0, "Invalid XP cannot change progress")
-	ProgressionManager.add_xp(351)
+	ProgressionManager.add_xp(1301)
 	check(save.player_state.mayor_level == 3 and save.player_state.xp_total == 0 and celebrations == 1, "Multi-level gain emits one aggregated celebration")
 	ProgressionManager.add_xp(1000000000)
 	check(save.player_state.mayor_level == 50 and save.player_state.xp_total > 0, "Cap stops at fifty without discarding excess earned XP")

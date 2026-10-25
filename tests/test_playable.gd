@@ -59,9 +59,14 @@ func run() -> void:
 	farmer.is_hungry = true
 	check(EconomyManager.pause_reason(farm).is_empty(), "Hungry farmers can gather food to avoid a food deadlock")
 	farmer.is_hungry = false
-	for wait_second in range(120):
-		if EconomyManager.can_afford(DataManager.get_building_definition(35).cost): break
+	for wait_second in range(3600):
+		if save.player_state.mayor_level >= 2 and EconomyManager.can_afford(DataManager.get_building_definition(35).cost): break
 		step(1)
+		if wait_second % 30 == 0:
+			main._collect_resources()
+			for resource in [10, 40]:
+				if InventoryManager.amount(resource) > 100: SocialManager.sell_to_market(resource, 20)
+	check(save.player_state.mayor_level >= 2, "Legitimate staffed production reaches the restored Bakery level requirement")
 	var bakery = place(35, Vector2i(10, 5))
 	if bakery == null:
 		get_tree().quit(1)

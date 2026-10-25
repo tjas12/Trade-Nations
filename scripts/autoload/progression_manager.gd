@@ -50,3 +50,10 @@ func _on_building_placed(instance: BuildingInstance) -> void:
 	var definition = DataManager.get_building_definition(instance.def_id)
 	if definition and definition.xp_value > 0:
 		add_xp(definition.xp_value)
+
+func recipes_at(level: int) -> Array:
+	var result := []
+	for key in registry.get("recipe_unlocks", {}):
+		var entry: Dictionary = registry.recipe_unlocks[key]
+		if int(entry.level) == level: result.append(entry)
+	return result

@@ -7,6 +7,7 @@ var _footprint := PackedVector2Array()
 var _source_image: Image
 var ground_anchor := Vector2.ZERO
 var editing_original := false
+var _storage_piles: Node2D
 
 @onready var color_rect: ColorRect = $ColorRect
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -150,6 +151,12 @@ func set_building(instance: BuildingInstance):
 	else:
 		sprite_2d.visible = false
 		color_rect.color.a = 1.0
+	if instance.def_id in [25, 26]:
+		if not is_instance_valid(_storage_piles):
+			_storage_piles = load("res://scripts/rendering/storage_piles.gd").new()
+			_storage_piles.z_index = 1
+			add_child(_storage_piles)
+		_storage_piles.position = ground_anchor - Vector2(0, 16)
 	queue_redraw()
 
 func _draw() -> void:

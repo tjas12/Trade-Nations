@@ -111,6 +111,10 @@ func _ready() -> void:
 	confirmation.confirmed.connect(func(): EventBus.building_demolish_requested.emit(building_instance))
 	add_child(confirmation)
 	demolish_button = _button("Demolish… · 50% refund", func(): confirmation.popup_centered())
+	SaveManager.save_activated.connect(hide)
+	EventBus.town_changed.connect(func():
+		if visible and building_instance: show_for_building(building_instance)
+	)
 	EventBus.population_changed.connect(func(_total, _idle):
 		if visible:
 			_refresh_staff_choices()
@@ -165,6 +169,10 @@ func _update_display() -> void:
 	tax_button.visible = tabs.current_tab == 0 and not HistoricalGameplay.profile(building_instance.def_id).get("tax", {}).is_empty()
 	tax_button.disabled = building_instance.tax_gold <= 0
 	tax_button.text = "Collect %d Gold tax" % building_instance.tax_gold if building_instance.tax_gold > 0 else "Taxes accruing · Collect when ready"
+	if tax_button.visible and building_instance.tax_gold <= 0:
+		var tax: Dictionary = HistoricalGameplay.profile(building_instance.def_id).tax
+		var minutes := ceili(maxf(0, float(tax.seconds) - building_instance.tax_elapsed) / 60)
+		tax_button.text = "%d Gold tax · %dh %dm remaining" % [tax.reward.get("1", 0), minutes / 60, minutes % 60]
 	var overview := tabs.current_tab == 0
 	var people := tabs.current_tab == 1
 	var layout := tabs.current_tab == 2

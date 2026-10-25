@@ -64,6 +64,7 @@ def run(implemented=False):
                 "upgrades_from": [int(i.text) for i in obj.findall("UpgradeOf")],
                 "upgrade_only": any(i.get("upgradeOnly") == "true" for i in obj.findall("UpgradeOf")),
                 "store": obj.get("availableFromStore", "unknown"),
+                "finish_time_unix": obj.findtext("FinishTime", "not supplied"),
                 "lands": [i.text for i in obj.findall("CompatibleLand")],
                 "idle_art": obj.find("IdleAnim").get("name", "") if obj.find("IdleAnim") is not None else "",
                 "flags": flags,
@@ -85,7 +86,7 @@ def run(implemented=False):
     levels = {}
     for xp in settings.iter("XP"):
         levels[str(xp.get("level"))] = {"xp_to_next": int(xp.get("toNext")), "limits": {p.get("category"): int(p.text) for p in xp.findall("MaxBuilding")}, "text": xp.findtext("LevelText", "")}
-    runtime = {"version": "4.0.1", "evidence": "Recovered XML, active nodes only; full details in docs/ORIGINAL_BUILDING_CATALOG.md", "aliases": {"10001": 1, "10008": 8, "10012": 12}, "object_requirements": {str(id): {k: r[k] for k in ["level", "prerequisites", "source", "upgrades_from", "store"]} for id, r in records.items()}, "profiles": {str(id): records[id] for id in IMPLEMENT}, "levels": levels, "shop_recipes": recipes}
+    runtime = {"version": "4.0.1", "evidence": "Recovered XML, active nodes only; full details in docs/ORIGINAL_BUILDING_CATALOG.md", "aliases": {"10001": 1, "10008": 8, "10012": 12}, "object_requirements": {str(id): {k: r[k] for k in ["level", "prerequisites", "source", "upgrades_from", "store"]} for id, r in records.items()}, "offline_prices": {"11": 8, "21": 12, "50": 5, "51": 14}, "profiles": {str(id): records[id] for id in IMPLEMENT}, "levels": levels, "shop_recipes": recipes}
     (ROOT / "data/historical_gameplay.json").write_text(json.dumps(runtime, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     old = json.loads((ROOT / "data/first_playable.json").read_text())
     names = collections.Counter(r["name"] for r in records.values())
@@ -102,7 +103,7 @@ def run(implemented=False):
         art_match = re.search(r'^icon_path = "([^"]*)"', text, re.M)
         art = art_match[1] if art_match else json.loads((ROOT / "data/building_visuals.json").read_text())["asset_overrides"].get(str(id), "Unmapped")
         flags = r["flags"] + (["same-name variant; inspect ID/land"] if names[r["name"]] > 1 else [])
-        fields = {"Source / confidence": f"[{r['source']}](../original/TradeNations.app/bundle/{r['source']}); high, literal XML", "Category / type / land": [r['category'], r['type'], r['lands']], "Historical minimum level / prerequisites": [r['level'], r['prerequisites']], "Construction cost (resource IDs; MagicBeans separately)": r['cost'], "Construction seconds / footprint": [r['build_seconds'], r['footprint']], "Workers / haulers": r['workers'], "Population default / adoptable": [r['residents'], r['adoptable']], "Tax interval, rewards and XP": r['tax'], "Storage capacities": r['storage'], "Gather / processing": r.get('production', {}), "Shop recipes (Items.xml)": {str(i): recipes.get(str(i), 'not a shop recipe') for i in r['items']}, "Art metadata / current mapping": [r['idle_art'], art], "Upgrade parents / upgrade-only / store flag": [r['upgrades_from'], r['upgrade_only'], r['store']], "Version/event/duplicate notes": flags, "Current implementation": status}
+        fields = {"Source / confidence": f"[{r['source']}](../original/TradeNations.app/bundle/{r['source']}); high, literal XML", "Category / type / land": [r['category'], r['type'], r['lands']], "Historical minimum level / prerequisites": [r['level'], r['prerequisites']], "Construction cost (resource IDs; MagicBeans separately)": r['cost'], "Construction seconds / footprint": [r['build_seconds'], r['footprint']], "Workers / haulers": r['workers'], "Population default / adoptable": [r['residents'], r['adoptable']], "Tax interval, rewards and XP": r['tax'], "Storage capacities": r['storage'], "Gather / processing": r.get('production', {}), "Shop recipes (Items.xml)": {str(i): recipes.get(str(i), 'not a shop recipe') for i in r['items']}, "Art metadata / current mapping": [r['idle_art'], art], "Upgrade parents / upgrade-only / store flag": [r['upgrades_from'], r['upgrade_only'], r['store']], "Version/event/duplicate notes": flags, "Event finish timestamp (UTC epoch; missing is not proof permanent)": r["finish_time_unix"], "Current implementation": status}
         lines += [f"### {id} — {r['name']}", "", "| Field | Historical evidence / implementation |", "|---|---|"]
         lines += [f"| {k} | {fmt(v)} |" for k,v in fields.items()]
         lines.append("")

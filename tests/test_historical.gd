@@ -82,6 +82,8 @@ func run() -> void:
 	check(loaded != null and loaded.save_version == 5 and loaded.player_state.mayor_level == 4 and loaded.player_state.xp_total == 123.5, "Version-four migration preserves level and XP")
 	home = WorkerManager.instance_by_id("classic_home")
 	check(home.tax_gold == 8 and WorkerManager.instance_by_id(camp.instance_id).assigned_worker_ids == staff and WorkerManager.instance_by_id("legacy_cottage").housing_bonus == 1, "Tax claims, jobs and legacy housing survive reload")
+	for level in range(1, 50):
+		check(ProgressionManager.XP_THRESHOLDS[level] == int(HistoricalGameplay.data().levels[str(level)].xp_to_next), "Recovered XP threshold is used at level %d" % level)
 	# Real input reservation, worker rates and hauling for each new material chain.
 	SaveManager.current_save.player_state.mayor_level = 50
 	ProgressionManager.sync_unlocks()
@@ -93,6 +95,7 @@ func run() -> void:
 		producer.x = 1
 		producer.y = 8
 		SaveManager.current_save.town_layouts.Vanilla.starting_objects.append(producer)
+		check(DataManager.get_building_definition(building_id).shop_recipe_ids.is_empty(), "Unsupported producer batch alternatives are not advertised")
 		var recipe = EconomyManager.recipe_for(producer)
 		SaveManager.current_save.inventory.resource_amounts[recipe.output_resource_id] = 0
 		for input in recipe.input_cost: SaveManager.current_save.inventory.resource_amounts[input] = 10000
@@ -152,6 +155,22 @@ func run() -> void:
 	check(HistoricalGameplay.begin_upgrade(warehouse, 26).begins_with("Upgrade started"), "Stockpile can upgrade to recovered Large Stockpile")
 	EconomyManager._update_construction(31)
 	check(warehouse.def_id == 26 and InventoryManager.capacity(11) >= 4000, "Large Stockpile makes later original construction costs attainable")
+	# Later verified housing tiers and civic prerequisites are functional too.
+	for resource in [1, 10, 20, 40, 11, 21, 50, 51]: SaveManager.current_save.inventory.resource_amounts[resource] = 100000
+	hall = WorkerManager.instance_by_id("town_hall_01")
+	SaveManager.current_save.player_state.mayor_level = 14
+	var population_before := WorkerManager.total_population()
+	check(HistoricalGameplay.begin_upgrade(hall, 3).begins_with("Upgrade started"), "Tower can upgrade to the level-six Keep")
+	EconomyManager._update_construction(31)
+	check(HistoricalGameplay.begin_upgrade(home, 142).begins_with("Upgrade started"), "Large Cottage can upgrade to verified three-resident Brown House")
+	EconomyManager._update_construction(31)
+	check(home.def_id == 142 and WorkerManager.capacity_for(home) == 3 and WorkerManager.total_population() == population_before + 1, "Brown House adds capacity while preserving residents")
+	check(HistoricalGameplay.begin_upgrade(hall, 4).begins_with("Upgrade started"), "Keep upgrades to the level-ten Fort")
+	EconomyManager._update_construction(31)
+	check(HistoricalGameplay.begin_upgrade(home, 14).begins_with("Upgrade started"), "Brown House upgrades to verified four-resident Stone House")
+	EconomyManager._update_construction(31)
+	check(home.def_id == 14 and WorkerManager.capacity_for(home) == 4 and WorkerManager.total_population() == population_before + 2, "Stone House completes the implemented residential chain")
+	check(home.tax_gold == 8, "Uncollected taxes retain their original reward across housing upgrades")
 	SaveManager.delete_slot(974)
 	print("[HistoricalTests] %d failure(s)" % failures)
 	get_tree().quit(1 if failures else 0)

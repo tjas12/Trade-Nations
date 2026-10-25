@@ -3674,6 +3674,12 @@
       "store": "0"
     }
   },
+  "offline_prices": {
+    "11": 8,
+    "21": 12,
+    "50": 5,
+    "51": 14
+  },
   "profiles": {
     "12": {
       "id": 12,
@@ -3714,6 +3720,7 @@
       "upgrades_from": [],
       "upgrade_only": false,
       "store": "1",
+      "finish_time_unix": "not supplied",
       "lands": [
         "Vanilla"
       ],
@@ -3768,6 +3775,7 @@
       ],
       "upgrade_only": false,
       "store": "1",
+      "finish_time_unix": "not supplied",
       "lands": [
         "Vanilla"
       ],
@@ -3822,6 +3830,7 @@
       ],
       "upgrade_only": false,
       "store": "1",
+      "finish_time_unix": "not supplied",
       "lands": [
         "Vanilla"
       ],
@@ -3875,6 +3884,7 @@
       ],
       "upgrade_only": false,
       "store": "1",
+      "finish_time_unix": "not supplied",
       "lands": [
         "Vanilla"
       ],
@@ -3923,6 +3933,7 @@
       "upgrades_from": [],
       "upgrade_only": false,
       "store": "1",
+      "finish_time_unix": "not supplied",
       "lands": [
         "Vanilla"
       ],
@@ -3979,6 +3990,7 @@
       "upgrades_from": [],
       "upgrade_only": false,
       "store": "1",
+      "finish_time_unix": "not supplied",
       "lands": [
         "Vanilla"
       ],
@@ -4036,6 +4048,7 @@
       "upgrades_from": [],
       "upgrade_only": false,
       "store": "1",
+      "finish_time_unix": "not supplied",
       "lands": [
         "Vanilla"
       ],
@@ -4091,6 +4104,7 @@
       "upgrades_from": [],
       "upgrade_only": false,
       "store": "0",
+      "finish_time_unix": "not supplied",
       "lands": [
         "Vanilla"
       ],
@@ -4149,6 +4163,7 @@
       "upgrades_from": [],
       "upgrade_only": false,
       "store": "0",
+      "finish_time_unix": "not supplied",
       "lands": [
         "Vanilla"
       ],
@@ -4200,6 +4215,7 @@
       "upgrades_from": [],
       "upgrade_only": false,
       "store": "0",
+      "finish_time_unix": "not supplied",
       "lands": [
         "Vanilla"
       ],
@@ -4249,6 +4265,7 @@
       "upgrades_from": [],
       "upgrade_only": false,
       "store": "0",
+      "finish_time_unix": "not supplied",
       "lands": [
         "Vanilla"
       ],
@@ -4304,6 +4321,7 @@
       ],
       "upgrade_only": false,
       "store": "0",
+      "finish_time_unix": "not supplied",
       "lands": [
         "Vanilla"
       ],
@@ -4359,6 +4377,7 @@
       ],
       "upgrade_only": true,
       "store": "0",
+      "finish_time_unix": "not supplied",
       "lands": [
         "Vanilla"
       ],
@@ -4415,6 +4434,7 @@
       ],
       "upgrade_only": true,
       "store": "0",
+      "finish_time_unix": "not supplied",
       "lands": [
         "Vanilla"
       ],
@@ -4470,6 +4490,7 @@
       ],
       "upgrade_only": true,
       "store": "0",
+      "finish_time_unix": "not supplied",
       "lands": [
         "Vanilla"
       ],
