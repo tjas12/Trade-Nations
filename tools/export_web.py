@@ -39,6 +39,13 @@ def prepare_offline_cache(output):
                     }
                 }
 """)
+    original_install = "cache.addAll(CACHED_FILES)"
+    fresh_install = 'cache.addAll(CACHED_FILES.map((url) => new Request(url, { cache: "reload" })))'
+    if original_install in worker:
+        # A new worker must not populate its new cache from stale browser HTTP data.
+        worker = worker.replace(original_install, fresh_install)
+    elif fresh_install not in worker:
+        raise RuntimeError("Godot worker installation changed; review update cache freshness")
     worker_file.write_text(worker, encoding="utf-8")
 
 

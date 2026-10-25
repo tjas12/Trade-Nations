@@ -44,6 +44,8 @@ The Linux runner downloads official **Godot 4.7.2** and its matching export-temp
 
 `tools/test_web_browser.py` uses a disposable persistent Chromium profile and a touch viewport. It checks exported-game startup, fatal console/resource failures, a real autosave stored in IndexedDB, required CacheStorage entries after initial installation, and a fresh browser launch with networking disabled that loads the previous town. It can also run against the deployed HTTPS URL using `--url`. This is desktop Chromium automation, **not an iPhone or Safari test**.
 
+New service-worker installations request fresh resources instead of filling their new versioned cache from potentially stale browser HTTP-cache entries. This supports future updates without asking players to clear website data. The worker still waits for old clients to close before activating; saved town data remains in IndexedDB.
+
 Build artifacts are named `iphone-web-<commit>` and retained for 14 days. Diagnostics include logs and landscape/offline screenshots. Exported binaries stay in ignored `export/web`, never in the source branch. `build-info.json` records the deployed source commit, file sizes, and SHA256 digests.
 
 ## Phone installation
