@@ -35,7 +35,14 @@ func _process(_delta: float) -> void:
 			visible = citizen.map_position.x >= 0
 			position = TownGridGeometry.cell_to_world(citizen.map_position + Vector2(0.5, 0.5))
 			z_index = clampi(int(position.y), 0, 4000)
-			_label.text = "%s · %s" % [citizen.villager_name, citizen.activity] if get_global_mouse_position().distance_to(global_position) < 55 else citizen.activity.capitalize()
+			var distance := get_global_mouse_position().distance_to(global_position)
+			var nearest := distance < 45
+			for other in get_parent().get_children():
+				if other is VillagerWalker and other != self:
+					var other_distance: float = get_global_mouse_position().distance_to(other.global_position)
+					if other_distance < distance or (is_equal_approx(other_distance, distance) and other.villager_id < villager_id): nearest = false
+			_label.visible = nearest
+			_label.text = "%s · %s" % [citizen.villager_name, citizen.activity]
 			_sprite.position.y = -14 + (sin(Time.get_ticks_msec() * 0.015) * 2 if citizen.activity == "traveling" else 0)
 			return
 	queue_free()

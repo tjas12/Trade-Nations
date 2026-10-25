@@ -51,7 +51,7 @@ func populate_build_menu():
 
         for building_def in buildings:
             var button = Button.new()
-            button.custom_minimum_size = Vector2(240, 230)
+            button.custom_minimum_size = Vector2(240, 250)
             
             # Use a VBoxContainer inside the button to align icon and text
             var container = VBoxContainer.new()
@@ -65,29 +65,24 @@ func populate_build_menu():
             container.grow_vertical = Control.GROW_DIRECTION_BOTH
             
             # Create a TextureRect for the building icon
-            var icon_rect = TextureRect.new()
-            icon_rect.custom_minimum_size = Vector2(90, 90)
-            icon_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-            icon_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-            icon_rect.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-            icon_rect.size_flags_vertical = Control.SIZE_EXPAND_FILL
-            icon_rect.mouse_filter = Control.MOUSE_FILTER_PASS
-            
-            if building_def.icon_path != "":
-                var texture = load(building_def.icon_path)
-                if texture:
-                    icon_rect.texture = texture
-                    LegacyArt.apply(icon_rect)
-            
+            var icon_rect = Control.new()
+            icon_rect.custom_minimum_size = Vector2(200, 90)
+            icon_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+            if not building_def.icon_path.is_empty():
+                var sprite = Sprite2D.new()
+                sprite.texture = load(building_def.icon_path)
+                var ground = BuildingVisuals.configure(sprite, building_def)
+                sprite.position += Vector2(100, 85) - ground
+                icon_rect.add_child(sprite)
             container.add_child(icon_rect)
-            
+
             # Create a Label for the building name
             var label = Label.new()
             label.text = building_def.display_name
             if SaveManager.current_save.player_state.mayor_level < building_def.playable_level:
                 label.text += "\nLocked: Level %d" % building_def.playable_level
                 button.disabled = true
-            label.text += "\n%d×%d tiles · %ds construction" % [building_def.width, building_def.height, building_def.build_time_seconds]
+            label.text += "\n%d×%d tiles · %ds construction\n%d supported view(s)" % [building_def.width, building_def.height, building_def.build_time_seconds, BuildingVisuals.orientations(building_def).size()]
             for entry in building_def.cost.entries:
                 var resource = DataManager.get_resource_definition(entry.resource_id)
                 if resource:

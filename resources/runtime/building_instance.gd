@@ -20,3 +20,5 @@ class_name BuildingInstance
 @export var cycle_elapsed: float = 0.0
 @export var cycle_reserved: bool = false
 @export var construction_elapsed: float = 0.0
+
+@export var legacy_entrance: Vector2i = Vector2i(-1, -1) # Compatibility access for pre-v3 layouts

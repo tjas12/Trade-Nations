@@ -73,3 +73,7 @@ signal town_notice(text: String)
 signal building_move_requested(instance)
 signal building_demolish_requested(instance)
 signal town_changed()
+
+signal building_rotate_requested(instance, step: int)
+
+signal ground_decorations_changed()

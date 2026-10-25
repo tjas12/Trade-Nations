@@ -4,14 +4,14 @@
 
 [node name="BuildingPopup" type="Panel"]
 process_mode = 3
-custom_minimum_size = Vector2(320, 350)
+custom_minimum_size = Vector2(288, 380)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -350.0
+offset_left = -300.0
 offset_right = -12.0
 offset_top = 115.0
-offset_bottom = 625.0
+offset_bottom = 495.0
 grow_horizontal = 0
 script = ExtResource("1_abcde")
 
@@ -20,7 +20,7 @@ layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
-offset_top = 45.0
+offset_top = 80.0
 offset_right = -10.0
 offset_bottom = -10.0
 horizontal_scroll_mode = 0

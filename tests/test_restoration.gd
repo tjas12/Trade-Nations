@@ -60,6 +60,8 @@ func run() -> void:
 	var stockpile = BuildingInstance.new()
 	stockpile.instance_id = "audit_stockpile"
 	stockpile.def_id = 25
+	stockpile.x = 6
+	stockpile.y = 6
 	save.town_layouts["Vanilla"].starting_objects.append(stockpile)
 	InventoryManager.recalculate_capacity()
 	check(InventoryManager.capacity(10) >= 1000.0, "Completed stockpile contributes Wood storage")

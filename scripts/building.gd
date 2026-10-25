@@ -5,6 +5,8 @@ var building_instance: BuildingInstance
 var _harvest_bubble: Panel = null
 var _footprint := PackedVector2Array()
 var _source_image: Image
+var ground_anchor := Vector2.ZERO
+var editing_original := false
 
 @onready var color_rect: ColorRect = $ColorRect
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -19,6 +21,7 @@ func _ready() -> void:
 func _create_harvest_bubble() -> void:
 	_harvest_bubble = Panel.new()
 	_harvest_bubble.name = "HarvestBubble"
+	_harvest_bubble.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_harvest_bubble.custom_minimum_size = Vector2(40, 40)
 	
 	var sb = StyleBoxFlat.new()
@@ -33,6 +36,7 @@ func _create_harvest_bubble() -> void:
 	
 	var label = Label.new()
 	label.text = "!"
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	label.add_theme_color_override("font_color", Color.BLACK)
@@ -51,7 +55,11 @@ func _process(delta: float) -> void:
 	if not building_instance:
 		return
 		
-	modulate.a = 1.0 if building_instance.construction_complete else 0.55
+	if building_instance.instance_id.is_empty():
+		_harvest_bubble.hide()
+		return
+	if not building_instance.instance_id.is_empty():
+		modulate.a = 0.25 if editing_original else (1.0 if building_instance.construction_complete else 0.55)
 	# Check if building has any stored resources to display the harvest bubble
 	var has_stored = false
 	for res_id in building_instance.stored_resources.keys():
@@ -132,11 +140,8 @@ func set_building(instance: BuildingInstance):
 			sprite_2d.texture = texture
 			_source_image = texture.get_image()
 			LegacyArt.apply(sprite_2d)
-			# Fit the artwork's diamond base across the declared tile footprint.
-			var artwork_scale: float = footprint_width / texture.get_width()
-			sprite_2d.scale = Vector2.ONE * artwork_scale
-			sprite_2d.position = Vector2(center.x, footprint_height - texture.get_height() * artwork_scale * 0.5)
-			sprite_2d.flip_h = not is_zero_approx(fmod(instance.rotation_degrees, 180.0))
+			ground_anchor = BuildingVisuals.configure(sprite_2d, building_def, instance.rotation_degrees)
+			z_index = clampi(int(position.y + ground_anchor.y), 0, 4000)
 			sprite_2d.visible = true
 		else:
 			push_warning("[Building] Failed to load icon texture: %s" % texture_path)

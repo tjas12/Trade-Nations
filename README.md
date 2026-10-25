@@ -1,5 +1,7 @@
 # Trade Nations — first playable offline town
 
+The latest visual/layout milestone adds calibrated building scale, safe facing previews, compact building tabs, and saved path/decoration brushes. See [VISUAL_LAYOUT_MILESTONE.md](VISUAL_LAYOUT_MILESTONE.md) and the developer [building audit](docs/BUILDING_VISUAL_AUDIT.csv).
+
 This Godot restoration now has a playable local economy: housing and villagers, construction, wood and wheat production, cookie processing, local sales, eight rewarded goals, and one land expansion. It uses the recovered isometric artwork. No accounts, network service, paid dependency, or database is required.
 
 ## Open and play
@@ -30,7 +32,9 @@ The opening is designed to progress within 10–15 minutes without developer gra
 | Pan | Drag empty ground, middle-drag, WASD, or arrow keys |
 | Zoom / recover view | Mouse wheel / Home or Center town |
 | Select | Click a building’s artwork or diamond footprint |
-| Place / rotate / cancel | Left-click / R / right-click or Escape |
+| Place / rotate / cancel | Left-click or Confirm / R clockwise, Shift+R counterclockwise / Cancel, right-click, or Escape |
+| Edit existing facing | Select building → Layout → Preview turn, or press R; position stays pinned until Move position is chosen |
+| Landscape | Landscape → Dirt path, Flower bed, Decorative fence, or Erase; drag and release to apply |
 | Grid | Grid toggle; shown automatically during placement |
 | Local save / quick load main slot | Save or F5 / F9 |
 | Choose saved town | Load |
@@ -45,7 +49,7 @@ Demolition refunds 50% of current configured building costs, rounded down. Reser
 
 Main save: `%APPDATA%/Godot/app_userdata/Trade Nations Reboot/saves/slot_1.tres`. Numbered archive slots share that directory. Saves are manual; press Save/F5 before closing. New town archives the current in-memory state before resetting it.
 
-Version 2 preserves buildings, construction, individual villagers, positions, home/job links, production progress and reserved inputs, resources, XP/unlocks, objective claims, recorded production/sales, and expansion. Version-1 saves migrate in memory and are only updated on an explicit save. Housing reconciliation repairs missing arrivals without duplication. Existing plot sizes, buildings, stock, and valid jobs remain; conflicting duplicate jobs are normalized to one job per person.
+Version 3 adds saved ground decorations and compatibility entrances, retaining earlier production and progression state. Versions 1 and 2 migrate safely. Version 2 introduced persistent buildings, construction, individual villagers, positions, home/job links, production progress and reserved inputs, resources, XP/unlocks, objective claims, recorded production/sales, and expansion. Older saves migrate in memory and are only updated on an explicit save. Housing reconciliation repairs missing arrivals without duplication. Existing plot sizes, buildings, stock, and valid jobs remain; conflicting duplicate jobs are normalized to one job per person.
 
 Writes use a validated pending file and retain a valid previous generation as `.backup.tres`. Loading falls back to that backup if the primary is invalid. If neither copy is readable, files remain unchanged and main-slot saving is blocked. Copy the save directory before manual recovery. Unknown future save versions are rejected. **Production pauses while the game is closed**: there is no offline catch-up or repeated offline reward calculation.
 
@@ -68,3 +72,26 @@ The runner isolates saves under `.validation`, imports/parses the project, runs 
 Tests cover the whole cottage → villagers → jobs → wheat → cookies → sale → goals → expansion → save/reload path; reserved-input conservation; missing inputs/staff; worker limits and duplicate jobs; legacy migration; repeated-load reward/population safety; corrupt-primary backup recovery; move/demolish occupancy and assignments; UI input isolation; and pan/zoom/selection/placement. Native RAW artwork comparison remains in the rendering test.
 
 Historical restoration research and qualifications: [PROJECT_AUDIT.md](PROJECT_AUDIT.md), [FEATURE_MATRIX.md](FEATURE_MATRIX.md), [ASSET_LICENSE_AUDIT.md](ASSET_LICENSE_AUDIT.md), and [FIRST_PLAYABLE.md](FIRST_PLAYABLE.md).
+
+
+## Scale, orientation and layout editing
+
+The shared renderer measures visible alpha bounds and applies centralized native scale/ground anchors from `data/building_visuals.json`. Town Hall reads as a civic building; cottage, camp and bakery art no longer stretches to fill the entire plot. Gameplay footprints are unchanged, including the playable Cottage and Farm’s 2×2 tiles. Catalog thumbnails, construction, placement ghosts and placed buildings use the same rules. The selected panel’s Overview / Workers / Layout tabs keep important actions reachable.
+
+The model represents four quarter-turn grid orientations. Current cottage, logging camp and farm assets expose **two front views: original and mirrored**. These are not front/rear views. Town Hall and sign-bearing shops (including Baker Shop) retain **one verified view**, avoiding reversed lettering/clock details. Numbered cottage sprites are color variants; seasonal prefixes are skins. No verified four-direction structure set was recovered. Legacy facings remain represented in older saves and are labelled explicitly when no matching supported view exists.
+
+During placement use **R / Shift+R**, or the visible turn buttons. For an existing building, use **Layout → Preview turn** or R while selected. A green/red ghost and short reason show whether the new geometry and entrance can be reached. Confirm applies; Escape/Cancel preserves the original. Rotation-only editing keeps the position pinned; **Move position / Pin position** switches editing modes explicitly. Move and rotate preserve identity, staffing, stored output and partial recipes, with fresh path calculations on confirmation. Town Hall remains protected from moving/demolition.
+
+New edits must fit inside town bounds, leave their entrance accessible, and preserve previously reachable building entrances. Older saves with blocked default entrances may retain a valid perimeter entrance for compatibility. Editing such a building validates a new orientation-aware entrance. Existing impossible/overlapping layouts are never silently relocated or deleted.
+
+## Optional landscape brushes
+
+Dirt paths cost **1 Gold per tile**; flower beds cost **2 Gold + 1 Wood**; decorative fences cost **1 Wood**. All three are cosmetic and **block neither movement nor building placement**. Fences are garden trim, not barriers. Workers do not require paths. Painting starts on empty land, skips occupied/previously decorated tiles, and shows the full stroke’s cost before release. Revisiting a tile within a stroke or repainting existing tiles does not charge again. An unaffordable stroke applies nothing. Erase first to replace a decoration; erasing gives no refund. Escape discards an unfinished stroke and exits the brush.
+
+Connected dirt diamonds are drawn procedurally because the recovered road sprites depict stone/brick, not dirt. Flowers and fences reuse recovered sprites. The separate ground layer remains beneath buildings/villagers, saves tile positions, and permits new painting on expanded land. A later building may cover existing cosmetic tiles; those remain saved underneath it.
+
+## Developer building preview
+
+Open `tests/BuildingPreview.tscn` and press **F6**. Previous/Next visits **all 274 definitions**, including content outside the regular catalog. Change facing cycles only supported views. Every page uses the same 64×32 grid, villager reference and 0.7 display zoom. Missing mappings are explicitly marked. The tool is developer-only and does not save or overwrite your town.
+
+The automated scale audit currently finds **108 mapped definitions and 166 unmapped definitions**. Unmapped does not necessarily mean the source game lacked art: some still need animation/asset reconstruction. Those definitions remain footprint placeholders and are not added to the playable catalog. [BUILDING_VISUAL_AUDIT.csv](docs/BUILDING_VISUAL_AUDIT.csv) lists every definition, bounds and supported views. True rear/directional art is still needed for the active buildings; the bakery and civic clock also need genuine alternate artwork before exposing additional views.

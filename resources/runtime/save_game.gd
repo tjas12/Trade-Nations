@@ -24,3 +24,5 @@ extends Resource
 @export var economy_stats: Dictionary = {"produced": {}, "sold": {}}
 @export var objective_claims: Array[String] = []
 @export var expansion_count: int = 0
+
+@export var ground_decorations: Dictionary = {} # Vector2i -> dirt/flowers/fence; non-blocking

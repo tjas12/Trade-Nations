@@ -40,6 +40,11 @@ func load_all() -> void:
 	starting_layouts = _load_definitions(LAYOUTS_PATH, "filename") # Indexed by filename
 	
 	_apply_playable_rules()
+	for definition in building_definitions.values():
+		if definition.icon_path.is_empty():
+			var asset: String = BuildingVisuals.rules().asset_overrides.get(str(definition.id), "")
+			if not asset.is_empty():
+				definition.icon_path = "res://assets/art/converted/" + asset
 	_is_loaded = true
 	print("[DataManager] Loaded %d resource defs, %d building defs, %d recipes, %d worker defs, %d layouts." % [
 		resource_definitions.size(),

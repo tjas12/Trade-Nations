@@ -147,6 +147,36 @@ func run() -> void:
 	check(objects[1].assigned_worker_ids.size() == 1 and objects[1].assigned_hauler_ids.size() == 1, "Actual worker and hauler buttons assign citizens")
 	await click(main.building_popup.close_button.get_global_rect().get_center())
 	check(not main.building_popup.visible, "Producer popup also closes after assigning staff")
+	await click(main.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(5, 1))))
+	var layout_tabs = main.building_popup.tabs
+	await click(layout_tabs.global_position + layout_tabs.get_tab_rect(2).get_center())
+	await click(main.building_popup.rotate_row.get_child(1).get_global_rect().get_center())
+	check(main._placement_mode_active and main._moving_instance.rotation_degrees == 0 and main._ghost_building.building_instance.rotation_degrees == 90, "Selected Layout button starts rotation preview without changing original")
+	var pointer_motion := InputEventMouseMotion.new()
+	pointer_motion.position = Vector2(700, 400)
+	get_viewport().push_input(pointer_motion, true)
+	await get_tree().process_frame
+	check(main._ghost_building.position == TownGridGeometry.cell_to_world(Vector2(4, 0)), "Rotation-only preview stays pinned while pointer crosses the map")
+	await click(main._layout_bar.get_child(4).get_global_rect().get_center())
+	check(not main._placement_mode_active and objects[1].rotation_degrees == 0, "Layout Cancel button preserves original facing")
+	await click(main.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(5, 1))))
+	var rotate_key := InputEventKey.new()
+	rotate_key.keycode = KEY_R
+	rotate_key.pressed = true
+	get_viewport().push_input(rotate_key, true)
+	await get_tree().process_frame
+	check(main._placement_mode_active, "R on selected building opens safe rotation editing")
+	if main._placement_mode_active:
+		var reverse_key := InputEventKey.new()
+		reverse_key.keycode = KEY_R
+		reverse_key.shift_pressed = true
+		reverse_key.pressed = true
+		get_viewport().push_input(reverse_key, true)
+		await get_tree().process_frame
+		check(main._ghost_building.building_instance.rotation_degrees == 0 and main._ghost_building.rotation == 0, "Shift+R cycles backward without rotating the flat sprite")
+		await click(main._layout_bar.get_child(2).get_global_rect().get_center())
+		await click(main._layout_bar.get_child(3).get_global_rect().get_center())
+	check(objects[1].rotation_degrees == 90 and objects[1].assigned_worker_ids.size() == 1 and objects[1].assigned_hauler_ids.size() == 1, "Layout Confirm button applies facing and preserves jobs without map click-through")
 	var wood_before: float = InventoryManager.amount(10)
 	for button in main.get_node("UILayer/TownActions").get_children():
 		if button.text == "Market":
@@ -167,6 +197,20 @@ func run() -> void:
 	SaveManager.load_from_slot(997)
 	SaveManager.delete_slot(997)
 	check(WorkerManager.total_population() == 4, "Repeated reconciliation does not duplicate citizens")
+	for button in main.get_node("UILayer/TownActions").get_children():
+		if button.text == "Landscape": await click(button.get_global_rect().get_center())
+	TutorialManager.refresh()
+	check(main._brush_kind == "dirt", "Landscape toolbar activates dirt brush")
+	var paint_gold: float = InventoryManager.amount(1)
+	await drag_mouse(main.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(7.5, 2.5))), main.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(9.5, 2.5))))
+	check(SaveManager.current_save.ground_decorations.size() == 3 and InventoryManager.amount(1) == paint_gold - 3, "Ground drag paints three path tiles and charges exactly once")
+	await drag_mouse(main.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(7.5, 2.5))), main.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(9.5, 2.5))))
+	check(InventoryManager.amount(1) == paint_gold - 3, "Dragging over existing paths does not charge again")
+	await click(main._brush_bar.get_child(3).get_global_rect().get_center())
+	await drag_mouse(main.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(7.5, 2.5))), main.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(9.5, 2.5))))
+	check(SaveManager.current_save.ground_decorations.is_empty() and InventoryManager.amount(1) == paint_gold - 3, "Erase brush removes dragged paths without refunds or map selection")
+	await click(main._brush_bar.get_child(main._brush_bar.get_child_count() - 1).get_global_rect().get_center())
+	check(main._brush_kind.is_empty() and not main._brush_bar.visible, "Done leaves landscape editing")
 	var projection_ok := true
 	for x in range(12):
 		for y in range(12):

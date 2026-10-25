@@ -21,7 +21,7 @@ signal save_activated
 ## Does not write to disk — call save_to_slot() after.
 func create_new_save() -> SaveGame:
 	var save = SaveGame.new()
-	save.save_version = 2
+	save.save_version = 3
 	save.created_at_unix = TimeManager.now()
 	save.last_saved_at_unix = save.created_at_unix
 	
@@ -168,7 +168,7 @@ func _ensure_save_dir() -> void:
 		DirAccess.make_dir_recursive_absolute(SAVE_DIR)
 
 func _migrate(save: SaveGame) -> bool:
-	if save.save_version > 2 or save.player_state.active_land_size < 1 or save.player_state.active_land_size > 256:
+	if save.save_version > 3 or save.player_state.active_land_size < 1 or save.player_state.active_land_size > 256:
 		return false
 	# Version 1 has no cycle reservations/objective claims. Export defaults are safe.
 	if not save.economy_stats.has("produced"):
@@ -180,6 +180,9 @@ func _migrate(save: SaveGame) -> bool:
 			return false
 	if not save.economy_stats.produced is Dictionary or not save.economy_stats.sold is Dictionary:
 		return false
+	for cell in save.ground_decorations:
+		if not cell is Vector2i or not GroundDecorations.definitions().has(save.ground_decorations[cell]):
+			return false
 	var citizens: Dictionary = {}
 	for citizen in save.villagers:
 		if not citizen or citizen.villager_id.is_empty() or citizens.has(citizen.villager_id):
@@ -198,6 +201,7 @@ func _migrate(save: SaveGame) -> bool:
 			if buildings.has(instance.instance_id):
 				return false
 			buildings[instance.instance_id] = true
+			instance.rotation_degrees = TownGridGeometry.quarter(instance.rotation_degrees) * 90
 			var definition = DataManager.get_building_definition(instance.def_id)
 			if not definition:
 				return false
@@ -213,8 +217,10 @@ func _migrate(save: SaveGame) -> bool:
 						citizens[id].role = role
 						citizens[id].assigned_building_instance_id = instance.instance_id
 				ids.assign(valid)
+	if save.save_version < 3:
+		_preserve_legacy_access(save)
 	# Never move or delete structures: smaller Farm footprint only frees tiles.
-	save.save_version = 2
+	save.save_version = 3
 	return true
 
 func archive_current_town() -> int:
@@ -222,3 +228,35 @@ func archive_current_town() -> int:
 	while FileAccess.file_exists(SAVE_DIR.path_join(SLOT_FILENAME_FORMAT % slot)) or FileAccess.file_exists(_backup_path(SAVE_DIR.path_join(SLOT_FILENAME_FORMAT % slot))):
 		slot += 1
 	return slot if save_to_slot(slot) else -1
+
+func _preserve_legacy_access(save: SaveGame) -> void:
+	# Earlier versions accepted any free perimeter cell. Retain working access without moving structures.
+	var bounds := Rect2i(0, 0, save.player_state.active_land_size, save.player_state.active_land_size)
+	for layout in save.town_layouts.values():
+		var blocked: Dictionary = {}
+		for instance in layout.starting_objects:
+			for cell in TownGridGeometry.cells(instance, DataManager.get_building_definition(instance.def_id)):
+				blocked[cell] = true
+		var grid := TownPaths.grid_for(blocked, save.player_state.active_land_size)
+		var root := Vector2i(-1, -1)
+		for instance in layout.starting_objects:
+			var definition = DataManager.get_building_definition(instance.def_id)
+			if definition.type == BuildingDefinition.BuildingType.TOWNHALL:
+				var door := TownGridGeometry.entrance_cell(instance, definition, true)
+				if bounds.has_point(door) and not blocked.has(door): root = door
+				else:
+					for cell in TownGridGeometry.perimeter_cells(instance, definition):
+						if bounds.has_point(cell) and not blocked.has(cell):
+							root = cell
+							break
+				break
+		for instance in layout.starting_objects:
+			var definition = DataManager.get_building_definition(instance.def_id)
+			var door := TownGridGeometry.entrance_cell(instance, definition, true)
+			if bounds.has_point(door) and not blocked.has(door):
+				if root.x < 0 or not grid.get_id_path(root, door).is_empty(): continue
+			for cell in TownGridGeometry.perimeter_cells(instance, definition):
+				if bounds.has_point(cell) and not blocked.has(cell):
+					if root.x < 0 or not grid.get_id_path(root, cell).is_empty():
+						instance.legacy_entrance = cell
+						break
