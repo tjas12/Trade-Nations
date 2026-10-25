@@ -1,3 +1,5 @@
+2026-10-24 navigation/environment: [PANNING_AND_LANDSCAPE.md](PANNING_AND_LANDSCAPE.md) adds ground dragging, keyboard pan, Center town and decorative landscape.
+
 2026-10-24: [FREEZE_AND_GRID_FIX.md](FREEZE_AND_GRID_FIX.md) fixes recurring simulation errors, menu input failures and isometric grid alignment.
 
 Latest update: [PLAYABILITY_UPDATE.md](PLAYABILITY_UPDATE.md) fixes upside-down artwork and adds town controls and basic economy interactions.

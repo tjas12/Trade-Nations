@@ -25,6 +25,10 @@ var _visiting_friend_name: String = ""
 var _return_home_btn: Button = null
 var _save_blocked: bool = false
 var _panning: bool = false
+var _pan_button: int = 0
+var _pan_start := Vector2.ZERO
+var _pan_last := Vector2.ZERO
+var _camera_keys: Dictionary = {}
 var _feedback: Label
 
 func _initialize_save() -> void:
@@ -93,15 +97,109 @@ func _add_town_controls() -> void:
 		_feedback.text = "Prototype production speed. Hunger still uses real time; buy Wheat to feed staff."
 	)
 	toolbar.add_child(speed)
+	var center := Button.new()
+	center.name = "CenterTown"
+	center.text = "Center town"
+	center.tooltip_text = "Return to your buildings and reset zoom (Home)."
+	center.pressed.connect(_center_town)
+	toolbar.add_child(center)
+	var grid := Button.new()
+	grid.name = "ToggleGrid"
+	grid.text = "Grid: Off"
+	grid.pressed.connect(func():
+		grid.text = "Grid: On" if $WorldContainer/Grid.toggle_grid() else "Grid: Off"
+	)
+	toolbar.add_child(grid)
 	_feedback = Label.new()
 	_feedback.position = Vector2(20, 110)
-	_feedback.text = "Build a cottage, select the camp and assign staff. Middle-drag: pan | Wheel: zoom | Collect, then sell Wood."
+	_feedback.text = "Drag empty ground or use WASD/arrows to pan | Wheel: zoom | Home: center town | Grid appears when building."
 	$UILayer.add_child(_feedback)
 	var close_menu := Button.new()
 	close_menu.text = "Close build menu"
 	close_menu.position = Vector2(get_viewport().get_visible_rect().size.x - 180, 40)
 	close_menu.pressed.connect(build_menu.hide)
 	build_menu.add_child(close_menu)
+
+func _center_town() -> void:
+	world_container.scale = Vector2.ONE
+	var center := Vector2.ZERO
+	var count := 0
+	for instance in SaveManager.current_save.town_layouts["Vanilla"].starting_objects:
+		var definition = DataManager.get_building_definition(instance.def_id)
+		if definition:
+			var size := TownGridGeometry.footprint_size(definition.width, definition.height, instance.rotation_degrees)
+			center += TownGridGeometry.cell_to_world(Vector2(instance.x, instance.y) + Vector2(size) * 0.5)
+			count += 1
+	if count > 0:
+		center /= count
+	var viewport_size := get_viewport().get_visible_rect().size
+	world_container.position = Vector2(viewport_size.x * 0.5, (viewport_size.y + 140.0) * 0.5) - center
+
+func _pan_camera(offset: Vector2) -> void:
+	world_container.position += offset
+	# Keep the viewing center inside the diamond, rather than allowing a lost map.
+	var view_size := get_viewport().get_visible_rect().size
+	var screen_center := Vector2(view_size.x * 0.5, (view_size.y + 140.0) * 0.5)
+	var local: Vector2 = world_container.to_local(screen_center)
+	var cell := Vector2((local.x / 32.0 + local.y / 16.0) * 0.5, (local.y / 16.0 - local.x / 32.0) * 0.5)
+	var cells: float = SaveManager.current_save.player_state.active_land_size
+	cell = cell.clamp(Vector2.ZERO, Vector2.ONE * cells)
+	world_container.position = screen_center - TownGridGeometry.cell_to_world(cell) * world_container.scale.x
+
+func _begin_pan(event: InputEventMouseButton) -> void:
+	_pan_button = event.button_index
+	_pan_start = event.position
+	_pan_last = event.position
+	_panning = false
+
+func _stop_pan() -> void:
+	_pan_button = 0
+	_panning = false
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		_stop_pan()
+		_camera_keys.clear()
+
+func _input(event: InputEvent) -> void:
+	# Once a ground drag starts, track it across UI and always see its release.
+	if event is InputEventMouseButton and event.button_index == _pan_button and not event.pressed:
+		var dragged := _panning
+		_stop_pan()
+		if dragged:
+			get_viewport().set_input_as_handled()
+	if event is InputEventMouseMotion and _pan_button != 0:
+		var mask := MOUSE_BUTTON_MASK_LEFT if _pan_button == MOUSE_BUTTON_LEFT else MOUSE_BUTTON_MASK_MIDDLE
+		if (event.button_mask & mask) == 0:
+			_stop_pan()
+			return
+		if _pan_start.distance_to(event.position) >= 5.0:
+			_panning = true
+		if _panning:
+			_pan_camera(event.position - _pan_last)
+			if _placement_mode_active:
+				_update_ghost_position(event.position)
+			get_viewport().set_input_as_handled()
+		_pan_last = event.position
+	if event is InputEventKey and event.keycode in [KEY_W, KEY_A, KEY_S, KEY_D, KEY_UP, KEY_LEFT, KEY_DOWN, KEY_RIGHT]:
+		if not event.pressed:
+			_camera_keys.erase(event.keycode)
+		elif not build_menu.visible and not building_popup.visible:
+			_camera_keys[event.keycode] = true
+			get_viewport().set_input_as_handled()
+	if event is InputEventKey and event.pressed and event.keycode == KEY_HOME:
+		_center_town()
+		get_viewport().set_input_as_handled()
+
+func _process(delta: float) -> void:
+	if build_menu.visible or building_popup.visible:
+		_camera_keys.clear()
+		return
+	var direction := Vector2(
+		int(_camera_keys.has(KEY_D) or _camera_keys.has(KEY_RIGHT)) - int(_camera_keys.has(KEY_A) or _camera_keys.has(KEY_LEFT)),
+		int(_camera_keys.has(KEY_S) or _camera_keys.has(KEY_DOWN)) - int(_camera_keys.has(KEY_W) or _camera_keys.has(KEY_UP)))
+	if direction != Vector2.ZERO:
+		_pan_camera(-direction.normalized() * 480.0 * delta)
 
 func _collect_resources() -> void:
 	var collected := 0.0
@@ -134,19 +232,15 @@ func _restore_walkers() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		_panning = (event.button_mask & MOUSE_BUTTON_MASK_MIDDLE) != 0
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_MIDDLE:
-			_panning = event.pressed
+		if event.button_index == MOUSE_BUTTON_MIDDLE and event.pressed:
+			_begin_pan(event)
 		elif event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
 			var mouse: Vector2 = event.position
 			var local: Vector2 = world_container.to_local(mouse)
 			var factor := 1.1 if event.button_index == MOUSE_BUTTON_WHEEL_UP else 1.0 / 1.1
 			world_container.scale = Vector2.ONE * clampf(world_container.scale.x * factor, 0.4, 2.0)
 			world_container.position += mouse - world_container.to_global(local)
-	if event is InputEventMouseMotion and _panning:
-		world_container.position += event.relative
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_ESCAPE and not _placement_mode_active:
 			building_popup.hide()
@@ -164,6 +258,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			if picked:
 				_on_building_instance_selected(picked)
 				get_viewport().set_input_as_handled()
+			else:
+				_begin_pan(event)
 		return
 
 	if event is InputEventMouseMotion:
@@ -246,6 +342,7 @@ func _on_building_selected_for_placement(building_def: BuildingDefinition) -> vo
 		_ghost_building.set_building(temp_instance)
 		_ghost_building.modulate = Color(1, 1, 1, 0.5)
 		_placement_mode_active = true
+		$WorldContainer/Grid.set_placement_grid(true)
 		_update_ghost_position()
 
 func _update_ghost_position(mouse_pos: Vector2 = Vector2.INF) -> void:
@@ -328,6 +425,7 @@ func _cancel_placement() -> void:
 		_ghost_building.queue_free()
 	_ghost_building = null
 	_placement_mode_active = false
+	$WorldContainer/Grid.set_placement_grid(false)
 	_building_to_place_def = null
 
 func _add_building_to_occupied_grid(grid_pos: Vector2i, building_def: BuildingDefinition, rotation_degrees: float = 0.0) -> void:

@@ -27,6 +27,30 @@ func click(point: Vector2) -> void:
 		get_viewport().push_input(button, true)
 		await get_tree().process_frame
 
+func drag_mouse(start: Vector2, finish: Vector2, mouse_button: int = MOUSE_BUTTON_LEFT) -> void:
+	var down := InputEventMouseButton.new()
+	down.position = start
+	down.global_position = start
+	down.button_index = mouse_button
+	down.button_mask = MOUSE_BUTTON_MASK_LEFT if mouse_button == MOUSE_BUTTON_LEFT else MOUSE_BUTTON_MASK_MIDDLE
+	down.pressed = true
+	get_viewport().push_input(down, true)
+	await get_tree().process_frame
+	var move := InputEventMouseMotion.new()
+	move.position = finish
+	move.global_position = finish
+	move.relative = finish - start
+	move.button_mask = down.button_mask
+	get_viewport().push_input(move, true)
+	await get_tree().process_frame
+	var up := InputEventMouseButton.new()
+	up.position = finish
+	up.global_position = finish
+	up.button_index = mouse_button
+	up.pressed = false
+	get_viewport().push_input(up, true)
+	await get_tree().process_frame
+
 func run() -> void:
 	var main = load("res://scenes/Main.tscn").instantiate()
 	add_child(main)
@@ -38,6 +62,47 @@ func run() -> void:
 	check(not main.building_popup.visible, "Close button consumes its click without reopening a building")
 	await click(main.tutorial_popup.continue_button.get_global_rect().get_center())
 	check(not main.tutorial_popup.visible, "Got it button dismisses tutorial")
+	var camera_before: Vector2 = main.world_container.position
+	await drag_mouse(Vector2(170, 450), Vector2(250, 490))
+	check(main.world_container.position.distance_to(camera_before + Vector2(80, 40)) < 0.05, "Left-drag on empty ground pans the map")
+	check(not main._panning and main._pan_button == 0 and not main.building_popup.visible, "Ground drag release stops panning without selecting a building")
+	camera_before = main.world_container.position
+	await drag_mouse(Vector2(170, 450), Vector2(130, 430), MOUSE_BUTTON_MIDDLE)
+	check(main.world_container.position.distance_to(camera_before + Vector2(-40, -20)) < 0.05, "Middle-drag remains supported")
+	await drag_mouse(Vector2(170, 470), Vector2(270, 80))
+	camera_before = main.world_container.position
+	var motion := InputEventMouseMotion.new()
+	motion.position = Vector2(310, 110)
+	motion.relative = Vector2(40, 30)
+	get_viewport().push_input(motion, true)
+	await get_tree().process_frame
+	check(not main._panning and main.world_container.position.distance_to(camera_before) < 0.05, "Releasing over toolbar cannot leave the camera dragging")
+	await click(main.get_node("UILayer/TownActions/CenterTown").get_global_rect().get_center())
+	var town_point: Vector2 = main.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(1.5, 1.5)))
+	check(main.world_container.scale == Vector2.ONE and get_viewport().get_visible_rect().has_point(town_point), "Center town button recovers the buildings and resets zoom")
+	camera_before = main.world_container.position
+	var right := InputEventKey.new()
+	right.keycode = KEY_D
+	right.pressed = true
+	get_viewport().push_input(right, true)
+	await get_tree().process_frame
+	main._process(0.1)
+	right = InputEventKey.new()
+	right.keycode = KEY_D
+	right.pressed = false
+	get_viewport().push_input(right, true)
+	check(main.world_container.position.x < camera_before.x and main._camera_keys.is_empty(), "Keyboard panning moves and releases correctly")
+	await click(main.get_node("UILayer/TownActions/CenterTown").get_global_rect().get_center())
+	camera_before = main.world_container.position
+	await drag_mouse(main.get_node("UILayer/TownActions/ToggleGrid").get_global_rect().get_center(), Vector2(900, 250))
+	check(main.world_container.position.distance_to(camera_before) < 0.05, "Starting a drag on UI does not pan behind it")
+	var scenery = main.get_node("WorldContainer/Landscape")
+	var scenery_count: int = scenery.get_child_count()
+	var first_cell: Vector2i = scenery.get_child(0).get_meta("cell")
+	scenery.rebuild()
+	check(scenery_count > 20 and scenery.get_child_count() == scenery_count and scenery.get_child(0).get_meta("cell") == first_cell, "Scenery is present and deterministic across rebuilds")
+	check(main._occupied_coords.size() == 13 and SaveManager.current_save.town_layouts["Vanilla"].starting_objects.size() == 2, "Scenery does not occupy building cells or create saved structures")
+	check(not main.get_node("WorldContainer/Grid").grid_visible, "Grid starts hidden during normal play")
 	await click(main.get_node("UILayer/ToggleBuildMenuButton").get_global_rect().get_center())
 	check(main.build_menu.visible, "Build button opens catalogue with actual mouse events")
 	var tabs = main.build_menu.tab_container
@@ -54,11 +119,17 @@ func run() -> void:
 	var buy = tabs.get_child(house_tab).get_child(0).get_child(0)
 	await click(buy.get_global_rect().get_center())
 	check(main._placement_mode_active and not main.build_menu.visible, "Catalogue click starts preview and releases GUI input")
+	check(main.get_node("WorldContainer/Grid").placement_grid, "Placement automatically reveals the diamond grid")
 	var count_before: int = SaveManager.current_save.town_layouts["Vanilla"].starting_objects.size()
 	await click(main.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(8.2, 4.2))))
 	var objects = SaveManager.current_save.town_layouts["Vanilla"].starting_objects
 	check(objects.size() == count_before + 1 and not main._placement_mode_active, "Mouse confirms building on the displayed diamond grid")
 	check(objects.back().x == 8 and objects.back().y == 4, "Screen click persists the correct saved tile coordinates")
+	var clear_footprint := true
+	for marker in scenery.get_children():
+		if Rect2i(8, 4, 2, 2).has_point(marker.get_meta("cell")):
+			clear_footprint = false
+	check(clear_footprint and not main.get_node("WorldContainer/Grid").placement_grid, "Building placement clears scenery and restores the normal landscape view")
 	await click(main.world_container.to_global(TownGridGeometry.cell_to_world(Vector2(9, 5))))
 	check(main.building_popup.visible and main.building_popup.name_label.text == "Small Cottage", "Placed cottage is selectable on its footprint")
 	var escape := InputEventKey.new()

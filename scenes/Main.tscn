@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_xusf7"]
 [ext_resource type="PackedScene" uid="uid://build_menu_scene_1" path="res://scenes/ui/build_menu.tscn" id="2_e2vaf"]
@@ -8,6 +8,8 @@
 
 
 [ext_resource type="Script" path="res://scripts/rendering/town_grid.gd" id="6_grid"]
+
+[ext_resource type="Script" path="res://scripts/rendering/landscape.gd" id="7_landscape"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_xusf7")
@@ -19,6 +21,9 @@ y_sort_enabled = true
 [node name="Grid" type="Node2D" parent="WorldContainer"]
 z_index = -100
 script = ExtResource("6_grid")
+
+[node name="Landscape" type="Node2D" parent="WorldContainer"]
+script = ExtResource("7_landscape")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
