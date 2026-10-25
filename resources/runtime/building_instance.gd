@@ -22,3 +22,5 @@ class_name BuildingInstance
 @export var construction_elapsed: float = 0.0
 
 @export var legacy_entrance: Vector2i = Vector2i(-1, -1) # Compatibility access for pre-v3 layouts
+
+@export var construction_xp_awarded := false

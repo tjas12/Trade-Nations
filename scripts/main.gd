@@ -81,6 +81,10 @@ func _ready() -> void:
 	world_container.add_child(_decor_layer)
 	_restore_walkers()
 	_add_town_controls()
+	var progression_ui = load("res://scripts/ui/progression_panel.gd").new()
+	progression_ui.name = "ProgressionPanel"
+	progression_ui.game = self
+	add_child(progression_ui)
 	mobile_ui = load("res://scripts/ui/mobile_layout.gd").new()
 	mobile_ui.game = self
 	add_child(mobile_ui)
@@ -392,7 +396,7 @@ func _initialize_world_layout() -> void:
 
 func _on_building_selected_for_placement(building_def: BuildingDefinition) -> void:
 	_cancel_brush()
-	if SaveManager.current_save.player_state.mayor_level < building_def.playable_level:
+	if not ProgressionManager.unlocked(building_def):
 		EventBus.town_notice.emit("Reach level %d first." % building_def.playable_level)
 		return
 	if _placement_mode_active:
@@ -458,7 +462,8 @@ func _place_building() -> void:
 				_refresh_world()
 				Autosave.mark_dirty()
 				return
-			# Affordability can change while the preview is open.
+			# Access and affordability can change while the preview is open.
+			if not ProgressionManager.unlocked(_building_to_place_def): return
 			if not EconomyManager.can_afford(_building_to_place_def.cost):
 				return
 			
@@ -836,7 +841,7 @@ func _create_brush_bar() -> void:
 	_brush_bar.offset_top = -90
 	_brush_bar.offset_bottom = -55
 	$UILayer.add_child(_brush_bar)
-	for kind in ["dirt", "flowers", "fence", "erase"]:
+	for kind in ["dirt", "flowers", "fence", "erase", "cobblestone", "stone"]:
 		var button := Button.new()
 		button.text = "Erase · no refund" if kind == "erase" else GroundDecorations.definitions()[kind].name
 		button.pressed.connect(_select_brush.bind(kind))
@@ -900,6 +905,7 @@ func _append_brush(cell: Vector2i) -> void:
 	for resource in cost:
 		text += " · %d %s" % [cost[resource], DataManager.get_resource_definition(resource).display_name]
 	_brush_label.text = text
+	if touch_mode: EventBus.town_notice.emit(text + " · Confirm or Cancel")
 	_decor_layer.preview = _brush_cells.duplicate()
 	_decor_layer.erase_preview = _brush_kind == "erase"
 	_decor_layer.preview_valid = GroundDecorations.can_afford(cost)

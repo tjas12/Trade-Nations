@@ -3,6 +3,7 @@ extends Node2D
 
 static var _definitions: Dictionary = {}
 var preview: Dictionary = {}
+var _path_mesh: ArrayMesh
 var erase_preview := false
 var preview_valid := true
 
@@ -21,7 +22,7 @@ static func effective_cells(kind: String, requested: Array) -> Array[Vector2i]:
 		if not bounds.has_point(cell) or result.has(cell): continue
 		if kind == "erase":
 			if saved.has(cell): result.append(cell)
-		elif not saved.has(cell) and not blocked.has(cell):
+		elif not blocked.has(cell) and (not saved.has(cell) or (kind in ClassicPaths.MATERIALS and saved.get(cell) in ClassicPaths.MATERIALS and saved[cell] != kind)):
 			result.append(cell)
 	return result
 
@@ -60,6 +61,7 @@ func rebuild() -> void:
 		remove_child(child)
 		child.queue_free()
 	if not SaveManager.current_save: return
+	_path_mesh = ClassicPaths.mesh(SaveManager.current_save.ground_decorations)
 	for cell in SaveManager.current_save.ground_decorations:
 		var kind: String = SaveManager.current_save.ground_decorations[cell]
 		var asset: String = definitions()[kind].asset
@@ -77,17 +79,7 @@ func rebuild() -> void:
 func _draw() -> void:
 	if not SaveManager.current_save: return
 	var tile := TownGridGeometry.footprint_polygon(Vector2i.ONE)
-	var saved: Dictionary = SaveManager.current_save.ground_decorations
-	var neighbours := [Vector2i(0, -1), Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0)]
-	for cell in saved:
-		if saved[cell] != "dirt": continue
-		var points := PackedVector2Array()
-		var origin := TownGridGeometry.cell_to_world(Vector2(cell))
-		for point in tile: points.append(point + origin)
-		draw_colored_polygon(points, Color(0.52, 0.39, 0.23))
-		for edge in range(4):
-			if saved.get(cell + neighbours[edge]) != "dirt":
-				draw_line(points[edge], points[(edge + 1) % 4], Color(0.38, 0.31, 0.18), 2)
+	if _path_mesh and _path_mesh.get_surface_count() > 0: draw_mesh(_path_mesh, null)
 	for cell in preview:
 		var points := PackedVector2Array()
 		for point in tile: points.append(point + TownGridGeometry.cell_to_world(Vector2(cell)))

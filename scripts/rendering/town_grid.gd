@@ -30,7 +30,7 @@ func _draw() -> void:
 	var offset := TownGridGeometry.cell_to_world(Vector2(-10, -10))
 	for index in range(surround.size()):
 		surround[index] += offset
-	draw_colored_polygon(surround, Color(0.27, 0.43, 0.22))
+	draw_colored_polygon(surround, Color(0.34, 0.50, 0.16))
 	var outline := TownGridGeometry.footprint_polygon(Vector2i(_cells, _cells))
 	var depth := Vector2(0, 8)
 	draw_colored_polygon(PackedVector2Array([outline[1], outline[2], outline[2] + depth, outline[1] + depth]), Color(0.29, 0.34, 0.17))
@@ -52,11 +52,18 @@ func _build_grass() -> void:
 			var origin := TownGridGeometry.cell_to_world(Vector2(x, y))
 			var noise: float = posmod((x * 73856093) ^ (y * 19349663), 101) / 100.0
 			var meadow: float = 0.5 + (sin(x * 0.37) + cos(y * 0.29) + sin((x + y) * 0.19)) / 6.0
-			var shade := Color(0.29 + meadow * 0.025 + noise * 0.004, 0.46 + meadow * 0.045 + noise * 0.008, 0.24 + meadow * 0.025 + noise * 0.004)
+			var shade := Color(0.34 + meadow * 0.028 + noise * 0.008, 0.51 + meadow * 0.045 + noise * 0.012, 0.16 + meadow * 0.018 + noise * 0.004)
 			var polygon := PackedVector2Array()
 			for corner in tile:
 				polygon.append(corner + origin)
 			_add_quad(vertices, colors, indices, polygon, shade)
+			# Tiny meadow flecks share the existing cached surface; no extra draw calls.
+			for fleck in range(3):
+				var dx: float = posmod(x * 31 + y * 17 + fleck * 19, 21) - 10
+				var dy: float = posmod(x * 7 + y * 29 + fleck * 11, 9) - 4
+				var center := origin + Vector2(dx, 16 + dy)
+				var tint := shade.lightened(0.09) if fleck % 2 == 0 else shade.darkened(0.035)
+				_add_quad(vertices, colors, indices, PackedVector2Array([center + Vector2(-1.2, 0), center + Vector2(0, -0.6), center + Vector2(1.2, 0), center + Vector2(0, 0.6)]), tint)
 			if posmod(x * 53 + y * 97, 7) == 0:
 				var center := origin + Vector2(0, 16)
 				_add_blade(vertices, colors, indices, center + Vector2(-3, 1), center + Vector2(-4, -2))
@@ -79,4 +86,4 @@ func _add_quad(vertices: PackedVector3Array, colors: PackedColorArray, indices: 
 
 func _add_blade(vertices: PackedVector3Array, colors: PackedColorArray, indices: PackedInt32Array, a: Vector2, b: Vector2) -> void:
 	var normal := (b - a).orthogonal().normalized() * 0.5
-	_add_quad(vertices, colors, indices, PackedVector2Array([a - normal, b - normal, b + normal, a + normal]), Color(0.38, 0.55, 0.28))
+	_add_quad(vertices, colors, indices, PackedVector2Array([a - normal, b - normal, b + normal, a + normal]), Color(0.47, 0.62, 0.24))

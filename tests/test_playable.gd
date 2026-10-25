@@ -36,7 +36,7 @@ func run() -> void:
 	add_child(main)
 	await get_tree().process_frame
 	var save = SaveManager.current_save
-	check(save.save_version == 3 and save.player_state.active_land_size == 16, "New town has versioned save and compact expandable plot")
+	check(save.save_version == 4 and save.player_state.active_land_size == 16, "New town has versioned save and compact expandable plot")
 	check(save.villagers.size() == 2 and WorkerManager.housing_capacity() == 2, "Starting pair has Town Hall housing")
 	var cottage = place(10012, Vector2i(7, 1))
 	check(cottage != null and not cottage.construction_complete and save.villagers.size() == 2, "Housing waits for construction")
@@ -127,7 +127,7 @@ func run() -> void:
 	SaveManager.save_to_slot(995)
 	SaveManager.load_from_slot(995)
 	save = SaveManager.current_save
-	check(save.save_version == 3 and save.villagers.size() == 4, "Legacy save migration repairs housing")
+	check(save.save_version == 4 and save.villagers.size() == 4, "Legacy save migration repairs housing")
 	var jobs: Dictionary = {}
 	var unique := true
 	for instance in save.town_layouts["Vanilla"].starting_objects:

@@ -7,6 +7,10 @@ func _ready() -> void:
 func run() -> void:
 	GameManager.start_new_game()
 	SaveManager.current_save.player_state.active_land_size = 48
+	if "--path-stress" in OS.get_cmdline_user_args():
+		for x in range(32):
+			for y in range(32):
+				SaveManager.current_save.ground_decorations[Vector2i(x, y)] = ClassicPaths.MATERIALS[posmod(x + y, 3)]
 	var main = load("res://scenes/Main.tscn").instantiate()
 	add_child(main)
 	for frame in range(30): await get_tree().process_frame

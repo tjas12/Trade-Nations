@@ -156,6 +156,20 @@ func _apply_playable_rules() -> void:
 		recipe.worker_max = int(values.workers)
 		recipe.hauler_max = int(values.haulers)
 		recipe.reward_xp = values.xp
+	# Only implemented entries join the playable catalog. Recovered definitions retain IDs.
+	var progression = JSON.parse_string(FileAccess.get_file_as_string("res://data/progression.json"))
+	for definition in building_definitions.values():
+		definition.playable_level = int(progression.buildings.get(str(definition.id), 50))
+	for key in progression.buildings:
+		var definition = building_definitions[int(key)]
+		if definition.category.is_empty(): definition.category = "DECORATION"
+	building_definitions[9].category = "WORK CAMPS"
+	building_definitions[9].width = 3
+	building_definitions[9].height = 3
+	building_definitions[9].upgrade_only = false
+	building_definitions[9].description_text = "Offline quarry: workers gather Rock on any clear site; a hauler delivers it."
+	building_definitions[9].info_text = building_definitions[9].description_text
+	building_definitions[10001].storage_capacities[20] = 200
 	var cookies = production_recipes[40]
 	cookies.output_resource_id = 90040
 	cookies.max_output_stack_size = 100
