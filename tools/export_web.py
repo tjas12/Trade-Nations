@@ -22,7 +22,22 @@ def prepare_offline_cache(output):
     files += ["index.wasm", "index.pck", "index.manifest.json"]
     files += [icon["src"] for icon in manifest["icons"]]
     replacement = "const CACHED_FILES = " + json.dumps(list(dict.fromkeys(files))) + ";"
-    worker_file.write_text(worker[:match.start()] + replacement + worker[match.end():], encoding="utf-8")
+    worker = worker[:match.start()] + replacement + worker[match.end():]
+    needle = "let cached = await cache.match(event.request);"
+    if worker.count(needle) != 1:
+        raise RuntimeError("Godot navigation cache logic changed; review offline root URL handling")
+    if "Trade Nations root navigation alias" not in worker:
+        worker = worker.replace(needle, needle + """
+                // Trade Nations root navigation alias: Pages /Trade-Nations/ serves index.html.
+                if (cached == null && isNavigate) {
+                    const requested = new URL(event.request.url);
+                    const scope = new URL(self.registration.scope);
+                    if (requested.origin === scope.origin && requested.pathname === scope.pathname) {
+                        cached = await cache.match(CACHED_FILES[0]);
+                    }
+                }
+""")
+    worker_file.write_text(worker, encoding="utf-8")
 
 
 def verify(output):
