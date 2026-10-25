@@ -21,6 +21,8 @@ def prepare_offline_cache(output):
     # Precache the whole playable build, so the first completed installation works offline.
     files += ["index.wasm", "index.pck", "index.manifest.json"]
     files += [icon["src"] for icon in manifest["icons"]]
+    # Include the boot splash and any other generated runtime asset as well.
+    files += [file.name for file in output.iterdir() if file.is_file() and file.name.startswith("index.") and file.name != "index.service.worker.js"]
     replacement = "const CACHED_FILES = " + json.dumps(list(dict.fromkeys(files))) + ";"
     worker = worker[:match.start()] + replacement + worker[match.end():]
     needle = "let cached = await cache.match(event.request);"

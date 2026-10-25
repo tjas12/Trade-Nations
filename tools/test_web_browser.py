@@ -54,8 +54,9 @@ def main():
                 page = context.pages[0] if context.pages else context.new_page()
                 page.on("console", lambda message: messages.append(message.text))
                 page.on("pageerror", lambda error: failures.append(str(error)))
+                page.on("requestfailed", lambda request: failures.append(f"Request failed: {request.url}: {request.failure}"))
                 page.on("response", lambda response: failures.append(f"HTTP {response.status}: {response.url}") if response.status >= 400 else None)
-                page.on("console", lambda message: failures.append(message.text) if message.type == "error" and ("SCRIPT ERROR" in message.text or "ERROR:" in message.text or "failed" in message.text.lower()) else None)
+                page.on("console", lambda message: failures.append(f"{message.text} {message.location}") if message.type == "error" and ("SCRIPT ERROR" in message.text or "ERROR:" in message.text or "failed" in message.text.lower()) else None)
                 return context, page
 
             def ready(page, start):
@@ -95,7 +96,7 @@ def main():
             print("PASS: browser startup and actual IndexedDB save", flush=True)
             # Installation itself must cache heavy resources, before a second visit.
             cache = page.evaluate("async()=>{let result=[];for(const name of await caches.keys()){for(const request of await(await caches.open(name)).keys())result.push(request.url)}return result}")
-            for suffix in ["index.html", "index.js", "index.wasm", "index.pck"]:
+            for suffix in ["index.html", "index.js", "index.wasm", "index.pck", "index.png", "index.manifest.json"]:
                 if not any(urlsplit(item).path.endswith("/" + suffix) for item in cache):
                     raise RuntimeError(f"Required game file was not cached: {suffix}")
             page.screenshot(path=str(diagnostics / "web-landscape.png"))
