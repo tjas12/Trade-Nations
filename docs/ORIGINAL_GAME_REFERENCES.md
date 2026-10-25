@@ -101,16 +101,16 @@ Compare warm thatch/tile roofs, timber/stone detailing, readable isometric footp
 
 S2 and S5 remain unresolved source leads. Their access failures do not establish that the pages were permanently deleted or that all mirrors are unavailable.
 
-## Current reconstruction decisions: do not cite as original mechanics
+## Reconstruction decisions and implementation history: do not cite as original mechanics
 
-- Playable cottage/camp bootstrap, Farm/Bakery at 1, Quarry/Rock at 2 and the current decorative unlock schedule.
-- Current 1–50 XP curve. **Correction to any loose “original early curve” wording elsewhere:** bundle 4.0.1 uses 550 at level 1, whereas our current registry uses 100. Preserving an earlier prototype value is not historical verification.
-- +10 finite material storage per level after 1; fixed local sale prices; shortened construction/production cycles.
-- Two new residents per playable cottage, simplified hauling, reduced building footprints and fallback mirrored views.
+- The initial prototype used cottage/camp bootstrap, Farm/Bakery at 1 and Quarry/Rock at 2 with an estimated decorative schedule. Phase 2 restores verified requirements for registered original IDs, including Bakery 2 and Quarry 4, while grandfathering older earned access. Bootstrap aliases remain exceptions.
+- The first recreation curve used 100 at level 1; this was a prototype choice. Phase 2 now uses the recovered 4.0.1 value 550 and its other XP thresholds through the project cap of 50, preserving saved levels/XP. The original bundle cap is 70, not 50. See [Phase 2](PHASE_2_RESTORATION.md).
+- The prototype +10 storage-per-level bonus is now grandfathered per legacy save rather than advertised as a new historical reward. Fixed local sale prices, compact dimensions and accelerated construction/early production remain reconstruction choices.
+- The two-resident synthetic starter is a compatibility exception. Phase 2 implements original-ID default capacities of 1/2/3/4, cottage limits and in-place upgrades; adoption remains unimplemented. Simplified hauling, reduced footprints and fallback mirrored views remain reconstruction choices.
 - Connected procedural dirt/cobble/slab paths and their prices; decorative roads do not impose movement requirements.
-- Fully offline play, no catch-up production, no accounts or paid services, modern touch UI and version-4 save migration.
+- Fully offline play, no catch-up production, no accounts or paid services, modern touch UI and version-5 save migration.
 
-These choices remain implemented pending a separate, tested compatibility plan. This documentation task makes **no gameplay changes**. Historical corrections must preserve working towns, existing earned unlocks, production and save compatibility.
+The initial documentation task made no gameplay changes. Phase 2 applies the separately tested restoration described below; remaining deviations stay explicit. Future historical corrections must preserve working towns, existing earned unlocks, production and save compatibility.
 
 ## Maintaining this library
 
@@ -124,3 +124,9 @@ Priority questions: reconcile the recovered XP/cap data and complete unlock grap
 [s4]: https://e38.blog.shinobi.jp/trade%20nations/
 [s5]: https://tradenations.fandom.com/wiki/Trade_Nations_Wiki
 [s6]: https://www.behance.net/gallery/1827721/Trade-Nations
+
+## Phase 2 recovered findings and implementation cross-reference
+
+[ORIGINAL_BUILDING_CATALOG.md](ORIGINAL_BUILDING_CATALOG.md) records all 274 definitions and distinguishes 271 originals from three compatibility IDs. Active bundle fields confirm Large Cottage 37 at level 4/Tower with two default residents and 6-hour tax (not the earlier guide’s 9-hour interval); Brown House 142 at 8/Keep with three; Stone House 14 at 14/Fort with four. Citadel 221 requires level 30 and Castle 5. Castle/Theater/Jeweler remain researched, not playable claims.
+
+Pen/Lumber Yard/Stone Cutter/Loom inputs and per-worker rates, Stockpile capacities, original shop jobs, all 0–70 XP rows and house/shop allowances are available in the catalog and runtime evidence JSON. Source confidence is high for these literal 4.0.1 XML values; original server behavior remains unresolved. [PHASE_2_RESTORATION.md](PHASE_2_RESTORATION.md) distinguishes each implemented historical value from its offline/compatibility adapter and records tests. The old CLASSIC_PHASE.md is an implementation-history snapshot, not current historical truth.

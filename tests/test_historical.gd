@@ -171,6 +171,64 @@ func run() -> void:
 	EconomyManager._update_construction(31)
 	check(home.def_id == 14 and WorkerManager.capacity_for(home) == 4 and WorkerManager.total_population() == population_before + 2, "Stone House completes the implemented residential chain")
 	check(home.tax_gold == 8, "Uncollected taxes retain their original reward across housing upgrades")
+	# Save a real paid job and an in-progress housing upgrade together.
+	legacy = WorkerManager.instance_by_id("legacy_cottage")
+	for resource in [1, 10, 20, 40, 11, 21, 50, 51]: SaveManager.current_save.inventory.resource_amounts[resource] = 100000
+	HistoricalGameplay.begin_upgrade(legacy, 142)
+	EconomyManager._update_construction(5)
+	var saved_job := BuildingInstance.new()
+	saved_job.instance_id = "saved_carpenter"
+	saved_job.def_id = 32
+	saved_job.x = 1
+	saved_job.y = 8
+	SaveManager.current_save.town_layouts.Vanilla.starting_objects.append(saved_job)
+	WorkerManager.assign_worker(saved_job)
+	for person in SaveManager.current_save.villagers:
+		if person.assigned_building_instance_id == saved_job.instance_id: person.activity = "working"
+	EconomyManager._process_producers(5)
+	HistoricalGameplay.choose_recipe(saved_job, 12)
+	var paid_wood: float = InventoryManager.amount(10)
+	var paid_gold: float = InventoryManager.amount(1)
+	var staff_ids: Array = saved_job.assigned_worker_ids.duplicate()
+	check(SaveManager.save_to_slot(974) and SaveManager.load_from_slot(974) != null, "Pending upgrade and paid queued job can be saved and loaded")
+	legacy = WorkerManager.instance_by_id("legacy_cottage")
+	saved_job = WorkerManager.instance_by_id("saved_carpenter")
+	check(legacy.pending_upgrade_id == 142 and legacy.upgrade_elapsed == 5 and legacy.def_id == 37, "Pending upgrade retains original housing, target and elapsed time")
+	check(saved_job.cycle_reserved and saved_job.cycle_elapsed == 5 and saved_job.queued_recipe_id == 12 and saved_job.assigned_worker_ids == staff_ids and InventoryManager.amount(10) == paid_wood, "Recipe reservation, queue, timer, staff and paid inventory survive reload")
+	Autosave._notification(NOTIFICATION_APPLICATION_PAUSED)
+	EconomyManager._process(3600)
+	Autosave._notification(NOTIFICATION_APPLICATION_RESUMED)
+	EconomyManager._process(3600)
+	check(saved_job.cycle_elapsed == 5 and legacy.upgrade_elapsed == 5 and InventoryManager.amount(1) == paid_gold, "Pause/resume cannot advance upgrades/jobs or duplicate rewards")
+	home = WorkerManager.instance_by_id("classic_home")
+	check(HistoricalGameplay.collect_tax(home) == 8 and HistoricalGameplay.collect_tax(home) == 0, "Persisted tax reward is claimed once after resume")
+	# Every newly advertised paid recipe is executable with its recovered values.
+	for citizen in SaveManager.current_save.villagers.duplicate(): WorkerManager.unassign(citizen.villager_id)
+	SaveManager.current_save.player_state.mayor_level = 50
+	for shop_id in [32, 35, 38]:
+		for recipe_id in DataManager.get_building_definition(shop_id).shop_recipe_ids:
+			if recipe_id == 40: continue # Existing compatibility Cookies covered by Playable/Mobile suites.
+			var job := BuildingInstance.new()
+			job.instance_id = "recipe_%d" % recipe_id
+			job.def_id = shop_id
+			job.x = 4
+			job.y = 12
+			SaveManager.current_save.town_layouts.Vanilla.starting_objects.append(job)
+			for resource in [1, 10, 20, 40, 11, 21, 50, 51]: SaveManager.current_save.inventory.resource_amounts[resource] = 100000
+			HistoricalGameplay.choose_recipe(job, recipe_id)
+			WorkerManager.assign_worker(job)
+			for citizen in SaveManager.current_save.villagers:
+				if citizen.assigned_building_instance_id == job.instance_id: citizen.activity = "working"
+			var recipe = EconomyManager.recipe_for(job)
+			var starting_gold: float = InventoryManager.amount(1)
+			var starting_xp: float = SaveManager.current_save.player_state.xp_total
+			EconomyManager._process_producers(0.01)
+			EconomyManager._process_producers(recipe.cycle_seconds)
+			var evidence: Dictionary = HistoricalGameplay.data().shop_recipes[str(recipe_id)]
+			check(InventoryManager.amount(1) == starting_gold - float(evidence.inputs.get("1", 0)) + float(evidence.rewards.get("1", 0)) and SaveManager.current_save.player_state.xp_total == starting_xp + float(evidence.xp) and HistoricalGameplay.recipe_level(recipe_id) == int(evidence.level), "Advertised original recipe %d completes with exact payout and level" % recipe_id)
+			for citizen in SaveManager.current_save.villagers.duplicate():
+				if citizen.assigned_building_instance_id == job.instance_id: WorkerManager.unassign(citizen.villager_id)
+			SaveManager.current_save.town_layouts.Vanilla.starting_objects.erase(job)
 	SaveManager.delete_slot(974)
 	print("[HistoricalTests] %d failure(s)" % failures)
 	get_tree().quit(1 if failures else 0)

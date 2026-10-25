@@ -59,7 +59,7 @@ Writes use a validated pending file and retain a valid previous generation as `.
 
 `data/first_playable.json` contains the playable catalog and economy costs; `data/progression.json` is authoritative for unlock levels and the 1–50 curve. The economy file also defines cycle durations, yields, staffing, sale/food prices, expansion, and objective rewards. DataManager applies these explicit balance overrides to existing definitions. The existing Baker Shop and Cookies recipe are connected; Cookies is a new inventory resource, rather than the imported recipe’s immediate Gold reward. Original recovered assets and source data remain available.
 
-Character bodies/directional animations have not been reconstructed: villagers currently use an existing portrait sprite with simple movement and activity labels. Haulers travel to work and then transfer harvests automatically; individual carried loads and delivery trips are not simulated. The regular catalog offers cottage/camp/farm/bakery, the functional Quarry/Rock chain, and nine cosmetic decorations; advanced recovered production chains remain unfinished. One expansion and eight opening goals are implemented. Known ObjectDB/resource warnings at automated shutdown remain; they are not claimed fixed.
+Character bodies/directional animations have not been reconstructed: villagers currently use an existing portrait sprite with simple movement and activity labels. Haulers travel to work and then transfer harvests automatically; individual carried loads and delivery trips are not simulated. The catalog has been extended by the historical gameplay phase below; advanced Castle/Citadel, Theater and Jeweler restoration remains unfinished. One expansion and eight opening goals are implemented. Known ObjectDB/resource warnings at automated shutdown remain; they are not claimed fixed.
 
 ## Verification
 
@@ -137,3 +137,13 @@ The classic phase keeps the working medieval building sprites and compact phone 
 Save version 4 preserves previous progress, structures, rotation, assignments, timers, paths and resources; it grandfathers previously owned content and prevents repeat construction XP. Migration never replays old level-up notices. Do not roll back to older game code after saving with this version. Normal offline/browser save policies remain unchanged.
 
 See [CLASSIC_PHASE.md](docs/CLASSIC_PHASE.md) for the architecture audit, reference research, complete scope, costs, migration and test coverage. Run `tools/validate_godot.py --godot <path> --graphical` for 13 phases including ClassicTests; `tests/ClassicVisualProbe.tscn` captures a disposable sample town and roadmap to `.validation/`. No iPhone performance or Safari test is implied by desktop rendering or browser simulation.
+
+## Historical gameplay restoration (Phase 2)
+
+Housing now includes original-ID Small Cottage (1 resident), Large Cottage (2), Brown House (3) and Stone House (4), with level-based allowances, in-place upgrades and collectible taxes. The two-resident starter remains a compatibility exception. Upgrades preserve residents, jobs, IDs, position and rotation; use building **Overview → Upgrade** and its cost confirmation. Collect taxes in Overview or with **Collect**.
+
+Functional additions include Pen → Wool, Lumber Yard → Lumber, Stone Cutter → Cut Stone, Loom → Cloth, Stockpile/Large Stockpile, Carpenter/Pub paid jobs, original Baker alternatives, and Town Hall → Tower → Keep → Fort. Recipe changes queue behind already-paid work. Levels 1–50 now use recovered XP/allowances and implemented recipe unlocks. Castle/Citadel, Theater and Jeweler are researched/planned and not advertised as playable.
+
+Save version **5** preserves versions 1–4, old earned unlocks/XP, resources, worker assignments, roads, timers and storage benefits. Do not deploy pre-v5 code over updated saves. Mobile controls and offline/background behavior remain intact.
+
+See [ORIGINAL_BUILDING_CATALOG.md](docs/ORIGINAL_BUILDING_CATALOG.md) for all 274 definitions, [PHASE_2_RESTORATION.md](docs/PHASE_2_RESTORATION.md) for exact evidence, reconstruction exceptions, tests and desktop performance, and [ORIGINAL_GAME_REFERENCES.md](docs/ORIGINAL_GAME_REFERENCES.md) before further development. The cross-platform runner now has 16 phases including headless and graphical historical-touch scenarios. No physical iPhone test is implied by these checks.

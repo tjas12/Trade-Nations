@@ -7,6 +7,11 @@ var home_pos: Vector2
 var work_pos: Vector2
 var _label: Label
 var _sprite: Sprite2D
+var _citizen: Villager
+var _source_save: Resource
+static var _hover_until := 0
+static var _hover_parent := 0
+static var _nearest_id := ""
 
 func configure(id: String, _name: String, v_role: int, home: Vector2, work: Vector2) -> void:
 	villager_id = id
@@ -30,19 +35,34 @@ func _ready() -> void:
 	add_child(_label)
 
 func _process(_delta: float) -> void:
-	for citizen in SaveManager.current_save.villagers:
-		if citizen.villager_id == villager_id:
-			visible = citizen.map_position.x >= 0
-			position = TownGridGeometry.cell_to_world(citizen.map_position + Vector2(0.5, 0.5))
-			z_index = clampi(int(position.y), 0, 4000)
-			var distance := get_global_mouse_position().distance_to(global_position)
-			var nearest := distance < 45
-			for other in get_parent().get_children():
-				if other is VillagerWalker and other != self:
-					var other_distance: float = get_global_mouse_position().distance_to(other.global_position)
-					if other_distance < distance or (is_equal_approx(other_distance, distance) and other.villager_id < villager_id): nearest = false
-			_label.visible = nearest
-			_label.text = "%s · %s" % [citizen.villager_name, citizen.activity]
-			_sprite.position.y = -14 + (sin(Time.get_ticks_msec() * 0.015) * 2 if citizen.activity == "traveling" else 0)
-			return
-	queue_free()
+	if not SaveManager.current_save: return
+	if _source_save != SaveManager.current_save or _citizen == null:
+		_source_save = SaveManager.current_save
+		_citizen = EconomyManager._find_villager_by_id(villager_id)
+	if _citizen == null:
+		queue_free()
+		return
+	visible = _citizen.map_position.x >= 0
+	position = TownGridGeometry.cell_to_world(_citizen.map_position + Vector2(0.5, 0.5))
+	z_index = clampi(int(position.y), 0, 4000)
+	_refresh_hover()
+	_label.visible = _nearest_id == villager_id
+	if _label.visible: _label.text = "%s · %s" % [_citizen.villager_name, _citizen.activity]
+	_sprite.position.y = -14 + (sin(Time.get_ticks_msec() * 0.015) * 2 if _citizen.activity == "traveling" else 0)
+
+func _refresh_hover() -> void:
+	var now := Time.get_ticks_msec()
+	var parent_id := get_parent().get_instance_id()
+	if now < _hover_until and _hover_parent == parent_id: return
+	_hover_parent = parent_id
+	_hover_until = now + 100
+	_nearest_id = ""
+	if get_parent().get_parent().get("touch_mode") == true: return
+	var mouse := get_global_mouse_position()
+	var nearest_distance := 45.0
+	for other in get_parent().get_children():
+		if not other is VillagerWalker or not other.visible: continue
+		var distance: float = mouse.distance_to(other.global_position)
+		if distance < nearest_distance or (is_equal_approx(distance, nearest_distance) and other.villager_id < _nearest_id):
+			nearest_distance = distance
+			_nearest_id = other.villager_id
