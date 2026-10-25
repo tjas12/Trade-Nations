@@ -31,7 +31,9 @@ def main():
     parser.add_argument("--graphical", action="store_true")
     args = parser.parse_args()
     LOGS.mkdir(exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix="trade-nations-checks-") as temporary:
+    # Windows may briefly retain driver shader-cache handles after Godot exits.
+    # Cleanup failures must not change successful regression results.
+    with tempfile.TemporaryDirectory(prefix="trade-nations-checks-", ignore_cleanup_errors=True) as temporary:
         profile = Path(temporary)
         run(args.godot, "import", ["--headless", "--editor", "--import", "--quit"], profile)
         scenes = {"foundation": "TestRunner", "restoration": "RestorationTests", "interaction": "InteractionTests", "playable": "PlayableTests", "scale": "ScaleTests", "layout": "LayoutTests", "mobile": "MobileTests"}

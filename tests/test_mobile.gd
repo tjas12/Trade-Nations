@@ -31,6 +31,7 @@ func press(button: BaseButton) -> void:
 		parent = parent.get_parent()
 	await get_tree().process_frame
 	await get_tree().process_frame
+	await get_tree().create_timer(0.05).timeout
 	check(button.is_visible_in_tree() and not button.disabled, "Touch target available: " + button.text)
 	await ui_tap(button.get_global_rect().get_center())
 
@@ -40,11 +41,11 @@ func ui_tap(point: Vector2) -> void:
 	event.position = point
 	event.pressed = true
 	Input.parse_input_event(event)
-	await get_tree().process_frame
+	await get_tree().create_timer(0.05).timeout
 	event = event.duplicate()
 	event.pressed = false
 	Input.parse_input_event(event)
-	await get_tree().process_frame
+	await get_tree().create_timer(0.05).timeout
 
 func _ready() -> void:
 	call_deferred("run")
@@ -82,10 +83,12 @@ func run() -> void:
 	game.tutorial_popup.hide()
 	var original_count: int = SaveManager.current_save.town_layouts.Vanilla.starting_objects.size()
 	var catalog: TabContainer = game.build_menu.tab_container
+	await get_tree().create_timer(0.1).timeout
 	for index in range(catalog.get_tab_count()):
 		if catalog.get_tab_title(index).to_lower() == "house":
 			var bar := catalog.get_tab_bar()
 			await ui_tap(bar.global_position + bar.get_tab_rect(index).get_center())
+			check(catalog.current_tab == index, "Touch selects the HOUSE catalog tab")
 	for card in game.build_menu.find_children("*", "Button", true, false):
 		if card.get_meta("definition_id", -1) == 10012:
 			await press(card)
