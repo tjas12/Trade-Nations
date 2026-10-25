@@ -1,0 +1,165 @@
+{
+  "native_scale": 0.9,
+  "footprint_width_limit": 0.96,
+  "ground_fraction": 0.88,
+  "overrides": {
+    "10001": {
+      "visible_width": 190
+    },
+    "1": {
+      "visible_width": 190
+    },
+    "10012": {
+      "visible_width": 74
+    },
+    "10008": {
+      "visible_width": 88
+    },
+    "11": {
+      "visible_width": 98
+    },
+    "35": {
+      "visible_width": 86
+    },
+    "9": {
+      "visible_width": 150
+    },
+    "128": {
+      "visible_width": 24
+    },
+    "151": {
+      "visible_width": 60
+    },
+    "120": {
+      "visible_width": 32
+    },
+    "146": {
+      "visible_width": 32
+    },
+    "108": {
+      "visible_width": 24
+    },
+    "106": {
+      "visible_width": 24
+    },
+    "103": {
+      "visible_width": 44
+    },
+    "173": {
+      "visible_width": 30
+    },
+    "159": {
+      "visible_width": 48
+    }
+  },
+  "directional_audit": "Numbered cottage sprites are color variants. Seasonal prefixes are skins. No verified four-direction structural sets are available. Text/sign-bearing shops retain one view. Other mirrored views are front-left/front-right approximations only.",
+  "asset_overrides": {
+    "128": "BARREL.png",
+    "151": "BENCH.png",
+    "103": "BIRCH.png",
+    "146": "BIRDBATH.png",
+    "165": "BOOKSHOP.png",
+    "177": "BRICKROAD_DOWN.png",
+    "176": "BRICKROAD_LEFT.png",
+    "175": "BRICKROAD_RIGHT.png",
+    "174": "BRICKROAD_STRAIGHT.png",
+    "178": "BRICKROAD_UP.png",
+    "108": "BUTTERCUPS.png",
+    "173": "CAMPFIRE.png",
+    "159": "CART.png",
+    "120": "CRATES.png",
+    "106": "DAISIES.png",
+    "11": "FARM.png",
+    "169": "FIREBREATHER.png",
+    "199": "FLOWERSHOP.png",
+    "4": "FORT.png",
+    "150": "FOUNTAIN.png",
+    "172": "GYPSYWAGON.png",
+    "301": "HOT_AIR_BALLOON.png",
+    "162": "JACKOLANTERN.png",
+    "168": "JUGGLER.png",
+    "3": "KEEP.png",
+    "145": "LARGESTATUE.png",
+    "26": "LARGESTOCKPILE.png",
+    "144": "LIONSTATUE.png",
+    "23": "LOOM.png",
+    "15": "LUMBERYARD.png",
+    "110": "LUPINS.png",
+    "104": "MAPLE.png",
+    "27": "MARKET.png",
+    "105": "OAK.png",
+    "109": "PANSIES.png",
+    "36": "PEN.png",
+    "148": "POND.png",
+    "101": "POPLAR.png",
+    "113": "PRESENT.png",
+    "271": "PRIZE_HORSE.png",
+    "38": "PUBSHOP.png",
+    "160": "PUMPKINCART.png",
+    "9": "QUARRY.png",
+    "133": "ROADSTRAIGHT.png",
+    "134": "ROADTURNDOWN.png",
+    "136": "ROADTURNLEFT.png",
+    "137": "ROADTURNRIGHT.png",
+    "135": "ROADTURNUP.png",
+    "149": "ROUNDABOUT.png",
+    "161": "SCARECROW.png",
+    "132": "SHEEP.png",
+    "102": "SPRUCE.png",
+    "25": "STOCKPILE.png",
+    "17": "STONECUTTER.png",
+    "14": "STONEHOUSE.png",
+    "118": "STUMP.png",
+    "167": "THEATER.png",
+    "2": "TOWER.png",
+    "10001": "TOWNHALL.png",
+    "1": "TOWNHALL.png",
+    "156": "TRAMPOLINE.png",
+    "233": "TRAVELING_MERCHANT.png",
+    "107": "TULIPS.png",
+    "163": "WAREHOUSE.png",
+    "164": "WINDMILL.png",
+    "30": "WIZARDTOWER.png",
+    "8": "CAMP.png",
+    "12": "LITTLECOTTAGE.png",
+    "13": "HOUSE.png",
+    "35": "BAKERSSHOP.png",
+    "114": "TENTYELLOW.png",
+    "115": "TENTRED.png",
+    "116": "TENTBLUE.png",
+    "117": "LOGS.png",
+    "119": "TOADSTOOLS.png",
+    "121": "FENCEWOOD.png",
+    "126": "POTRED.png",
+    "127": "POTBLUE.png",
+    "130": "POTLUPINS.png",
+    "131": "POTORANGE.png",
+    "336": "WAREHOUSE.png",
+    "338": "BOOKSHOP.png",
+    "344": "CAMP.png",
+    "345": "QUARRY.png",
+    "157": "STONEHOUSE1.png",
+    "158": "STONEHOUSE2.png",
+    "31": "SCULPTURESHALL.png",
+    "138": "LITTLECOTTAGE1.png",
+    "139": "LITTLECOTTAGE2.png",
+    "37": "COTTAGE.png",
+    "140": "COTTAGE1.png",
+    "141": "COTTAGE2.png",
+    "142": "HOUSE1.png",
+    "143": "HOUSE2.png",
+    "32": "CARVERSHALL.png",
+    "34": "TAILORSSHOP.png",
+    "111": "CHRISTMASTREE.png",
+    "122": "FENCESTONE.png",
+    "124": "POTPANSIES.png",
+    "125": "POTDAISIES.png",
+    "147": "LAWNSTATUE.png",
+    "152": "BIRDHOUSEBLUE.png",
+    "153": "BIRDHOUSEPINK.png",
+    "154": "BIRDHOUSEYELLOW.png",
+    "155": "BIRDHOUSEWHITE.png",
+    "342": "LARGESTATUE.png"
+  },
+  "classic_art_note": "Reference composite: warm straw roofs, small farms, rich green meadows; preserved recovered sprites and directional fallbacks. Added contact shadows and native-scale footprints; no reference images imported."
+}

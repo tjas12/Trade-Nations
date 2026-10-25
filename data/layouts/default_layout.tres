@@ -6,7 +6,7 @@
 [sub_resource type="Resource" id=1]
 script = ExtResource( 2 )
 instance_id = "town_hall_01"
-def_id = 1
+def_id = 10001
 land = "Vanilla"
 x = 0
 y = 0
@@ -22,7 +22,7 @@ assigned_hauler_ids = []
 [sub_resource type="Resource" id=2]
 script = ExtResource( 2 )
 instance_id = "logging_camp_01"
-def_id = 201
+def_id = 10008
 land = "Vanilla"
 x = 4
 y = 0

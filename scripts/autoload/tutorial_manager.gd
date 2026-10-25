@@ -1,86 +1,61 @@
-# scripts/autoload/tutorial_manager.gd
-# Manages tutorial progression.
 extends Node
 
-const TUTORIALS_PATH := "res://data/tutorials/"
-
-var _tutorials: Dictionary = {} # { id: Tutorial }
-var _active_tutorial: Tutorial = null
-var _active_objective_index: int = -1
 var _tutorial_popup = null
+var _timer: float = 0
 
 func _ready() -> void:
-	_load_all()
-	EventBus.building_placed.connect(_on_building_placed)
-	EventBus.worker_assigned.connect(_on_worker_assigned)
+	SaveManager.save_activated.connect(func(): call_deferred("refresh"))
 
 func set_tutorial_popup(popup) -> void:
 	_tutorial_popup = popup
+	refresh()
 
 func start_tutorials() -> void:
-	# Called by GameManager when a new game starts.
-	# For now, just start the first tutorial.
-	if _tutorials.has(1):
-		_start_tutorial(_tutorials[1])
-	else:
-		print("[TutorialManager] No tutorial with ID 1 found.")
+	refresh()
 
-func _load_all() -> void:
-	var dir = DirAccess.open(TUTORIALS_PATH)
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if not dir.current_is_dir() and file_name.ends_with(".tres"):
-				var full_path = TUTORIALS_PATH.path_join(file_name)
-				var tutorial = ResourceLoader.load(full_path)
-				if tutorial is Tutorial:
-					_tutorials[tutorial.id] = tutorial
-			file_name = dir.get_next()
-	print("[TutorialManager] Loaded %d tutorials." % _tutorials.size())
+func _process(delta: float) -> void:
+	if Autosave.simulation_suspended(): return
+	_timer += delta
+	if _timer > 0.25:
+		_timer = 0
+		refresh()
 
-func _start_tutorial(tutorial: Tutorial) -> void:
-	print("[TutorialManager] Starting tutorial: '%s'" % tutorial.title)
-	_active_tutorial = tutorial
-	_active_objective_index = 0
-	_show_current_objective()
+func satisfied(objective: Dictionary) -> bool:
+	var save = SaveManager.current_save
+	match objective.kind:
+		"building":
+			var count := 0
+			for instance in save.town_layouts["Vanilla"].starting_objects:
+				if instance.def_id == int(objective.target) and instance.construction_complete:
+					count += 1
+			return count >= int(objective.count)
+		"population": return save.villagers.size() >= int(objective.count)
+		"logging_staff":
+			for instance in save.town_layouts["Vanilla"].starting_objects:
+				if instance.def_id in [8, 10008] and not instance.assigned_worker_ids.is_empty() and not instance.assigned_hauler_ids.is_empty():
+					return true
+		"produced", "sold": return save.economy_stats[objective.kind].get(int(objective.target), 0) >= objective.count
+		"expansion": return save.expansion_count >= int(objective.count)
+	return false
 
-func _show_current_objective() -> void:
-	if _active_tutorial and _active_objective_index < _active_tutorial.objectives.size():
-		var objective = _active_tutorial.objectives[_active_objective_index]
-		if _tutorial_popup:
-			_tutorial_popup.show_objective(objective.text)
-		else:
-			print("[TutorialManager] New Objective: %s" % objective.text)
-	else:
-		_complete_tutorial()
-
-func _advance_objective() -> void:
-	_active_objective_index += 1
-	_show_current_objective()
-
-func _complete_tutorial() -> void:
-	print("[TutorialManager] Tutorial '%s' complete!" % _active_tutorial.title)
-	if _tutorial_popup:
-		_tutorial_popup.hide()
-	# TODO: Update save data
-	_active_tutorial = null
-	_active_objective_index = -1
-
-# --- Event Handlers for Checking Objectives ---
-
-func _on_building_placed(building_instance: BuildingInstance) -> void:
-	if not _active_tutorial: return
-	
-	var objective = _active_tutorial.objectives[_active_objective_index]
-	if objective.type == TutorialObjective.ObjectiveType.BUILD and objective.target_def_id == building_instance.def_id:
-		print("[TutorialManager] Objective complete: Built target building.")
-		_advance_objective()
-
-func _on_worker_assigned(villager: Villager, building_instance: BuildingInstance) -> void:
-	if not _active_tutorial: return
-	
-	var objective = _active_tutorial.objectives[_active_objective_index]
-	if objective.type == TutorialObjective.ObjectiveType.ASSIGN_WORKER and objective.target_def_id == building_instance.def_id:
-		print("[TutorialManager] Objective complete: Assigned worker.")
-		_advance_objective()
+func refresh() -> void:
+	if not SaveManager.current_save or DataManager.rules.is_empty():
+		return
+	var save = SaveManager.current_save
+	var objectives: Array = DataManager.rules.objectives
+	for index in range(objectives.size()):
+		var objective: Dictionary = objectives[index]
+		if save.objective_claims.has(objective.id):
+			continue
+		if satisfied(objective):
+			# Claim first, then reward, including when several objectives complete together.
+			save.objective_claims.append(objective.id)
+			InventoryManager.add(1, objective.gold)
+			ProgressionManager.add_xp(objective.xp)
+			EventBus.town_notice.emit("Objective complete: +%d Gold, +%d XP" % [objective.gold, objective.xp])
+			continue
+		if is_instance_valid(_tutorial_popup):
+			_tutorial_popup.show_objective("%d/%d · %s\nReward: %d Gold + %d XP" % [index + 1, objectives.size(), objective.text, objective.gold, objective.xp])
+		return
+	if is_instance_valid(_tutorial_popup):
+		_tutorial_popup.show_objective("Town established! Build more homes and production, sell goods, and shape your town.")

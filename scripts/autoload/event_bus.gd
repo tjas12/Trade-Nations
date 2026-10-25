@@ -66,3 +66,14 @@ signal visit_friend_requested(friend_name: String)
 
 # Emitted when the player requests to return home from visiting
 signal return_home_requested()
+
+signal population_changed(total: int, idle: int)
+
+signal town_notice(text: String)
+signal building_move_requested(instance)
+signal building_demolish_requested(instance)
+signal town_changed()
+
+signal building_rotate_requested(instance, step: int)
+
+signal ground_decorations_changed()

@@ -2,9 +2,67 @@
 # Manages villager population, job assignment, and simulation.
 extends Node
 
+var _routes: Dictionary = {}
+var _destinations: Dictionary = {}
+
+func _ready() -> void:
+	EventBus.building_placed.connect(_on_housing_placed)
+	SaveManager.save_activated.connect(reconcile_housing)
+	SaveManager.save_activated.connect(invalidate_routes)
+
+func _on_housing_placed(instance: BuildingInstance) -> void:
+	var definition = DataManager.get_building_definition(instance.def_id)
+	if definition == null or definition.type != BuildingDefinition.BuildingType.HOUSE or not instance.construction_complete:
+		return
+	var previous := total_population()
+	reconcile_housing()
+	var arrivals := total_population() - previous
+	if arrivals > 0:
+		EventBus.spawn_floating_text.emit("+%d villagers" % arrivals, TownGridGeometry.cell_to_world(Vector2(instance.x, instance.y)) + Vector2(0, -30), Color.SKY_BLUE)
+
+func reconcile_housing() -> void:
+	if not SaveManager.current_save:
+		return
+	var save = SaveManager.current_save
+	var homes: Dictionary = {}
+	var residents: Dictionary = {}
+	for layout in save.town_layouts.values():
+		for instance in layout.starting_objects:
+			var definition = DataManager.get_building_definition(instance.def_id)
+			if definition and instance.construction_complete and definition.house_capacity > 0:
+				homes[instance.instance_id] = capacity_for(instance)
+				residents[instance.instance_id] = 0
+	# Keep valid homes and all existing assignments. Never delete excess citizens.
+	for citizen in save.villagers:
+		var home: String = citizen.home_instance_id
+		if homes.has(home) and residents[home] < homes[home]:
+			residents[home] += 1
+		else:
+			citizen.home_instance_id = ""
+	for citizen in save.villagers:
+		if citizen.home_instance_id.is_empty():
+			for home in homes:
+				if residents[home] < homes[home]:
+					citizen.home_instance_id = home
+					residents[home] += 1
+					break
+	# Immediate arrival is a prototype substitute for original arrival timers.
+	for home in homes:
+		while residents[home] < homes[home]:
+			var citizen := Villager.new()
+			citizen.villager_id = "resident_%d_%d" % [Time.get_ticks_usec(), total_population()]
+			citizen.villager_name = "Villager %d" % (total_population() + 1)
+			citizen.home_instance_id = home
+			save.villagers.append(citizen)
+			residents[home] += 1
+	_emit_population()
+
+func _emit_population() -> void:
+	EventBus.population_changed.emit(total_population(), idle_villagers().size())
+
 ## Assigns the first available idle villager to the given building instance as a WORKER.
 func assign_worker(building_instance: BuildingInstance) -> bool:
-	if not building_instance:
+	if not building_instance or not building_instance.construction_complete:
 		push_warning("[WorkerManager] assign_worker called with null instance.")
 		return false
 	
@@ -13,7 +71,7 @@ func assign_worker(building_instance: BuildingInstance) -> bool:
 		print("[WorkerManager] Cannot assign worker to building without a gather recipe.")
 		return false
 		
-	var recipe = DataManager.get_production_recipe(building_def.gather_recipe_id)
+	var recipe = EconomyManager.recipe_for(building_instance)
 	if not recipe:
 		push_error("[WorkerManager] Could not find recipe with ID %d" % building_def.gather_recipe_id)
 		return false
@@ -26,6 +84,7 @@ func assign_worker(building_instance: BuildingInstance) -> bool:
 	var idle_villager = _find_idle_villager()
 	if not idle_villager:
 		print("[WorkerManager] No idle villagers available.")
+		EventBus.town_notice.emit("No available villagers. Build a cottage or release someone from another job.")
 		return false
 		
 	# Assign the villager
@@ -35,12 +94,15 @@ func assign_worker(building_instance: BuildingInstance) -> bool:
 	
 	print("[WorkerManager] Assigned %s to %s as a Worker." % [idle_villager.villager_name, building_def.display_name])
 	
+	invalidate_routes()
+	idle_villager.activity = "traveling"
 	EventBus.worker_assigned.emit(idle_villager, building_instance)
+	_emit_population()
 	return true
 
 ## Assigns the first available idle villager to the given building instance as a HAULER.
 func assign_hauler(building_instance: BuildingInstance) -> bool:
-	if not building_instance:
+	if not building_instance or not building_instance.construction_complete:
 		push_warning("[WorkerManager] assign_hauler called with null instance.")
 		return false
 	
@@ -49,7 +111,7 @@ func assign_hauler(building_instance: BuildingInstance) -> bool:
 		print("[WorkerManager] Cannot assign hauler to building without a gather recipe.")
 		return false
 		
-	var recipe = DataManager.get_production_recipe(building_def.gather_recipe_id)
+	var recipe = EconomyManager.recipe_for(building_instance)
 	if not recipe:
 		push_error("[WorkerManager] Could not find recipe with ID %d" % building_def.gather_recipe_id)
 		return false
@@ -62,6 +124,7 @@ func assign_hauler(building_instance: BuildingInstance) -> bool:
 	var idle_villager = _find_idle_villager()
 	if not idle_villager:
 		print("[WorkerManager] No idle villagers available.")
+		EventBus.town_notice.emit("No available villagers. Build a cottage or release someone from another job.")
 		return false
 		
 	# Assign the villager
@@ -71,7 +134,10 @@ func assign_hauler(building_instance: BuildingInstance) -> bool:
 	
 	print("[WorkerManager] Assigned %s to %s as a Hauler." % [idle_villager.villager_name, building_def.display_name])
 	
+	invalidate_routes()
+	idle_villager.activity = "traveling"
 	EventBus.hauler_assigned.emit(idle_villager, building_instance)
+	_emit_population()
 	return true
 
 
@@ -85,6 +151,8 @@ func _find_idle_villager() -> Villager:
 	return null
 
 func _process(delta: float) -> void:
+	if Autosave.simulation_suspended(): return
+	_update_travel(delta)
 	if not SaveManager.current_save:
 		return
 		
@@ -135,8 +203,8 @@ func housing_capacity() -> int:
 	var total_capacity = 0
 	for instance in layout.starting_objects:
 		var building_def = DataManager.get_building_definition(instance.def_id)
-		if building_def:
-			total_capacity += building_def.house_capacity
+		if building_def and instance.construction_complete:
+			total_capacity += capacity_for(instance)
 	return total_capacity
 
 func idle_villagers() -> Array:
@@ -148,8 +216,79 @@ func idle_villagers() -> Array:
 	return idle
 
 func unassign(villager_id: String) -> void:
-	print("[WorkerManager] Unassigning villager %s (TODO)" % villager_id)
+	if not SaveManager.current_save:
+		return
+	for layout in SaveManager.current_save.town_layouts.values():
+		for instance in layout.starting_objects:
+			instance.assigned_worker_ids.erase(villager_id)
+			instance.assigned_hauler_ids.erase(villager_id)
+	for villager in SaveManager.current_save.villagers:
+		if villager.villager_id == villager_id:
+			villager.role = Villager.Role.UNASSIGNED
+			villager.assigned_building_instance_id = ""
+	invalidate_routes()
+	EconomyManager._restore_assignments()
+	_emit_population()
 
 func adopt_villager() -> bool:
 	print("[WorkerManager] Adopting a new villager (TODO)")
 	return true
+
+func invalidate_routes() -> void:
+	if SaveManager.current_save:
+		for citizen in SaveManager.current_save.villagers:
+			if not citizen.assigned_building_instance_id.is_empty():
+				citizen.activity = "traveling"
+	_routes.clear()
+	_destinations.clear()
+
+func instance_by_id(id: String) -> BuildingInstance:
+	if SaveManager.current_save:
+		for instance in SaveManager.current_save.town_layouts["Vanilla"].starting_objects:
+			if instance.instance_id == id:
+				return instance
+	return null
+
+func _update_travel(delta: float) -> void:
+	if not SaveManager.current_save:
+		return
+	var citizen_index := 0
+	for citizen in SaveManager.current_save.villagers:
+		citizen_index += 1
+		var job = instance_by_id(citizen.assigned_building_instance_id)
+		var home = instance_by_id(citizen.home_instance_id)
+		if citizen.map_position.x < 0:
+			if home:
+				citizen.map_position = Vector2(TownPaths.entrance(home, Vector2(home.x, home.y) + Vector2(sin(citizen_index * 1.7), cos(citizen_index * 1.7)) * 5))
+		if not job:
+			citizen.activity = "idle"
+			continue
+		if not _destinations.has(citizen.villager_id):
+			# A moved footprint may now cover a previous position. Re-enter beside home.
+			if TownPaths.blocked_cells().has(Vector2i(citizen.map_position.round())) and home:
+				citizen.map_position = Vector2(TownPaths.entrance(home))
+			var approach := Vector2(job.x - 2, job.y + 1) if citizen.role == Villager.Role.WORKER else Vector2(job.x + 3, job.y + 3)
+			var destination := TownPaths.entrance(job, approach)
+			_routes[citizen.villager_id] = TownPaths.route(Vector2i(citizen.map_position.round()), destination)
+			_destinations[citizen.villager_id] = destination
+		var destination: Vector2i = _destinations[citizen.villager_id]
+		var path: Array = _routes[citizen.villager_id]
+		if path.is_empty():
+			citizen.activity = "working" if citizen.map_position.distance_to(Vector2(destination)) < 0.1 else "blocked"
+			continue
+		citizen.activity = "traveling"
+		var remaining := delta * 2.0
+		while remaining > 0 and not path.is_empty():
+			var target := Vector2(path[0])
+			var distance := citizen.map_position.distance_to(target)
+			citizen.map_position = citizen.map_position.move_toward(target, remaining)
+			remaining -= distance
+			if citizen.map_position.distance_to(target) < 0.001:
+				path.pop_front()
+			else:
+				break
+		if path.is_empty():
+			citizen.activity = "working"
+
+func capacity_for(instance: BuildingInstance) -> int:
+	return DataManager.get_building_definition(instance.def_id).house_capacity + instance.housing_bonus

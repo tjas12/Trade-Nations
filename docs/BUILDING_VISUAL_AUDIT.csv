@@ -1,0 +1,275 @@
+id,name,footprint,source,visible_width,visible_height,supported_views
+308,A-Frame Cabin,7x7,UNMAPPED,0,0,placeholder
+310,Apothecary,7x7,UNMAPPED,0,0,placeholder
+287,Apparition,2x2,UNMAPPED,0,0,placeholder
+225,Apple Tree,2x2,UNMAPPED,0,0,placeholder
+319,Ash,2x2,UNMAPPED,0,0,placeholder
+318,Aspen,2x2,UNMAPPED,0,0,placeholder
+277,Badminton Court,9x5,UNMAPPED,0,0,placeholder
+35,Baker Shop,2x2,res://assets/art/converted/BAKERSSHOP.png,86.0,69.7,[0]
+228,Ball Topiary,2x2,UNMAPPED,0,0,placeholder
+259,Bamboo,2x2,UNMAPPED,0,0,placeholder
+128,Barrel,2x2,res://assets/art/converted/BARREL.png,24.0,30.9,[0; 90]
+151,Bench,2x3,res://assets/art/converted/BENCH.png,60.0,55.0,[0; 90]
+166,Big Top,14x18,UNMAPPED,0,0,placeholder
+350,Bill,3x3,UNMAPPED,0,0,placeholder
+103,Birch,2x2,res://assets/art/converted/BIRCH.png,44.0,70.4,[0; 90]
+146,Bird Bath,2x2,res://assets/art/converted/BIRDBATH.png,32.0,39.3,[0; 90]
+311,Blacksmith Forge,9x9,UNMAPPED,0,0,placeholder
+288,Black Cat,2x2,UNMAPPED,0,0,placeholder
+188,Bluebells,2x2,UNMAPPED,0,0,placeholder
+206,Blueberry Bush,2x2,UNMAPPED,0,0,placeholder
+152,Blue Birdhouse,2x2,res://assets/art/converted/BIRDHOUSEBLUE.png,62.1,67.5,[0; 90]
+204,Blue Doghouse,5x4,UNMAPPED,0,0,placeholder
+13,Blue House,5x4,res://assets/art/converted/HOUSE.png,76.5,69.3,[0; 90]
+127,Blue Pot,2x2,res://assets/art/converted/POTBLUE.png,44.1,44.1,[0; 90]
+330,Blue Spruce,2x2,UNMAPPED,0,0,placeholder
+116,Blue Tent,2x2,res://assets/art/converted/TENTBLUE.png,64.8,54.9,[0; 90]
+165,Book Shop,5x5,res://assets/art/converted/BOOKSHOP.png,52.2,67.5,[0]
+177,Brick Road Down,2x2,res://assets/art/converted/BRICKROAD_DOWN.png,76.5,33.3,[0; 90]
+176,Brick Road Left,2x2,res://assets/art/converted/BRICKROAD_LEFT.png,58.5,38.7,[0; 90]
+175,Brick Road Right,2x2,res://assets/art/converted/BRICKROAD_RIGHT.png,65.7,38.7,[0; 90]
+174,Brick Road Straight,2x2,res://assets/art/converted/BRICKROAD_STRAIGHT.png,76.5,38.7,[0; 90]
+178,Brick Road Up,2x2,res://assets/art/converted/BRICKROAD_UP.png,76.5,38.7,[0; 90]
+139,Brown Cottage,5x4,res://assets/art/converted/LITTLECOTTAGE2.png,72.9,67.5,[0; 90]
+142,Brown House,5x4,res://assets/art/converted/HOUSE1.png,72.0,69.3,[0; 90]
+351,Bullwrinkle,3x3,UNMAPPED,0,0,placeholder
+346,Butcher Stand,4x2,UNMAPPED,0,0,placeholder
+108,Buttercups,2x2,res://assets/art/converted/BUTTERCUPS.png,24.0,13.6,[0; 90]
+173,Campfire,2x2,res://assets/art/converted/CAMPFIRE.png,30.0,38.1,[0; 90]
+183,Camphor,2x2,UNMAPPED,0,0,placeholder
+32,Carpenter Shop,5x5,res://assets/art/converted/CARVERSHALL.png,89.1,69.3,[0]
+159,Cart,2x2,res://assets/art/converted/CART.png,48.0,37.2,[0; 90]
+5,Castle,14x14,UNMAPPED,0,0,placeholder
+226,Cherry Blossom,2x2,UNMAPPED,0,0,placeholder
+236,Chicken Coop,4x3,UNMAPPED,0,0,placeholder
+221,Citadel,14x14,UNMAPPED,0,0,placeholder
+235,Cobbler,5x5,UNMAPPED,0,0,placeholder
+298,Conehead,2x2,UNMAPPED,0,0,placeholder
+322,Cottonwood,2x2,UNMAPPED,0,0,placeholder
+202,Cow,2x3,UNMAPPED,0,0,placeholder
+120,Crates,2x2,res://assets/art/converted/CRATES.png,32.0,37.1,[0; 90]
+210,Creamery,6x8,UNMAPPED,0,0,placeholder
+289,Creepy Tomb,2x2,UNMAPPED,0,0,placeholder
+315,Criss Cross Fence,1x4,UNMAPPED,0,0,placeholder
+184,Cypress,2x2,UNMAPPED,0,0,placeholder
+106,Daisies,2x2,res://assets/art/converted/DAISIES.png,24.0,13.6,[0; 90]
+182,Dogwood,2x2,UNMAPPED,0,0,placeholder
+258,Dragon,3x3,UNMAPPED,0,0,placeholder
+269,Dragon Statue,3x4,UNMAPPED,0,0,placeholder
+326,Elderberry Bush,2x2,UNMAPPED,0,0,placeholder
+279,Elvis,2x2,UNMAPPED,0,0,placeholder
+11,Farm,2x2,res://assets/art/converted/FARM.png,98.0,56.0,[0; 90]
+169,Firebreather,4x4,res://assets/art/converted/FIREBREATHER.png,64.8,67.5,[0; 90]
+328,Fire Tail,2x2,UNMAPPED,0,0,placeholder
+321,Fir,2x2,UNMAPPED,0,0,placeholder
+246,Fishing Hole,15x13,UNMAPPED,0,0,placeholder
+354,Fish Stand,4x2,UNMAPPED,0,0,placeholder
+284,Flappy,2x2,UNMAPPED,0,0,placeholder
+199,Flower Shop,6x5,res://assets/art/converted/FLOWERSHOP.png,76.5,63.0,[0]
+229,Flower Topiary,2x2,UNMAPPED,0,0,placeholder
+264,Food Trough,3x2,UNMAPPED,0,0,placeholder
+6,Forest,6x6,UNMAPPED,0,0,placeholder
+4,Fort,14x14,res://assets/art/converted/FORT.png,223.2,146.7,[0]
+150,Fountain,7x7,res://assets/art/converted/FOUNTAIN.png,64.8,69.3,[0; 90]
+339,Frontier Cobbler,5x5,UNMAPPED,0,0,placeholder
+329,Frontier Market,8x8,UNMAPPED,0,0,placeholder
+343,Frontier Merchant,8x5,UNMAPPED,0,0,placeholder
+334,Frontier Stockpile,10x10,UNMAPPED,0,0,placeholder
+336,Frontier Warehouse,10x10,res://assets/art/converted/WAREHOUSE.png,86.4,62.1,[0]
+333,Frosty Crockett,3x3,UNMAPPED,0,0,placeholder
+332,Frosty the Snowman,3x3,UNMAPPED,0,0,placeholder
+355,Fruit Stand,4x2,UNMAPPED,0,0,placeholder
+223,Gabbo,2x2,UNMAPPED,0,0,placeholder
+278,Gazebo,4x4,UNMAPPED,0,0,placeholder
+290,Ghoulish Tomb,2x2,UNMAPPED,0,0,placeholder
+302,Gold Panner,6x6,UNMAPPED,0,0,placeholder
+239,Gold Sundial,2x2,UNMAPPED,0,0,placeholder
+140,Green Cottage,5x4,res://assets/art/converted/COTTAGE1.png,74.7,72.0,[0; 90]
+172,Gypsy Wagon,4x4,res://assets/art/converted/GYPSYWAGON.png,62.1,58.5,[0; 90]
+283,Halloween Treat,2x2,UNMAPPED,0,0,placeholder
+203,Hay Bale,2x2,UNMAPPED,0,0,placeholder
+208,Hedges,2x2,UNMAPPED,0,0,placeholder
+347,Holiday Gift,2x2,UNMAPPED,0,0,placeholder
+111,Holiday Tree,5x5,res://assets/art/converted/CHRISTMASTREE.png,45.0,64.8,[0; 90]
+205,Holly Bush,2x2,UNMAPPED,0,0,placeholder
+257,Horse,2x3,UNMAPPED,0,0,placeholder
+301,Hot Air Balloon,6x6,res://assets/art/converted/HOT_AIR_BALLOON.png,81.0,81.0,[0; 90]
+309,Hot Beverage Shop,7x7,UNMAPPED,0,0,placeholder
+313,Ian,3x3,UNMAPPED,0,0,placeholder
+253,Imperial House,5x4,UNMAPPED,0,0,placeholder
+220,Inn,11x9,UNMAPPED,0,0,placeholder
+267,Iron Fence,1x4,UNMAPPED,0,0,placeholder
+162,Jack O' Lantern,2x2,res://assets/art/converted/JACKOLANTERN.png,39.6,44.1,[0; 90]
+237,Jeweler Shop,5x5,UNMAPPED,0,0,placeholder
+312,Jordo,2x2,UNMAPPED,0,0,placeholder
+168,Juggler,4x4,res://assets/art/converted/JUGGLER.png,55.8,69.3,[0; 90]
+317,Juniper,2x2,UNMAPPED,0,0,placeholder
+263,Karate Chop!,4x4,UNMAPPED,0,0,placeholder
+314,Kazi,3x3,UNMAPPED,0,0,placeholder
+3,Keep,14x14,res://assets/art/converted/KEEP.png,223.2,145.8,[0]
+274,Kite Flyer,2x2,UNMAPPED,0,0,placeholder
+254,Koi Pond,8x5,UNMAPPED,0,0,placeholder
+316,Laddie,3x3,UNMAPPED,0,0,placeholder
+179,Lake,12x14,UNMAPPED,0,0,placeholder
+201,Lamp Post,2x2,UNMAPPED,0,0,placeholder
+261,Lantern,2x2,UNMAPPED,0,0,placeholder
+324,Larch,2x2,UNMAPPED,0,0,placeholder
+37,Large Cottage,5x4,res://assets/art/converted/COTTAGE.png,75.6,72.9,[0; 90]
+335,Large Frontier Stockpile,10x10,UNMAPPED,0,0,placeholder
+337,Large Frontier Warehouse,10x10,UNMAPPED,0,0,placeholder
+342,Large Granite Statue,2x2,res://assets/art/converted/LARGESTATUE.png,46.8,69.3,[0; 90]
+145,Large Statue,2x2,res://assets/art/converted/LARGESTATUE.png,46.8,69.3,[0; 90]
+26,Large Stockpile,10x10,res://assets/art/converted/LARGESTOCKPILE.png,84.6,47.7,[0]
+224,Large Warehouse,10x10,UNMAPPED,0,0,placeholder
+147,Lawn Gnome,2x2,res://assets/art/converted/LAWNSTATUE.png,76.5,66.6,[0; 90]
+281,Lawn Table,2x4,UNMAPPED,0,0,placeholder
+190,Lilacs,2x2,UNMAPPED,0,0,placeholder
+192,Lilies,2x2,UNMAPPED,0,0,placeholder
+222,Lily,2x2,UNMAPPED,0,0,placeholder
+255,Ling,3x3,UNMAPPED,0,0,placeholder
+144,Lion Statue,2x2,res://assets/art/converted/LIONSTATUE.png,45.9,69.3,[0; 90]
+10008,Logging Camp,2x2,res://assets/art/converted/LUMBERYARD.png,88.0,69.1,[0; 90]
+8,Logging Camp,6x6,res://assets/art/converted/CAMP.png,89.1,69.3,[0; 90]
+117,Log,2x2,res://assets/art/converted/LOGS.png,56.7,57.6,[0; 90]
+307,Log Cabin,6x6,UNMAPPED,0,0,placeholder
+23,Loom,7x5,res://assets/art/converted/LOOM.png,76.5,69.3,[0; 90]
+344,Lumberjack Camp,6x6,res://assets/art/converted/CAMP.png,89.1,69.3,[0; 90]
+15,Lumber Yard,7x5,res://assets/art/converted/LUMBERYARD.png,88.2,69.3,[0; 90]
+110,Lupins,2x2,res://assets/art/converted/LUPINS.png,83.7,64.8,[0; 90]
+349,Magic Bunny,2x2,UNMAPPED,0,0,placeholder
+270,Magic Stallion,2x3,UNMAPPED,0,0,placeholder
+294,Mansion,7x7,UNMAPPED,0,0,placeholder
+104,Maple,2x2,res://assets/art/converted/MAPLE.png,53.1,71.1,[0; 90]
+194,Marigolds,2x2,UNMAPPED,0,0,placeholder
+27,Market,8x8,res://assets/art/converted/MARKET.png,85.5,54.0,[0]
+218,Mayor's Cottage,5x6,UNMAPPED,0,0,placeholder
+219,Mayor's Villa,5x6,UNMAPPED,0,0,placeholder
+213,Meat Stand,4x2,UNMAPPED,0,0,placeholder
+297,Meryl,2x2,UNMAPPED,0,0,placeholder
+296,Mike,2x2,UNMAPPED,0,0,placeholder
+345,Mine,6x6,res://assets/art/converted/QUARRY.png,86.4,69.3,[0; 90]
+215,Mossy Gate,1x4,UNMAPPED,0,0,placeholder
+123,Mossy Wall,1x4,UNMAPPED,0,0,placeholder
+7,Mountain,6x6,UNMAPPED,0,0,placeholder
+340,Mountain Dairy,6x8,UNMAPPED,0,0,placeholder
+304,Mountain Fort,14x14,UNMAPPED,0,0,placeholder
+306,Mountain Lake,6x6,UNMAPPED,0,0,placeholder
+323,Mountain Maple,2x2,UNMAPPED,0,0,placeholder
+285,Mummy,2x2,UNMAPPED,0,0,placeholder
+105,Oak,2x2,res://assets/art/converted/OAK.png,67.5,71.1,[0; 90]
+338,Old West Book Shop,5x5,res://assets/art/converted/BOOKSHOP.png,52.2,67.5,[0]
+185,Olive,2x2,UNMAPPED,0,0,placeholder
+131,Orange Pot,2x2,res://assets/art/converted/POTORANGE.png,44.1,44.1,[0; 90]
+268,Outhouse,2x2,UNMAPPED,0,0,placeholder
+109,Pansies,2x2,res://assets/art/converted/PANSIES.png,85.5,50.4,[0; 90]
+36,Pen,6x6,res://assets/art/converted/PEN.png,89.1,46.8,[0; 90]
+352,Pepe,2x2,UNMAPPED,0,0,placeholder
+320,Pine,2x2,UNMAPPED,0,0,placeholder
+153,Pink Birdhouse,2x2,res://assets/art/converted/BIRDHOUSEPINK.png,62.1,67.5,[0; 90]
+341,Pioneer Jewelry,5x5,UNMAPPED,0,0,placeholder
+148,Pond,5x8,res://assets/art/converted/POND.png,73.8,50.4,[0; 90]
+256,Poochie,2x2,UNMAPPED,0,0,placeholder
+292,Pool,8x8,UNMAPPED,0,0,placeholder
+101,Poplar,2x2,res://assets/art/converted/POPLAR.png,29.7,72.0,[0; 90]
+327,Potentillia,2x2,UNMAPPED,0,0,placeholder
+125,Potted Daisies,2x2,res://assets/art/converted/POTDAISIES.png,54.9,60.3,[0; 90]
+130,Potted Lupins,2x2,res://assets/art/converted/POTLUPINS.png,44.1,72.0,[0; 90]
+124,Potted Pansies,2x2,res://assets/art/converted/POTPANSIES.png,46.8,61.2,[0; 90]
+113,Present,4x4,res://assets/art/converted/PRESENT.png,37.8,38.7,[0; 90]
+271,Prize Horse,2x3,res://assets/art/converted/PRIZE_HORSE.png,81.0,81.0,[0; 90]
+211,Produce Stand,4x2,UNMAPPED,0,0,placeholder
+38,Pub,5x5,res://assets/art/converted/PUBSHOP.png,79.2,73.8,[0]
+160,Pumpkin Cart,2x2,res://assets/art/converted/PUMPKINCART.png,36.0,34.2,[0; 90]
+141,Purple Cottage,5x4,res://assets/art/converted/COTTAGE2.png,75.6,72.0,[0; 90]
+9,Quarry,3x3,res://assets/art/converted/QUARRY.png,150.0,120.3,[0; 90]
+207,Raspberry Bush,2x2,UNMAPPED,0,0,placeholder
+138,Red Cottage,5x4,res://assets/art/converted/LITTLECOTTAGE1.png,72.9,67.5,[0; 90]
+325,Red Fern,2x2,UNMAPPED,0,0,placeholder
+126,Red Pot,2x2,res://assets/art/converted/POTRED.png,44.1,44.1,[0; 90]
+115,Red Tent,2x2,res://assets/art/converted/TENTRED.png,64.8,54.9,[0; 90]
+234,Restaurant,5x5,UNMAPPED,0,0,placeholder
+303,Ridge Post,14x14,UNMAPPED,0,0,placeholder
+248,River Bridge,3x3,UNMAPPED,0,0,placeholder
+249,River Pool Down,6x6,UNMAPPED,0,0,placeholder
+247,River Pool Up,6x6,UNMAPPED,0,0,placeholder
+241,River Straight,3x3,UNMAPPED,0,0,placeholder
+244,River Turn Down,3x3,UNMAPPED,0,0,placeholder
+242,River Turn Left,3x3,UNMAPPED,0,0,placeholder
+243,River Turn Right,3x3,UNMAPPED,0,0,placeholder
+245,River Turn Up,3x3,UNMAPPED,0,0,placeholder
+133,Road Straight,2x2,res://assets/art/converted/ROADSTRAIGHT.png,73.8,36.9,[0; 90]
+134,Road Turn Down,2x2,res://assets/art/converted/ROADTURNDOWN.png,73.8,30.6,[0; 90]
+136,Road Turn Left,2x2,res://assets/art/converted/ROADTURNLEFT.png,59.4,38.7,[0; 90]
+137,Road Turn Right,2x2,res://assets/art/converted/ROADTURNRIGHT.png,62.1,38.7,[0; 90]
+135,Road Turn Up,2x2,res://assets/art/converted/ROADTURNUP.png,73.8,31.5,[0; 90]
+196,Roses,2x2,UNMAPPED,0,0,placeholder
+149,Roundabout,14x14,res://assets/art/converted/ROUNDABOUT.png,72.9,36.9,[0; 90]
+282,Sabrina,3x3,UNMAPPED,0,0,placeholder
+353,Sam,2x2,UNMAPPED,0,0,placeholder
+161,Scarecrow,2x2,res://assets/art/converted/SCARECROW.png,27.0,43.2,[0; 90]
+299,Scared Man,2x2,UNMAPPED,0,0,placeholder
+300,Scared Woman,2x2,UNMAPPED,0,0,placeholder
+272,Schoolhouse,7x8,UNMAPPED,0,0,placeholder
+31,Sculptor Shop,5x5,res://assets/art/converted/SCULPTURESHALL.png,88.2,69.3,[0]
+212,Seafood Stand,4x2,UNMAPPED,0,0,placeholder
+276,Seesaw,2x4,UNMAPPED,0,0,placeholder
+132,Sheep,2x2,res://assets/art/converted/SHEEP.png,58.5,58.5,[0; 90]
+171,Short Tent,4x5,UNMAPPED,0,0,placeholder
+305,Sierra Palisade,14x14,UNMAPPED,0,0,placeholder
+209,Silo,4x4,UNMAPPED,0,0,placeholder
+291,Sinister Tomb,2x2,UNMAPPED,0,0,placeholder
+158,Skyblue House,5x4,res://assets/art/converted/STONEHOUSE2.png,73.8,68.4,[0; 90]
+10012,Small Cottage,2x2,res://assets/art/converted/LITTLECOTTAGE.png,74.0,67.0,[0; 90]
+12,Small Cottage,5x4,res://assets/art/converted/LITTLECOTTAGE.png,76.5,69.3,[0; 90]
+266,Sneezy,2x2,UNMAPPED,0,0,placeholder
+227,Spiral Topiary,2x2,UNMAPPED,0,0,placeholder
+102,Spruce,2x2,res://assets/art/converted/SPRUCE.png,55.8,72.9,[0; 90]
+25,Stockpile,10x10,res://assets/art/converted/STOCKPILE.png,83.7,47.7,[0]
+17,Stone Cutter,7x5,res://assets/art/converted/STONECUTTER.png,86.4,69.3,[0; 90]
+217,Stone Gate,1x4,UNMAPPED,0,0,placeholder
+14,Stone House,5x4,res://assets/art/converted/STONEHOUSE.png,73.8,69.3,[0; 90]
+122,Stone Wall,1x4,res://assets/art/converted/FENCESTONE.png,60.3,42.3,[0; 90]
+118,Stump,2x2,res://assets/art/converted/STUMP.png,31.5,27.9,[0; 90]
+293,Stylist,6x5,UNMAPPED,0,0,placeholder
+238,Sundial,2x2,UNMAPPED,0,0,placeholder
+198,Sunflowers,2x2,UNMAPPED,0,0,placeholder
+157,Sunshine House,5x4,res://assets/art/converted/STONEHOUSE1.png,73.8,68.4,[0; 90]
+286,Surprise O' Lantern,3x3,UNMAPPED,0,0,placeholder
+252,Sushi Shop,5x5,UNMAPPED,0,0,placeholder
+273,Swing Set,2x2,UNMAPPED,0,0,placeholder
+187,Sycamore,2x2,UNMAPPED,0,0,placeholder
+34,Tailor Shop,5x5,res://assets/art/converted/TAILORSSHOP.png,84.6,68.4,[0]
+250,Tai Chi,4x3,UNMAPPED,0,0,placeholder
+170,Tall Tent,2x2,UNMAPPED,0,0,placeholder
+251,Tea Shop,5x4,UNMAPPED,0,0,placeholder
+167,Theater,8x8,res://assets/art/converted/THEATER.png,68.4,66.6,[0]
+119,Toadstool,2x2,res://assets/art/converted/TOADSTOOLS.png,73.8,57.6,[0; 90]
+260,Torii,4x1,UNMAPPED,0,0,placeholder
+2,Tower,14x14,res://assets/art/converted/TOWER.png,227.7,139.5,[0]
+10001,Town Hall,3x3,res://assets/art/converted/TOWNHALL.png,184.3,99.8,[0]
+1,Town Hall,14x14,res://assets/art/converted/TOWNHALL.png,190.0,102.9,[0]
+214,Toy Shop,5x5,UNMAPPED,0,0,placeholder
+156,Trampoline,3x3,res://assets/art/converted/TRAMPOLINE.png,64.8,43.2,[0; 90]
+233,Traveling Merchant,8x5,res://assets/art/converted/TRAVELING_MERCHANT.png,81.0,81.0,[0; 90]
+275,Treehouse,3x3,UNMAPPED,0,0,placeholder
+107,Tulips,2x2,res://assets/art/converted/TULIPS.png,85.5,54.9,[0; 90]
+295,Turkey,3x3,UNMAPPED,0,0,placeholder
+280,Turtle,3x3,UNMAPPED,0,0,placeholder
+348,Twitch,2x2,UNMAPPED,0,0,placeholder
+200,Valentine,3x3,UNMAPPED,0,0,placeholder
+163,Warehouse,10x10,res://assets/art/converted/WAREHOUSE.png,86.4,62.1,[0]
+230,Water Fountain,2x2,UNMAPPED,0,0,placeholder
+265,Water Trough,3x2,UNMAPPED,0,0,placeholder
+240,Well,2x2,UNMAPPED,0,0,placeholder
+155,White Birdhouse,2x2,res://assets/art/converted/BIRDHOUSEWHITE.png,62.1,67.5,[0; 90]
+186,Willow,2x2,UNMAPPED,0,0,placeholder
+164,Windmill,8x8,res://assets/art/converted/WINDMILL.png,60.3,69.3,[0; 90]
+30,Wizard Tower,8x8,res://assets/art/converted/WIZARDTOWER.png,53.1,68.4,[0; 90]
+121,Wood Fence,1x4,res://assets/art/converted/FENCEWOOD.png,64.8,49.5,[0; 90]
+216,Wood Gate,1x4,UNMAPPED,0,0,placeholder
+154,Yellow Birdhouse,2x2,res://assets/art/converted/BIRDHOUSEYELLOW.png,62.1,67.5,[0; 90]
+143,Yellow House,5x4,res://assets/art/converted/HOUSE2.png,72.0,66.6,[0; 90]
+129,Yellow Pot,2x2,UNMAPPED,0,0,placeholder
+114,Yellow Tent,2x2,res://assets/art/converted/TENTYELLOW.png,64.8,54.9,[0; 90]
+262,Zen Garden,6x6,UNMAPPED,0,0,placeholder

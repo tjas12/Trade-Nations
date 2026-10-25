@@ -16,3 +16,5 @@ __pycache__/
 
 # Executables
 *.exe
+# Isolated local validation state (not player saves)
+.validation/

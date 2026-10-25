@@ -17,3 +17,6 @@ enum Gender { MALE, FEMALE } # [original] drives VillagerSounds selection + spri
 @export var is_homeless: bool = false           # [original, derived]
 @export var hunger_timer: float = 0.0           # [original, derived]
 @export var is_hungry: bool = false             # [original, derived]
+
+@export var activity: String = "idle"
+@export var map_position: Vector2 = Vector2(-1, -1)

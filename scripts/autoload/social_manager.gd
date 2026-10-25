@@ -16,7 +16,7 @@ const TICK_INTERVAL = 15.0 # Speed up simulated activity tick to 15 seconds for 
 
 # Base defaults for prices
 const BASE_MARKET_PRICES = {
-	101: { "buy": 12.0, "sell": 8.0 }, # Wood (101)
+	10: { "buy": 12.0, "sell": 8.0 }, # Wood (10)
 	40: { "buy": 18.0, "sell": 12.0 }  # Wheat (40)
 }
 
@@ -24,6 +24,7 @@ func _ready() -> void:
 	print("[SocialManager] Offline Social & Market simulation initialized.")
 
 func _process(delta: float) -> void:
+	if Autosave.simulation_suspended(): return
 	# Run a simulation tick periodically
 	var save = _get_save()
 	if not save:
@@ -63,9 +64,9 @@ func _initialize_default_friends(save: SaveGame) -> void:
 
 func _initialize_default_trades(save: SaveGame) -> void:
 	save.active_trades = [
-		{ "id": "trade_1", "friend_name": "Alice", "give_id": 40, "give_amount": 20, "receive_id": 101, "receive_amount": 30, "expiry": 180 },
+		{ "id": "trade_1", "friend_name": "Alice", "give_id": 40, "give_amount": 20, "receive_id": 10, "receive_amount": 30, "expiry": 180 },
 		{ "id": "trade_2", "friend_name": "Bob", "give_id": 1, "give_amount": 150, "receive_id": 40, "receive_amount": 15, "expiry": 240 },
-		{ "id": "trade_3", "friend_name": "Charlie", "give_id": 101, "give_amount": 10, "receive_id": 1, "receive_amount": 50, "expiry": 120 }
+		{ "id": "trade_3", "friend_name": "Charlie", "give_id": 10, "give_amount": 10, "receive_id": 1, "receive_amount": 50, "expiry": 120 }
 	]
 
 func _initialize_default_inbox(save: SaveGame) -> void:
@@ -74,7 +75,7 @@ func _initialize_default_inbox(save: SaveGame) -> void:
 			"id": "mail_1",
 			"sender": "Alice",
 			"body": "Welcome to the valley, Mayor! I noticed you are setting up your cottage houses. Here is some spare Wood from my logging camp to help you build out faster!",
-			"resource_id": 101,
+			"resource_id": 10,
 			"resource_amount": 25,
 			"claimed": false,
 			"read": false
@@ -139,7 +140,7 @@ func _simulate_social_tick(save: SaveGame) -> void:
 			print("[SocialManager] Virtual friend %s leveled up to Level %d!" % [friend["name"], friend["level"]])
 
 	# 3. Handle active trades timers and replacement
-	var trades_to_keep = []
+	var trades_to_keep: Array[Dictionary] = []
 	for trade in save.active_trades:
 		trade["expiry"] -= 1
 		if trade["expiry"] > 0:
@@ -166,9 +167,9 @@ func _spawn_random_trade(save: SaveGame) -> void:
 	
 	# Alternate giving wood and receiving wheat, or vice versa
 	var give_wood = randf() < 0.5
-	var give_id = 101 if give_wood else 40
+	var give_id = 10 if give_wood else 40
 	var give_qty = int(randf_range(10.0, 40.0))
-	var receive_id = 40 if give_wood else 101
+	var receive_id = 40 if give_wood else 10
 	var receive_qty = int(randf_range(8.0, 35.0))
 	
 	# Give or receive gold instead sometimes
@@ -195,8 +196,8 @@ func _spawn_random_gift(save: SaveGame) -> void:
 	var friends = ["Bob", "Alice", "Charlie", "Daisy"]
 	var sender = friends[randi() % friends.size()]
 	
-	var res_id = 101 if randf() < 0.5 else 40
-	var res_name = "Wood" if res_id == 101 else "Wheat"
+	var res_id = 10 if randf() < 0.5 else 40
+	var res_name = "Wood" if res_id == 10 else "Wheat"
 	var qty = int(randf_range(10.0, 30.0))
 	
 	var bodies = [
@@ -204,7 +205,7 @@ func _spawn_random_gift(save: SaveGame) -> void:
 		"Greetings, fellow Mayor! Here is a token of appreciation from my villagers. Keep up the amazing work!",
 		"Hello! Visited your town layout earlier and it looks fantastic. Here are some %s supplies to help with your progression."
 	]
-	var body = bodies[randi() % bodies.size()] % res_name
+	var body = bodies[randi() % bodies.size()].replace("%s", res_name)
 
 	var new_mail = {
 		"id": "mail_%d" % int(TimeManager.now() + randi()),
@@ -228,6 +229,8 @@ func get_market_prices() -> Dictionary:
 
 ## Purchases a resource from the market
 func buy_from_market(resource_id: int, quantity: int) -> bool:
+	if quantity <= 0:
+		return false
 	var save = _get_save()
 	if not save:
 		return false
@@ -236,7 +239,7 @@ func buy_from_market(resource_id: int, quantity: int) -> bool:
 	if not prices:
 		return false
 		
-	var cost = int(prices["buy"] * quantity)
+	var cost = int(DataManager.rules.market_buy.get(str(resource_id), prices["buy"]) * quantity)
 	
 	# Check affordability
 	if InventoryManager.amount(1) < cost:
@@ -260,28 +263,13 @@ func buy_from_market(resource_id: int, quantity: int) -> bool:
 ## Sells a resource to the market
 func sell_to_market(resource_id: int, quantity: int) -> bool:
 	var save = _get_save()
-	if not save:
+	var price: float = DataManager.rules.market.get(str(resource_id), 0)
+	if not save or quantity <= 0 or price <= 0 or not InventoryManager.remove(resource_id, quantity):
 		return false
-		
-	# Check inventory
-	if InventoryManager.amount(resource_id) < quantity:
-		return false
-		
-	var prices = save.market_prices.get(resource_id)
-	if not prices:
-		return false
-		
-	var payout = int(prices["sell"] * quantity)
-	
-	# Transaction
-	InventoryManager.remove(resource_id, quantity) # Remove resource
-	InventoryManager.add(1, payout) # Add gold
-	
-	# Supply increases -> price decreases slightly!
-	prices["buy"] = clamp(prices["buy"] * 0.97, 5.0, 50.0)
-	prices["sell"] = clamp(prices["sell"] * 0.97, 3.0, 40.0)
-	
-	AudioManager.play_sfx(17) # buy_sell_buttons sfx
+	InventoryManager.add(1, quantity * price)
+	var sold: Dictionary = save.economy_stats.sold
+	sold[resource_id] = sold.get(resource_id, 0) + quantity
+	AudioManager.play_sfx(17)
 	return true
 
 ## Gets active trade offers on the trade board
@@ -433,7 +421,7 @@ func send_gift_to_friend(friend_name: String, resource_id: int, amount: int) -> 
 	var reply_mail = {
 		"id": "mail_reply_%d" % int(TimeManager.now() + randi()),
 		"sender": friend_name,
-		"body": "Thanks for the generous gift of %s! My villagers are super grateful, so here's a small return of XP favor!" % ("Wood" if resource_id == 101 else "Wheat"),
+		"body": "Thanks for the generous gift of %s! My villagers are super grateful, so here's a small return of XP favor!" % ("Wood" if resource_id == 10 else "Wheat"),
 		"resource_id": -1,
 		"resource_amount": 0,
 		"claimed": true,
@@ -477,14 +465,14 @@ func buy_magic_beans(tier: int) -> bool:
 	# Validate affordability
 	if InventoryManager.amount(1) < gold_cost:
 		return false
-	if InventoryManager.amount(101) < wood_cost:
+	if InventoryManager.amount(10) < wood_cost:
 		return false
 	if InventoryManager.amount(40) < wheat_cost:
 		return false
 		
 	# Deduct costs
 	InventoryManager.remove(1, gold_cost)
-	InventoryManager.remove(101, wood_cost)
+	InventoryManager.remove(10, wood_cost)
 	InventoryManager.remove(40, wheat_cost)
 	
 	# Add Magic Beans
@@ -536,87 +524,27 @@ func buy_daily_special() -> bool:
 
 ## Purchases a land size expansion, increasing active buildable bounds
 func buy_land_expansion(upgrade_id: int, pay_with_beans: bool = false) -> bool:
-	var save = _get_save()
-	if not save or not save.player_state:
+	if upgrade_id != 1 or pay_with_beans:
 		return false
-		
-	var target_size = 0
-	var gold_cost = 0.0
-	var beans_cost = 0.0
-	
-	match upgrade_id:
-		1:
-			target_size = 56
-			gold_cost = 1000.0
-			beans_cost = 10.0
-		2:
-			target_size = 64
-			gold_cost = 2500.0
-			beans_cost = 25.0
-		3:
-			target_size = 72
-			gold_cost = 5000.0
-			beans_cost = 50.0
-		4:
-			target_size = 80
-			gold_cost = 8000.0
-			beans_cost = 80.0
-		5:
-			target_size = 88
-			gold_cost = 12000.0
-			beans_cost = 120.0
-		6:
-			target_size = 104
-			gold_cost = 20000.0
-			beans_cost = 200.0
-		7:
-			target_size = 112
-			gold_cost = 30000.0
-			beans_cost = 300.0
-		8:
-			target_size = 120
-			gold_cost = 45000.0
-			beans_cost = 450.0
-		9:
-			target_size = 128
-			gold_cost = 60000.0
-			beans_cost = 600.0
-		99:
-			target_size = 136
-			gold_cost = 80000.0
-			beans_cost = 800.0
-		115:
-			target_size = 144
-			gold_cost = 100000.0
-			beans_cost = 1000.0
-		_:
-			return false
-			
-	# Verify player's current size is smaller than target_size
-	if save.player_state.active_land_size >= target_size:
-		return false
-		
-	# Perform transaction
-	if pay_with_beans:
-		if save.player_state.currency_magic_beans < beans_cost:
-			return false
-		save.player_state.currency_magic_beans -= beans_cost
-	else:
-		if InventoryManager.amount(1) < gold_cost:
-			return false
-		InventoryManager.remove(1, gold_cost)
-		
-	# Upgrade!
-	save.player_state.active_land_size = target_size
-	
-	# Emit event
-	EventBus.resource_changed.emit(1, InventoryManager.amount(1))
-	
-	print("[SocialManager] Upgraded land boundary footprint to %dx%d!" % [target_size, target_size])
-	AudioManager.play_sfx(4) # fanfare level up chime sfx
-	return true
+	return expand_town().begins_with("Expanded")
 
-## Purchases a seasonal skin theme using gathered raw resources to keep the economy balanced
+func expand_town() -> String:
+	var save = SaveManager.current_save
+	var rule: Dictionary = DataManager.rules.expansion
+	if save.expansion_count >= 1:
+		return "This town already purchased its expansion."
+	if save.player_state.mayor_level < int(rule.level):
+		return "Reach level %d first." % rule.level
+	if InventoryManager.amount(1) < rule.gold or InventoryManager.amount(10) < rule.wood:
+		return "Expansion needs %d Gold and %d Wood." % [rule.gold, rule.wood]
+	InventoryManager.remove(1, rule.gold)
+	InventoryManager.remove(10, rule.wood)
+	save.player_state.active_land_size += int(rule.increase)
+	save.expansion_count += 1
+	WorkerManager.invalidate_routes()
+	EventBus.town_changed.emit()
+	return "Expanded your town! The new edge is ready for building."
+
 func buy_skin(skin_name: String) -> bool:
 	var save = _get_save()
 	if not save or not save.player_state:
@@ -649,14 +577,14 @@ func buy_skin(skin_name: String) -> bool:
 	# Validate players can afford
 	if InventoryManager.amount(1) < gold_cost: # Gold (ID 1)
 		return false
-	if InventoryManager.amount(101) < wood_cost: # Wood (ID 101)
+	if InventoryManager.amount(10) < wood_cost: # Wood (ID 10)
 		return false
 	if InventoryManager.amount(40) < wheat_cost: # Wheat (ID 40)
 		return false
 		
 	# Deduct costs
 	InventoryManager.remove(1, gold_cost)
-	InventoryManager.remove(101, wood_cost)
+	InventoryManager.remove(10, wood_cost)
 	InventoryManager.remove(40, wheat_cost)
 	
 	# Unlock skin

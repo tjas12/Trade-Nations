@@ -6,7 +6,7 @@ extends Node
 ## from res://original/TradeNations.app/bundle/Sounds.xml.
 ## Automatically connects to UI buttons and EventBus signals for a highly immersive audio experience.
 
-const SoundsParser = preload("res://tools/xml_import/parse_sounds.gd")
+
 
 var _sounds: Dictionary = {} # id: int -> Dictionary
 var _sfx_players: Array[AudioStreamPlayer] = []
@@ -16,9 +16,9 @@ const MAX_SFX_PLAYERS = 8
 
 func _ready() -> void:
 	# Parse sounds from original database
-	var parsed_sounds = SoundsParser.parse()
+	var parsed_sounds = JSON.parse_string(FileAccess.get_file_as_string("res://data/sounds.json"))
 	for s in parsed_sounds:
-		_sounds[s["id"]] = s
+		_sounds[int(s["id"])] = s
 		
 	# Create BGM player
 	_bgm_player = AudioStreamPlayer.new()
@@ -48,7 +48,7 @@ func play_sfx(sound_id: int) -> void:
 		
 	var sound_def = _sounds[sound_id]
 	var path = "res://assets/audio/%s.wav" % sound_def["filename"]
-	if not FileAccess.file_exists(path):
+	if not ResourceLoader.exists(path):
 		return
 		
 	var stream = load(path) as AudioStream
@@ -74,7 +74,7 @@ func play_music(sound_id: int) -> void:
 		
 	var sound_def = _sounds[sound_id]
 	var path = "res://assets/audio/%s.wav" % sound_def["filename"]
-	if not FileAccess.file_exists(path):
+	if not ResourceLoader.exists(path):
 		return
 		
 	var stream = load(path) as AudioStream
@@ -143,8 +143,8 @@ func _on_worker_assigned(villager: Villager, _building_instance: BuildingInstanc
 func _on_hauler_assigned(villager: Villager, _building_instance: BuildingInstance) -> void:
 	_play_random_bark(villager.gender)
 
-func _on_recipe_completed(_building_instance_id: int, recipe_id: int, _reward: CostBundle) -> void:
-	if recipe_id == 1: # wood
+func _on_recipe_completed(_building_instance_id: String, recipe_id: int, _reward) -> void:
+	if recipe_id in [1, 50008]: # wood
 		play_sfx(31) # 05_stock_pile_wood
 	else:
 		play_sfx(17) # generic complete
@@ -156,9 +156,9 @@ func _play_building_sound(def_id: int) -> void:
 	match def_id:
 		1: # Town Hall
 			play_sfx(29) # pop-up
-		101: # Small Cottage
+		10012: # Prototype Small Cottage
 			play_sfx(15) # house / cottage select sfx
-		201: # Logging Camp
+		10008: # Prototype Logging Camp
 			play_sfx(31) # wood camp sfx
 
 func _play_random_bark(gender: int) -> void:

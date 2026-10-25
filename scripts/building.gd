@@ -3,6 +3,11 @@ extends Node2D
 
 var building_instance: BuildingInstance
 var _harvest_bubble: Panel = null
+var _footprint := PackedVector2Array()
+var _source_image: Image
+var ground_anchor := Vector2.ZERO
+var editing_original := false
+var _storage_piles: Node2D
 
 @onready var color_rect: ColorRect = $ColorRect
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -10,12 +15,14 @@ var _harvest_bubble: Panel = null
 @onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
 
 func _ready() -> void:
-	area_2d.input_event.connect(_on_input_event)
+	# Picking runs in Main._unhandled_input, after GUI controls consume clicks.
+	area_2d.input_pickable = false
 	_create_harvest_bubble()
 
 func _create_harvest_bubble() -> void:
 	_harvest_bubble = Panel.new()
 	_harvest_bubble.name = "HarvestBubble"
+	_harvest_bubble.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_harvest_bubble.custom_minimum_size = Vector2(40, 40)
 	
 	var sb = StyleBoxFlat.new()
@@ -30,6 +37,7 @@ func _create_harvest_bubble() -> void:
 	
 	var label = Label.new()
 	label.text = "!"
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	label.add_theme_color_override("font_color", Color.BLACK)
@@ -48,6 +56,11 @@ func _process(delta: float) -> void:
 	if not building_instance:
 		return
 		
+	if building_instance.instance_id.is_empty():
+		_harvest_bubble.hide()
+		return
+	if not building_instance.instance_id.is_empty():
+		modulate.a = 0.25 if editing_original else (1.0 if building_instance.construction_complete else 0.55)
 	# Check if building has any stored resources to display the harvest bubble
 	var has_stored = false
 	for res_id in building_instance.stored_resources.keys():
@@ -57,13 +70,7 @@ func _process(delta: float) -> void:
 			
 	if has_stored and building_instance.construction_complete:
 		_harvest_bubble.visible = true
-		var tile_size = 64
-		var building_def = DataManager.get_building_definition(building_instance.def_id)
-		var width = building_def.width if building_def else 1
-		var height = building_def.height if building_def else 1
-		var building_size = Vector2(width * tile_size, height * tile_size)
-		
-		var target_pos = Vector2(building_size.x / 2 - 20, -32)
+		var target_pos = sprite_2d.position - Vector2(20, sprite_2d.texture.get_height() * sprite_2d.scale.y * 0.5 + 44) if sprite_2d.texture else Vector2(-20, -44)
 		# Gentle bouncing animation
 		target_pos.y += sin(Time.get_ticks_msec() / 150.0) * 6.0
 		_harvest_bubble.position = target_pos
@@ -84,19 +91,25 @@ func set_building(instance: BuildingInstance):
 		return
 
 	name = building_def.display_name
+	z_index = clampi(int(TownGridGeometry.cell_to_world(Vector2(instance.x + building_def.width, instance.y + building_def.height)).y), 0, 4000)
 
-	var tile_size = 64 # Assuming TILE_SIZE from main.gd
-	var building_size = Vector2(building_def.width * tile_size, building_def.height * tile_size)
+	var size := TownGridGeometry.footprint_size(building_def.width, building_def.height, instance.rotation_degrees)
+	_footprint = TownGridGeometry.footprint_polygon(size)
+	var footprint_width: float = (size.x + size.y) * TownGridGeometry.HALF_WIDTH
+	var footprint_height: float = (size.x + size.y) * TownGridGeometry.HALF_HEIGHT
+	var center := TownGridGeometry.cell_to_world(Vector2(size) * 0.5)
+	var building_size := Vector2(footprint_width, footprint_height)
+	rotation = 0.0
 
 	# Configure visuals
-	color_rect.size = building_size
+	color_rect.hide()
 	
 	# Configure collision shape for clicks
 	var shape = RectangleShape2D.new()
 	shape.size = building_size
 	collision_shape.shape = shape
 	# The collision shape should be centered on the building's visual
-	collision_shape.position = building_size / 2
+	collision_shape.position = center
 
 	# Set color based on building type for visual distinction (default footprint colors)
 	match building_def.type:
@@ -120,14 +133,16 @@ func set_building(instance: BuildingInstance):
 				var dir_path = building_def.icon_path.get_base_dir() + "/"
 				var file_name = building_def.icon_path.get_file()
 				var skin_path = dir_path + active_skin.to_upper() + "_" + file_name
-				if FileAccess.file_exists(skin_path):
+				if ResourceLoader.exists(skin_path):
 					texture_path = skin_path
 					
 		var texture = load(texture_path)
 		if texture:
 			sprite_2d.texture = texture
-			# Center the sprite on the building footprint
-			sprite_2d.position = building_size / 2
+			_source_image = texture.get_image()
+			LegacyArt.apply(sprite_2d)
+			ground_anchor = BuildingVisuals.configure(sprite_2d, building_def, instance.rotation_degrees)
+			z_index = clampi(int(position.y + ground_anchor.y), 0, 4000)
 			sprite_2d.visible = true
 		else:
 			push_warning("[Building] Failed to load icon texture: %s" % texture_path)
@@ -136,9 +151,39 @@ func set_building(instance: BuildingInstance):
 	else:
 		sprite_2d.visible = false
 		color_rect.color.a = 1.0
+	if instance.def_id in [25, 26]:
+		if not is_instance_valid(_storage_piles):
+			_storage_piles = load("res://scripts/rendering/storage_piles.gd").new()
+			_storage_piles.z_index = 1
+			add_child(_storage_piles)
+		_storage_piles.position = ground_anchor - Vector2(0, 16)
+	queue_redraw()
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		print("[Building] Clicked on: %s" % name)
-		EventBus.building_instance_selected.emit(building_instance)
-		get_viewport().set_input_as_handled()
+func _draw() -> void:
+	if _footprint.is_empty():
+		return
+	if sprite_2d.visible and building_instance and not building_instance.instance_id.is_empty():
+		var shadow := PackedVector2Array()
+		var size := TownGridGeometry.footprint_size(DataManager.get_building_definition(building_instance.def_id).width, DataManager.get_building_definition(building_instance.def_id).height, building_instance.rotation_degrees)
+		for step in range(16):
+			var angle := TAU * step / 16.0
+			shadow.append(ground_anchor - Vector2(0, 5) + Vector2(cos(angle) * (size.x + size.y) * 8, sin(angle) * 5))
+		draw_colored_polygon(shadow, Color(0.12, 0.19, 0.06, 0.19))
+	if not building_instance or building_instance.instance_id.is_empty() or not sprite_2d.visible:
+		draw_colored_polygon(_footprint, Color(0.7, 0.85, 0.5, 0.35))
+		draw_polyline(PackedVector2Array([_footprint[0], _footprint[1], _footprint[2], _footprint[3], _footprint[0]]), Color(0.8, 0.9, 0.65, 0.45), 1.0)
+
+func contains_screen_point(point: Vector2) -> bool:
+	if sprite_2d.visible and _source_image != null:
+		var rect := sprite_2d.get_rect()
+		var local := sprite_2d.to_local(point)
+		if rect.has_point(local):
+			var uv := (local - rect.position) / rect.size
+			if sprite_2d.flip_h:
+				uv.x = 1.0 - uv.x
+			# The draw shader flips the legacy texture vertically.
+			var px := clampi(int(uv.x * _source_image.get_width()), 0, _source_image.get_width() - 1)
+			var py := clampi(int((1.0 - uv.y) * _source_image.get_height()), 0, _source_image.get_height() - 1)
+			if _source_image.get_pixel(px, py).a > 0.1:
+				return true
+	return Geometry2D.is_point_in_polygon(to_local(point), _footprint)

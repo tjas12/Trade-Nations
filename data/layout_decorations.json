@@ -1,0 +1,50 @@
+{
+  "dirt": {
+    "name": "Dirt path",
+    "cost": {
+      "1": 1
+    },
+    "asset": "",
+    "blocks_movement": false,
+    "blocks_buildings": false
+  },
+  "flowers": {
+    "name": "Flower bed",
+    "cost": {
+      "1": 2,
+      "10": 1
+    },
+    "asset": "DAISIES.png",
+    "blocks_movement": false,
+    "blocks_buildings": false
+  },
+  "fence": {
+    "name": "Decorative fence",
+    "cost": {
+      "10": 1
+    },
+    "asset": "FENCEWOOD.png",
+    "blocks_movement": false,
+    "blocks_buildings": false
+  },
+  "cobblestone": {
+    "name": "Cobblestone",
+    "cost": {
+      "1": 2,
+      "20": 1
+    },
+    "asset": "",
+    "blocks_movement": false,
+    "blocks_buildings": false
+  },
+  "stone": {
+    "name": "Stone slabs",
+    "cost": {
+      "1": 3,
+      "20": 2
+    },
+    "asset": "",
+    "blocks_movement": false,
+    "blocks_buildings": false
+  }
+}
