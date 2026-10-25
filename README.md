@@ -119,3 +119,11 @@ The complete desktop regression runner passed import, foundation, restoration, i
 [The iPhone Web workflow](.github/workflows/iphone-web.yml) uses Linux, verified official Godot 4.7.2 downloads, regression tests, production export validation, real browser saving/offline checks, and the official Pages deployment actions. Development branches and pull requests build without publishing. Approved merges to `main` deploy automatically; explicitly authorized `phone-test-*` tags support first-device tests without overwriting `main`. Generated exports are artifacts, not source commits.
 
 See [WEB_DEPLOYMENT.md](WEB_DEPLOYMENT.md) for build status links, repository settings, installation, update behavior, and limitations. The game displays **Offline: ready** only after service-worker installation. Updates retain local saves; browser eviction remains possible. Browser controls scale in CSS pixels so Safari toolbar resizing does not shrink touch targets.
+
+## Compact phone HUD
+
+Mobile landscape uses a 28 px resource row (14 px type; wraps for narrow screens or large values) and a 44 px horizontally scrollable toolbar. Gold, Wood, Wheat, Lvl, XP, Pop/capacity, Jobs, Free and Cookies remain visible. Center and New town use shorter labels. The full-width permanent instructions are replaced by a **?** help dialog; gameplay notices appear for four seconds. Dialogs block map input.
+
+Goals start as a small 44 px tall objective card. Tap it or **Goals** to expand/collapse full objective and reward details. Build is a floating 96×44 px button; contextual Confirm/Cancel and drawer controls retain their larger targets. Safe-area and CSS-pixel sizing remain active. Desktop HUD formatting is unchanged.
+
+Validation includes injected touch gameplay and lifecycle checks, goal expansion/collapse, Help, resource visibility and reachable drawers at 740×360, 852×393, 1152×648 and 1440×660, plus desktop browser IndexedDB saving and offline reopening. These are desktop simulations, not physical iPhone/Safari tests. The user has reported the earlier live build working on their iPhone; this revised layout still needs device feedback. Further shrinking below 44 px touch targets is not recommended before that feedback.

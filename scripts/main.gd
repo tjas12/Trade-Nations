@@ -267,7 +267,7 @@ func _collect_resources() -> void:
 			collected += moved
 			EventBus.building_storage_changed.emit(instance.instance_id, resource_id, instance.stored_resources[resource_id])
 	EconomyManager._restore_assignments()
-	_feedback.text = "Collected %.1f resources. Haulers also deliver automatically." % collected
+	EventBus.town_notice.emit("Collected %.1f resources. Haulers also deliver automatically." % collected)
 
 func _save_town() -> void:
 	var msg = TransientMessageScene.instantiate()
@@ -938,6 +938,8 @@ func is_ui_point(point: Vector2) -> bool:
 	return false
 
 func _control_hits(node: Node, point: Vector2) -> bool:
+	# Dialogs are separate embedded viewports: their child rectangles are local.
+	if node is Window: return node.visible
 	if node is CanvasItem and not node.is_visible_in_tree(): return false
 	if node is Control:
 		if node.clip_contents and not node.get_global_rect().has_point(point): return false

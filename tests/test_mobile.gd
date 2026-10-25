@@ -65,6 +65,18 @@ func run() -> void:
 	game.mobile_ui.refresh()
 	await get_tree().process_frame
 	await get_tree().process_frame
+	check(not game.mobile_ui.goals_open and game.mobile_ui._goal_summary.visible, "Mobile goals start collapsed with a visible objective summary")
+	check(not game._feedback.visible, "Help does not reserve a permanent strip")
+	await press(game.mobile_ui._goal_summary)
+	check(game.mobile_ui.goals_open and game.tutorial_popup.visible, "Touch expands goal details and rewards")
+	await press(game.mobile_ui._goal_summary)
+	check(not game.mobile_ui.goals_open and not game.tutorial_popup.visible, "Touch collapses goal details")
+	var help_button: Button
+	for button in game.mobile_ui._toolbar_scroll.get_child(0).get_children():
+		if button.text == "?": help_button = button
+	await press(help_button)
+	check(game.mobile_ui._help.visible and game.is_ui_point(Vector2(500, 400)), "Help opens on touch and blocks world actions behind its dialog")
+	game.mobile_ui._help.hide()
 	# Input.parse_input_event exercises Godot's touch-to-GUI mouse emulation.
 	game.build_menu.hide()
 	var build_button: Button = game.get_node("UILayer/ToggleBuildMenuButton")
@@ -216,14 +228,18 @@ func run() -> void:
 	Autosave._process(1.5)
 	check(Autosave.writes == writes + 1 and FileAccess.file_exists("user://saves/slot_1.backup.tres"), "Debounced autosave retains a recoverable previous generation")
 	game._refresh_world()
-	for dimensions in [Vector2i(852, 393), Vector2i(1152, 648), Vector2i(1440, 660)]:
+	for dimensions in [Vector2i(740, 360), Vector2i(852, 393), Vector2i(1152, 648), Vector2i(1440, 660)]:
 		get_window().size = dimensions
 		await get_tree().process_frame
 		game.mobile_ui.refresh()
 		await get_tree().process_frame
 		var bounds: Rect2 = get_viewport().get_visible_rect()
+		var hud: Control = game.get_node("UILayer/ResourceHud")
+		check(hud.size.y <= 50 and game.mobile_ui._toolbar_scroll.size.y == 44, "Compact header fits %s" % dimensions)
+		for label in game.mobile_ui._hud_flow.get_children():
+			check(hud.get_global_rect().encloses(label.get_global_rect()), "Resource remains visible: " + label.text)
 		var build: Control = game.get_node("UILayer/ToggleBuildMenuButton")
-		check(bounds.encloses(build.get_global_rect()) and build.size.y >= 48, "Build stays reachable at %s landscape" % dimensions)
+		check(bounds.encloses(build.get_global_rect()) and build.size.y >= 44, "Build stays reachable at %s landscape" % dimensions)
 		game._on_building_instance_selected(WorkerManager.instance_by_id(camp.instance_id))
 		check(bounds.encloses(game.building_popup.get_global_rect()) and game.building_popup.close_button.size.y >= 48, "Details drawer and close target fit %s" % dimensions)
 		game.building_popup.hide()

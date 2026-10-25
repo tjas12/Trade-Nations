@@ -10,6 +10,11 @@ extends Panel
 # Map resource IDs to their UI labels
 var _resource_labels: Dictionary = {}
 var population_label: Label
+var compact := false
+
+func set_compact(enabled: bool) -> void:
+	compact = enabled
+	_initialize_display()
 
 func _ready() -> void:
 	population_label = Label.new()
@@ -52,10 +57,10 @@ func _update_label(resource_id: int, amount: float) -> void:
 		var label = _resource_labels[resource_id]
 		var resource_def = DataManager.get_resource_definition(resource_id)
 		if resource_def:
-			label.text = "%s: %d" % [resource_def.display_name, floor(amount)]
+			label.text = ("%s %d" if compact else "%s: %d") % [resource_def.display_name, floor(amount)]
 
 func _on_level_up(new_level: int) -> void:
-	level_label.text = "Level: %d" % new_level
+	level_label.text = ("Lvl %d" if compact else "Level: %d") % new_level
 	# Also update XP label since the threshold changes
 	if SaveManager.current_save and SaveManager.current_save.player_state:
 		_on_xp_changed(SaveManager.current_save.player_state.xp_total)
@@ -64,7 +69,7 @@ func _on_xp_changed(new_xp: float) -> void:
 	if SaveManager.current_save and SaveManager.current_save.player_state:
 		var current_level = SaveManager.current_save.player_state.mayor_level
 		var xp_for_next_level = ProgressionManager.XP_THRESHOLDS.get(current_level, INF)
-		xp_label.text = "XP: %d/%s" % [floor(new_xp), str(xp_for_next_level) if xp_for_next_level != INF else "---"]
+		xp_label.text = ("XP %d/%s" if compact else "XP: %d/%s") % [floor(new_xp), str(xp_for_next_level) if xp_for_next_level != INF else "---"]
 
 func _on_population_changed(total: int, idle: int) -> void:
-	population_label.text = "People: %d/%d · Jobs: %d · Free: %d" % [total, WorkerManager.housing_capacity(), total - idle, idle]
+	population_label.text = ("Pop %d/%d · Jobs %d · Free %d" if compact else "People: %d/%d · Jobs: %d · Free: %d") % [total, WorkerManager.housing_capacity(), total - idle, idle]
