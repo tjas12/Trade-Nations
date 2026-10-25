@@ -66,7 +66,7 @@ func run() -> void:
 	DirAccess.make_dir_recursive_absolute("user://saves")
 	ResourceSaver.save(save, "user://saves/slot_972.tres")
 	var loaded = SaveManager.load_from_slot(972)
-	check(loaded != null and loaded.save_version == 4 and loaded.player_state.mayor_level == 1 and loaded.player_state.xp_total == 123.5, "Version-three fixture preserves level and XP")
+	check(loaded != null and loaded.save_version == 5 and loaded.player_state.mayor_level == 1 and loaded.player_state.xp_total == 123.5, "Version-three fixture preserves level and XP")
 	check(celebrations == notices_before and ProgressionManager.unlocked(DataManager.get_building_definition(151)), "Legacy owned content remains unlocked without backlog notices")
 	camp = WorkerManager.instance_by_id(camp.instance_id)
 	check(camp.cycle_elapsed == 3.5 and camp.rotation_degrees == 90 and loaded.ground_decorations[Vector2i(10, 10)] == "dirt", "Migration preserves cycles, rotation and old paths")

@@ -24,3 +24,11 @@ class_name BuildingInstance
 @export var legacy_entrance: Vector2i = Vector2i(-1, -1) # Compatibility access for pre-v3 layouts
 
 @export var construction_xp_awarded := false
+
+@export var pending_upgrade_id: int = -1
+@export var upgrade_elapsed: float = 0.0
+@export var housing_bonus: int = 0
+@export var tax_elapsed: float = 0.0
+@export var tax_gold: float = 0.0
+@export var tax_xp: float = 0.0
+@export var queued_recipe_id: int = -1

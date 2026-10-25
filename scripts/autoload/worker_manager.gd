@@ -30,7 +30,7 @@ func reconcile_housing() -> void:
 		for instance in layout.starting_objects:
 			var definition = DataManager.get_building_definition(instance.def_id)
 			if definition and instance.construction_complete and definition.house_capacity > 0:
-				homes[instance.instance_id] = definition.house_capacity
+				homes[instance.instance_id] = capacity_for(instance)
 				residents[instance.instance_id] = 0
 	# Keep valid homes and all existing assignments. Never delete excess citizens.
 	for citizen in save.villagers:
@@ -204,7 +204,7 @@ func housing_capacity() -> int:
 	for instance in layout.starting_objects:
 		var building_def = DataManager.get_building_definition(instance.def_id)
 		if building_def and instance.construction_complete:
-			total_capacity += building_def.house_capacity
+			total_capacity += capacity_for(instance)
 	return total_capacity
 
 func idle_villagers() -> Array:
@@ -289,3 +289,6 @@ func _update_travel(delta: float) -> void:
 				break
 		if path.is_empty():
 			citizen.activity = "working"
+
+func capacity_for(instance: BuildingInstance) -> int:
+	return DataManager.get_building_definition(instance.def_id).house_capacity + instance.housing_bonus

@@ -13,6 +13,10 @@ var move_button: Button
 var demolish_button: Button
 var staff_summary: Label
 var _refresh_timer := 0.0
+var upgrade_choice: OptionButton
+var upgrade_button: Button
+var tax_button: Button
+var _upgrade_confirmation: ConfirmationDialog
 
 @onready var name_label: Label = $ContentScroll/VBoxContainer/BuildingNameLabel
 @onready var building_icon: TextureRect = $ContentScroll/VBoxContainer/BuildingIcon
@@ -48,6 +52,30 @@ func _ready() -> void:
 	add_child(tabs)
 	assign_worker_button.pressed.connect(_on_assign_worker_pressed)
 	assign_hauler_button.pressed.connect(_on_assign_hauler_pressed)
+	upgrade_choice = OptionButton.new()
+	$ContentScroll/VBoxContainer.add_child(upgrade_choice)
+	_upgrade_confirmation = ConfirmationDialog.new()
+	_upgrade_confirmation.title = "Upgrade this building?"
+	_upgrade_confirmation.get_ok_button().custom_minimum_size = Vector2(100, 48)
+	_upgrade_confirmation.get_cancel_button().custom_minimum_size = Vector2(100, 48)
+	_upgrade_confirmation.confirmed.connect(func():
+		var message := HistoricalGameplay.begin_upgrade(building_instance, int(upgrade_choice.get_selected_metadata()))
+		EventBus.town_notice.emit(message)
+		_update_display()
+	)
+	add_child(_upgrade_confirmation)
+	upgrade_button = _button("Upgrade…", func():
+		var target = DataManager.get_building_definition(int(upgrade_choice.get_selected_metadata()))
+		var costs := ""
+		for entry in target.cost.entries: costs += "%d %s · " % [entry.amount, DataManager.get_resource_definition(entry.resource_id).display_name]
+		_upgrade_confirmation.dialog_text = "Upgrade to %s\n%s\nResidents and jobs stay. Housing upgrades keep their current footprint.\nFull listed construction cost is charged." % [target.display_name, costs]
+		_upgrade_confirmation.popup_centered(Vector2i(560, 240))
+	)
+	tax_button = _button("Collect taxes", func():
+		var gold := HistoricalGameplay.collect_tax(building_instance)
+		EventBus.town_notice.emit("Collected %d Gold in taxes." % gold)
+		_update_display()
+	)
 	production_label = _label()
 	progress = ProgressBar.new()
 	progress.custom_minimum_size.y = 18
@@ -100,6 +128,11 @@ func show_for_building(instance: BuildingInstance) -> void:
 	building_instance = instance
 	if not instance: return
 	tabs.current_tab = 0
+	upgrade_choice.clear()
+	for target_id in HistoricalGameplay.upgrade_targets(instance):
+		var target = DataManager.get_building_definition(target_id)
+		upgrade_choice.add_item("%s · Level %d" % [target.display_name, target.playable_level])
+		upgrade_choice.set_item_metadata(upgrade_choice.item_count - 1, target_id)
 	show()
 	_refresh_staff_choices()
 	_update_display()
@@ -108,6 +141,12 @@ func _update_display() -> void:
 	if not building_instance or not visible: return
 	var definition = DataManager.get_building_definition(building_instance.def_id)
 	var recipe = DataManager.get_production_recipe(definition.gather_recipe_id)
+	upgrade_choice.visible = tabs.current_tab == 0 and upgrade_choice.item_count > 0
+	upgrade_button.visible = upgrade_choice.visible
+	upgrade_button.disabled = building_instance.pending_upgrade_id >= 0 or not building_instance.construction_complete
+	tax_button.visible = tabs.current_tab == 0 and not HistoricalGameplay.profile(building_instance.def_id).get("tax", {}).is_empty()
+	tax_button.disabled = building_instance.tax_gold <= 0
+	tax_button.text = "Collect %d Gold tax" % building_instance.tax_gold if building_instance.tax_gold > 0 else "Taxes accruing · Collect when ready"
 	var overview := tabs.current_tab == 0
 	var people := tabs.current_tab == 1
 	var layout := tabs.current_tab == 2
@@ -132,8 +171,8 @@ func _update_display() -> void:
 			names.append("%s · %s" % [citizen.villager_name, citizen.activity])
 	staff_summary.text = "Available in town: %d\n%s" % [idle, "\n".join(names)]
 	if definition.house_capacity > 0:
-		workers_label.text = "Residents: %d/%d · Free in town: %d" % [residents, definition.house_capacity, idle]
-		staff_summary.text = "Residents: %d/%d\nAvailable in town: %d" % [residents, definition.house_capacity, idle]
+		workers_label.text = "Residents: %d/%d · Free in town: %d" % [residents, WorkerManager.capacity_for(building_instance), idle]
+		staff_summary.text = "Residents: %d/%d\nAvailable in town: %d" % [residents, WorkerManager.capacity_for(building_instance), idle]
 	if recipe:
 		workers_label.text = "Workers %d/%d · Haulers %d/%d\nAvailable: %d" % [building_instance.assigned_worker_ids.size(), recipe.worker_max, building_instance.assigned_hauler_ids.size(), recipe.hauler_max, idle]
 		assign_worker_button.disabled = idle == 0 or not building_instance.construction_complete or building_instance.assigned_worker_ids.size() >= recipe.worker_max
@@ -149,7 +188,13 @@ func _update_display() -> void:
 		progress.max_value = maxf(1, recipe.cycle_seconds)
 		progress.value = building_instance.cycle_elapsed
 	else:
-		production_label.text = "Housing capacity: %d" % definition.house_capacity if definition.house_capacity else definition.info_text
+		production_label.text = "Housing capacity: %d" % WorkerManager.capacity_for(building_instance) if definition.house_capacity else definition.info_text
+	if building_instance.pending_upgrade_id >= 0:
+		var target = DataManager.get_building_definition(building_instance.pending_upgrade_id)
+		production_label.text = "Upgrading to %s: %ds left. Residents remain housed." % [target.display_name, ceili(target.build_time_seconds - building_instance.upgrade_elapsed)]
+		progress.visible = overview
+		progress.max_value = maxf(1, target.build_time_seconds)
+		progress.value = building_instance.upgrade_elapsed
 	if not building_instance.construction_complete:
 		production_label.text = "Construction: %ds remaining" % ceili(definition.build_time_seconds - building_instance.construction_elapsed)
 		progress.max_value = maxf(1, definition.build_time_seconds)
@@ -159,7 +204,7 @@ func _update_display() -> void:
 		orientation_label.text += "\nLegacy entrance retained; editing validates new access."
 	for button in rotate_row.get_children(): button.disabled = BuildingVisuals.orientations(definition).size() < 2
 	move_button.disabled = definition.type == BuildingDefinition.BuildingType.TOWNHALL
-	demolish_button.disabled = not definition.sellable
+	demolish_button.disabled = not definition.sellable or building_instance.pending_upgrade_id >= 0
 
 func _process(delta: float) -> void:
 	_refresh_timer += delta

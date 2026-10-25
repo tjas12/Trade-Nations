@@ -90,7 +90,7 @@ func run() -> void:
 	SaveManager.save_to_slot(993)
 	SaveManager.load_from_slot(993)
 	camp = WorkerManager.instance_by_id(camp.instance_id)
-	check(SaveManager.current_save.save_version == 4 and camp.rotation_degrees == 90, "Version-2 save migrates and retains supported orientation")
+	check(SaveManager.current_save.save_version == 5 and camp.rotation_degrees == 90, "Version-2 save migrates and retains supported orientation")
 	var gold_before: float = InventoryManager.amount(1)
 	var wood_before: float = InventoryManager.amount(10)
 	var path := [Vector2i(10, 10), Vector2i(10, 10), Vector2i(11, 10)]

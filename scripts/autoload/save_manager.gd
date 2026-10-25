@@ -21,7 +21,7 @@ signal save_activated
 ## Does not write to disk — call save_to_slot() after.
 func create_new_save() -> SaveGame:
 	var save = SaveGame.new()
-	save.save_version = 4
+	save.save_version = 5
 	save.created_at_unix = TimeManager.now()
 	save.last_saved_at_unix = save.created_at_unix
 	
@@ -174,7 +174,7 @@ func _ensure_save_dir() -> void:
 		DirAccess.make_dir_recursive_absolute(SAVE_DIR)
 
 func _migrate(save: SaveGame) -> bool:
-	if save.save_version > 4 or save.player_state.active_land_size < 1 or save.player_state.active_land_size > 256:
+	if save.save_version > 5 or save.player_state.active_land_size < 1 or save.player_state.active_land_size > 256:
 		return false
 	# Version 1 has no cycle reservations/objective claims. Export defaults are safe.
 	if not save.economy_stats.has("produced"):
@@ -204,6 +204,10 @@ func _migrate(save: SaveGame) -> bool:
 		for instance in layout.starting_objects:
 			if not instance or not is_finite(instance.cycle_elapsed) or instance.cycle_elapsed < 0:
 				return false
+			for value in [instance.upgrade_elapsed, instance.tax_elapsed, instance.tax_gold, instance.tax_xp]:
+				if not is_finite(value) or value < 0: return false
+			if instance.housing_bonus < 0: return false
+			if instance.pending_upgrade_id >= 0 and not HistoricalGameplay.upgrade_targets(instance).has(instance.pending_upgrade_id): return false
 			if buildings.has(instance.instance_id):
 				return false
 			buildings[instance.instance_id] = true
@@ -231,8 +235,17 @@ func _migrate(save: SaveGame) -> bool:
 				instance.construction_xp_awarded = instance.construction_complete
 				if not save.player_state.unlocked_buildings.has(instance.def_id):
 					save.player_state.unlocked_buildings.append(instance.def_id)
+	if save.save_version < 5:
+		# All previously earned levels/unlocks and storage benefits are grandfathered.
+		save.player_state.legacy_storage_bonus = maxi(save.player_state.legacy_storage_bonus, maxi(0, save.player_state.mayor_level - 1) * 10)
+		for id in ProgressionManager.registry.get("legacy_building_levels", {}):
+			if int(ProgressionManager.registry.legacy_building_levels[id]) <= save.player_state.mayor_level and not save.player_state.unlocked_buildings.has(int(id)):
+				save.player_state.unlocked_buildings.append(int(id))
+		for layout in save.town_layouts.values():
+			for instance in layout.starting_objects:
+				if not save.player_state.unlocked_buildings.has(instance.def_id): save.player_state.unlocked_buildings.append(instance.def_id)
 	# Never move or delete structures: smaller Farm footprint only frees tiles.
-	save.save_version = 4
+	save.save_version = 5
 	return true
 
 func archive_current_town() -> int:

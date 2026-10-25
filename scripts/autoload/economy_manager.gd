@@ -28,6 +28,7 @@ func _restore_assignments() -> void:
 func _process(delta: float) -> void:
 	if Autosave.simulation_suspended(): return
 	_update_construction(delta * simulation_speed)
+	HistoricalGameplay.update_taxes(delta * simulation_speed)
 	_process_producers(delta * simulation_speed)
 	_process_haulers(delta * simulation_speed)
 
@@ -215,6 +216,7 @@ func _process_cycle(instance: BuildingInstance, recipe: ProductionRecipe, delta:
 		EventBus.spawn_floating_text.emit("+%d %s" % [recipe.cycle_amount, DataManager.get_resource_definition(recipe.output_resource_id).display_name], TownGridGeometry.cell_to_world(Vector2(instance.x, instance.y)), Color.GOLD)
 
 func _update_construction(delta: float) -> void:
+	if SaveManager.current_save: HistoricalGameplay.update_upgrades(delta)
 	if not SaveManager.current_save:
 		return
 	for instance in SaveManager.current_save.town_layouts["Vanilla"].starting_objects:

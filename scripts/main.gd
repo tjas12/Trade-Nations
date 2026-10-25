@@ -264,6 +264,7 @@ func _process(delta: float) -> void:
 
 func _collect_resources() -> void:
 	var collected := 0.0
+	for home in SaveManager.current_save.town_layouts.Vanilla.starting_objects: collected += HistoricalGameplay.collect_tax(home)
 	for instance in SaveManager.current_save.town_layouts["Vanilla"].starting_objects:
 		for resource_id in instance.stored_resources.keys():
 			var moved := InventoryManager.add(resource_id, instance.stored_resources[resource_id])
@@ -396,6 +397,10 @@ func _initialize_world_layout() -> void:
 
 func _on_building_selected_for_placement(building_def: BuildingDefinition) -> void:
 	_cancel_brush()
+	var historical_reason := HistoricalGameplay.build_reason(building_def)
+	if not historical_reason.is_empty():
+		EventBus.town_notice.emit(historical_reason)
+		return
 	if not ProgressionManager.unlocked(building_def):
 		EventBus.town_notice.emit("Reach level %d first." % building_def.playable_level)
 		return
@@ -463,7 +468,7 @@ func _place_building() -> void:
 				Autosave.mark_dirty()
 				return
 			# Access and affordability can change while the preview is open.
-			if not ProgressionManager.unlocked(_building_to_place_def): return
+			if not HistoricalGameplay.build_reason(_building_to_place_def).is_empty(): return
 			if not EconomyManager.can_afford(_building_to_place_def.cost):
 				return
 			
@@ -618,7 +623,7 @@ func _start_move(instance: BuildingInstance) -> void:
 
 func _demolish(instance: BuildingInstance) -> void:
 	var definition = DataManager.get_building_definition(instance.def_id)
-	if not definition.sellable or definition.type == BuildingDefinition.BuildingType.TOWNHALL:
+	if not definition.sellable or definition.type == BuildingDefinition.BuildingType.TOWNHALL or instance.pending_upgrade_id >= 0:
 		return
 	var objects = SaveManager.current_save.town_layouts["Vanilla"].starting_objects
 	if not objects.has(instance):

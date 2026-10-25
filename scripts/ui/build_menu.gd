@@ -49,7 +49,10 @@ func populate_build_menu():
         tab_container.set_tab_title(tab_container.get_child_count() - 1, category)
 
         var buildings = buildings_by_category[category]
-        buildings.sort_custom(func(a, b): return a.display_name < b.display_name)
+        buildings.sort_custom(func(a, b):
+            if ProgressionManager.unlocked(a) != ProgressionManager.unlocked(b): return ProgressionManager.unlocked(a)
+            return a.display_name < b.display_name
+        )
 
         for building_def in buildings:
             var button = Button.new()
