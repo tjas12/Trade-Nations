@@ -16,7 +16,7 @@ def run(godot, name, arguments, profile):
         path = profile / name / directory
         path.mkdir(parents=True, exist_ok=True)
         env[key] = str(path)
-    result = subprocess.run([godot, "--path", str(ROOT), *arguments], cwd=ROOT, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace", timeout=180)
+    result = subprocess.run([godot, "--audio-driver", "Dummy", "--path", str(ROOT), *arguments], cwd=ROOT, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8", errors="replace", timeout=180)
     (LOGS / f"{name}.log").write_text(result.stdout, encoding="utf-8")
     errors = [line for line in result.stdout.splitlines() if re.search(r"SCRIPT ERROR:|^ERROR:|\] FAIL:", line) and not re.search(r"^ERROR: Failed to read the root certificate store\.$|^ERROR: \d+ resources still in use at exit", line)]
     if result.returncode or errors:

@@ -10,6 +10,21 @@ import struct
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def prepare_offline_cache(output):
+    worker_file = output / "index.service.worker.js"
+    worker = worker_file.read_text()
+    match = re.search(r"const CACHED_FILES = (\[.*?\]);", worker)
+    if not match:
+        raise RuntimeError("Godot service-worker format changed; review offline cache generation")
+    files = json.loads(match.group(1))
+    manifest = json.loads((output / "index.manifest.json").read_text())
+    # Precache the whole playable build, so the first completed installation works offline.
+    files += ["index.wasm", "index.pck", "index.manifest.json"]
+    files += [icon["src"] for icon in manifest["icons"]]
+    replacement = "const CACHED_FILES = " + json.dumps(list(dict.fromkeys(files))) + ";"
+    worker_file.write_text(worker[:match.start()] + replacement + worker[match.end():], encoding="utf-8")
+
+
 def verify(output):
     required = ["index.html", "index.js", "index.wasm", "index.pck", "index.service.worker.js", "index.manifest.json"]
     for name in required:
@@ -69,6 +84,7 @@ def main():
         if result.returncode or errors:
             print(result.stdout)
             raise RuntimeError(f"Web export failed: exit {result.returncode}; see .validation/export-web.log")
+    prepare_offline_cache(output)
     verify(output)
     revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     files = {p.name: {"bytes": p.stat().st_size, "sha256": hashlib.sha256(p.read_bytes()).hexdigest()} for p in output.iterdir() if p.is_file() and p.name != "build-info.json"}

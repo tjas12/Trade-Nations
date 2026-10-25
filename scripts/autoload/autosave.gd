@@ -11,6 +11,9 @@ var _resume_frame := -10
 var writes := 0
 var last_result := true
 var _visibility_callback: JavaScriptObject
+var _offline_callback: JavaScriptObject
+var offline_status := "Offline: preparing…"
+signal offline_status_changed(text: String)
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -22,6 +25,21 @@ func _ready() -> void:
 		var window := JavaScriptBridge.get_interface("window")
 		window.tradeNationsVisibility = _visibility_callback
 		JavaScriptBridge.eval("document.addEventListener('visibilitychange',()=>window.tradeNationsVisibility(document.hidden));")
+		_offline_callback = JavaScriptBridge.create_callback(_web_offline_status)
+		window.tradeNationsOfflineStatus = _offline_callback
+		JavaScriptBridge.eval("""
+		(async()=>{try{
+		 if(!window.isSecureContext || !navigator.serviceWorker) throw Error('HTTPS and service workers required');
+		 const registration = await Promise.race([navigator.serviceWorker.ready,new Promise((_,reject)=>setTimeout(()=>reject(Error('Offline cache not ready')),90000))]);
+		 window.tradeNationsOfflineStatus('Offline: ready');
+		 registration.addEventListener('updatefound',()=>{const worker=registration.installing;worker.addEventListener('statechange',()=>{if(worker.state==='installed'&&navigator.serviceWorker.controller)window.tradeNationsOfflineStatus('Update ready: close/reopen');});});
+		}catch(error){console.warn('[OfflineCache]',String(error));window.tradeNationsOfflineStatus('Offline: unavailable');}})();
+		""")
+
+func _web_offline_status(arguments: Array) -> void:
+	if not arguments.is_empty():
+		offline_status = str(arguments[0])
+		offline_status_changed.emit(offline_status)
 
 func _web_visibility(arguments: Array) -> void:
 	if not arguments.is_empty():

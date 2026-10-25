@@ -9,6 +9,7 @@ var _perf: Label
 var _perf_time := 0.0
 var safe_rect := Rect2()
 var force_mobile := false
+var _offline_label: Label
 
 func _ready() -> void:
 	get_viewport().size_changed.connect(refresh)
@@ -62,6 +63,7 @@ func refresh() -> void:
 	game._feedback.clip_text = true
 	game._feedback.add_theme_font_size_override("font_size", 16)
 	var bottom := y + h - 54
+	if is_instance_valid(_offline_label): _offline_label.position = Vector2(x + 4, y + h - 30)
 	_rect(game.get_node("UILayer/ToggleBuildMenuButton"), Rect2(x + w * 0.5 - 70, bottom, 140, 52))
 	var panel_w := minf(430, w * 0.46)
 	game.building_popup.custom_minimum_size = Vector2(288, 0)
@@ -102,6 +104,12 @@ func refresh() -> void:
 func _setup() -> void:
 	if is_instance_valid(_toolbar_scroll): return
 	var layer := game.get_node("UILayer")
+	if OS.has_feature("web"):
+		_offline_label = Label.new()
+		_offline_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_offline_label.text = Autosave.offline_status
+		layer.add_child(_offline_label)
+		Autosave.offline_status_changed.connect(func(text): _offline_label.text = text)
 	_toolbar_scroll = ScrollContainer.new()
 	_toolbar_scroll.name = "MobileToolbar"
 	_toolbar_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
