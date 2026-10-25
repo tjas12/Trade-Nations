@@ -39,7 +39,7 @@ func _process_producers(delta: float) -> void:
 	for instance_id in _active_producers.keys():
 		var instance = _active_producers[instance_id]
 		var building_def = DataManager.get_building_definition(instance.def_id)
-		var recipe = DataManager.get_production_recipe(building_def.gather_recipe_id)
+		var recipe = recipe_for(instance)
 		if recipe == null or not instance.construction_complete:
 			continue
 		
@@ -168,7 +168,7 @@ func pause_reason(instance: BuildingInstance) -> String:
 	if not instance.construction_complete:
 		return "Under construction"
 	var definition = DataManager.get_building_definition(instance.def_id)
-	var recipe = DataManager.get_production_recipe(definition.gather_recipe_id)
+	var recipe = recipe_for(instance)
 	if not recipe:
 		return ""
 	if instance.assigned_worker_ids.is_empty():
@@ -197,13 +197,20 @@ func _process_cycle(instance: BuildingInstance, recipe: ProductionRecipe, delta:
 		for resource in recipe.input_cost:
 			InventoryManager.remove(resource, recipe.input_cost[resource])
 		instance.cycle_reserved = true
-	instance.cycle_elapsed += maxf(0, delta)
+	var workers := 1
+	if recipe.per_worker_rate:
+		workers = 0
+		for id in instance.assigned_worker_ids:
+			if _staff_ready([id]): workers += 1
+	instance.cycle_elapsed += maxf(0, delta) * workers
 	# At most one completed cycle per update. Surplus delta is discarded, never offline catch-up.
 	if instance.cycle_elapsed < recipe.cycle_seconds:
 		return
 	instance.cycle_elapsed = 0
 	instance.cycle_reserved = false
-	if recipe.kind == ProductionRecipe.RecipeKind.CRAFT:
+	if recipe.direct_reward:
+		for resource in recipe.reward: InventoryManager.add(resource, recipe.reward[resource])
+	elif recipe.kind == ProductionRecipe.RecipeKind.CRAFT:
 		InventoryManager.add(recipe.output_resource_id, recipe.cycle_amount)
 	else:
 		instance.stored_resources[recipe.output_resource_id] = instance.stored_resources.get(recipe.output_resource_id, 0.0) + recipe.cycle_amount
@@ -212,6 +219,10 @@ func _process_cycle(instance: BuildingInstance, recipe: ProductionRecipe, delta:
 	produced[recipe.output_resource_id] = produced.get(recipe.output_resource_id, 0.0) + recipe.cycle_amount
 	ProgressionManager.add_xp(recipe.reward_xp)
 	EventBus.recipe_completed.emit(instance.instance_id, recipe.id, recipe.cycle_amount)
+	if instance.queued_recipe_id >= 0:
+		instance.active_recipe_id = instance.queued_recipe_id
+		instance.queued_recipe_id = -1
+		Autosave.mark_dirty()
 	if recipe.kind == ProductionRecipe.RecipeKind.CRAFT:
 		EventBus.spawn_floating_text.emit("+%d %s" % [recipe.cycle_amount, DataManager.get_resource_definition(recipe.output_resource_id).display_name], TownGridGeometry.cell_to_world(Vector2(instance.x, instance.y)), Color.GOLD)
 
@@ -228,3 +239,9 @@ func _update_construction(delta: float) -> void:
 			instance.construction_complete = true
 			EventBus.building_placed.emit(instance)
 			WorkerManager.invalidate_routes()
+
+func recipe_for(instance: BuildingInstance) -> ProductionRecipe:
+	var definition = DataManager.get_building_definition(instance.def_id)
+	if definition.shop_recipe_ids.has(instance.active_recipe_id):
+		return DataManager.get_production_recipe(instance.active_recipe_id)
+	return DataManager.get_production_recipe(definition.gather_recipe_id)

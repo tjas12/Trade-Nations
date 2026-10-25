@@ -12,7 +12,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 BUNDLE = ROOT / "original/TradeNations.app/bundle"
-IMPLEMENT = [12, 37, 142, 14, 15, 17, 23, 36, 32, 38, 2, 3, 4]
+IMPLEMENT = [12, 37, 142, 14, 15, 17, 23, 36, 32, 38, 25, 26, 2, 3, 4]
 
 
 def tree(path):
@@ -58,6 +58,7 @@ def run(implemented=False):
                 "residents": int(villagers.get("default", "0")) if villagers is not None else 0,
                 "adoptable": int(villagers.get("purchasable", "0")) if villagers is not None else 0,
                 "tax": {"seconds": float(tax.get("interval")), "reward": resources(tax.find("Resources")), "xp": float(tax.find("Resources").get("xp", "0"))} if tax is not None else {},
+                "storage": {n.get("id"): (-1 if n.get("qty") == "unlimited" else float(n.get("qty"))) for n in obj.findall("Resources/Resource")},
                 "produce": ET.tostring(produce, encoding="unicode").strip() if produce is not None else "",
                 "items": [int(i.text) for i in obj.findall("Item")],
                 "upgrades_from": [int(i.text) for i in obj.findall("UpgradeOf")],
@@ -84,7 +85,7 @@ def run(implemented=False):
     levels = {}
     for xp in settings.iter("XP"):
         levels[str(xp.get("level"))] = {"xp_to_next": int(xp.get("toNext")), "limits": {p.get("category"): int(p.text) for p in xp.findall("MaxBuilding")}, "text": xp.findtext("LevelText", "")}
-    runtime = {"version": "4.0.1", "evidence": "Recovered XML, active nodes only; full details in docs/ORIGINAL_BUILDING_CATALOG.md", "aliases": {"10001": 1, "10008": 8, "10012": 12}, "profiles": {str(id): records[id] for id in IMPLEMENT}, "levels": levels, "shop_recipes": recipes}
+    runtime = {"version": "4.0.1", "evidence": "Recovered XML, active nodes only; full details in docs/ORIGINAL_BUILDING_CATALOG.md", "aliases": {"10001": 1, "10008": 8, "10012": 12}, "object_requirements": {str(id): {k: r[k] for k in ["level", "prerequisites", "source", "upgrades_from", "store"]} for id, r in records.items()}, "profiles": {str(id): records[id] for id in IMPLEMENT}, "levels": levels, "shop_recipes": recipes}
     (ROOT / "data/historical_gameplay.json").write_text(json.dumps(runtime, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     old = json.loads((ROOT / "data/first_playable.json").read_text())
     names = collections.Counter(r["name"] for r in records.values())
@@ -101,7 +102,7 @@ def run(implemented=False):
         art_match = re.search(r'^icon_path = "([^"]*)"', text, re.M)
         art = art_match[1] if art_match else json.loads((ROOT / "data/building_visuals.json").read_text())["asset_overrides"].get(str(id), "Unmapped")
         flags = r["flags"] + (["same-name variant; inspect ID/land"] if names[r["name"]] > 1 else [])
-        fields = {"Source / confidence": f"[{r['source']}](../original/TradeNations.app/bundle/{r['source']}); high, literal XML", "Category / type / land": [r['category'], r['type'], r['lands']], "Historical minimum level / prerequisites": [r['level'], r['prerequisites']], "Construction cost (resource IDs; MagicBeans separately)": r['cost'], "Construction seconds / footprint": [r['build_seconds'], r['footprint']], "Workers / haulers": r['workers'], "Population default / adoptable": [r['residents'], r['adoptable']], "Tax interval, rewards and XP": r['tax'], "Gather / processing": r.get('production', {}), "Shop recipes (Items.xml)": {str(i): recipes.get(str(i), 'not a shop recipe') for i in r['items']}, "Art metadata / current mapping": [r['idle_art'], art], "Upgrade parents / upgrade-only / store flag": [r['upgrades_from'], r['upgrade_only'], r['store']], "Version/event/duplicate notes": flags, "Current implementation": status}
+        fields = {"Source / confidence": f"[{r['source']}](../original/TradeNations.app/bundle/{r['source']}); high, literal XML", "Category / type / land": [r['category'], r['type'], r['lands']], "Historical minimum level / prerequisites": [r['level'], r['prerequisites']], "Construction cost (resource IDs; MagicBeans separately)": r['cost'], "Construction seconds / footprint": [r['build_seconds'], r['footprint']], "Workers / haulers": r['workers'], "Population default / adoptable": [r['residents'], r['adoptable']], "Tax interval, rewards and XP": r['tax'], "Storage capacities": r['storage'], "Gather / processing": r.get('production', {}), "Shop recipes (Items.xml)": {str(i): recipes.get(str(i), 'not a shop recipe') for i in r['items']}, "Art metadata / current mapping": [r['idle_art'], art], "Upgrade parents / upgrade-only / store flag": [r['upgrades_from'], r['upgrade_only'], r['store']], "Version/event/duplicate notes": flags, "Current implementation": status}
         lines += [f"### {id} — {r['name']}", "", "| Field | Historical evidence / implementation |", "|---|---|"]
         lines += [f"| {k} | {fmt(v)} |" for k,v in fields.items()]
         lines.append("")

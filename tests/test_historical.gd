@@ -26,8 +26,8 @@ func run() -> void:
 	save.town_layouts.Vanilla.starting_objects.append(home)
 	WorkerManager.reconcile_housing()
 	check(WorkerManager.total_population() == 3 and WorkerManager.capacity_for(home) == 1, "Classic Small Cottage adds one resident")
-	var person = save.villagers.back()
-	var person_id: String = person.villager_id
+	var original_resident = save.villagers.back()
+	var person_id: String = original_resident.villager_id
 	var camp: BuildingInstance = save.town_layouts.Vanilla.starting_objects[1]
 	check(WorkerManager.assign_worker(camp), "Existing producer can receive housing-supported staff")
 	var staff: Array = camp.assigned_worker_ids.duplicate()
@@ -82,6 +82,76 @@ func run() -> void:
 	check(loaded != null and loaded.save_version == 5 and loaded.player_state.mayor_level == 4 and loaded.player_state.xp_total == 123.5, "Version-four migration preserves level and XP")
 	home = WorkerManager.instance_by_id("classic_home")
 	check(home.tax_gold == 8 and WorkerManager.instance_by_id(camp.instance_id).assigned_worker_ids == staff and WorkerManager.instance_by_id("legacy_cottage").housing_bonus == 1, "Tax claims, jobs and legacy housing survive reload")
+	# Real input reservation, worker rates and hauling for each new material chain.
+	SaveManager.current_save.player_state.mayor_level = 50
+	ProgressionManager.sync_unlocks()
+	for id in camp.assigned_worker_ids.duplicate(): WorkerManager.unassign(id)
+	for building_id in [36, 15, 17, 23]:
+		var producer := BuildingInstance.new()
+		producer.instance_id = "producer_%d" % building_id
+		producer.def_id = building_id
+		producer.x = 1
+		producer.y = 8
+		SaveManager.current_save.town_layouts.Vanilla.starting_objects.append(producer)
+		var recipe = EconomyManager.recipe_for(producer)
+		SaveManager.current_save.inventory.resource_amounts[recipe.output_resource_id] = 0
+		for input in recipe.input_cost: SaveManager.current_save.inventory.resource_amounts[input] = 10000
+		check(WorkerManager.assign_worker(producer) and WorkerManager.assign_hauler(producer), "Staff can be assigned to original producer %d" % building_id)
+		for person in SaveManager.current_save.villagers:
+			if person.assigned_building_instance_id == producer.instance_id: person.activity = "working"
+		var stock := {}
+		for input in recipe.input_cost: stock[input] = InventoryManager.amount(input)
+		EconomyManager._process_producers(0.01)
+		var reserved := true
+		for input in stock:
+			if InventoryManager.amount(input) != stock[input] - recipe.input_cost[input]: reserved = false
+		check(reserved and producer.cycle_reserved, "Input transaction is reserved exactly once for %d" % building_id)
+		EconomyManager._process_producers(recipe.cycle_seconds)
+		check(producer.stored_resources.get(recipe.output_resource_id, 0) == 1, "Original per-worker cycle produces material for %d" % building_id)
+		EconomyManager._process_haulers(1)
+		check(InventoryManager.amount(recipe.output_resource_id) == 1, "Hauler delivers material for %d" % building_id)
+		for person in SaveManager.current_save.villagers:
+			if person.assigned_building_instance_id == producer.instance_id: WorkerManager.unassign(person.villager_id)
+		SaveManager.current_save.town_layouts.Vanilla.starting_objects.erase(producer)
+	EconomyManager._restore_assignments()
+	# Original shop recipes are real paid jobs, not decorative buildings.
+	for building_id in [32, 38]:
+		var shop := BuildingInstance.new()
+		shop.instance_id = "shop_%d" % building_id
+		shop.def_id = building_id
+		shop.x = 1
+		shop.y = 8
+		SaveManager.current_save.town_layouts.Vanilla.starting_objects.append(shop)
+		var recipe = EconomyManager.recipe_for(shop)
+		for input in recipe.input_cost: SaveManager.current_save.inventory.resource_amounts[input] = 10000
+		check(WorkerManager.assign_worker(shop), "Shop %d has a functioning worker slot" % building_id)
+		for person in SaveManager.current_save.villagers:
+			if person.assigned_building_instance_id == shop.instance_id: person.activity = "working"
+		EconomyManager._process_producers(0.01)
+		var before_gold: float = InventoryManager.amount(1)
+		var before_xp: float = SaveManager.current_save.player_state.xp_total
+		if building_id == 32:
+			check(HistoricalGameplay.choose_recipe(shop, 12).begins_with("Recipe queued"), "Recipe selection queues rather than discarding a paid job")
+			check(shop.cycle_reserved and shop.queued_recipe_id == 12 and EconomyManager.recipe_for(shop).id == 10, "Queued selection preserves original reservation and active recipe")
+		EconomyManager._process_producers(recipe.cycle_seconds)
+		check(InventoryManager.amount(1) == before_gold + recipe.reward.get(1, 0) and SaveManager.current_save.player_state.xp_total == before_xp + recipe.reward_xp, "Shop %d pays its exact original Gold and XP" % building_id)
+		if building_id == 32: check(shop.active_recipe_id == 12 and shop.queued_recipe_id == -1, "Queued recipe activates only after original completion")
+		for person in SaveManager.current_save.villagers:
+			if person.assigned_building_instance_id == shop.instance_id: WorkerManager.unassign(person.villager_id)
+		SaveManager.current_save.town_layouts.Vanilla.starting_objects.erase(shop)
+	EconomyManager._restore_assignments()
+	var warehouse := BuildingInstance.new()
+	warehouse.instance_id = "stockpile"
+	warehouse.def_id = 25
+	SaveManager.current_save.town_layouts.Vanilla.starting_objects.append(warehouse)
+	InventoryManager.recalculate_capacity()
+	check(InventoryManager.capacity(11) >= 1500, "Original Stockpile raises material storage")
+	SaveManager.current_save.inventory.resource_amounts[1] = 10000
+	SaveManager.current_save.inventory.resource_amounts[11] = 1000
+	# Fixtures include Tower, so a Large Stockpile's historic prerequisite is present.
+	check(HistoricalGameplay.begin_upgrade(warehouse, 26).begins_with("Upgrade started"), "Stockpile can upgrade to recovered Large Stockpile")
+	EconomyManager._update_construction(31)
+	check(warehouse.def_id == 26 and InventoryManager.capacity(11) >= 4000, "Large Stockpile makes later original construction costs attainable")
 	SaveManager.delete_slot(974)
 	print("[HistoricalTests] %d failure(s)" % failures)
 	get_tree().quit(1 if failures else 0)

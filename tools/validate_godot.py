@@ -36,7 +36,7 @@ def main():
     with tempfile.TemporaryDirectory(prefix="trade-nations-checks-", ignore_cleanup_errors=True) as temporary:
         profile = Path(temporary)
         run(args.godot, "import", ["--headless", "--editor", "--import", "--quit"], profile)
-        scenes = {"foundation": "TestRunner", "restoration": "RestorationTests", "interaction": "InteractionTests", "playable": "PlayableTests", "scale": "ScaleTests", "layout": "LayoutTests", "mobile": "MobileTests", "classic": "ClassicTests"}
+        scenes = {"foundation": "TestRunner", "restoration": "RestorationTests", "interaction": "InteractionTests", "playable": "PlayableTests", "scale": "ScaleTests", "layout": "LayoutTests", "mobile": "MobileTests", "classic": "ClassicTests", "historical": "HistoricalTests"}
         for name, scene in scenes.items():
             run(args.godot, name, ["--headless", f"res://tests/{scene}.tscn"], profile)
         run(args.godot, "startup", ["--headless", "--quit-after", "120"], profile)

@@ -59,3 +59,6 @@ enum RecipeKind { GATHER, CRAFT }
 # First-playable discrete cycles; zero retains imported continuous gathering.
 @export var cycle_seconds: float = 0.0
 @export var cycle_amount: float = 1.0
+
+@export var per_worker_rate := false
+@export var direct_reward := false

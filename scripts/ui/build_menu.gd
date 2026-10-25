@@ -3,13 +3,15 @@ extends Panel
 
 # A dynamically populated, categorized build menu.
 
+var _population_queued := false
+
 @onready var tab_container = $TabContainer
 
 func _ready():
     # Defer population to the next frame to ensure autoloads are ready.
-    call_deferred("populate_build_menu")
-    EventBus.level_up.connect(func(_level): call_deferred("populate_build_menu"))
-    SaveManager.save_activated.connect(func(): call_deferred("populate_build_menu"))
+    _request_population()
+    EventBus.level_up.connect(func(_level): _request_population())
+    SaveManager.save_activated.connect(func(): _request_population())
 
 # Fetches all building definitions from the DataManager, groups them by
 # category, and creates a tab with buttons for each category.
@@ -72,13 +74,13 @@ func populate_build_menu():
             
             # Create a TextureRect for the building icon
             var icon_rect = Control.new()
-            icon_rect.custom_minimum_size = Vector2(200, 90)
+            icon_rect.custom_minimum_size = Vector2(200, 70)
             icon_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
             if ResourceLoader.exists(building_def.icon_path):
                 var sprite = Sprite2D.new()
                 sprite.texture = load(building_def.icon_path)
                 var ground = BuildingVisuals.configure(sprite, building_def)
-                sprite.position += Vector2(100, 85) - ground
+                sprite.position += Vector2(100, 65) - ground
                 icon_rect.add_child(sprite)
             container.add_child(icon_rect)
 
@@ -88,7 +90,8 @@ func populate_build_menu():
             if not ProgressionManager.unlocked(building_def):
                 label.text += "\nLocked: Level %d" % building_def.playable_level
                 button.set_meta("locked", true)
-            label.text += "\n%d×%d tiles · %ds construction\n%d supported view(s)" % [building_def.width, building_def.height, building_def.build_time_seconds, BuildingVisuals.orientations(building_def).size()]
+            label.text += "\n%d×%d tiles · %ds construction" % [building_def.width, building_def.height, building_def.build_time_seconds]
+            if building_def.house_capacity > 0: label.text += "\n%d residents%s" % [building_def.house_capacity, " · one starter per town" if building_def.id == 10012 else ""]
             for entry in building_def.cost.entries:
                 var resource = DataManager.get_resource_definition(entry.resource_id)
                 if resource:
@@ -112,3 +115,12 @@ func _on_building_button_pressed(building_def):
         return
     EventBus.building_selected_for_placement.emit(building_def)
     self.hide()
+
+func _request_population() -> void:
+    if _population_queued: return
+    _population_queued = true
+    call_deferred("_populate_queued")
+
+func _populate_queued() -> void:
+    _population_queued = false
+    populate_build_menu()

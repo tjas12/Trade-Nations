@@ -9,6 +9,7 @@ extends Panel
 
 # Map resource IDs to their UI labels
 var _resource_labels: Dictionary = {}
+var material_labels: Dictionary = {}
 var rock_label: Label
 var population_label: Label
 var compact := false
@@ -33,6 +34,11 @@ func _ready() -> void:
 	rock_label = Label.new()
 	$HBoxContainer.add_child(rock_label)
 	_resource_labels[20] = rock_label
+	for id in [11, 21, 50, 51]:
+		var label := Label.new()
+		$HBoxContainer.add_child(label)
+		_resource_labels[id] = label
+		material_labels[id] = label
 	
 	call_deferred("_initialize_display")
 	
@@ -55,6 +61,7 @@ func _initialize_display() -> void:
 
 func _on_resource_changed(resource_id: int, new_amount: float) -> void:
 	_update_label(resource_id, new_amount)
+	_material_visibility()
 
 func _update_label(resource_id: int, amount: float) -> void:
 	if _resource_labels.has(resource_id):
@@ -64,7 +71,7 @@ func _update_label(resource_id: int, amount: float) -> void:
 			label.text = ("%s %d" if compact else "%s: %d") % [resource_def.display_name, floor(amount)]
 
 func _on_level_up(new_level: int) -> void:
-	rock_label.visible = new_level >= 2 or InventoryManager.amount(20) > 0
+	_material_visibility()
 	level_label.text = ("Lvl %d" if compact else "Level: %d") % new_level
 	# Also update XP label since the threshold changes
 	if SaveManager.current_save and SaveManager.current_save.player_state:
@@ -78,3 +85,9 @@ func _on_xp_changed(new_xp: float) -> void:
 
 func _on_population_changed(total: int, idle: int) -> void:
 	population_label.text = ("Pop %d/%d · Jobs %d · Free %d" if compact else "People: %d/%d · Jobs: %d · Free: %d") % [total, WorkerManager.housing_capacity(), total - idle, idle]
+
+func _material_visibility() -> void:
+	rock_label.visible = ProgressionManager.unlocked(DataManager.get_building_definition(9)) or InventoryManager.amount(20) > 0
+	var producers := {11: 15, 21: 17, 50: 36, 51: 23}
+	for id in material_labels:
+		material_labels[id].visible = ProgressionManager.unlocked(DataManager.get_building_definition(producers[id])) or InventoryManager.amount(id) > 0

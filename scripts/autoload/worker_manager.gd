@@ -71,7 +71,7 @@ func assign_worker(building_instance: BuildingInstance) -> bool:
 		print("[WorkerManager] Cannot assign worker to building without a gather recipe.")
 		return false
 		
-	var recipe = DataManager.get_production_recipe(building_def.gather_recipe_id)
+	var recipe = EconomyManager.recipe_for(building_instance)
 	if not recipe:
 		push_error("[WorkerManager] Could not find recipe with ID %d" % building_def.gather_recipe_id)
 		return false
@@ -111,7 +111,7 @@ func assign_hauler(building_instance: BuildingInstance) -> bool:
 		print("[WorkerManager] Cannot assign hauler to building without a gather recipe.")
 		return false
 		
-	var recipe = DataManager.get_production_recipe(building_def.gather_recipe_id)
+	var recipe = EconomyManager.recipe_for(building_instance)
 	if not recipe:
 		push_error("[WorkerManager] Could not find recipe with ID %d" % building_def.gather_recipe_id)
 		return false

@@ -24,6 +24,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 0.0, "20": 0.0, "40": 0.0, "50": 0.0, "11": 0.0, "21": 0.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["TOWNHALL", "TOWNHALL.png"] |
@@ -43,6 +44,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 0.0, "20": 0.0, "40": 0.0, "50": 0.0, "11": 0.0, "21": 0.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["TOWER", "TOWER.png"] |
@@ -62,6 +64,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 0.0, "20": 0.0, "40": 0.0, "50": 0.0, "11": 0.0, "21": 0.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["KEEP", "KEEP.png"] |
@@ -81,6 +84,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 0.0, "20": 0.0, "40": 0.0, "50": 0.0, "11": 0.0, "21": 0.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["FORT", "FORT.png"] |
@@ -100,6 +104,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 0.0, "20": 0.0, "40": 0.0, "50": 0.0, "11": 0.0, "21": 0.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["CASTLE_1", "Unmapped"] |
@@ -119,6 +124,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["FOREST", "Unmapped"] |
@@ -138,6 +144,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["MOUNTAIN", "Unmapped"] |
@@ -157,6 +164,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "1"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | {"input": {}, "output": 10, "stack": 150.0, "per_worker_hour": 50.0} |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["CAMP", "CAMP.png"] |
@@ -176,6 +184,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "1"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | {"input": {}, "output": 20, "stack": 150.0, "per_worker_hour": 20.0} |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["QUARRY", "QUARRY.png"] |
@@ -195,6 +204,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "1"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | {"input": {}, "output": 40, "stack": 150.0, "per_worker_hour": 25.0} |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["FARM", "res://assets/art/converted/FARM.png"] |
@@ -214,6 +224,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [1, 1] |
 | Tax interval, rewards and XP | {"seconds": 14400.0, "reward": {"1": 5.0}, "xp": 2.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["LITTLECOTTAGE", "LITTLECOTTAGE.png"] |
@@ -233,6 +244,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [3, 1] |
 | Tax interval, rewards and XP | {"seconds": 28800.0, "reward": {"1": 12.0}, "xp": 6.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["HOUSE", "HOUSE.png"] |
@@ -252,6 +264,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [4, 1] |
 | Tax interval, rewards and XP | {"seconds": 43200.0, "reward": {"1": 20.0}, "xp": 10.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["STONEHOUSE", "STONEHOUSE.png"] |
@@ -271,6 +284,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "2", "haulerMax": "2"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | {"input": {"10": 2.0}, "output": 11, "stack": 150.0, "per_worker_hour": 30.0} |
 | Shop recipes (Items.xml) | {"25": {"name": "200 Lumber", "seconds": 21600.0, "inputs": {"10": 400.0}, "rewards": {"11": 200.0}, "xp": 120.0, "level": 0, "prerequisites": []}} |
 | Art metadata / current mapping | ["LUMBERYARD", "LUMBERYARD.png"] |
@@ -290,6 +304,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "2", "haulerMax": "1"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | {"input": {"20": 2.0}, "output": 21, "stack": 150.0, "per_worker_hour": 15.0} |
 | Shop recipes (Items.xml) | {"26": {"name": "100 Cut Stone", "seconds": 21600.0, "inputs": {"20": 200.0}, "rewards": {"21": 100.0}, "xp": 140.0, "level": 0, "prerequisites": []}} |
 | Art metadata / current mapping | ["STONECUTTER", "STONECUTTER.png"] |
@@ -309,6 +324,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "2", "haulerMax": "2"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | {"input": {"50": 2.0}, "output": 51, "stack": 150.0, "per_worker_hour": 20.0} |
 | Shop recipes (Items.xml) | {"27": {"name": "150 Cloth", "seconds": 21600.0, "inputs": {"50": 300.0}, "rewards": {"51": 150.0}, "xp": 170.0, "level": 0, "prerequisites": []}} |
 | Art metadata / current mapping | ["LOOM", "LOOM.png"] |
@@ -328,6 +344,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 1000.0, "20": 1000.0, "40": 1000.0, "50": 1000.0, "11": 1000.0, "21": 1000.0, "51": 1000.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["STOCKPILEUNDER", "STOCKPILE.png"] |
@@ -347,6 +364,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 3500.0, "20": 3500.0, "40": 3500.0, "50": 3500.0, "11": 3500.0, "21": 3500.0, "51": 3500.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["LARGESTOCKPILEUNDER", "LARGESTOCKPILE.png"] |
@@ -366,6 +384,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["MARKET", "MARKET.png"] |
@@ -385,6 +404,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"135": "not a shop recipe", "128": "not a shop recipe", "136": "not a shop recipe", "129": "not a shop recipe", "137": "not a shop recipe", "130": "not a shop recipe", "138": "not a shop recipe", "131": "not a shop recipe", "139": "not a shop recipe", "132": "not a shop recipe", "140": "not a shop recipe", "133": "not a shop recipe", "141": "not a shop recipe", "134": "not a shop recipe"} |
 | Art metadata / current mapping | ["WIZARDTOWER", "WIZARDTOWER.png"] |
@@ -404,6 +424,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"20": {"name": "Bird Bath", "seconds": 900.0, "inputs": {"21": 5.0}, "rewards": {"1": 60.0}, "xp": 50.0, "level": 14, "prerequisites": [{"type": "level", "value": "14"}]}, "23": {"name": "Lawn Gnome", "seconds": 10800.0, "inputs": {"21": 55.0}, "rewards": {"1": 300.0}, "xp": 400.0, "level": 15, "prerequisites": [{"type": "level", "value": "15"}]}, "22": {"name": "Bust", "seconds": 43200.0, "inputs": {"21": 70.0}, "rewards": {"1": 500.0}, "xp": 500.0, "level": 17, "prerequisites": [{"type": "level", "value": "17"}]}, "24": {"name": "Lion Statue", "seconds": 54000.0, "inputs": {"21": 80.0}, "rewards": {"1": 650.0}, "xp": 550.0, "level": 19, "prerequisites": [{"type": "level", "value": "19"}]}, "21": {"name": "Worker Statue", "seconds": 86400.0, "inputs": {"21": 125.0}, "rewards": {"1": 900.0}, "xp": 760.0, "level": 14, "prerequisites": [{"type": "level", "value": "14"}]}} |
 | Art metadata / current mapping | ["SCULPTURESHALL", "SCULPTURESHALL.png"] |
@@ -423,6 +444,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"10": {"name": "Table", "seconds": 300.0, "inputs": {"10": 6.0}, "rewards": {"1": 40.0}, "xp": 20.0, "level": 6, "prerequisites": [{"type": "level", "value": "6"}]}, "32": {"name": "Nutcracker", "seconds": 600.0, "inputs": {"11": 5.0}, "rewards": {"1": 50.0}, "xp": 30.0, "level": 14, "prerequisites": [{"type": "level", "value": "14"}]}, "12": {"name": "Bird House", "seconds": 7200.0, "inputs": {"11": 25.0}, "rewards": {"1": 150.0}, "xp": 95.0, "level": 7, "prerequisites": [{"type": "level", "value": "7"}]}, "14": {"name": "Bed", "seconds": 14400.0, "inputs": {"11": 75.0}, "rewards": {"1": 300.0}, "xp": 200.0, "level": 11, "prerequisites": [{"type": "level", "value": "11"}]}, "13": {"name": "Chairs", "seconds": 28800.0, "inputs": {"11": 110.0}, "rewards": {"1": 400.0}, "xp": 250.0, "level": 9, "prerequisites": [{"type": "level", "value": "9"}]}, "11": {"name": "Bench", "seconds": 43200.0, "inputs": {"11": 140.0}, "rewards": {"1": 500.0}, "xp": 425.0, "level": 6, "prerequisites": [{"type": "level", "value": "6"}]}} |
 | Art metadata / current mapping | ["CARVERSHALL", "CARVERSHALL.png"] |
@@ -442,6 +464,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"31": {"name": "Stocking", "seconds": 600.0, "inputs": {"50": 5.0}, "rewards": {"1": 50.0}, "xp": 35.0, "level": 10, "prerequisites": [{"type": "level", "value": "10"}]}, "50": {"name": "Tunic", "seconds": 3600.0, "inputs": {"50": 20.0}, "rewards": {"1": 125.0}, "xp": 150.0, "level": 10, "prerequisites": [{"type": "level", "value": "10"}]}, "52": {"name": "Trousers", "seconds": 7200.0, "inputs": {"50": 160.0}, "rewards": {"1": 225.0}, "xp": 170.0, "level": 13, "prerequisites": [{"type": "level", "value": "13"}]}, "51": {"name": "Coat", "seconds": 21600.0, "inputs": {"50": 225.0}, "rewards": {"1": 275.0}, "xp": 350.0, "level": 10, "prerequisites": [{"type": "level", "value": "10"}]}, "53": {"name": "Fancy Suit", "seconds": 57600.0, "inputs": {"51": 150.0}, "rewards": {"1": 850.0}, "xp": 500.0, "level": 15, "prerequisites": [{"type": "level", "value": "15"}]}, "54": {"name": "Fancy Dress", "seconds": 86400.0, "inputs": {"51": 240.0}, "rewards": {"1": 650.0}, "xp": 1000.0, "level": 17, "prerequisites": [{"type": "level", "value": "17"}]}} |
 | Art metadata / current mapping | ["TAILORSSHOP", "TAILORSSHOP.png"] |
@@ -461,6 +484,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"40": {"name": "Cookies", "seconds": 45.0, "inputs": {"40": 1.0}, "rewards": {"1": 10.0}, "xp": 5.0, "level": 1, "prerequisites": [{"type": "level", "value": "1"}]}, "41": {"name": "Tarts", "seconds": 300.0, "inputs": {"40": 4.0}, "rewards": {"1": 25.0}, "xp": 15.0, "level": 1, "prerequisites": [{"type": "level", "value": "1"}]}, "33": {"name": "Gingerbread Man", "seconds": 600.0, "inputs": {"40": 5.0}, "rewards": {"1": 45.0}, "xp": 25.0, "level": 3, "prerequisites": [{"type": "level", "value": "3"}]}, "42": {"name": "Donuts", "seconds": 3600.0, "inputs": {"40": 30.0}, "rewards": {"1": 110.0}, "xp": 60.0, "level": 3, "prerequisites": [{"type": "level", "value": "3"}]}, "44": {"name": "Cupcakes", "seconds": 14400.0, "inputs": {"40": 200.0}, "rewards": {"1": 200.0}, "xp": 200.0, "level": 4, "prerequisites": [{"type": "level", "value": "4"}]}, "43": {"name": "Eclair", "seconds": 43200.0, "inputs": {"40": 350.0}, "rewards": {"1": 480.0}, "xp": 350.0, "level": 3, "prerequisites": [{"type": "level", "value": "3"}]}, "45": {"name": "Cake", "seconds": 86400.0, "inputs": {"40": 600.0}, "rewards": {"1": 750.0}, "xp": 650.0, "level": 5, "prerequisites": [{"type": "level", "value": "5"}]}} |
 | Art metadata / current mapping | ["BAKERSSHOP", "BAKERSSHOP.png"] |
@@ -480,6 +504,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "1"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | {"input": {}, "output": 50, "stack": 150.0, "per_worker_hour": 30.0} |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["PEN", "PEN.png"] |
@@ -499,6 +524,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [2, 1] |
 | Tax interval, rewards and XP | {"seconds": 21600.0, "reward": {"1": 8.0}, "xp": 4.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["COTTAGE", "COTTAGE.png"] |
@@ -518,6 +544,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"16": {"name": "Grog", "seconds": 600.0, "inputs": {"40": 30.0}, "rewards": {"1": 40.0}, "xp": 40.0, "level": 16, "prerequisites": [{"type": "level", "value": "16"}]}, "19": {"name": "Ale", "seconds": 7200.0, "inputs": {"40": 100.0}, "rewards": {"1": 200.0}, "xp": 225.0, "level": 18, "prerequisites": [{"type": "level", "value": "18"}]}, "18": {"name": "Mead", "seconds": 14400.0, "inputs": {"40": 150.0}, "rewards": {"1": 350.0}, "xp": 375.0, "level": 20, "prerequisites": [{"type": "level", "value": "20"}]}, "30": {"name": "Malt", "seconds": 43200.0, "inputs": {"40": 300.0}, "rewards": {"1": 485.0}, "xp": 400.0, "level": 22, "prerequisites": [{"type": "level", "value": "22"}]}, "17": {"name": "Lager", "seconds": 86400.0, "inputs": {"40": 650.0}, "rewards": {"1": 900.0}, "xp": 850.0, "level": 24, "prerequisites": [{"type": "level", "value": "24"}]}} |
 | Art metadata / current mapping | ["PUBSHOP", "PUBSHOP.png"] |
@@ -537,6 +564,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["POPLAR", "POPLAR.png"] |
@@ -556,6 +584,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["SPRUCE", "SPRUCE.png"] |
@@ -575,6 +604,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BIRCH", "BIRCH.png"] |
@@ -594,6 +624,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["MAPLE", "MAPLE.png"] |
@@ -613,6 +644,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["OAK", "OAK.png"] |
@@ -632,6 +664,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["DAISIES", "DAISIES.png"] |
@@ -651,6 +684,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["TULIPS", "TULIPS.png"] |
@@ -670,6 +704,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BUTTERCUPS", "BUTTERCUPS.png"] |
@@ -689,6 +724,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["PANSIES", "PANSIES.png"] |
@@ -708,6 +744,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["LUPINS", "LUPINS.png"] |
@@ -727,6 +764,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["CHRISTMASTREE", "CHRISTMASTREE.png"] |
@@ -746,6 +784,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["DOGHOUSE", "PRESENT.png"] |
@@ -765,6 +804,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["TENTYELLOW", "TENTYELLOW.png"] |
@@ -784,6 +824,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["TENTRED", "TENTRED.png"] |
@@ -803,6 +844,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["TENTBLUE", "TENTBLUE.png"] |
@@ -822,6 +864,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["LOGS", "LOGS.png"] |
@@ -841,6 +884,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["STUMP", "STUMP.png"] |
@@ -860,6 +904,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["TOADSTOOLS", "TOADSTOOLS.png"] |
@@ -879,6 +924,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["CRATES", "CRATES.png"] |
@@ -898,6 +944,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["FENCEWOOD", "FENCEWOOD.png"] |
@@ -917,6 +964,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["FENCESTONE", "FENCESTONE.png"] |
@@ -936,6 +984,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["FENCESTONEMOSS", "Unmapped"] |
@@ -955,6 +1004,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["POTPANSIES", "POTPANSIES.png"] |
@@ -974,6 +1024,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["POTDAISIES", "POTDAISIES.png"] |
@@ -993,6 +1044,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["POTRED", "POTRED.png"] |
@@ -1012,6 +1064,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["POTBLUE", "POTBLUE.png"] |
@@ -1031,6 +1084,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BARREL", "BARREL.png"] |
@@ -1050,6 +1104,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["YELLOWPOT", "Unmapped"] |
@@ -1069,6 +1124,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["POTLUPINS", "POTLUPINS.png"] |
@@ -1088,6 +1144,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["POTORANGE", "POTORANGE.png"] |
@@ -1107,6 +1164,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["SHEEP", "SHEEP.png"] |
@@ -1126,6 +1184,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["ROADSTRAIGHT", "ROADSTRAIGHT.png"] |
@@ -1145,6 +1204,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["ROADTURNDOWN", "ROADTURNDOWN.png"] |
@@ -1164,6 +1224,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["ROADTURNUP", "ROADTURNUP.png"] |
@@ -1183,6 +1244,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["ROADTURNLEFT", "ROADTURNLEFT.png"] |
@@ -1202,6 +1264,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["ROADTURNRIGHT", "ROADTURNRIGHT.png"] |
@@ -1221,6 +1284,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [1, 1] |
 | Tax interval, rewards and XP | {"seconds": 14400.0, "reward": {"1": 5.0}, "xp": 2.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["LITTLECOTTAGE1", "LITTLECOTTAGE1.png"] |
@@ -1240,6 +1304,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [1, 1] |
 | Tax interval, rewards and XP | {"seconds": 14400.0, "reward": {"1": 5.0}, "xp": 2.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["LITTLECOTTAGE2", "LITTLECOTTAGE2.png"] |
@@ -1259,6 +1324,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [2, 1] |
 | Tax interval, rewards and XP | {"seconds": 21600.0, "reward": {"1": 8.0}, "xp": 4.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["COTTAGE1", "COTTAGE1.png"] |
@@ -1278,6 +1344,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [2, 1] |
 | Tax interval, rewards and XP | {"seconds": 21600.0, "reward": {"1": 8.0}, "xp": 4.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["COTTAGE2", "COTTAGE2.png"] |
@@ -1297,6 +1364,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [3, 1] |
 | Tax interval, rewards and XP | {"seconds": 28800.0, "reward": {"1": 12.0}, "xp": 6.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["HOUSE1", "HOUSE1.png"] |
@@ -1316,6 +1384,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [3, 1] |
 | Tax interval, rewards and XP | {"seconds": 28800.0, "reward": {"1": 12.0}, "xp": 6.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["HOUSE2", "HOUSE2.png"] |
@@ -1335,6 +1404,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["LIONSTATUE", "LIONSTATUE.png"] |
@@ -1354,6 +1424,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["LARGESTATUE", "LARGESTATUE.png"] |
@@ -1373,6 +1444,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BIRDBATH", "BIRDBATH.png"] |
@@ -1392,6 +1464,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["LAWNSTATUE", "LAWNSTATUE.png"] |
@@ -1411,6 +1484,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["POND", "POND.png"] |
@@ -1430,6 +1504,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["ROUNDABOUT", "ROUNDABOUT.png"] |
@@ -1449,6 +1524,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["FOUNTAIN", "FOUNTAIN.png"] |
@@ -1468,6 +1544,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BENCH", "BENCH.png"] |
@@ -1487,6 +1564,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BIRDHOUSEBLUE", "BIRDHOUSEBLUE.png"] |
@@ -1506,6 +1584,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BIRDHOUSEPINK", "BIRDHOUSEPINK.png"] |
@@ -1525,6 +1604,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BIRDHOUSEYELLOW", "BIRDHOUSEYELLOW.png"] |
@@ -1544,6 +1624,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BIRDHOUSEWHITE", "BIRDHOUSEWHITE.png"] |
@@ -1563,6 +1644,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | {"seconds": 3600.0, "reward": {"1": 275.0}, "xp": 300.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["TRAMPOLINEIDLE", "TRAMPOLINE.png"] |
@@ -1582,6 +1664,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [4, 1] |
 | Tax interval, rewards and XP | {"seconds": 43200.0, "reward": {"1": 20.0}, "xp": 10.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["STONEHOUSE1", "STONEHOUSE1.png"] |
@@ -1601,6 +1684,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [4, 1] |
 | Tax interval, rewards and XP | {"seconds": 43200.0, "reward": {"1": 20.0}, "xp": 10.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["STONEHOUSE2", "STONEHOUSE2.png"] |
@@ -1620,6 +1704,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["CART", "CART.png"] |
@@ -1639,6 +1724,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["PUMPKINCART", "PUMPKINCART.png"] |
@@ -1658,6 +1744,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["SCARECROW", "SCARECROW.png"] |
@@ -1677,6 +1764,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["JACKOLANTERN", "JACKOLANTERN.png"] |
@@ -1696,6 +1784,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 20000.0, "20": 20000.0, "40": 20000.0, "50": 20000.0, "11": 20000.0, "21": 20000.0, "51": 20000.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["WAREHOUSE", "WAREHOUSE.png"] |
@@ -1715,6 +1804,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["WINDMILL", "WINDMILL.png"] |
@@ -1734,6 +1824,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"34": {"name": "Beanonomics", "seconds": 600.0, "inputs": {"10": 30.0, "51": 5.0}, "rewards": {"1": 75.0}, "xp": 50.0, "level": 22, "prerequisites": [{"type": "level", "value": "22"}]}, "35": {"name": "Of Sheep and Haulers", "seconds": 7200.0, "inputs": {"10": 100.0, "51": 6.0}, "rewards": {"1": 250.0}, "xp": 250.0, "level": 23, "prerequisites": [{"type": "level", "value": "23"}]}, "36": {"name": "Villager's Travels", "seconds": 14400.0, "inputs": {"10": 125.0, "51": 7.0}, "rewards": {"1": 325.0}, "xp": 325.0, "level": 25, "prerequisites": [{"type": "level", "value": "25"}]}, "37": {"name": "The Lord of the Donuts", "seconds": 28800.0, "inputs": {"10": 300.0, "51": 15.0}, "rewards": {"1": 485.0}, "xp": 375.0, "level": 27, "prerequisites": [{"type": "level", "value": "27"}]}, "38": {"name": "Playing the Market", "seconds": 86400.0, "inputs": {"10": 400.0, "51": 25.0}, "rewards": {"1": 750.0}, "xp": 1100.0, "level": 29, "prerequisites": [{"type": "level", "value": "29"}]}} |
 | Art metadata / current mapping | ["BOOKSHOP", "BOOKSHOP.png"] |
@@ -1753,6 +1844,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"65": {"name": "Firebreather", "seconds": 3600.0, "inputs": {"1": 100.0}, "rewards": {}, "xp": 500.0, "level": 30, "prerequisites": [{"type": "level", "value": "30"}]}, "66": {"name": "Clown", "seconds": 10800.0, "inputs": {"1": 350.0}, "rewards": {}, "xp": 1050.0, "level": 32, "prerequisites": [{"type": "level", "value": "32"}]}, "67": {"name": "Juggler", "seconds": 28800.0, "inputs": {"1": 900.0}, "rewards": {}, "xp": 2250.0, "level": 34, "prerequisites": [{"type": "level", "value": "34"}]}, "68": {"name": "Trapeze", "seconds": 86400.0, "inputs": {"1": 1500.0}, "rewards": {}, "xp": 3500.0, "level": 35, "prerequisites": [{"type": "level", "value": "35"}]}} |
 | Art metadata / current mapping | ["CARNIVAL_EMPTY", "Unmapped"] |
@@ -1772,6 +1864,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"60": {"name": "One Act", "seconds": 3600.0, "inputs": {"1": 175.0}, "rewards": {}, "xp": 600.0, "level": 26, "prerequisites": [{"type": "level", "value": "26"}]}, "61": {"name": "Fiddler on the Woof", "seconds": 7200.0, "inputs": {"1": 225.0}, "rewards": {}, "xp": 675.0, "level": 28, "prerequisites": [{"type": "level", "value": "28"}]}, "62": {"name": "Twelfth Evening", "seconds": 18000.0, "inputs": {"1": 450.0}, "rewards": {}, "xp": 1300.0, "level": 30, "prerequisites": [{"type": "level", "value": "30"}]}, "63": {"name": "The Merchant of Nations", "seconds": 36000.0, "inputs": {"1": 900.0}, "rewards": {}, "xp": 2300.0, "level": 31, "prerequisites": [{"type": "level", "value": "31"}]}, "64": {"name": "King Mayor", "seconds": 72000.0, "inputs": {"1": 1250.0}, "rewards": {}, "xp": 3000.0, "level": 33, "prerequisites": [{"type": "level", "value": "33"}]}} |
 | Art metadata / current mapping | ["THEATER_EMPTY", "THEATER.png"] |
@@ -1791,6 +1884,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | {"seconds": 3600.0, "reward": {"1": 225.0}, "xp": 275.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["JUGGLERSTAND", "JUGGLER.png"] |
@@ -1810,6 +1904,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | {"seconds": 3600.0, "reward": {"1": 250.0}, "xp": 300.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["FIREBREATHERSTAND", "FIREBREATHER.png"] |
@@ -1829,6 +1924,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["SIDE_TENT_1", "Unmapped"] |
@@ -1848,6 +1944,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["SIDE_TENT_2", "Unmapped"] |
@@ -1867,6 +1964,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["CARNIVALWAGON", "GYPSYWAGON.png"] |
@@ -1886,6 +1984,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["CAMPFIRE", "CAMPFIRE.png"] |
@@ -1905,6 +2004,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BRICKROAD_STRAIGHT", "BRICKROAD_STRAIGHT.png"] |
@@ -1924,6 +2024,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BRICKROAD_RIGHT", "BRICKROAD_RIGHT.png"] |
@@ -1943,6 +2044,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BRICKROAD_LEFT", "BRICKROAD_LEFT.png"] |
@@ -1962,6 +2064,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BRICKROAD_DOWN", "BRICKROAD_DOWN.png"] |
@@ -1981,6 +2084,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BRICKROAD_UP", "BRICKROAD_UP.png"] |
@@ -2000,6 +2104,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | {"seconds": 3600.0, "reward": {"1": 300.0}, "xp": 275.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["POND_IDLE", "Unmapped"] |
@@ -2019,6 +2124,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["DOGWOOD", "Unmapped"] |
@@ -2038,6 +2144,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["COMPHOR", "Unmapped"] |
@@ -2057,6 +2164,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["CYPRESS", "Unmapped"] |
@@ -2076,6 +2184,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["OLIVE", "Unmapped"] |
@@ -2095,6 +2204,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["WILLOW", "Unmapped"] |
@@ -2114,6 +2224,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["SYCAMORE", "Unmapped"] |
@@ -2133,6 +2244,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BLUEBELLS_FENCE", "Unmapped"] |
@@ -2152,6 +2264,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["LILACS_FENCE", "Unmapped"] |
@@ -2171,6 +2284,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["LILIES_FENCE", "Unmapped"] |
@@ -2190,6 +2304,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["MERRIGOLD_FENCE", "Unmapped"] |
@@ -2209,6 +2324,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["ROSES_FENCE", "Unmapped"] |
@@ -2228,6 +2344,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["SUNFLOWERS_FENCE", "Unmapped"] |
@@ -2247,6 +2364,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"69": {"name": "Lilies", "seconds": 45.0, "inputs": {"1": 1.0}, "rewards": {"1": 10.0}, "xp": 5.0, "level": 1, "prerequisites": [{"type": "level", "value": "1"}]}, "70": {"name": "Marigolds", "seconds": 300.0, "inputs": {"1": 2.0}, "rewards": {"1": 25.0}, "xp": 15.0, "level": 1, "prerequisites": [{"type": "level", "value": "1"}]}, "71": {"name": "Sunflowers", "seconds": 3600.0, "inputs": {"1": 18.0}, "rewards": {"1": 110.0}, "xp": 60.0, "level": 3, "prerequisites": [{"type": "level", "value": "3"}]}, "72": {"name": "Lilacs", "seconds": 43200.0, "inputs": {"1": 210.0}, "rewards": {"1": 480.0}, "xp": 350.0, "level": 3, "prerequisites": [{"type": "level", "value": "3"}]}, "73": {"name": "Roses", "seconds": 86400.0, "inputs": {"1": 360.0}, "rewards": {"1": 750.0}, "xp": 650.0, "level": 5, "prerequisites": [{"type": "level", "value": "5"}]}} |
 | Art metadata / current mapping | ["FLOWERSHOP", "FLOWERSHOP.png"] |
@@ -2266,6 +2384,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["STATUE_VDAY", "Unmapped"] |
@@ -2285,6 +2404,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["LAMPPOST_OTA", "Unmapped"] |
@@ -2304,6 +2424,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["COWMOO", "Unmapped"] |
@@ -2323,6 +2444,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["HAY", "Unmapped"] |
@@ -2342,6 +2464,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["DOGHOUSE_2", "Unmapped"] |
@@ -2361,6 +2484,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BUSH3", "Unmapped"] |
@@ -2380,6 +2504,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BUSH2", "Unmapped"] |
@@ -2399,6 +2524,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BUSH1", "Unmapped"] |
@@ -2418,6 +2544,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["BUSH4", "Unmapped"] |
@@ -2437,6 +2564,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "40": 6000.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["SILO", "Unmapped"] |
@@ -2456,6 +2584,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"75": {"name": "Glass of Milk", "seconds": 900.0, "inputs": {"40": 210.0}, "rewards": {"1": 150.0}, "xp": 35.0, "level": 34, "prerequisites": [{"type": "level", "value": "34"}]}, "74": {"name": "Swiss Cheese", "seconds": 10800.0, "inputs": {"40": 335.0}, "rewards": {"1": 475.0}, "xp": 280.0, "level": 36, "prerequisites": [{"type": "level", "value": "36"}]}, "77": {"name": "Chocolate Ice Cream", "seconds": 21600.0, "inputs": {"40": 500.0}, "rewards": {"1": 725.0}, "xp": 450.0, "level": 38, "prerequisites": [{"type": "level", "value": "38"}]}, "78": {"name": "Cheddar Cheese", "seconds": 43200.0, "inputs": {"40": 750.0}, "rewards": {"1": 900.0}, "xp": 500.0, "level": 39, "prerequisites": [{"type": "level", "value": "39"}]}, "76": {"name": "Rainbow Ice Cream", "seconds": 86400.0, "inputs": {"40": 1000.0}, "rewards": {"1": 1000.0}, "xp": 1200.0, "level": 40, "prerequisites": [{"type": "level", "value": "40"}]}} |
 | Art metadata / current mapping | ["CREAMERY_IDLE", "Unmapped"] |
@@ -2475,6 +2604,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | {"seconds": 3600.0, "reward": {"1": 75.0}, "xp": 50.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["FRUITSTAND", "Unmapped"] |
@@ -2494,6 +2624,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | {"seconds": 7200.0, "reward": {"1": 125.0}, "xp": 85.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["FISHSTAND", "Unmapped"] |
@@ -2513,6 +2644,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | {"seconds": 10800.0, "reward": {"1": 175.0}, "xp": 125.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["MEATSTAND", "Unmapped"] |
@@ -2532,6 +2664,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"79": {"name": "Blocks", "seconds": 79200.0, "inputs": {"10": 900.0}, "rewards": {"1": 975.0}, "xp": 925.0, "level": 24, "prerequisites": [{"type": "level", "value": "24"}]}, "80": {"name": "Ragdoll", "seconds": 50400.0, "inputs": {"50": 95.0, "51": 110.0}, "rewards": {"1": 700.0}, "xp": 910.0, "level": 25, "prerequisites": [{"type": "level", "value": "25"}]}, "81": {"name": "Toy Train", "seconds": 21600.0, "inputs": {"11": 180.0}, "rewards": {"1": 600.0}, "xp": 375.0, "level": 27, "prerequisites": [{"type": "level", "value": "27"}]}, "82": {"name": "Teddy Bear", "seconds": 7200.0, "inputs": {"50": 95.0, "51": 45.0}, "rewards": {"1": 250.0}, "xp": 350.0, "level": 29, "prerequisites": [{"type": "level", "value": "29"}]}, "83": {"name": "Pet Rock", "seconds": 900.0, "inputs": {"20": 125.0}, "rewards": {"1": 175.0}, "xp": 70.0, "level": 31, "prerequisites": [{"type": "level", "value": "31"}]}} |
 | Art metadata / current mapping | ["Toy_Shop_Idle", "Unmapped"] |
@@ -2551,6 +2684,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["MOSSYGATE", "Unmapped"] |
@@ -2570,6 +2704,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["WOODGATE", "Unmapped"] |
@@ -2589,6 +2724,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["STONEGATE", "Unmapped"] |
@@ -2608,6 +2744,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [6, 1] |
 | Tax interval, rewards and XP | {"seconds": 43200.0, "reward": {"1": 200.0}, "xp": 150.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["MAYORS_COTTAGE", "Unmapped"] |
@@ -2627,6 +2764,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [6, 1] |
 | Tax interval, rewards and XP | {"seconds": 43200.0, "reward": {"1": 200.0}, "xp": 150.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["MAYORS_VILLA", "Unmapped"] |
@@ -2646,6 +2784,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | {"seconds": 21600.0, "reward": {"1": 1250.0}, "xp": 1500.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["INN_IDLE", "Unmapped"] |
@@ -2665,6 +2804,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 0.0, "20": 0.0, "40": 0.0, "50": 0.0, "11": 0.0, "21": 0.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["CITADEL", "Unmapped"] |
@@ -2684,6 +2824,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["Cat", "Unmapped"] |
@@ -2703,6 +2844,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["Cat2", "Unmapped"] |
@@ -2722,6 +2864,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 100000.0, "20": 100000.0, "40": 100000.0, "50": 100000.0, "11": 100000.0, "21": 100000.0, "51": 100000.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["largewarehouse", "Unmapped"] |
@@ -2741,6 +2884,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["APPLETREE", "Unmapped"] |
@@ -2760,6 +2904,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["CherryTree", "Unmapped"] |
@@ -2779,6 +2924,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["topiary01_med", "Unmapped"] |
@@ -2798,6 +2944,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["topiary02_med", "Unmapped"] |
@@ -2817,6 +2964,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["topiary03_med", "Unmapped"] |
@@ -2836,6 +2984,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["waterfountain", "Unmapped"] |
@@ -2855,6 +3004,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["W_BrightSunfair", "TRAVELING_MERCHANT.png"] |
@@ -2874,6 +3024,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"84": {"name": "Fresh Fish", "seconds": 1800.0, "inputs": {"1": 60.0}, "rewards": {"1": 150.0}, "xp": 80.0, "level": 38, "prerequisites": [{"type": "level", "value": "38"}]}, "85": {"name": "Fried Egg", "seconds": 14400.0, "inputs": {"1": 100.0}, "rewards": {"1": 450.0}, "xp": 475.0, "level": 40, "prerequisites": [{"type": "level", "value": "40"}]}, "86": {"name": "Fruit Salad", "seconds": 28800.0, "inputs": {"1": 250.0}, "rewards": {"1": 625.0}, "xp": 600.0, "level": 42, "prerequisites": [{"type": "level", "value": "42"}]}, "87": {"name": "Pumpkin Pie", "seconds": 43200.0, "inputs": {"1": 400.0}, "rewards": {"1": 750.0}, "xp": 750.0, "level": 44, "prerequisites": [{"type": "level", "value": "44"}]}, "88": {"name": "T-Bone Steak", "seconds": 86400.0, "inputs": {"1": 700.0}, "rewards": {"1": 1250.0}, "xp": 1300.0, "level": 46, "prerequisites": [{"type": "level", "value": "46"}]}} |
 | Art metadata / current mapping | ["Restaurant_idle", "Unmapped"] |
@@ -2893,6 +3044,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"89": {"name": "Wooly Boots", "seconds": 3600.0, "inputs": {"50": 40.0}, "rewards": {"1": 175.0}, "xp": 200.0, "level": 32, "prerequisites": [{"type": "level", "value": "32"}]}, "90": {"name": "Clogs", "seconds": 7200.0, "inputs": {"10": 200.0}, "rewards": {"1": 300.0}, "xp": 275.0, "level": 33, "prerequisites": [{"type": "level", "value": "33"}]}, "91": {"name": "Moccasins", "seconds": 21600.0, "inputs": {"51": 40.0}, "rewards": {"1": 350.0}, "xp": 400.0, "level": 35, "prerequisites": [{"type": "level", "value": "35"}]}, "92": {"name": "Sandals", "seconds": 36000.0, "inputs": {"51": 100.0}, "rewards": {"1": 600.0}, "xp": 600.0, "level": 37, "prerequisites": [{"type": "level", "value": "37"}]}, "93": {"name": "Dress Shoes", "seconds": 86400.0, "inputs": {"1": 700.0}, "rewards": {"1": 1400.0}, "xp": 1150.0, "level": 39, "prerequisites": [{"type": "level", "value": "39"}]}} |
 | Art metadata / current mapping | ["Cobbler_idle", "Unmapped"] |
@@ -2912,6 +3064,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["Coop", "Unmapped"] |
@@ -2931,6 +3084,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"94": {"name": "Opal Pendant", "seconds": 14400.0, "inputs": {"20": 150.0}, "rewards": {"1": 475.0}, "xp": 450.0, "level": 41, "prerequisites": [{"type": "level", "value": "41"}]}, "95": {"name": "Ruby Necklace", "seconds": 18000.0, "inputs": {"20": 225.0}, "rewards": {"1": 500.0}, "xp": 550.0, "level": 43, "prerequisites": [{"type": "level", "value": "43"}]}, "96": {"name": "Emerald Ring", "seconds": 28800.0, "inputs": {"20": 525.0}, "rewards": {"1": 650.0}, "xp": 575.0, "level": 45, "prerequisites": [{"type": "level", "value": "45"}]}, "97": {"name": "Sapphire Earrings", "seconds": 43200.0, "inputs": {"20": 550.0}, "rewards": {"1": 900.0}, "xp": 700.0, "level": 47, "prerequisites": [{"type": "level", "value": "47"}]}, "98": {"name": "Diamond Tiara", "seconds": 86400.0, "inputs": {"20": 1250.0}, "rewards": {"1": 1625.0}, "xp": 1200.0, "level": 49, "prerequisites": [{"type": "level", "value": "49"}]}} |
 | Art metadata / current mapping | ["JewelersShop_idle", "Unmapped"] |
@@ -2950,6 +3104,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["sundial", "Unmapped"] |
@@ -2969,6 +3124,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["sundial_gold", "Unmapped"] |
@@ -2988,6 +3144,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["well", "Unmapped"] |
@@ -3007,6 +3164,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["rivertile_straight", "Unmapped"] |
@@ -3026,6 +3184,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["rivertile_turnleft", "Unmapped"] |
@@ -3045,6 +3204,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["rivertile_turnright", "Unmapped"] |
@@ -3064,6 +3224,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["rivertile_turndown", "Unmapped"] |
@@ -3083,6 +3244,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["rivertile_turnup", "Unmapped"] |
@@ -3102,6 +3264,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | {"seconds": 3600.0, "reward": {"1": 300.0}, "xp": 275.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["waterfall_idle", "Unmapped"] |
@@ -3121,6 +3284,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["rivertile_cap", "Unmapped"] |
@@ -3140,6 +3304,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["rivertile_bridge", "Unmapped"] |
@@ -3159,6 +3324,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["rivertile_capdown", "Unmapped"] |
@@ -3178,6 +3344,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | {"seconds": 3600.0, "reward": {"1": 400.0}, "xp": 350.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["taichi_idle", "Unmapped"] |
@@ -3197,6 +3364,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"109": {"name": "Black Tea", "seconds": 1800.0, "inputs": {"1": 100.0}, "rewards": {"1": 250.0}, "xp": 120.0, "level": 44, "prerequisites": [{"type": "level", "value": "44"}]}, "100": {"name": "Ginseng Tea", "seconds": 7200.0, "inputs": {"1": 120.0}, "rewards": {"1": 420.0}, "xp": 280.0, "level": 45, "prerequisites": [{"type": "level", "value": "45"}]}, "101": {"name": "Green Tea", "seconds": 14400.0, "inputs": {"1": 175.0}, "rewards": {"1": 625.0}, "xp": 485.0, "level": 46, "prerequisites": [{"type": "level", "value": "46"}]}, "102": {"name": "Jasmine Tea", "seconds": 28800.0, "inputs": {"1": 275.0}, "rewards": {"1": 700.0}, "xp": 560.0, "level": 48, "prerequisites": [{"type": "level", "value": "48"}]}, "103": {"name": "White Tea", "seconds": 86400.0, "inputs": {"1": 1150.0}, "rewards": {"1": 1700.0}, "xp": 1200.0, "level": 50, "prerequisites": [{"type": "level", "value": "50"}]}} |
 | Art metadata / current mapping | ["teashop_idle", "Unmapped"] |
@@ -3216,6 +3384,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"104": {"name": "Hamachi", "seconds": 600.0, "inputs": {"1": 100.0}, "rewards": {"1": 145.0}, "xp": 65.0, "level": 47, "prerequisites": [{"type": "level", "value": "47"}]}, "105": {"name": "Maguro", "seconds": 7200.0, "inputs": {"1": 150.0}, "rewards": {"1": 375.0}, "xp": 375.0, "level": 48, "prerequisites": [{"type": "level", "value": "48"}]}, "106": {"name": "Sake", "seconds": 14400.0, "inputs": {"1": 245.0}, "rewards": {"1": 575.0}, "xp": 650.0, "level": 49, "prerequisites": [{"type": "level", "value": "49"}]}, "107": {"name": "Tamago", "seconds": 28800.0, "inputs": {"1": 375.0}, "rewards": {"1": 625.0}, "xp": 675.0, "level": 51, "prerequisites": [{"type": "level", "value": "51"}]}, "108": {"name": "Uni", "seconds": 86400.0, "inputs": {"1": 975.0}, "rewards": {"1": 1325.0}, "xp": 1650.0, "level": 53, "prerequisites": [{"type": "level", "value": "53"}]}} |
 | Art metadata / current mapping | ["sushishop_idle", "Unmapped"] |
@@ -3235,6 +3404,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [4, 2] |
 | Tax interval, rewards and XP | {"seconds": 14400.0, "reward": {"1": 25.0}, "xp": 20.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["exotichouse", "Unmapped"] |
@@ -3254,6 +3424,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["koipond_active", "Unmapped"] |
@@ -3273,6 +3444,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["panda_active", "Unmapped"] |
@@ -3292,6 +3464,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["poochie_active", "Unmapped"] |
@@ -3311,6 +3484,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["horse_active", "Unmapped"] |
@@ -3330,6 +3504,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["dragon_active", "Unmapped"] |
@@ -3349,6 +3524,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["bamboo", "Unmapped"] |
@@ -3368,6 +3544,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["gate", "Unmapped"] |
@@ -3387,6 +3564,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["lantern_active", "Unmapped"] |
@@ -3406,6 +3584,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["zengarden", "Unmapped"] |
@@ -3425,6 +3604,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | {"seconds": 3600.0, "reward": {"1": 300.0}, "xp": 450.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["karate_idle", "Unmapped"] |
@@ -3444,6 +3624,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["food_trough", "Unmapped"] |
@@ -3463,6 +3644,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["water_trough", "Unmapped"] |
@@ -3482,6 +3664,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["panda_baby", "Unmapped"] |
@@ -3501,6 +3684,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["farm_fence", "Unmapped"] |
@@ -3520,6 +3704,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["outhouse_idle", "Unmapped"] |
@@ -3539,6 +3724,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["dragon_statue", "Unmapped"] |
@@ -3558,6 +3744,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["horse_pink_active", "Unmapped"] |
@@ -3577,6 +3764,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["horse_black_active", "PRIZE_HORSE.png"] |
@@ -3596,6 +3784,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"110": {"name": "Beginner Mining", "seconds": 300.0, "inputs": {"20": 5.0}, "rewards": {}, "xp": 45.0, "level": 8, "prerequisites": [{"type": "level", "value": "8"}]}, "111": {"name": "Advanced Hauling", "seconds": 600.0, "inputs": {"11": 15.0}, "rewards": {}, "xp": 80.0, "level": 9, "prerequisites": [{"type": "level", "value": "9"}]}, "112": {"name": "Trading for Profit", "seconds": 7200.0, "inputs": {"1": 120.0}, "rewards": {}, "xp": 400.0, "level": 11, "prerequisites": [{"type": "level", "value": "11"}]}, "113": {"name": "Baking with Beans", "seconds": 14400.0, "inputs": {"1": 260.0}, "rewards": {}, "xp": 625.0, "level": 13, "prerequisites": [{"type": "level", "value": "13"}]}, "114": {"name": "Juggling 101", "seconds": 43200.0, "inputs": {"1": 400.0}, "rewards": {}, "xp": 1150.0, "level": 16, "prerequisites": [{"type": "level", "value": "16"}]}} |
 | Art metadata / current mapping | ["schoolhouse_idle", "Unmapped"] |
@@ -3615,6 +3804,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["swingset", "Unmapped"] |
@@ -3634,6 +3824,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["kite_flying", "Unmapped"] |
@@ -3653,6 +3844,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["treehouse", "Unmapped"] |
@@ -3672,6 +3864,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["seesaw", "Unmapped"] |
@@ -3691,6 +3884,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["badminton", "Unmapped"] |
@@ -3710,6 +3904,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["gazebo", "Unmapped"] |
@@ -3729,6 +3924,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["poodle", "Unmapped"] |
@@ -3748,6 +3944,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["turtle", "Unmapped"] |
@@ -3767,6 +3964,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["lawntable", "Unmapped"] |
@@ -3786,6 +3984,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["witch", "Unmapped"] |
@@ -3805,6 +4004,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["brownbat", "Unmapped"] |
@@ -3824,6 +4024,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["blackbat", "Unmapped"] |
@@ -3843,6 +4044,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["mummy", "Unmapped"] |
@@ -3862,6 +4064,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["pumpkinjack", "Unmapped"] |
@@ -3881,6 +4084,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["ghost", "Unmapped"] |
@@ -3900,6 +4104,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["blackcat", "Unmapped"] |
@@ -3919,6 +4124,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["tombstone1", "Unmapped"] |
@@ -3938,6 +4144,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["tombstone3", "Unmapped"] |
@@ -3957,6 +4164,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["tombstone2", "Unmapped"] |
@@ -3976,6 +4184,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["pooltime", "Unmapped"] |
@@ -3995,6 +4204,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"117": {"name": "Bob", "seconds": 900.0, "inputs": {"1": 120.0}, "rewards": {"1": 180.0}, "xp": 80.0, "level": 45, "prerequisites": [{"type": "level", "value": "45"}]}, "118": {"name": "Pompadour", "seconds": 7200.0, "inputs": {"1": 135.0}, "rewards": {"1": 400.0}, "xp": 320.0, "level": 46, "prerequisites": [{"type": "level", "value": "46"}]}, "119": {"name": "Boufant", "seconds": 14400.0, "inputs": {"1": 210.0}, "rewards": {"1": 600.0}, "xp": 425.0, "level": 47, "prerequisites": [{"type": "level", "value": "47"}]}, "120": {"name": "Powdered Wig", "seconds": 28800.0, "inputs": {"1": 100.0, "50": 350.0}, "rewards": {"1": 670.0}, "xp": 600.0, "level": 49, "prerequisites": [{"type": "level", "value": "49"}]}, "121": {"name": "Marie Antoinette", "seconds": 86400.0, "inputs": {"1": 250.0, "50": 1230.0}, "rewards": {"1": 1520.0}, "xp": 1425.0, "level": 51, "prerequisites": [{"type": "level", "value": "51"}]}} |
 | Art metadata / current mapping | ["barbershop_idle", "Unmapped"] |
@@ -4014,6 +4224,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [5, 2] |
 | Tax interval, rewards and XP | {"seconds": 14400.0, "reward": {"1": 35.0}, "xp": 25.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["mansion", "Unmapped"] |
@@ -4033,6 +4244,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["turkey", "Unmapped"] |
@@ -4052,6 +4264,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["Zombie_dancer", "Unmapped"] |
@@ -4071,6 +4284,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["Zombie_lady", "Unmapped"] |
@@ -4090,6 +4304,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["Zombie_conehead", "Unmapped"] |
@@ -4109,6 +4324,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["Zombie_ScaredVillagerM", "Unmapped"] |
@@ -4128,6 +4344,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["Zombie_ScaredVillagerF", "Unmapped"] |
@@ -4147,6 +4364,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_HotAirBalloon", "HOT_AIR_BALLOON.png"] |
@@ -4166,6 +4384,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "1"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | {"input": {}, "output": 1, "stack": 150.0, "per_worker_hour": 50.0} |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_goldmine_inactive", "Unmapped"] |
@@ -4185,6 +4404,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 0.0, "20": 0.0, "40": 0.0, "50": 0.0, "11": 0.0, "21": 0.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_Fort1", "Unmapped"] |
@@ -4204,6 +4424,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 0.0, "20": 0.0, "40": 0.0, "50": 0.0, "11": 0.0, "21": 0.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_Fort2", "Unmapped"] |
@@ -4223,6 +4444,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 0.0, "20": 0.0, "40": 0.0, "50": 0.0, "11": 0.0, "21": 0.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_Fort3", "Unmapped"] |
@@ -4242,6 +4464,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["FallPond", "Unmapped"] |
@@ -4261,6 +4484,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [2, 1] |
 | Tax interval, rewards and XP | {"seconds": 28800.0, "reward": {"1": 12.0}, "xp": 6.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_house_cabin", "Unmapped"] |
@@ -4280,6 +4504,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [2, 2] |
 | Tax interval, rewards and XP | {"seconds": 28800.0, "reward": {"1": 12.0}, "xp": 6.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_house_aframe", "Unmapped"] |
@@ -4299,6 +4524,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"147": {"name": "Hot Cocoa", "seconds": 45.0, "inputs": {"1": 5.0}, "rewards": {"1": 12.0}, "xp": 6.0, "level": 20, "prerequisites": [{"type": "level", "value": "20"}]}, "148": {"name": "Sierra Royale", "seconds": 300.0, "inputs": {"40": 15.0, "10": 10.0}, "rewards": {"1": 50.0}, "xp": 30.0, "level": 20, "prerequisites": [{"type": "level", "value": "20"}]}, "149": {"name": "Latte", "seconds": 3600.0, "inputs": {"1": 20.0}, "rewards": {"1": 160.0}, "xp": 180.0, "level": 21, "prerequisites": [{"type": "level", "value": "21"}]}, "150": {"name": "Espresso", "seconds": 14400.0, "inputs": {"1": 95.0}, "rewards": {"1": 340.0}, "xp": 400.0, "level": 23, "prerequisites": [{"type": "level", "value": "23"}]}, "151": {"name": "Mountain Delight", "seconds": 28800.0, "inputs": {"40": 200.0, "11": 55.0}, "rewards": {"1": 475.0}, "xp": 450.0, "level": 25, "prerequisites": [{"type": "level", "value": "25"}]}} |
 | Art metadata / current mapping | ["F_hotdrinkshop_idle", "Unmapped"] |
@@ -4318,6 +4544,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"152": {"name": "Perfume", "seconds": 600.0, "inputs": {"1": 20.0}, "rewards": {"1": 60.0}, "xp": 55.0, "level": 25, "prerequisites": [{"type": "level", "value": "25"}]}, "153": {"name": "Spice Bag", "seconds": 3600.0, "inputs": {"1": 25.0, "50": 15.0}, "rewards": {"1": 180.0}, "xp": 190.0, "level": 25, "prerequisites": [{"type": "level", "value": "25"}]}, "154": {"name": "Mountain Potion", "seconds": 18000.0, "inputs": {"1": 100.0, "40": 45.0}, "rewards": {"1": 300.0}, "xp": 400.0, "level": 26, "prerequisites": [{"type": "level", "value": "26"}]}, "155": {"name": "Snake Oil", "seconds": 43200.0, "inputs": {"1": 210.0}, "rewards": {"1": 550.0}, "xp": 475.0, "level": 28, "prerequisites": [{"type": "level", "value": "28"}]}, "156": {"name": "Juju Remedy", "seconds": 86400.0, "inputs": {"1": 300.0, "51": 20.0}, "rewards": {"1": 875.0}, "xp": 825.0, "level": 30, "prerequisites": [{"type": "level", "value": "30"}]}} |
 | Art metadata / current mapping | ["F_apothecary_idle", "Unmapped"] |
@@ -4337,6 +4564,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"157": {"name": "Hammer", "seconds": 600.0, "inputs": {"1": 25.0, "10": 20.0}, "rewards": {"1": 80.0}, "xp": 60.0, "level": 31, "prerequisites": [{"type": "level", "value": "31"}]}, "158": {"name": "Horseshoe", "seconds": 7200.0, "inputs": {"1": 80.0}, "rewards": {"1": 270.0}, "xp": 315.0, "level": 31, "prerequisites": [{"type": "level", "value": "31"}]}, "159": {"name": "Wagon Axle", "seconds": 28800.0, "inputs": {"1": 50.0, "10": 300.0}, "rewards": {"1": 525.0}, "xp": 500.0, "level": 32, "prerequisites": [{"type": "level", "value": "32"}]}, "160": {"name": "Barrel Rings", "seconds": 43200.0, "inputs": {"1": 325.0}, "rewards": {"1": 725.0}, "xp": 490.0, "level": 34, "prerequisites": [{"type": "level", "value": "34"}]}, "161": {"name": "Wagon Wheel", "seconds": 86400.0, "inputs": {"1": 410.0, "11": 60.0}, "rewards": {"1": 1100.0}, "xp": 900.0, "level": 36, "prerequisites": [{"type": "level", "value": "36"}]}} |
 | Art metadata / current mapping | ["F_blacksmith_idle", "Unmapped"] |
@@ -4356,6 +4584,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_beaver", "Unmapped"] |
@@ -4375,6 +4604,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_honeybear", "Unmapped"] |
@@ -4394,6 +4624,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_ibex", "Unmapped"] |
@@ -4413,6 +4644,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_fence", "Unmapped"] |
@@ -4432,6 +4664,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_stbernard", "Unmapped"] |
@@ -4451,6 +4684,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_tree1", "Unmapped"] |
@@ -4470,6 +4704,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_tree2", "Unmapped"] |
@@ -4489,6 +4724,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_tree3", "Unmapped"] |
@@ -4508,6 +4744,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_tree4", "Unmapped"] |
@@ -4527,6 +4764,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_tree5", "Unmapped"] |
@@ -4546,6 +4784,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_treeorange", "Unmapped"] |
@@ -4565,6 +4804,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_treered", "Unmapped"] |
@@ -4584,6 +4824,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_treeyellow", "Unmapped"] |
@@ -4603,6 +4844,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_bush1", "Unmapped"] |
@@ -4622,6 +4864,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_bush2", "Unmapped"] |
@@ -4641,6 +4884,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_bush3", "Unmapped"] |
@@ -4660,6 +4904,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_bush4", "Unmapped"] |
@@ -4679,6 +4924,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_market", "Unmapped"] |
@@ -4698,6 +4944,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_bluespruce", "Unmapped"] |
@@ -4717,6 +4964,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["frosty", "Unmapped"] |
@@ -4736,6 +4984,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["F_frosty", "Unmapped"] |
@@ -4755,6 +5004,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 1500.0, "20": 1500.0, "40": 1500.0, "50": 1500.0, "11": 1500.0, "21": 1500.0, "51": 1500.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["STOCKPILEUNDER", "Unmapped"] |
@@ -4774,6 +5024,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 10000.0, "20": 10000.0, "40": 10000.0, "50": 10000.0, "11": 10000.0, "21": 10000.0, "51": 10000.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["LARGESTOCKPILEUNDER", "Unmapped"] |
@@ -4793,6 +5044,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 50000.0, "20": 50000.0, "40": 50000.0, "50": 50000.0, "11": 50000.0, "21": 50000.0, "51": 50000.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["WAREHOUSE", "WAREHOUSE.png"] |
@@ -4812,6 +5064,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | {"1": -1, "10": 250000.0, "20": 250000.0, "40": 250000.0, "50": 250000.0, "11": 250000.0, "21": 250000.0, "51": 250000.0} |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["largewarehouse", "Unmapped"] |
@@ -4831,6 +5084,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"34": {"name": "Beanonomics", "seconds": 600.0, "inputs": {"10": 30.0, "51": 5.0}, "rewards": {"1": 75.0}, "xp": 50.0, "level": 22, "prerequisites": [{"type": "level", "value": "22"}]}, "35": {"name": "Of Sheep and Haulers", "seconds": 7200.0, "inputs": {"10": 100.0, "51": 6.0}, "rewards": {"1": 250.0}, "xp": 250.0, "level": 23, "prerequisites": [{"type": "level", "value": "23"}]}, "36": {"name": "Villager's Travels", "seconds": 14400.0, "inputs": {"10": 125.0, "51": 7.0}, "rewards": {"1": 325.0}, "xp": 325.0, "level": 25, "prerequisites": [{"type": "level", "value": "25"}]}, "37": {"name": "The Lord of the Donuts", "seconds": 28800.0, "inputs": {"10": 300.0, "51": 15.0}, "rewards": {"1": 485.0}, "xp": 375.0, "level": 27, "prerequisites": [{"type": "level", "value": "27"}]}, "38": {"name": "Playing the Market", "seconds": 86400.0, "inputs": {"10": 400.0, "51": 25.0}, "rewards": {"1": 750.0}, "xp": 1100.0, "level": 29, "prerequisites": [{"type": "level", "value": "29"}]}} |
 | Art metadata / current mapping | ["BOOKSHOP", "BOOKSHOP.png"] |
@@ -4850,6 +5104,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"89": {"name": "Wooly Boots", "seconds": 3600.0, "inputs": {"50": 40.0}, "rewards": {"1": 175.0}, "xp": 200.0, "level": 32, "prerequisites": [{"type": "level", "value": "32"}]}, "90": {"name": "Clogs", "seconds": 7200.0, "inputs": {"10": 200.0}, "rewards": {"1": 300.0}, "xp": 275.0, "level": 33, "prerequisites": [{"type": "level", "value": "33"}]}, "91": {"name": "Moccasins", "seconds": 21600.0, "inputs": {"51": 40.0}, "rewards": {"1": 350.0}, "xp": 400.0, "level": 35, "prerequisites": [{"type": "level", "value": "35"}]}, "92": {"name": "Sandals", "seconds": 36000.0, "inputs": {"51": 100.0}, "rewards": {"1": 600.0}, "xp": 600.0, "level": 37, "prerequisites": [{"type": "level", "value": "37"}]}, "93": {"name": "Dress Shoes", "seconds": 86400.0, "inputs": {"1": 700.0}, "rewards": {"1": 1400.0}, "xp": 1150.0, "level": 39, "prerequisites": [{"type": "level", "value": "39"}]}} |
 | Art metadata / current mapping | ["Cobbler_idle", "Unmapped"] |
@@ -4869,6 +5124,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"75": {"name": "Glass of Milk", "seconds": 900.0, "inputs": {"40": 210.0}, "rewards": {"1": 150.0}, "xp": 35.0, "level": 34, "prerequisites": [{"type": "level", "value": "34"}]}, "74": {"name": "Swiss Cheese", "seconds": 10800.0, "inputs": {"40": 335.0}, "rewards": {"1": 475.0}, "xp": 280.0, "level": 36, "prerequisites": [{"type": "level", "value": "36"}]}, "77": {"name": "Chocolate Ice Cream", "seconds": 21600.0, "inputs": {"40": 500.0}, "rewards": {"1": 725.0}, "xp": 450.0, "level": 38, "prerequisites": [{"type": "level", "value": "38"}]}, "78": {"name": "Cheddar Cheese", "seconds": 43200.0, "inputs": {"40": 750.0}, "rewards": {"1": 900.0}, "xp": 500.0, "level": 39, "prerequisites": [{"type": "level", "value": "39"}]}, "76": {"name": "Rainbow Ice Cream", "seconds": 86400.0, "inputs": {"40": 1000.0}, "rewards": {"1": 1000.0}, "xp": 1200.0, "level": 40, "prerequisites": [{"type": "level", "value": "40"}]}} |
 | Art metadata / current mapping | ["CREAMERY_IDLE", "Unmapped"] |
@@ -4888,6 +5144,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | {"94": {"name": "Opal Pendant", "seconds": 14400.0, "inputs": {"20": 150.0}, "rewards": {"1": 475.0}, "xp": 450.0, "level": 41, "prerequisites": [{"type": "level", "value": "41"}]}, "95": {"name": "Ruby Necklace", "seconds": 18000.0, "inputs": {"20": 225.0}, "rewards": {"1": 500.0}, "xp": 550.0, "level": 43, "prerequisites": [{"type": "level", "value": "43"}]}, "96": {"name": "Emerald Ring", "seconds": 28800.0, "inputs": {"20": 525.0}, "rewards": {"1": 650.0}, "xp": 575.0, "level": 45, "prerequisites": [{"type": "level", "value": "45"}]}, "97": {"name": "Sapphire Earrings", "seconds": 43200.0, "inputs": {"20": 550.0}, "rewards": {"1": 900.0}, "xp": 700.0, "level": 47, "prerequisites": [{"type": "level", "value": "47"}]}, "98": {"name": "Diamond Tiara", "seconds": 86400.0, "inputs": {"20": 1250.0}, "rewards": {"1": 1625.0}, "xp": 1200.0, "level": 49, "prerequisites": [{"type": "level", "value": "49"}]}} |
 | Art metadata / current mapping | ["JewelersShop_idle", "Unmapped"] |
@@ -4907,6 +5164,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["LARGESTATUE", "LARGESTATUE.png"] |
@@ -4926,6 +5184,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["W_BrightSunfair", "Unmapped"] |
@@ -4945,6 +5204,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "1"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | {"input": {}, "output": 10, "stack": 150.0, "per_worker_hour": 50.0} |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["CAMP", "CAMP.png"] |
@@ -4964,6 +5224,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "1"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | {"input": {}, "output": 20, "stack": 150.0, "per_worker_hour": 20.0} |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["QUARRY", "QUARRY.png"] |
@@ -4983,6 +5244,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | {"seconds": 10800.0, "reward": {"1": 175.0}, "xp": 125.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["MEATSTAND", "Unmapped"] |
@@ -5002,6 +5264,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["bunny_white", "Unmapped"] |
@@ -5021,6 +5284,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["bunny_spotted", "Unmapped"] |
@@ -5040,6 +5304,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["bunny_pink", "Unmapped"] |
@@ -5059,6 +5324,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["bison", "Unmapped"] |
@@ -5078,6 +5344,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["moose", "Unmapped"] |
@@ -5097,6 +5364,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["skunk", "Unmapped"] |
@@ -5116,6 +5384,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | Not supplied / not applicable |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | Not supplied / not applicable |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["sheepdog", "Unmapped"] |
@@ -5135,6 +5404,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | {"seconds": 7200.0, "reward": {"1": 125.0}, "xp": 85.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["FISHSTAND", "Unmapped"] |
@@ -5154,6 +5424,7 @@ Original [Objects manifest](../original/TradeNations.app/bundle/Objects.xml), [S
 | Workers / haulers | {"workerMax": "1", "haulerMax": "0"} |
 | Population default / adoptable | [0, 0] |
 | Tax interval, rewards and XP | {"seconds": 3600.0, "reward": {"1": 75.0}, "xp": 50.0} |
+| Storage capacities | Not supplied / not applicable |
 | Gather / processing | Not supplied / not applicable |
 | Shop recipes (Items.xml) | Not supplied / not applicable |
 | Art metadata / current mapping | ["FRUITSTAND", "Unmapped"] |

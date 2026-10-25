@@ -181,4 +181,3 @@ func _apply_playable_rules() -> void:
 	building_definitions[35].height = 2
 	building_definitions[10001].storage_capacities[90040] = 200
 	HistoricalGameplay.apply_definitions()
-

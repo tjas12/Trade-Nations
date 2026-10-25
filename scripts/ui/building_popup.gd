@@ -17,6 +17,7 @@ var upgrade_choice: OptionButton
 var upgrade_button: Button
 var tax_button: Button
 var _upgrade_confirmation: ConfirmationDialog
+var recipe_choice: OptionButton
 
 @onready var name_label: Label = $ContentScroll/VBoxContainer/BuildingNameLabel
 @onready var building_icon: TextureRect = $ContentScroll/VBoxContainer/BuildingIcon
@@ -76,6 +77,12 @@ func _ready() -> void:
 		EventBus.town_notice.emit("Collected %d Gold in taxes." % gold)
 		_update_display()
 	)
+	recipe_choice = OptionButton.new()
+	$ContentScroll/VBoxContainer.add_child(recipe_choice)
+	recipe_choice.item_selected.connect(func(index):
+		EventBus.town_notice.emit(HistoricalGameplay.choose_recipe(building_instance, int(recipe_choice.get_item_metadata(index))))
+		_update_display()
+	)
 	production_label = _label()
 	progress = ProgressBar.new()
 	progress.custom_minimum_size.y = 18
@@ -128,6 +135,16 @@ func show_for_building(instance: BuildingInstance) -> void:
 	building_instance = instance
 	if not instance: return
 	tabs.current_tab = 0
+	recipe_choice.clear()
+	var definition = DataManager.get_building_definition(instance.def_id)
+	for id in definition.shop_recipe_ids:
+		var option = DataManager.get_production_recipe(id)
+		recipe_choice.add_item("%s · L%d" % [option.display_name, HistoricalGameplay.recipe_level(id)])
+		recipe_choice.set_item_metadata(recipe_choice.item_count - 1, id)
+		recipe_choice.set_item_disabled(recipe_choice.item_count - 1, SaveManager.current_save.player_state.mayor_level < HistoricalGameplay.recipe_level(id) and instance.active_recipe_id != id)
+	var current_recipe = EconomyManager.recipe_for(instance)
+	for index in range(recipe_choice.item_count):
+		if current_recipe and int(recipe_choice.get_item_metadata(index)) == (instance.queued_recipe_id if instance.queued_recipe_id >= 0 else current_recipe.id): recipe_choice.select(index)
 	upgrade_choice.clear()
 	for target_id in HistoricalGameplay.upgrade_targets(instance):
 		var target = DataManager.get_building_definition(target_id)
@@ -140,7 +157,8 @@ func show_for_building(instance: BuildingInstance) -> void:
 func _update_display() -> void:
 	if not building_instance or not visible: return
 	var definition = DataManager.get_building_definition(building_instance.def_id)
-	var recipe = DataManager.get_production_recipe(definition.gather_recipe_id)
+	var recipe = EconomyManager.recipe_for(building_instance)
+	recipe_choice.visible = tabs.current_tab == 0 and recipe_choice.item_count > 0
 	upgrade_choice.visible = tabs.current_tab == 0 and upgrade_choice.item_count > 0
 	upgrade_button.visible = upgrade_choice.visible
 	upgrade_button.disabled = building_instance.pending_upgrade_id >= 0 or not building_instance.construction_complete
@@ -185,6 +203,7 @@ func _update_display() -> void:
 			for resource in recipe.input_cost: inputs += "%d %s " % [recipe.input_cost[resource], DataManager.get_resource_definition(resource).display_name]
 		var reason := EconomyManager.pause_reason(building_instance)
 		production_label.text = "%s → %d %s / %ds\n%s" % [inputs, recipe.cycle_amount, output.display_name, recipe.cycle_seconds, reason if not reason.is_empty() else "%ds remaining" % ceili(recipe.cycle_seconds - building_instance.cycle_elapsed)]
+		if building_instance.queued_recipe_id >= 0: production_label.text += "\nNext: " + DataManager.get_production_recipe(building_instance.queued_recipe_id).display_name
 		progress.max_value = maxf(1, recipe.cycle_seconds)
 		progress.value = building_instance.cycle_elapsed
 	else:

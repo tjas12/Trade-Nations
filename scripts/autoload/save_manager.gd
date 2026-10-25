@@ -215,6 +215,7 @@ func _migrate(save: SaveGame) -> bool:
 			var definition = DataManager.get_building_definition(instance.def_id)
 			if not definition:
 				return false
+			if instance.queued_recipe_id >= 0 and not definition.shop_recipe_ids.has(instance.queued_recipe_id): return false
 			var recipe = DataManager.get_production_recipe(definition.gather_recipe_id)
 			for role in [Villager.Role.WORKER, Villager.Role.HAULER]:
 				var ids: Array = instance.assigned_worker_ids if role == Villager.Role.WORKER else instance.assigned_hauler_ids

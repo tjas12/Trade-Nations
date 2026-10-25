@@ -632,7 +632,7 @@ func _demolish(instance: BuildingInstance) -> void:
 		if citizen.assigned_building_instance_id == instance.instance_id:
 			WorkerManager.unassign(citizen.villager_id)
 	# Refund reserved inputs and transfer stored output before removing the structure.
-	var recipe = DataManager.get_production_recipe(definition.gather_recipe_id)
+	var recipe = EconomyManager.recipe_for(instance)
 	if instance.cycle_reserved and recipe:
 		for resource in recipe.input_cost:
 			InventoryManager.add(resource, recipe.input_cost[resource])

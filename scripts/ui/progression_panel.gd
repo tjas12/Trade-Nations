@@ -121,8 +121,9 @@ func _celebrate(levels: Array) -> void:
 func _layout() -> void:
 	var bounds := _bounds()
 	if is_instance_valid(roadmap):
-		roadmap.position = bounds.position + Vector2(maxf(0, bounds.size.x - 560), 78)
-		roadmap.size = Vector2(minf(bounds.size.x, 560), bounds.size.y - 78)
+		var top: float = game.mobile_ui._header_height + 4 if game.touch_mode else 78
+		roadmap.position = bounds.position + Vector2(maxf(0, bounds.size.x - 560), top)
+		roadmap.size = Vector2(minf(bounds.size.x, 560), bounds.size.y - top)
 	if is_instance_valid(notice):
 		notice.position = bounds.position + Vector2(0, maxf(125, bounds.size.y - 244))
 		notice.size = Vector2(minf(310, bounds.size.x * 0.44), minf(190, bounds.size.y - 132))

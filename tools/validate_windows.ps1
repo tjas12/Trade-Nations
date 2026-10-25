@@ -45,6 +45,7 @@ try {
     Invoke-Validation 'layout' @('--headless', '--path', $projectPath, 'res://tests/LayoutTests.tscn')
     Invoke-Validation 'mobile' @('--headless', '--path', $projectPath, 'res://tests/MobileTests.tscn')
     Invoke-Validation 'classic' @('--headless', '--path', $projectPath, 'res://tests/ClassicTests.tscn')
+    Invoke-Validation 'historical' @('--headless', '--path', $projectPath, 'res://tests/HistoricalTests.tscn')
     Invoke-Validation 'main' @('--headless', '--path', $projectPath, '--quit-after', '120')
     if ($Graphical) {
         Invoke-Validation 'mobile-graphical' @('--path', $projectPath, '--rendering-method', 'gl_compatibility', 'res://tests/MobileTests.tscn')

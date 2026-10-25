@@ -6,6 +6,3674 @@
     "10008": 8,
     "10012": 12
   },
+  "object_requirements": {
+    "1": {
+      "level": 0,
+      "prerequisites": [],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "2": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        },
+        {
+          "type": "building",
+          "value": "1"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [
+        1
+      ],
+      "store": "0"
+    },
+    "3": {
+      "level": 6,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "6"
+        },
+        {
+          "type": "building",
+          "value": "2"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [
+        2
+      ],
+      "store": "0"
+    },
+    "4": {
+      "level": 10,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "10"
+        },
+        {
+          "type": "building",
+          "value": "3"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [
+        3
+      ],
+      "store": "0"
+    },
+    "8": {
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [
+        6
+      ],
+      "store": "0"
+    },
+    "9": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [
+        7
+      ],
+      "store": "0"
+    },
+    "36": {
+      "level": 10,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "10"
+        },
+        {
+          "type": "building",
+          "value": "3"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "12": {
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [],
+      "store": "1"
+    },
+    "138": {
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [],
+      "store": "1"
+    },
+    "139": {
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [],
+      "store": "1"
+    },
+    "37": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "2"
+        },
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [
+        12,
+        138,
+        139
+      ],
+      "store": "1"
+    },
+    "140": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "2"
+        },
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [
+        12,
+        138,
+        139
+      ],
+      "store": "1"
+    },
+    "141": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "2"
+        },
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [
+        12,
+        138,
+        139
+      ],
+      "store": "1"
+    },
+    "13": {
+      "level": 8,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "3"
+        },
+        {
+          "type": "level",
+          "value": "8"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [
+        37,
+        140,
+        141
+      ],
+      "store": "1"
+    },
+    "142": {
+      "level": 8,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "3"
+        },
+        {
+          "type": "level",
+          "value": "8"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [
+        37,
+        140,
+        141
+      ],
+      "store": "1"
+    },
+    "143": {
+      "level": 8,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "3"
+        },
+        {
+          "type": "level",
+          "value": "8"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [
+        37,
+        140,
+        141
+      ],
+      "store": "1"
+    },
+    "15": {
+      "level": 6,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "2"
+        },
+        {
+          "type": "level",
+          "value": "6"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [],
+      "store": "1"
+    },
+    "25": {
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "26": {
+      "level": 6,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "2"
+        },
+        {
+          "type": "level",
+          "value": "6"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [
+        25
+      ],
+      "store": "0"
+    },
+    "27": {
+      "level": 2,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "2"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "30": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "2"
+        },
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "32": {
+      "level": 6,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "2"
+        },
+        {
+          "type": "level",
+          "value": "6"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "34": {
+      "level": 10,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "3"
+        },
+        {
+          "type": "level",
+          "value": "10"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "35": {
+      "level": 2,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "2"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "199": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "233": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "332": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        },
+        {
+          "type": "building",
+          "value": "233"
+        }
+      ],
+      "source": "Vanilla_BuildingsTo10.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "6": {
+      "level": 0,
+      "prerequisites": [],
+      "source": "Crossover_Buildings.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "7": {
+      "level": 0,
+      "prerequisites": [],
+      "source": "Crossover_Buildings.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "11": {
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ],
+      "source": "Crossover_Buildings.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "164": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Crossover_Buildings.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "166": {
+      "level": 30,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "30"
+        }
+      ],
+      "source": "Crossover_Buildings.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "167": {
+      "level": 26,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "26"
+        }
+      ],
+      "source": "Crossover_Buildings.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "168": {
+      "level": 24,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "24"
+        }
+      ],
+      "source": "Crossover_Buildings.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "156": {
+      "level": 28,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "28"
+        }
+      ],
+      "source": "Crossover_Buildings.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "209": {
+      "level": 36,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "36"
+        }
+      ],
+      "source": "Crossover_Buildings.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "246": {
+      "level": 27,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "27"
+        }
+      ],
+      "source": "Crossover_Buildings.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "272": {
+      "level": 8,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "8"
+        },
+        {
+          "type": "building",
+          "value": "3"
+        }
+      ],
+      "source": "Crossover_Buildings.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "301": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Crossover_Buildings.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "114": {
+      "level": 5,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "5"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "115": {
+      "level": 11,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "11"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "116": {
+      "level": 8,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "8"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "117": {
+      "level": 7,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "7"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "118": {
+      "level": 7,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "7"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "119": {
+      "level": 7,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "7"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "120": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "121": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "126": {
+      "level": 11,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "11"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "127": {
+      "level": 8,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "8"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "128": {
+      "level": 6,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "6"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "130": {
+      "level": 17,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "17"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "131": {
+      "level": 5,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "5"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "132": {
+      "level": 6,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "6"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "133": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "134": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "135": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "136": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "137": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "110": {
+      "level": 5,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "5"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "159": {
+      "level": 15,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "15"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "160": {
+      "level": 15,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "15"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "161": {
+      "level": 12,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "12"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "169": {
+      "level": 32,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "32"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "170": {
+      "level": 23,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "23"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "171": {
+      "level": 25,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "25"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "172": {
+      "level": 27,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "27"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "179": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "190": {
+      "level": 21,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "21"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "192": {
+      "level": 23,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "23"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "201": {
+      "level": 31,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "31"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "202": {
+      "level": 33,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "33"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "203": {
+      "level": 33,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "33"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "222": {
+      "level": 32,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "32"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "223": {
+      "level": 25,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "25"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "241": {
+      "level": 27,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "27"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "242": {
+      "level": 27,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "27"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "243": {
+      "level": 27,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "27"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "244": {
+      "level": 27,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "27"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "245": {
+      "level": 27,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "27"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "247": {
+      "level": 27,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "27"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "248": {
+      "level": 27,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "27"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [
+        241
+      ],
+      "store": "0"
+    },
+    "249": {
+      "level": 27,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "27"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "256": {
+      "level": 28,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "28"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "257": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "264": {
+      "level": 21,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "21"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "265": {
+      "level": 21,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "21"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "267": {
+      "level": 14,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "14"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "268": {
+      "level": 24,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "24"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "273": {
+      "level": 10,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "10"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "274": {
+      "level": 9,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "9"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "275": {
+      "level": 14,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "14"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "276": {
+      "level": 12,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "12"
+        }
+      ],
+      "source": "Crossover_Decorations.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "306": {
+      "level": 0,
+      "prerequisites": [],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "302": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [
+        306
+      ],
+      "store": "0"
+    },
+    "303": {
+      "level": 0,
+      "prerequisites": [],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "304": {
+      "level": 30,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "30"
+        },
+        {
+          "type": "building",
+          "value": "303"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [
+        303
+      ],
+      "store": "0"
+    },
+    "305": {
+      "level": 40,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "40"
+        },
+        {
+          "type": "building",
+          "value": "304"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [
+        304
+      ],
+      "store": "0"
+    },
+    "307": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "1"
+    },
+    "308": {
+      "level": 26,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "26"
+        },
+        {
+          "type": "building",
+          "value": "304"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [
+        307
+      ],
+      "store": "1"
+    },
+    "309": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "310": {
+      "level": 25,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "25"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "311": {
+      "level": 31,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "31"
+        },
+        {
+          "type": "building",
+          "value": "304"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "312": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "1"
+    },
+    "313": {
+      "level": 22,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "22"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "314": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "1"
+    },
+    "315": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "316": {
+      "level": 24,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "24"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "317": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "318": {
+      "level": 21,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "21"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "319": {
+      "level": 27,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "27"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "320": {
+      "level": 24,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "24"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "321": {
+      "level": 30,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "30"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "322": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "323": {
+      "level": 26,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "26"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "324": {
+      "level": 22,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "22"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "325": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "326": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "327": {
+      "level": 23,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "23"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "328": {
+      "level": 25,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "25"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "329": {
+      "level": 2,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "2"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "330": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "333": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        },
+        {
+          "type": "building",
+          "value": "343"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "334": {
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "335": {
+      "level": 6,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "2"
+        },
+        {
+          "type": "level",
+          "value": "6"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [
+        334
+      ],
+      "store": "0"
+    },
+    "336": {
+      "level": 18,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "18"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [
+        334,
+        335
+      ],
+      "store": "0"
+    },
+    "337": {
+      "level": 26,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "305"
+        },
+        {
+          "type": "level",
+          "value": "26"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [
+        334,
+        335
+      ],
+      "store": "0"
+    },
+    "338": {
+      "level": 22,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "303"
+        },
+        {
+          "type": "level",
+          "value": "22"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "339": {
+      "level": 32,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "304"
+        },
+        {
+          "type": "level",
+          "value": "32"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "340": {
+      "level": 34,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "304"
+        },
+        {
+          "type": "level",
+          "value": "34"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "341": {
+      "level": 41,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "305"
+        },
+        {
+          "type": "level",
+          "value": "41"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "343": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "344": {
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [
+        6
+      ],
+      "store": "0"
+    },
+    "345": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Frontier_Launch.xml",
+      "upgrades_from": [
+        7
+      ],
+      "store": "0"
+    },
+    "282": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Halloween.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "283": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Halloween.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "284": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Halloween.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "285": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Halloween.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "286": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Halloween.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "287": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Halloween.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "288": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Halloween.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "289": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Halloween.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "290": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Halloween.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "291": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Halloween.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "296": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Halloween.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "297": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Halloween.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "298": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Halloween.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "299": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Halloween.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "300": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Halloween.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "294": {
+      "level": 35,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "35"
+        },
+        {
+          "type": "building",
+          "value": "221"
+        }
+      ],
+      "source": "HoityToity.xml",
+      "upgrades_from": [
+        14,
+        157,
+        158,
+        253
+      ],
+      "store": "1"
+    },
+    "293": {
+      "level": 45,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "45"
+        },
+        {
+          "type": "building",
+          "value": "221"
+        }
+      ],
+      "source": "HoityToity.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "277": {
+      "level": 55,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "55"
+        },
+        {
+          "type": "building",
+          "value": "221"
+        }
+      ],
+      "source": "HoityToity.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "278": {
+      "level": 45,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "45"
+        },
+        {
+          "type": "building",
+          "value": "221"
+        }
+      ],
+      "source": "HoityToity.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "279": {
+      "level": 40,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "40"
+        }
+      ],
+      "source": "HoityToity.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "281": {
+      "level": 43,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "43"
+        },
+        {
+          "type": "building",
+          "value": "221"
+        }
+      ],
+      "source": "HoityToity.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "292": {
+      "level": 65,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "65"
+        },
+        {
+          "type": "building",
+          "value": "221"
+        }
+      ],
+      "source": "HoityToity.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "5": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        },
+        {
+          "type": "building",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [
+        4
+      ],
+      "store": "0"
+    },
+    "221": {
+      "level": 30,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "30"
+        },
+        {
+          "type": "building",
+          "value": "5"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [
+        5
+      ],
+      "store": "0"
+    },
+    "14": {
+      "level": 14,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "14"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [
+        13,
+        142,
+        143
+      ],
+      "store": "1"
+    },
+    "157": {
+      "level": 14,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "14"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [
+        13,
+        142,
+        143
+      ],
+      "store": "1"
+    },
+    "158": {
+      "level": 14,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "14"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [
+        13,
+        142,
+        143
+      ],
+      "store": "1"
+    },
+    "17": {
+      "level": 12,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "3"
+        },
+        {
+          "type": "level",
+          "value": "12"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "1"
+    },
+    "23": {
+      "level": 14,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "14"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "1"
+    },
+    "31": {
+      "level": 14,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "14"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "38": {
+      "level": 16,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "16"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "163": {
+      "level": 18,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "18"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [
+        25,
+        26
+      ],
+      "store": "0"
+    },
+    "165": {
+      "level": 22,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "22"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "210": {
+      "level": 34,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "34"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "211": {
+      "level": 16,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "16"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "355": {
+      "level": 16,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "16"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "212": {
+      "level": 18,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "18"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "354": {
+      "level": 18,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "18"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "213": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "346": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "214": {
+      "level": 24,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "24"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "218": {
+      "level": 22,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "22"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "1"
+    },
+    "219": {
+      "level": 32,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "32"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "1"
+    },
+    "220": {
+      "level": 28,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "28"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "224": {
+      "level": 26,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "4"
+        },
+        {
+          "type": "level",
+          "value": "26"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [
+        25,
+        26
+      ],
+      "store": "0"
+    },
+    "234": {
+      "level": 38,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "38"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "235": {
+      "level": 32,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "32"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "237": {
+      "level": 41,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "5"
+        },
+        {
+          "type": "level",
+          "value": "41"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "250": {
+      "level": 39,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "233"
+        },
+        {
+          "type": "level",
+          "value": "39"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "251": {
+      "level": 44,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "233"
+        },
+        {
+          "type": "level",
+          "value": "44"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "252": {
+      "level": 47,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "233"
+        },
+        {
+          "type": "level",
+          "value": "47"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "253": {
+      "level": 35,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "233"
+        },
+        {
+          "type": "level",
+          "value": "35"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [
+        14,
+        157,
+        158
+      ],
+      "store": "1"
+    },
+    "263": {
+      "level": 42,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "233"
+        },
+        {
+          "type": "level",
+          "value": "42"
+        }
+      ],
+      "source": "Vanilla_Buildings10Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "205": {
+      "level": 35,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "35"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "206": {
+      "level": 37,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "37"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "207": {
+      "level": 39,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "39"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "225": {
+      "level": 28,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "28"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "227": {
+      "level": 42,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "42"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "228": {
+      "level": 44,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "44"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "229": {
+      "level": 46,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "46"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "230": {
+      "level": 34,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "34"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "238": {
+      "level": 38,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "38"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "239": {
+      "level": 50,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "50"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "254": {
+      "level": 40,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "233"
+        },
+        {
+          "type": "level",
+          "value": "40"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "255": {
+      "level": 38,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "233"
+        },
+        {
+          "type": "level",
+          "value": "38"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "260": {
+      "level": 36,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "233"
+        },
+        {
+          "type": "level",
+          "value": "36"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "261": {
+      "level": 37,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "233"
+        },
+        {
+          "type": "level",
+          "value": "37"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "262": {
+      "level": 43,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "233"
+        },
+        {
+          "type": "level",
+          "value": "43"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "266": {
+      "level": 35,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "233"
+        },
+        {
+          "type": "level",
+          "value": "35"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "269": {
+      "level": 52,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "233"
+        },
+        {
+          "type": "level",
+          "value": "52"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "271": {
+      "level": 41,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "41"
+        }
+      ],
+      "source": "Vanilla_Decorations30Plus.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "101": {
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "102": {
+      "level": 3,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "3"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "103": {
+      "level": 5,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "5"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "104": {
+      "level": 7,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "7"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "105": {
+      "level": 3,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "3"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "106": {
+      "level": 2,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "2"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "107": {
+      "level": 8,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "8"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "108": {
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "109": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "111": {
+      "level": 3,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "3"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "113": {
+      "level": 3,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "3"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "122": {
+      "level": 6,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "6"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "123": {
+      "level": 12,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "12"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "124": {
+      "level": 10,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "10"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "125": {
+      "level": 9,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "9"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "129": {
+      "level": 2,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "2"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "144": {
+      "level": 17,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "17"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "145": {
+      "level": 11,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "11"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "146": {
+      "level": 8,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "8"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "147": {
+      "level": 10,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "10"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "148": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "149": {
+      "level": 12,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "12"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "150": {
+      "level": 14,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "14"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "151": {
+      "level": 11,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "11"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "152": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "153": {
+      "level": 3,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "3"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "154": {
+      "level": 3,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "3"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "155": {
+      "level": 3,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "3"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "162": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "173": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "174": {
+      "level": 22,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "22"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [
+        133
+      ],
+      "store": "0"
+    },
+    "175": {
+      "level": 22,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "22"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [
+        137
+      ],
+      "store": "0"
+    },
+    "176": {
+      "level": 22,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "22"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [
+        136
+      ],
+      "store": "0"
+    },
+    "177": {
+      "level": 22,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "22"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [
+        134
+      ],
+      "store": "0"
+    },
+    "178": {
+      "level": 22,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "22"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [
+        135
+      ],
+      "store": "0"
+    },
+    "182": {
+      "level": 16,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "16"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "183": {
+      "level": 19,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "19"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "184": {
+      "level": 22,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "22"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "185": {
+      "level": 24,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "24"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "186": {
+      "level": 27,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "27"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "187": {
+      "level": 30,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "30"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "188": {
+      "level": 18,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "18"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "194": {
+      "level": 26,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "26"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "196": {
+      "level": 29,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "29"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "198": {
+      "level": 17,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "17"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "200": {
+      "level": 3,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "3"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "204": {
+      "level": 15,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "15"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "208": {
+      "level": 21,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "21"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "215": {
+      "level": 12,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "12"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "216": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "217": {
+      "level": 6,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "6"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "226": {
+      "level": 13,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "13"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "236": {
+      "level": 19,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "19"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "240": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "258": {
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        },
+        {
+          "type": "rewardUnlockable",
+          "value": ""
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "259": {
+      "level": 29,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "233"
+        },
+        {
+          "type": "level",
+          "value": "29"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "270": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "280": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        },
+        {
+          "type": "rewardUnlockable",
+          "value": ""
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "295": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "342": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "Vanilla_DecorationsTo30.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "347": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "401_Update.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "348": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        },
+        {
+          "type": "rewardUnlockable",
+          "value": ""
+        }
+      ],
+      "source": "401_Update.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "349": {
+      "level": 4,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "4"
+        }
+      ],
+      "source": "401_Update.xml",
+      "upgrades_from": [],
+      "store": "1"
+    },
+    "350": {
+      "level": 28,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "28"
+        }
+      ],
+      "source": "401_Update.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "351": {
+      "level": 26,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "26"
+        }
+      ],
+      "source": "401_Update.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "352": {
+      "level": 20,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "20"
+        }
+      ],
+      "source": "401_Update.xml",
+      "upgrades_from": [],
+      "store": "0"
+    },
+    "353": {
+      "level": 32,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "32"
+        }
+      ],
+      "source": "401_Update.xml",
+      "upgrades_from": [],
+      "store": "0"
+    }
+  },
   "profiles": {
     "12": {
       "id": 12,
@@ -40,6 +3708,7 @@
         },
         "xp": 2.0
       },
+      "storage": {},
       "produce": "",
       "items": [],
       "upgrades_from": [],
@@ -89,6 +3758,7 @@
         },
         "xp": 4.0
       },
+      "storage": {},
       "produce": "",
       "items": [],
       "upgrades_from": [
@@ -142,6 +3812,7 @@
         },
         "xp": 6.0
       },
+      "storage": {},
       "produce": "",
       "items": [],
       "upgrades_from": [
@@ -194,6 +3865,7 @@
         },
         "xp": 10.0
       },
+      "storage": {},
       "produce": "",
       "items": [],
       "upgrades_from": [
@@ -243,6 +3915,7 @@
       "residents": 0,
       "adoptable": 0,
       "tax": {},
+      "storage": {},
       "produce": "<Produce hurryCost=\"2\">\n\t\t\t\n\t\t\t<Input resource_id=\"10\" amount=\"2\" maxInputStackSize=\"150\" />\n\t\t\t<Output resource_id=\"11\" maxOutputStackSize=\"150\" />\n\t\t\t<Rate resourcesPerHour=\"0.0\" villagerResourcesPerHour=\"30.0\" mayorResources=\"50\" mayorResourcesNoEnergy=\"0\" />\n\t\t</Produce>",
       "items": [
         25
@@ -298,6 +3971,7 @@
       "residents": 0,
       "adoptable": 0,
       "tax": {},
+      "storage": {},
       "produce": "<Produce hurryCost=\"2\">\n\t\t\t<Input resource_id=\"20\" amount=\"2\" maxInputStackSize=\"150\" />\n\t\t\t<Output resource_id=\"21\" maxOutputStackSize=\"150\" />\n\t\t\t<Rate resourcesPerHour=\"0.0\" villagerResourcesPerHour=\"15.0\" mayorResources=\"50\" mayorResourcesNoEnergy=\"0\" />\n\t\t</Produce>",
       "items": [
         26
@@ -354,6 +4028,7 @@
       "residents": 0,
       "adoptable": 0,
       "tax": {},
+      "storage": {},
       "produce": "<Produce hurryCost=\"2\">\n\t\t\t<Input resource_id=\"50\" amount=\"2\" maxInputStackSize=\"150\" />\n\t\t\t<Output resource_id=\"51\" maxOutputStackSize=\"150\" />\n\t\t\t<Rate resourcesPerHour=\"0.0\" villagerResourcesPerHour=\"20.0\" mayorResources=\"50\" mayorResourcesNoEnergy=\"0\" />\n\t\t</Produce>",
       "items": [
         27
@@ -410,6 +4085,7 @@
       "residents": 0,
       "adoptable": 0,
       "tax": {},
+      "storage": {},
       "produce": "<Produce hurryCost=\"1\">\n\t\t\t<Output resource_id=\"50\" maxOutputStackSize=\"150\" />\n\t\t\t<Rate resourcesPerHour=\"0.0\" villagerResourcesPerHour=\"30.0\" mayorResources=\"50\" mayorResourcesNoEnergy=\"0\" />\n\t\t</Produce>",
       "items": [],
       "upgrades_from": [],
@@ -460,6 +4136,7 @@
       "residents": 0,
       "adoptable": 0,
       "tax": {},
+      "storage": {},
       "produce": "",
       "items": [
         10,
@@ -511,6 +4188,7 @@
       "residents": 0,
       "adoptable": 0,
       "tax": {},
+      "storage": {},
       "produce": "",
       "items": [
         16,
@@ -526,6 +4204,110 @@
         "Vanilla"
       ],
       "idle_art": "PUBSHOP",
+      "flags": [
+        "not a normal store purchase; eligibility unresolved"
+      ]
+    },
+    "25": {
+      "id": 25,
+      "name": "Stockpile",
+      "source": "Vanilla_BuildingsTo10.xml",
+      "type": "store",
+      "category": "",
+      "level": 1,
+      "prerequisites": [
+        {
+          "type": "level",
+          "value": "1"
+        }
+      ],
+      "cost": {
+        "1": 300.0,
+        "10": 450.0
+      },
+      "build_seconds": 5.0,
+      "footprint": [
+        10,
+        10
+      ],
+      "workers": {},
+      "residents": 0,
+      "adoptable": 0,
+      "tax": {},
+      "storage": {
+        "1": -1,
+        "10": 1000.0,
+        "20": 1000.0,
+        "40": 1000.0,
+        "50": 1000.0,
+        "11": 1000.0,
+        "21": 1000.0,
+        "51": 1000.0
+      },
+      "produce": "",
+      "items": [],
+      "upgrades_from": [],
+      "upgrade_only": false,
+      "store": "0",
+      "lands": [
+        "Vanilla"
+      ],
+      "idle_art": "STOCKPILEUNDER",
+      "flags": [
+        "not a normal store purchase; eligibility unresolved"
+      ]
+    },
+    "26": {
+      "id": 26,
+      "name": "Large Stockpile",
+      "source": "Vanilla_BuildingsTo10.xml",
+      "type": "store",
+      "category": "",
+      "level": 6,
+      "prerequisites": [
+        {
+          "type": "building",
+          "value": "2"
+        },
+        {
+          "type": "level",
+          "value": "6"
+        }
+      ],
+      "cost": {
+        "1": 750.0,
+        "11": 500.0
+      },
+      "build_seconds": 28800.0,
+      "footprint": [
+        10,
+        10
+      ],
+      "workers": {},
+      "residents": 0,
+      "adoptable": 0,
+      "tax": {},
+      "storage": {
+        "1": -1,
+        "10": 3500.0,
+        "20": 3500.0,
+        "40": 3500.0,
+        "50": 3500.0,
+        "11": 3500.0,
+        "21": 3500.0,
+        "51": 3500.0
+      },
+      "produce": "",
+      "items": [],
+      "upgrades_from": [
+        25
+      ],
+      "upgrade_only": false,
+      "store": "0",
+      "lands": [
+        "Vanilla"
+      ],
+      "idle_art": "LARGESTOCKPILEUNDER",
       "flags": [
         "not a normal store purchase; eligibility unresolved"
       ]
@@ -561,6 +4343,15 @@
       "residents": 0,
       "adoptable": 0,
       "tax": {},
+      "storage": {
+        "1": -1,
+        "10": 0.0,
+        "20": 0.0,
+        "40": 0.0,
+        "50": 0.0,
+        "11": 0.0,
+        "21": 0.0
+      },
       "produce": "",
       "items": [],
       "upgrades_from": [
@@ -608,6 +4399,15 @@
       "residents": 0,
       "adoptable": 0,
       "tax": {},
+      "storage": {
+        "1": -1,
+        "10": 0.0,
+        "20": 0.0,
+        "40": 0.0,
+        "50": 0.0,
+        "11": 0.0,
+        "21": 0.0
+      },
       "produce": "",
       "items": [],
       "upgrades_from": [
@@ -654,6 +4454,15 @@
       "residents": 0,
       "adoptable": 0,
       "tax": {},
+      "storage": {
+        "1": -1,
+        "10": 0.0,
+        "20": 0.0,
+        "40": 0.0,
+        "50": 0.0,
+        "11": 0.0,
+        "21": 0.0
+      },
       "produce": "",
       "items": [],
       "upgrades_from": [
