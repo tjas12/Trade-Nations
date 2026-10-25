@@ -7,8 +7,6 @@ const BuildingInstance = preload("res://resources/runtime/building_instance.gd")
 const BuildingDefinition = preload("res://resources/definitions/building_definition.gd")
 const TransientMessageScene = preload("res://scenes/ui/transient_message.tscn")
 
-const TILE_SIZE = 64
-
 # --- State ---
 var _placement_mode_active: bool = false
 var _building_to_place_def: BuildingDefinition = null
@@ -150,15 +148,26 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and _panning:
 		world_container.position += event.relative
 	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_ESCAPE and not _placement_mode_active:
+			building_popup.hide()
+			build_menu.hide()
+			tutorial_popup.hide()
+			get_viewport().set_input_as_handled()
+			return
 		if event.keycode == KEY_F5:
 			_save_town()
 		elif event.keycode == KEY_F9:
 			_load_town()
 	if not _placement_mode_active:
+		if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			var picked = _pick_building(event.position)
+			if picked:
+				_on_building_instance_selected(picked)
+				get_viewport().set_input_as_handled()
 		return
 
 	if event is InputEventMouseMotion:
-		_update_ghost_position()
+		_update_ghost_position(event.position)
 	elif event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			_place_building()
@@ -169,8 +178,21 @@ func _unhandled_input(event: InputEvent) -> void:
 			_cancel_placement()
 		elif event.keycode == KEY_R:
 			if _ghost_building:
-				_ghost_building.rotation_degrees = fmod(_ghost_building.rotation_degrees + 90, 360)
+				var preview = _ghost_building.building_instance
+				preview.rotation_degrees = fmod(preview.rotation_degrees + 90, 360)
+				_ghost_building.set_building(preview)
 				_check_placement_validity()
+
+func _pick_building(point: Vector2) -> BuildingInstance:
+	var candidates: Array[Node] = []
+	for child in world_container.get_children():
+		if child != _ghost_building and child.has_method("contains_screen_point") and not child.is_queued_for_deletion():
+			candidates.append(child)
+	candidates.sort_custom(func(a, b): return a.position.y > b.position.y)
+	for building in candidates:
+		if building.contains_screen_point(point):
+			return building.building_instance
+	return null
 
 
 # --- Private Methods ---
@@ -226,24 +248,24 @@ func _on_building_selected_for_placement(building_def: BuildingDefinition) -> vo
 		_placement_mode_active = true
 		_update_ghost_position()
 
-func _update_ghost_position() -> void:
-	var mouse_pos = get_viewport().get_mouse_position()
+func _update_ghost_position(mouse_pos: Vector2 = Vector2.INF) -> void:
+	if mouse_pos == Vector2.INF:
+		mouse_pos = get_viewport().get_mouse_position()
 	var world_pos = world_container.get_global_transform().affine_inverse() * mouse_pos
 
-	var grid_x = floor(world_pos.x / TILE_SIZE)
-	var grid_y = floor(world_pos.y / TILE_SIZE)
-	_ghost_building.position = Vector2(grid_x * TILE_SIZE, grid_y * TILE_SIZE)
+	var cell := TownGridGeometry.world_to_cell(world_pos)
+	_ghost_building.position = TownGridGeometry.cell_to_world(Vector2(cell))
 	_check_placement_validity()
 
 func _check_placement_validity() -> bool:
 	if not _ghost_building: return false
 
-	var grid_pos = Vector2i(_ghost_building.position / TILE_SIZE)
+	var grid_pos := TownGridGeometry.world_to_cell(_ghost_building.position)
 	var building_def = _building_to_place_def
 	
 	var width = building_def.width
 	var height = building_def.height
-	if fmod(_ghost_building.rotation_degrees, 180) != 0:
+	if fmod(_ghost_building.building_instance.rotation_degrees, 180) != 0:
 		width = building_def.height
 		height = building_def.width
 
@@ -269,7 +291,7 @@ func _check_placement_validity() -> bool:
 func _place_building() -> void:
 	if _placement_mode_active and _check_placement_validity():
 		if _building_to_place_def:
-			var grid_pos = Vector2i(_ghost_building.position / TILE_SIZE)
+			var grid_pos := TownGridGeometry.world_to_cell(_ghost_building.position)
 			# Affordability can change while the preview is open.
 			if not EconomyManager.can_afford(_building_to_place_def.cost):
 				return
@@ -280,7 +302,7 @@ func _place_building() -> void:
 			new_instance.def_id = _building_to_place_def.id
 			new_instance.x = grid_pos.x
 			new_instance.y = grid_pos.y
-			new_instance.rotation_degrees = _ghost_building.rotation_degrees
+			new_instance.rotation_degrees = _ghost_building.building_instance.rotation_degrees
 			
 			SaveManager.current_save.town_layouts["Vanilla"].starting_objects.append(new_instance)
 			
@@ -297,8 +319,7 @@ func _place_building() -> void:
 
 func _create_building_node(instance: BuildingInstance) -> void:
 	var building_node = BuildingScene.instantiate()
-	building_node.position = Vector2(instance.x * TILE_SIZE, instance.y * TILE_SIZE)
-	building_node.rotation_degrees = instance.rotation_degrees
+	building_node.position = TownGridGeometry.cell_to_world(Vector2(instance.x, instance.y))
 	world_container.add_child(building_node)
 	building_node.set_building(instance)
 
@@ -325,6 +346,8 @@ func _add_building_to_occupied_grid(grid_pos: Vector2i, building_def: BuildingDe
 func _on_toggle_build_menu_pressed() -> void:
 	build_menu.visible = not build_menu.visible
 	if build_menu.visible:
+		building_popup.hide()
+		tutorial_popup.hide()
 		build_menu.populate_build_menu()
 
 func _on_building_instance_selected(instance: BuildingInstance) -> void:
@@ -355,8 +378,10 @@ func _on_worker_or_hauler_assigned(villager: Villager, instance: BuildingInstanc
 		if child is VillagerWalker and child.villager_id == villager.villager_id:
 			child.queue_free()
 	# Find home cottage position (fallback to Town Hall if no cottage is available)
-	var home_pos = Vector2(2 * 64 + 32, 2 * 64 + 32) # Default near center
-	var work_pos = Vector2(instance.x * 64 + 32, instance.y * 64 + 32)
+	var home_pos = TownGridGeometry.cell_to_world(Vector2(2.5, 2.5))
+	var work_def = DataManager.get_building_definition(instance.def_id)
+	var work_size := TownGridGeometry.footprint_size(work_def.width, work_def.height, instance.rotation_degrees)
+	var work_pos = TownGridGeometry.cell_to_world(Vector2(instance.x, instance.y) + Vector2(work_size) * 0.5)
 	
 	if SaveManager.current_save:
 		var layout = SaveManager.current_save.town_layouts.get("Vanilla")
@@ -364,7 +389,7 @@ func _on_worker_or_hauler_assigned(villager: Villager, instance: BuildingInstanc
 			for obj in layout.starting_objects:
 				var def = DataManager.get_building_definition(obj.def_id)
 				if def and def.type == 6: # HOUSE / Cottage
-					home_pos = Vector2(obj.x * 64 + 32, obj.y * 64 + 32)
+					home_pos = TownGridGeometry.cell_to_world(Vector2(obj.x + def.width * 0.5, obj.y + def.height * 0.5))
 					break
 					
 	# Instantiate villager walker

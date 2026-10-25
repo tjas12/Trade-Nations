@@ -139,7 +139,7 @@ func _simulate_social_tick(save: SaveGame) -> void:
 			print("[SocialManager] Virtual friend %s leveled up to Level %d!" % [friend["name"], friend["level"]])
 
 	# 3. Handle active trades timers and replacement
-	var trades_to_keep = []
+	var trades_to_keep: Array[Dictionary] = []
 	for trade in save.active_trades:
 		trade["expiry"] -= 1
 		if trade["expiry"] > 0:
@@ -204,7 +204,7 @@ func _spawn_random_gift(save: SaveGame) -> void:
 		"Greetings, fellow Mayor! Here is a token of appreciation from my villagers. Keep up the amazing work!",
 		"Hello! Visited your town layout earlier and it looks fantastic. Here are some %s supplies to help with your progression."
 	]
-	var body = bodies[randi() % bodies.size()] % res_name
+	var body = bodies[randi() % bodies.size()].replace("%s", res_name)
 
 	var new_mail = {
 		"id": "mail_%d" % int(TimeManager.now() + randi()),

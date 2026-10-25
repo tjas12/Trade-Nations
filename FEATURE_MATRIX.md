@@ -1,3 +1,5 @@
+2026-10-24 update: [FREEZE_AND_GRID_FIX.md](FREEZE_AND_GRID_FIX.md) adds shared isometric placement/picking and covers actual mouse input and recurring simulation errors. Earlier tables remain historical snapshots.
+
 Latest status changes are recorded in [PLAYABILITY_UPDATE.md](PLAYABILITY_UPDATE.md): corrected art, pan/zoom, housing arrivals, staff release, market controls and the level-zero fix. The table below preserves the initial audit snapshot.
 
 # Feature matrix — 2026-10-15

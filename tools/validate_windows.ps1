@@ -33,9 +33,11 @@ try {
     Invoke-Validation 'import' @('--headless', '--editor', '--path', $projectPath, '--import', '--quit')
     Invoke-Validation 'foundation' @('--headless', '--path', $projectPath, 'res://tests/TestRunner.tscn')
     Invoke-Validation 'restoration' @('--headless', '--path', $projectPath, 'res://tests/RestorationTests.tscn')
+    Invoke-Validation 'interaction' @('--headless', '--path', $projectPath, 'res://tests/InteractionTests.tscn')
     Invoke-Validation 'main' @('--headless', '--path', $projectPath, '--quit-after', '120')
     if ($Graphical) {
         Invoke-Validation 'graphical' @('--path', $projectPath, '--rendering-method', 'gl_compatibility', 'res://tests/RestorationTests.tscn')
+        Invoke-Validation 'interaction-forward-plus' @('--path', $projectPath, 'res://tests/InteractionTests.tscn')
     }
 } finally {
     $env:APPDATA = $priorAppData

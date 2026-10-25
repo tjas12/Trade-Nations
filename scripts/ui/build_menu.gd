@@ -13,8 +13,7 @@ func _ready():
 # category, and creates a tab with buttons for each category.
 func populate_build_menu():
     # Clear any existing tabs/buttons for dynamic reloading.
-    for i in range(tab_container.get_tab_count()):
-        var child = tab_container.get_child(i)
+    for child in tab_container.get_children():
         tab_container.remove_child(child)
         child.queue_free()
 

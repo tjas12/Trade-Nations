@@ -69,7 +69,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\validate_windows.ps1
 ```
 
 This sets process-local AppData directories inside ignored `.validation/`, runs
-an editor import, 60 existing checks, 27 restoration checks, and a bounded headless
+an editor import, 60 existing checks, 27 restoration checks, 17 input interaction checks, and a bounded headless
 Main launch. Exit code and script-error logs are checked. Logs remain there.
 For optional graphical verification add `-Graphical`; it runs the integration
 scene through Compatibility and writes a screenshot to its isolated user data.
@@ -83,3 +83,5 @@ a future packaged build. Review ASSET_LICENSE_AUDIT.md before sharing any export
 iOS work is deferred until the Windows gameplay loop is complete.
 
 For the newest controls (pan/zoom, production speed, collection, local market and staff release), see [PLAYABILITY_UPDATE.md](PLAYABILITY_UPDATE.md).
+
+2026-10-24: If an older downloaded copy freezes, see [FREEZE_AND_GRID_FIX.md](FREEZE_AND_GRID_FIX.md). Import the exact fixed workspace project or download the latest restoration branch, rather than reopening an older ZIP copy.

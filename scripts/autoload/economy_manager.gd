@@ -7,6 +7,7 @@ var simulation_speed: float = 1.0
 
 var _active_producers: Dictionary = {} # { instance_id: BuildingInstance }
 var _haul_tasks: Dictionary = {} # { instance_id: BuildingInstance }
+var _haul_notices: Dictionary = {}
 
 func _ready() -> void:
 	SaveManager.save_activated.connect(_restore_assignments)
@@ -16,6 +17,7 @@ func _ready() -> void:
 func _restore_assignments() -> void:
 	_active_producers.clear()
 	_haul_tasks.clear()
+	_haul_notices.clear()
 	for layout in SaveManager.current_save.town_layouts.values():
 		for instance in layout.starting_objects:
 			if not instance.assigned_worker_ids.is_empty():
@@ -84,13 +86,17 @@ func _process_haulers(delta: float) -> void:
 				EventBus.building_storage_changed.emit(instance_id, res_id, instance.stored_resources[res_id])
 				
 				if amount_hauled > 0:
-					# Transfer is continuous in this prototype; avoid logging every frame.
-					var res_def = DataManager.get_resource_definition(res_id)
-					var res_name = res_def.display_name if res_def else "Resource"
-					var color = Color.GOLD if res_id == 1 else (Color.YELLOW if res_id == 40 else Color.SPRING_GREEN)
-					
-					var world_pos = Vector2(instance.x * 64 + 32, instance.y * 64 + 16)
-					EventBus.spawn_floating_text.emit("+%d %s" % [floor(amount_hauled), res_name], world_pos, color)
+					var notice_key := "%s:%s" % [instance_id, res_id]
+					var accumulated: float = _haul_notices.get(notice_key, 0.0) + amount_hauled
+					var whole_units := floori(accumulated)
+					_haul_notices[notice_key] = accumulated - whole_units
+					# Fractional hauling used to create a '+0' Label every frame.
+					if whole_units > 0:
+						var res_def = DataManager.get_resource_definition(res_id)
+						var res_name = res_def.display_name if res_def else "Resource"
+						var color = Color.GOLD if res_id == 1 else (Color.YELLOW if res_id == 40 else Color.SPRING_GREEN)
+						var world_pos = TownGridGeometry.cell_to_world(Vector2(instance.x, instance.y)) + Vector2(0, -30)
+						EventBus.spawn_floating_text.emit("+%d %s" % [whole_units, res_name], world_pos, color)
 				
 				# If storage was full and is now not, resume production
 				var was_paused = not _active_producers.has(instance.instance_id)
